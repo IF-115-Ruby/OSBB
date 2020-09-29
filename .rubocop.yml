@@ -1,0 +1,54 @@
+require:
+  - rubocop-rails
+
+Documentation:
+  Enabled: false
+
+  
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'config/initializers/*'
+    - 'bin/*'
+    - 'db/**/*'
+  TargetRubyVersion: 2.8
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+  EnforcedStyle: always
+
+Rails/FilePath:
+  Enabled: false
+
+Style/BlockComments:
+  Description: 'Do not use block comments.'
+  StyleGuide: '#no-block-comments'
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/routes.rb'
+    - 'spec/**/*'
+    - 'config/environments/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'app/helpers/*'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'app/models/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
