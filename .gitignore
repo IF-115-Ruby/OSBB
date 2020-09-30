@@ -40,3 +40,12 @@ yarn-debug.log*
 
 # Ignore gems packages and files
 /coverage
+
+
+# ignore vim files
+*.swp
+*.swo
+*.swk
+*.swl
+*.swm
+*.swn
