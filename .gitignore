@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Ignore IDE files and packages
 /.history
+
+# Ignore gems packages and files
+/coverage
