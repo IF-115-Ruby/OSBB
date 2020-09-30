@@ -20,10 +20,10 @@ before_script:
   - bundle exec rails db:migrate
   - bundle exec rails db:schema:load
   - bundle exec rails webpacker:compile
-  
+
 script:
   - xvfb-run -a --server-args="-screen 0 1024x768x24" bundle exec rake
   - bundle exec rspec
-  - bundle exec rubocop --require rubocop-rails
+  - bundle exec rubocop
 addons:
   firefox: latest
