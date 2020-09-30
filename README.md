@@ -1,5 +1,8 @@
 # README
 
+* Development branch
+[![Build Status](https://travis-ci.com/IF-115-Ruby/OSBB.svg?branch=development)](https://travis-ci.com/github/IF-115-Ruby/OSBB)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
