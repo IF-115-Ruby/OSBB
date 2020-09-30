@@ -26,6 +26,8 @@ gem 'rubocop-rails', '~> 2.8.1'
 
 gem 'devise'
 
+gem 'slim-rails', '~> 3.2.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
