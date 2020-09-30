@@ -17,7 +17,9 @@ gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'bootstrap', '~> 4.5.2'
 gem 'jbuilder', '~> 2.7'
+gem 'jquery-rails', '~> 4.4.0'
 gem 'rubocop-rails', '~> 2.8.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
