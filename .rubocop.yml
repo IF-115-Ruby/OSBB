@@ -1,10 +1,8 @@
 require:
   - rubocop-rails
 
-Documentation:
+Style/Documentation:
   Enabled: false
-
-  
 
 AllCops:
   Exclude:
@@ -13,6 +11,8 @@ AllCops:
     - 'config/initializers/*'
     - 'bin/*'
     - 'db/**/*'
+    - 'node_modules/**/*'
+  NewCops: enable
   TargetRubyVersion: 2.8
 
 Style/FrozenStringLiteralComment:
@@ -41,7 +41,7 @@ Metrics/ClassLength:
   Exclude:
     - 'app/models/*'
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 Style/StringLiterals:
