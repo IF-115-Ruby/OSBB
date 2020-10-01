@@ -15,6 +15,12 @@
  */
   @import "bootstrap"; 
 
+//   .header{
+//   background: #0070b3;
+//   // background-image: url("https://d2bivpxs8ong2u.cloudfront.net/images/resize/1040x2.5/853ffa71f1e94ed9.jpg");
+//   height: 400px;
+// }
+
 .footer{
   background: #0070b3;
   color:whitesmoke;
@@ -26,7 +32,7 @@
       transition: color .2s;
       &:hover{
         text-decoration:none;
-        color:#518fda;
+        color:#8ba7c9;
         }
     }
   }  
