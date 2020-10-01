@@ -17,13 +17,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: <%= ENV['OSBB_DATABASE_USERNAME'] %>
+  password: <%= ENV['OSBB_DATABASE_PASSWORD'] %>
+  host: ''
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: OSBB_development
+  database: osbb_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: OSBB_test
+  database: osbb_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: OSBB_production
-  username: OSBB
-  password: <%= ENV['OSBB_DATABASE_PASSWORD'] %>
+  database: OSBB
+  username: osbb
+  password: <%= ENV['osbb'] %>
