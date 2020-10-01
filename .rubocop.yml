@@ -1,5 +1,6 @@
 require:
   - rubocop-rails
+  - rubocop-rspec
 
 Style/Documentation:
   Enabled: false
@@ -13,7 +14,7 @@ AllCops:
     - 'db/**/*'
     - 'node_modules/**/*'
   NewCops: enable
-  TargetRubyVersion: 2.8
+  TargetRubyVersion: 2.7.1
 
 Style/FrozenStringLiteralComment:
   Enabled: false
