@@ -1,5 +1,15 @@
 # README
 # OSBB
+
+## Prerequisites
+
+### To run the project you need:
+
+    Ruby v.2.7.1
+    Node.js
+    Yarn
+    PostgreSQL
+
 ## Install
 
 ### Clone the repository
@@ -7,20 +17,6 @@
 ```shell
 git clone https://github.com/IF-115-Ruby/OSBB.git
 cd OSBB
-```
-
-### Check your Ruby version
-
-```shell
-ruby -v
-```
-
-The ouput should start with something like `ruby 2.7.1`
-
-If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
-
-```shell
-rvm install 2.7.1
 ```
 
 ### Install dependencies
