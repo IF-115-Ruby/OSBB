@@ -8,7 +8,7 @@
   [Ruby v.2.7.1](https://rvm.io/rubies/installing)
 
   [Yarn v.1.22.5-1](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
-  
+
   [Node.js v.10.19.0](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/#installing-nodejs-and-npm-from-nodesource)
     
     PostgreSQL v.12 ( sudo apt install postgresql-12 )
@@ -44,4 +44,11 @@ rails s
 
 * Development branch
 [![Build Status](https://travis-ci.com/IF-115-Ruby/OSBB.svg?branch=development)](https://travis-ci.com/github/IF-115-Ruby/OSBB)
+
+## Contributing
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
 
