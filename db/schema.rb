@@ -17,15 +17,14 @@ ActiveRecord::Schema.define(version: 2020_09_30_175155) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.integer "address_id"
     t.integer "company_type"
-    t.integer "account_id"
     t.integer "phone"
     t.string "email"
     t.string "website"
     t.integer "fax"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_companies_on_name"
   end
 
 end

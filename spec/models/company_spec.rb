@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Company, type: :model do
-  let!(:company) { FactoryBot.build(:company, name: "IFBut", address_id: 1, company_type: 7, account_id: 7, phone: 2476316898, email: "ifbut@gmail.com", website: "ifbut.com", fax: 9762578517) }
+  let!(:company) { FactoryBot.build(:company, name: "IFBut", phone: 2476316898, 
+                                    email: "ifbut@gmail.com", fax: 9762578517) }
 
   describe 'validations' do
     describe 'name' do
@@ -21,31 +22,38 @@ RSpec.describe Company, type: :model do
         company.phone = '9962741981'
         expect(company).to be_valid
       end
+
+      it 'reject phone that has characters' do
+        company.phone = '06866666ab'
+        expect(company).not_to be_valid
+      end
+
+      it 'reject phone that has less 10 digits' do
+        company.phone = '012345678'
+        expect(company).not_to be_valid
+      end
+
+      it 'reject phone that has more 10 digits' do
+        company.phone = '01234567899'
+        expect(company).not_to be_valid
+      end
     end
 
     describe 'email' do
+      it 'require a email' do
+        company.email = ''
+        expect(company).not_to be_valid
+      end
+
       it 'be valid' do
-        valid_emails = %w[ifgas@gmail.com]
-        valid_emails.each do |email|
-          company.email = email
+          company.email = "ifgas@gmail.com"
           expect(company).to be_valid
         end
-      end
-
+      
       it 'reject invalid emails' do
-        valid_emails = %w[Ifgas.gmail.com]
-        valid_emails.each do |email|
-          company.email = email
+          company.email = "Ifgas.gmail.com"
           expect(company).not_to be_valid
         end
-      end
-    end
-
-    describe 'fax' do
-      it 'be valid' do
-        company.fax = '7625982189'
-        expect(company).to be_valid
-      end
     end
   end
 end
