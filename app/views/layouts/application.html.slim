@@ -1,33 +1,90 @@
 doctype html
 html
   head
-    title
-      | OSBB
+    = display_meta_tags site: 'OSBB Application'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
+
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      a.navbar-brand href="#"  OSBB
-      button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
-        span.navbar-toggler-icon
-      #navbarNav.collapse.navbar-collapse
-        ul.navbar-nav
-          li.nav-item.active
-            a.nav-link href="#" 
-              | Home
-              span.sr-only (current)
-          li.nav-item
-            a.nav-link href="#"  
-              | About us
-      ul.nav.navbar-nav.navbar-right
-        li
-          a href="#" 
-            span.btn.btn-dark Sign Up
-        li
-          a href="#" 
-            span.btn.btn-dark.ml-1 Login
+    header.header
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand href="#"  OSBB
+        button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav
+            li.nav-item.active
+              a.nav-link href="#" 
+                | Home
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link href="#"  
+                | About us
+        ul.nav.navbar-nav.navbar-right
+          li
+            a href="#" 
+              span.btn.btn-dark Sign Up
+          li
+            a href="#" 
+              span.btn.btn-dark.ml-1 Login
+
 
     = yield
+
+    .mt-5.pt-5.pb-5.footer
+      .container
+        .row
+          .col-lg-5.col-xs-12.about-company
+            h2
+              | OSBB application
+            p.pr-5.text-white-50
+              | OSBB is a legal entity created by the owners of apartments and / or non-residential
+              | premises of an apartment building for common use, maintenance and management of
+              | their house and adjacent territory.
+          .col-lg-3.col-xs-12.links
+            h4.mt-lg-0.mt-sm-3
+              | Links
+            ul.m-0.p-0
+              li
+                | - 
+                a[href="#"]
+                  | Lorem ipsum
+              li
+                | - 
+                a[href="#"]
+                  | Nam mauris velit
+              li
+                | - 
+                a[href="#"]
+                  | Etiam vitae mauris
+              li
+                | - 
+                a[href="#"]
+                  | Fusce scelerisque
+              li
+                | - 
+                a[href="#"]
+                  | Sed faucibus
+              li
+                | - 
+                a[href="#"]
+                  | Mauris efficitur nulla
+          .col-lg-4.col-xs-12.location
+            h4.mt-lg-0.mt-sm-4
+              | Location
+            p
+              | Akademika Sakharova 23z, Ivano-Frankivsk
+            p.mb-0
+              i.fa.fa-phone.mr-3
+              | +380-342-723-580
+            p
+              i.fa.fa-envelope.mr-3
+              | career@softserveinc.com
+        .row.mt-5
+          .col.copyright
+            p
+              small.text-white-50
+                | © 2020 Copyright: IF-115Ruby
