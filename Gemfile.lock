@@ -221,6 +221,10 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simplecov (0.19.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.2)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -299,6 +303,7 @@ DEPENDENCIES
   rubocop-rails (~> 2.8.1)
   sass-rails (>= 6)
   selenium-webdriver
+  simplecov
   slim-rails (~> 3.2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
