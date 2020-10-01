@@ -6,6 +6,9 @@ env:
   global:
     - RAILS_ENV=test
     - MOZ_HEADLESS=1
+    - CC_TEST_REPORTER_ID=02fb63383b4f54f909129252cca71205e584ab07784e634d9764b38853b97ac6
+rvm:
+  - 2.7.1
 services:
   - postgresql
   - xvfb
@@ -20,11 +23,14 @@ before_script:
   - bundle exec rails db:migrate
   - bundle exec rails db:schema:load
   - bundle exec rails webpacker:compile
-
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - xvfb-run -a --server-args="-screen 0 1024x768x24" bundle exec rake
   - bundle exec rspec
   - bundle exec rubocop
-
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 addons:
   firefox: latest
