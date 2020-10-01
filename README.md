@@ -1,6 +1,6 @@
-# README
 # OSBB
-
+* Development branch
+[![Build Status](https://travis-ci.com/IF-115-Ruby/OSBB.svg?branch=development)](https://travis-ci.com/github/IF-115-Ruby/OSBB)
 ## Prerequisites
 
 ### To run the project you need:
@@ -41,9 +41,6 @@ rails db:create db:migrate db:seed
 ```shell
 rails s
 ```
-
-* Development branch
-[![Build Status](https://travis-ci.com/IF-115-Ruby/OSBB.svg?branch=development)](https://travis-ci.com/github/IF-115-Ruby/OSBB)
 
 ## Contributing
 1. Fork it!
