@@ -5,10 +5,13 @@
 
 ### To run the project you need:
 
-    Ruby v.2.7.1
-    Node.js
-    Yarn
-    PostgreSQL
+  [Ruby v.2.7.1](https://rvm.io/rubies/installing)
+
+  [Yarn v.1.22.5-1](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
+  
+  [Node.js v.10.19.0](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/#installing-nodejs-and-npm-from-nodesource)
+    
+    PostgreSQL v.12 ( sudo apt install postgresql-12 )
 
 ## Install
 
