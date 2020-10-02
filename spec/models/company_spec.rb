@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Company, type: :model do
   let!(:company) do
-    FactoryBot.build(:company, name: "IFBut", phone: 2_476_316_898,
+    FactoryBot.build(:company, name: "IFBut", phone: 2_676_316_898, company_type: "gas",
                                email: "ifbut@gmail.com", fax: 9_762_578_517)
   end
 

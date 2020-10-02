@@ -1,9 +1,22 @@
 class Company < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/.freeze
   VALID_PHONE = /\A\d{10}\z/.freeze
-  enum COMPANY_TYPE: { water_supply: 0, heating: 1, rent_payment: 2, accommodation_payment: 3,
-                       gas: 4, electricity: 5, garbage_removal: 6, internet: 7, intercom: 8,
-                       tv: 9, elevator: 10, other: 11 }
+  WATER_SUPPLY = "water_supply".freeze
+  HEATING = "heating".freeze
+  RENT_PAYMENT = "rent_payment".freeze
+  ACCOMMODATION_PAYMENT = "accommodation_payment".freeze
+  GAS = "gas".freeze
+  ELECTRICITY = "electricity".freeze
+  GARBAGE_REMOVAL = "garbage_removal".freeze
+  INTERNET = "internet".freeze
+  INTERCOM = "intercom".freeze
+  TV = "tv".freeze
+  ELEVATOR = "elevator".freeze
+  OTHER = "other".freeze
+  COMPANY_TYPE = [WATER_SUPPLY, HEATING, RENT_PAYMENT, ACCOMMODATION_PAYMENT, GAS,
+                  ELECTRICITY, GARBAGE_REMOVAL, INTERNET, INTERCOM, TV,
+                  ELEVATOR, OTHER].freeze
+  enum company_type: COMPANY_TYPE
   before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
