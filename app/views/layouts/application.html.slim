@@ -7,61 +7,9 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-
   body
-    header.header.w-100
-      nav.navbar.navbar-expand-lg.navbar-dark.navbar-header
-        a.nav-name.navbar-brand.text-black href="#"  OSBB Application
-        button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
-          span.navbar-toggler-icon
-        #navbarNav.collapse.navbar-collapse
-          ul.navbar-nav
-            li.nav-item
-              a.nav-link.ml-3 href="#" 
-                button.btn.btn-transparent.auth-btn
-                  | About us
-                  span.sr-only (current)
-        ul.nav.navbar-nav.navbar-right
-          li
-            a.nav-link href="#" 
-              span
-                button.btn.btn-transparent.auth-btn Login
-          li
-            a.nav-link href="#"
-              span
-                button.btn.btn-transparent.auth-btn.ml-2 Sign Up
+    = render 'shared/header'
 
     = yield
 
-    .mt-2.pt-2.footer.mb-0
-      .container
-        .row
-          .col-lg-5.col-xs-12.about-company
-            h4
-              | OSBB Application
-            p.pr-5.text-white-50
-              | OSBB is a legal entity created by the owners of apartments and / or non-residential
-              | premises of an apartment building for common use.
-          .col-lg-3.col-xs-12.links
-            h5.mt-lg-0.mt-sm-3
-              | Links
-            ul.m-0.p-0
-              li
-                | - 
-                a[href="#"]  
-                  | About us
-          .col-lg-4.col-xs-12.location
-            h5.mt-lg-0.mt-sm-3
-              | Location
-            p Akademika Sakharova 23z, Ivano-Frankivsk
-            p.mb-0
-              i.fa.fa-phone.mr-3
-              | +380-342-723-580
-            p.mb-0
-              i.fa.fa-envelope.mr-3
-              | career@softserveinc.com
-        .row
-          .col.copyright
-            p
-              small.text-white-50
-                | © 2020 Copyright: IF-115Ruby
+    = render 'shared/footer'
