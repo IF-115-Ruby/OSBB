@@ -49,3 +49,6 @@ yarn-debug.log*
 *.swl
 *.swm
 *.swn
+
+config/database.yml
+
