@@ -50,5 +50,5 @@ yarn-debug.log*
 *.swm
 *.swn
 
-config/database.yml
+/config/database.yml
 

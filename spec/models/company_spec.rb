@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Company, type: :model do
-  let!(:company) { FactoryBot.build(:company, name: "IFBut", phone: 2476316898, 
-                                    email: "ifbut@gmail.com", fax: 9762578517) }
+  let!(:company) do
+    FactoryBot.build(:company, name: "IFBut", phone: 2_476_316_898,
+                               email: "ifbut@gmail.com", fax: 9_762_578_517)
+  end
 
   describe 'validations' do
     describe 'name' do
@@ -46,14 +48,14 @@ RSpec.describe Company, type: :model do
       end
 
       it 'be valid' do
-          company.email = "ifgas@gmail.com"
-          expect(company).to be_valid
-        end
-      
+        company.email = "ifgas@gmail.com"
+        expect(company).to be_valid
+      end
+
       it 'reject invalid emails' do
-          company.email = "Ifgas.gmail.com"
-          expect(company).not_to be_valid
-        end
+        company.email = "Ifgas.gmail.com"
+        expect(company).not_to be_valid
+      end
     end
   end
 end
