@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "length is invalid" do
+  describe "length is valid" do
     it "allow a first name no longer than 50 characters" do
       user.first_name = "a" * 49
       expect(user).to be_valid
@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
     end
 
     it "allow a email no longer than 254 characters" do
-      user.email = ("a" * 245) + "@gmail.com"
+      user.email = "#{('a' * 245)}@gmail.com"
       expect(user).to be_valid
     end
   end
@@ -71,9 +71,9 @@ end
 # Table name: users
 #
 #  id         :bigint           not null, primary key
-#  email      :string
-#  first_name :string
-#  last_name  :string
+#  email      :string(254)      not null
+#  first_name :string(50)       not null
+#  last_name  :string(50)       not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
