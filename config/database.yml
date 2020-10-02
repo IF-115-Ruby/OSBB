@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: OSBB
-  username: moskvyn
-  password: <%= ENV['ihormoskvyn211998'] %>
+  username: osbb
+  password: <%= ENV['osbb'] %>
