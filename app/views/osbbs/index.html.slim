@@ -1,0 +1,7 @@
+.container-wrapper
+  = render  'shared/flash_msg' 
+  .new-button
+    = link_to 'New osbb', new_osbb_path, class: 'btn btn-primary'
+  h1 All OSBBs:
+  = render 'osbbs', object: @osbbs
+  

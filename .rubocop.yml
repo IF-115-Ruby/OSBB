@@ -23,6 +23,16 @@ Style/FrozenStringLiteralComment:
 Rails/FilePath:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Max: 9
+
+RSpec/ExampleLength:
+  Max: 17
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
 Style/BlockComments:
   Description: 'Do not use block comments.'
   StyleGuide: '#no-block-comments'

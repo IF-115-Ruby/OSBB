@@ -13,6 +13,9 @@ module OSBB
 
     config.generators do |g|
       g.template_engine :slim
+      g.template_engine :slim
+      g.test_framework :rspec, fixtures: true, views: false
+      g.fixture_replacement :factory_bot_rails, dir: 'spec/factories'
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
