@@ -36,6 +36,8 @@ bundle && yarn
 rails db:create db:migrate db:seed
 ```
 
+### Copy file `.env.template` and rename it to `.env` and add values in environment variables
+
 ## Server
 
 ```shell
