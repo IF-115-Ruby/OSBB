@@ -7,3 +7,8 @@ FactoryBot.create_list(:osbb, 100)
 FactoryBot.create_list(:company, 50)
 
 FactoryBot.create_list(:billing_contract, 100)
+
+Company.all.each do |company| 
+  FactoryBot.create(:account, company: company)
+  FactoryBot.create(:address, addressable: company)
+end
