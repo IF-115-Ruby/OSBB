@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :rememberable, :validatable
+         :rememberable, :validatable, :recoverable
   ADMIN = "admin".freeze
   LEAD = "lead".freeze
   MEMBERS = "members".freeze
@@ -26,6 +26,12 @@ class User < ApplicationRecord
   enum sex: SEX_TYPES
 
   paginates_per 9
+
+  after_create :send_welcome_email_to_new_user
+
+  def send_welcome_email_to_new_user
+    UserMailer.send_welcome_email(self).deliver_now
+  end
 
   def full_name
     "#{first_name} #{last_name}"

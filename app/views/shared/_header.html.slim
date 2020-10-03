@@ -1,6 +1,7 @@
 header.header.w-100
   nav.navbar.navbar-expand-lg.navbar-dark.navbar-header
-    a.nav-name.navbar-brand.text-black href="#" #{t('header.nav_name')}
+    = link_to home_path, class: 'nav-name navbar-brand text-black'
+      = t('header.nav_name') 
     button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
       span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
@@ -28,3 +29,7 @@ header.header.w-100
         = link_to new_user_registration_path
           span
             button.btn.btn-transparent.auth-btn.ml-2 #{t('header.btn_registr')}
+      li
+        = link_to destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }
+          span
+            button.btn.btn-transparent.auth-btn.ml-2 Log Out

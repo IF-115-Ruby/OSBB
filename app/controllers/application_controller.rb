@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     I18n.with_locale(locale, &action)
   end
 
+  def default_url_options(_options = {})
+    { locale: I18n.locale }
+  end
+
   protected
 
   def configure_permitted_parameters
