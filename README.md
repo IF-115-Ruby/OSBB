@@ -1,6 +1,8 @@
 # OSBB
 * Development branch
 [![Build Status](https://travis-ci.com/IF-115-Ruby/OSBB.svg?branch=development)](https://travis-ci.com/github/IF-115-Ruby/OSBB)
+[![Maintainability](https://api.codeclimate.com/v1/badges/255b30c06fbade0f3bdc/maintainability)](https://codeclimate.com/github/IF-115-Ruby/OSBB/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/255b30c06fbade0f3bdc/test_coverage)](https://codeclimate.com/github/IF-115-Ruby/OSBB/test_coverage)
 ## Prerequisites
 
 ### To run the project you need:
@@ -35,6 +37,8 @@ bundle && yarn
 ```shell
 rails db:create db:migrate db:seed
 ```
+
+### Copy file `.env.template` and rename it to `.env` and add values in environment variables
 
 ## Server
 
