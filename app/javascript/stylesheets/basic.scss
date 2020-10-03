@@ -1,40 +1,53 @@
-body {
-  background-color: #e1ebee;
+@import 'colors.scss';
+
+.layout-body {
+  background-image: url("../../../public/vesna-frankivsk2.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.header {
-  background-image: url("../../../public/ivano-frankivsk2.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100%;
-  height: 226px;
+.layout-content {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.layout-first-content {
+  background-color: $half-opasity-background;
 }
 
 .navbar-brand {
+  height: 3em;
   font-weight: bold;
   font-size: x-large;
+
+  &:hover {
+    color: $black;
+    font-weight: bold;
+  }
 }
 
-.auth-btn {
-  color: whitesmoke
+.auth-btn, .nav-name {
+  color: $black
 }
 
 .auth-btn:hover, .btn-submit:hover, .nav-links:hover {
-  color: whitesmoke;
-  background-color: #556588;
+  color: $black;
+  font-weight: bold;
 }
 
 .btn-submit {
-  color: whitesmoke;
-  background-color: #798db6;
+  color: $black;
+  background-color: #3b94d9;
 }
 
 .navbar-header {
-  background-color: inherit;
+  background: none;
 }
 
 .nav-links {
-  color: white;
+  color: $black;
 }
 
 #dropdownMenuButton {
@@ -42,24 +55,42 @@ body {
 }
 
 .dropdown-lang {
-  background: #798db6;
+  background-color: $half-opasity-background;
   width: 155px;
+
+  &:hover, .layout-dropdown-item:hover {
+    font-weight: bold;
+    background-color: $half-opasity-background;
+  }
+}
+
+
+.lang-link {
+  color: $whitesmoke;
+  
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: $whitesmoke;
+  }
 }
 
 .footer {
   background: #556588;
-  color:whitesmoke;
+  color:$whitesmoke;
 
   .links {
     ul {
       list-style-type: none;
     }
+
     li a {
-      color: whitesmoke;
+      color: $whitesmoke;
       transition: color .2s;
+
       &:hover {
-        text-decoration:none;
-        color:#518fda;
+        text-decoration: none;
+        font-weight: bold;
       }
     }
   }
@@ -68,9 +99,11 @@ body {
     i {
       font-size: 25px;
     }
+
     a {
-      color:whitesmoke;
+      color:$whitesmoke;
       transition: color .2s;
+
       &:hover {
         color:#4180CB;
       }
@@ -82,7 +115,7 @@ body {
   }
 
   .copyright p {
-    border-top:1.5px solid rgba(255, 255, 255, 0.418);
+    border-top:1.5px solid $half-opasity-background;
     font-size: 20px;
   }
 }
@@ -90,11 +123,6 @@ body {
 p {
   text-indent: 1.7em;
   text-align: justify;
-}
-
-.imd-build {
-  width: 55%;
-  height: 200px;
 }
 
 .alert.alert-alert {
@@ -110,14 +138,13 @@ p {
 .content-abc {
   min-width: 200px;
   max-width: 600px;
-  background-color: whitesmoke;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
 }
 
 .input-properties {
   background-color: #eff6f8;
   border-radius: 2px;
-  border: 0.5px solid #798db6;
 }
 
 @media screen and (max-width: 600px) {
