@@ -18,11 +18,11 @@ class Company < ApplicationRecord
   enum company_types: COMPANY_TYPE
   before_save { email.downcase! }
 
-  validates_presence_of :name
-  validates_length_of :name, maximum: 50
-  validates_presence_of :phone 
+  validates :name, presence: true
+  validates :name, length: { maximum: 50 }
+  validates :phone, presence: true
   validates :phone, format: { with: VALID_PHONE }
-  validates_presence_of :email
-  validates_length_of :email, maximum: 50  
+  validates :email, presence: true
+  validates :email, length: { maximum: 50 }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
