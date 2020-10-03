@@ -1,6 +1,6 @@
 header.header.w-100
   nav.navbar.navbar-expand-lg.navbar-dark.navbar-header
-    a.nav-name.navbar-brand.text-black href="#"  OSBB Application
+    a.nav-name.navbar-brand.text-black href="#" #{t('header.nav_name')}
     button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
       span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
@@ -8,14 +8,23 @@ header.header.w-100
         li.nav-item
           a.nav-link.ml-3 href="#" 
             button.btn.btn-transparent.auth-btn
-              | About us
+              = t('header.link_about_us')
               span.sr-only (current)
     ul.nav.navbar-nav.navbar-right
       li
+        .dropdown
+          button#dropdownMenuButton.btn.btn-transparent.auth-btn.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown'
+            = t('header.select_lang')
+          .dropdown-menu.dropdown-lang
+            = link_to url_for(locale: :en), class: 'dropdown-item btn-transparent auth-btn'
+              = t('header.btn_eng')
+            = link_to url_for(locale: :ua), class: 'dropdown-item btn-transparent auth-btn'
+              = t('header.btn_ukr')
+      li
         = link_to new_user_session_path 
           span
-            button.btn.btn-transparent.auth-btn Login
+            button.btn.btn-transparent.auth-btn.ml-2 #{t('header.btn_auth')}
       li
         = link_to new_user_registration_path
           span
-            button.btn.btn-transparent.auth-btn.ml-2 Sign Up
+            button.btn.btn-transparent.auth-btn.ml-2 #{t('header.btn_registr')}

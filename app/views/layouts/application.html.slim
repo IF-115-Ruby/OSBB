@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    = display_meta_tags site: 'OSBB Application'
+    = display_meta_tags site: "#{t('header.nav_name')}"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -9,6 +9,7 @@ html
 
   body.d-flex.flex-column.min-vh-100
     = render 'shared/header'
+
     .container-fluid.flex-grow-1
       = yield
 

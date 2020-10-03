@@ -1,33 +1,49 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  title: 'OSBB Application'
+  header:
+    nav_name: 'OSBB Application'
+    link_about_us: 'About us'
+    select_lang: 'Select language'
+    btn_eng: 'English'
+    btn_ukr: 'Ukrainian'
+    btn_auth: 'Login'
+    btn_registr: 'Sign Up'
+  footer:
+    title: 'OSBB Application'
+    description: 'OSBB is a legal entity created by the owners of apartments
+      and / or non-residential premises of an apartment building for common use.'
+    links: 'Links'
+    link_about_us: 'About us'
+    location: 'Location'
+    address: 'Akademika Sakharova 23, Ivano-Frankivsk'
+    mob_number: '+380-342-723-580'
+    email: 'career@softserveinc.com'
+    copyright: '© 2020 Copyright: IF-115Ruby'
+    
+  home:
+    title: 'Association of co-owners of an apartment building'
+    osbb_app_goal: 'Our site saves you time and reduces the number of routine tasks. Personal
+      accounts of residents increase the transparency of work and trust of residents. It is
+      intended for use by both the management of condominiums and residents of the house. If you
+      are an energetic person or a group of people who want positive changes in the management
+      of your house, or even the head of a long-established condominium - you are in the
+      right place!'
+    alt_text: 'not loaded'
+
+  not_found:
+    oops_title1: 'Oops! Page not found'
+    nubm_four: '4'
+    nubm_zero: '0'
+    all_text: 'We are sorry, but the page you requested was not found'
+
+  server_error:
+    oops_title: 'Oops! Server Error'
+    nubm_five: '5'
+    nubm_zero: '0'
+    all_text: 'We are sorry, but something went wrong'
+
+  unacceptable:
+    oops_title: 'Oops! Server Error'
+    nubm_four: '4'
+    nubm_two: '2'
+    all_text: 'The change you wanted was rejected'
