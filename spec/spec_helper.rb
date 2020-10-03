@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'pry'
 
 SimpleCov.start do
   minimum_coverage 90

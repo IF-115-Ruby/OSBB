@@ -1,12 +1,15 @@
 class User::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: :create
+  skip_before_action :verify_authenticity_token
 
-  def create
+  def create # rubocop:disable Metrics/AbcSize
     if params[:newOsbb]
       build_resource(user_params_with_osbb)
       resource.osbb_attributes = osbb_params
+    elsif params[:user][:osbb_id].present?
+      build_resource(user_search_params)
     else
-      build_resource(sign_up_params)
+      build_resource(simple_user_role)
     end
     resource.valid? ? save_resource : render_sign_up
   end
@@ -26,7 +29,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     else
       inactive_resource
     end
-    SignUpEmailSenderWorker.perform_async(resource.id)
+    send_mails
   end
 
   def active_resource
@@ -41,6 +44,11 @@ class User::RegistrationsController < Devise::RegistrationsController
     respond_with resource, location: after_inactive_sign_up_path_for(resource)
   end
 
+  def send_mails
+    SignUpEmailSenderWorker.perform_async(resource.id)
+    NewMemberWorker.perform_async(resource.osbb.id, resource.id) if params[:user][:osbb_id].present?
+  end
+
   def osbb_params
     params[:user][:osbb_attributes].permit(:name, :phone, :email, :website)
   end
@@ -49,7 +57,16 @@ class User::RegistrationsController < Devise::RegistrationsController
     sign_up_params.merge({ role: User::LEAD })
   end
 
+  def user_search_params
+    sign_up_params.merge({ role: User::MEMBERS })
+  end
+
+  def simple_user_role
+    sign_up_params.merge({ role: User::SIMPLE })
+  end
+
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name sex mobile password osbb_attributes])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name sex mobile password osbb_id
+                                                         osbb_attributes])
   end
 end
