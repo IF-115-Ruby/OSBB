@@ -1,81 +1,72 @@
-body
-  = form_for(resource, as: resource_name,
-                      url: registration_path(resource_name)) do |f|
-
-    = render "devise/shared/error_messages", resource: resource
+.custom-form-wrapper
+  section
     .container
-      .d-flex.justify-content-center.h-100
-        .card
-          .card-header
-            h3
-              = title 'Register Page',  'Sign Up'
-          .card-body
-            form
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-user
-                .field
-                  = f.text_field :first_name,
-                             autofocus: true,
-                             placeholder: 'first name',
-                             autocomplete: 'first_name'
-
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-user
-                .field
-                  = f.text_field :last_name,
-                            autofocus: true,
-                            placeholder: 'last name',
-                            autocomplete: 'last_name'
-
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-envelope
-                .field
-                  = f.email_field :email,
-                         autofocus: true,
-                         placeholder: 'email',
-                         autocomplete: 'email'
-
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-user-circle
-                .field
-                  = f.text_field :sex,
-                                  placeholder: 'sex',
-                                  autocomplete: 'sex'
-
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-phone
-                .field
-                  = f.text_field :mobile,
-                                  placeholder: 'mobile phone',
-                                  autocomplete: 'mobile'
-
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-key
-                .field
-                  = f.password_field :password,
-                                     placeholder: 'password',
-                                     autocomplete: 'new-password'
-
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-key
-                .field
-                  = f.password_field :password_confirmation,
-                               placeholder: 'password confirmation',
-                               autocomplete: 'new-password'
-
-              .actions
-                = f.submit 'Sign Up'
+      .content-abc.mx-auto.shadow.m-3
+        h1.pt-4.font-weight-bold.row.justify-content-center
+          = title t('devise.registrations.new.tab_title'),
+            t('devise.registrations.new.registration_title')
+        hr
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.error_notification
+          .container.form-prop
+            .container.form-horizontal.mb-2.mt-4
+              p.form-group
+                .row
+                  i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :first_name, autofocus: true, label: false,
+                      placeholder: t('account.users.form.first-name'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :last_name, autofocus: true, label: false,
+                      placeholder: t('account.users.form.last-name'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-envelope.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :email, autofocus: true, label: false,
+                      placeholder: t('change_pass.email'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-venus-mars.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :sex, collection: options_for_sex,
+                      label: false, selected: 'no_sex',
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-phone.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :mobile, autofocus: true, label: false,
+                      placeholder: t('account.admin.osbbs.form.label-phone'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :password, autofocus: true,
+                      label: false, hint: false,
+                      placeholder: t('devise.password.edit.password_placeholder'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :password_confirmation, autofocus: true,
+                      label: false, hint: false,
+                      placeholder: t('devise.password.edit.confirm_password_placeholder'),
+                      input_html: { class: 'form-control input-prop' }
+            .form-actions.mt-3
+              .container.d-flex.justify-content-center
+                = f.submit t('devise.shared.sign_up_link'),
+                  class: 'btn btn-submit pl-5 pr-5'
+            hr
+            .container.pb-3
+              .d-flex.justify-content-center.links.mt-2
+                = t('devise.registrations.new.have_account_text')
+                = render 'devise/shared/links'

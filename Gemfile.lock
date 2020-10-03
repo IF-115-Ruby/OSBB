@@ -62,6 +62,7 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.1)
+    awesome_print (1.8.0)
     bcrypt (3.1.16)
     bcrypt (3.1.16-java)
     bindex (0.8.1)
@@ -113,8 +114,9 @@ GEM
       railties (>= 5.0.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
-    faraday (1.0.1)
+    faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
+      ruby2_keywords
     ffi (1.13.1)
     ffi (1.13.1-java)
     ffi (1.13.1-x64-mingw32)
@@ -276,7 +278,7 @@ GEM
       rubocop-ast (>= 0.3.0, < 1.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.7.1)
+    rubocop-ast (0.8.0)
       parser (>= 2.7.1.5)
     rubocop-rails (2.8.1)
       activesupport (>= 4.2.0)
@@ -287,6 +289,7 @@ GEM
     ruby-progressbar (1.10.1)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
+    ruby2_keywords (0.0.2)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -345,7 +348,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2020.2)
+    tzinfo-data (1.2020.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
     warden (1.2.9)
@@ -381,6 +384,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  awesome_print (~> 1.8.0)
   bootsnap (>= 1.4.2)
   bootstrap4-kaminari-views
   byebug

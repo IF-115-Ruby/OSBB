@@ -57,15 +57,26 @@ en:
   devise:
     password:
       new:
+        new_tab_title: 'Forgot password?'
         new_title: 'Forgot your password?'
-        email_label: 'Your Email: '
-        email_placeholder: 'Enter email'
         submit_forgot_password: 'Send me reset password instructions'
       edit:
+        edit_tab_title: 'Change password'
         edit_title: 'Change your password'
-        password_label: 'New password'
-        confirm_password_label: 'Confirm your new password'
+        password_placeholder: 'New password'
+        confirm_password_placeholder: 'Confirm your new password'
         submit_change_password: 'Change password'
+
+    registrations:
+      new:
+        registration_title: 'Register Page'
+        have_account_text: 'Already have an account?'
+
+    sessions:
+      new:
+        tab_title: 'Log in'
+        login_title: 'Log In Page'
+        create_account_text: "Don't have an account?"
 
     mailer:
       reset_password:
@@ -93,8 +104,8 @@ en:
     sure?: 'Are you sure?'
     change_pass_page: 'Change Password Page'
     change_pass: 'Change Password'
-    email: 'email'
-    pass: 'password'
+    email: 'Email'
+    pass: 'Password'
     pass_confirm: 'password_confirmation'
     curr_pass: 'current-password'
     waiting_cofirm: 'Currently waiting confirmation for'
@@ -143,7 +154,7 @@ en:
         sex:
           male: 'Male'
           female: 'Female'
-          no_sex: 'not set'
+          no_sex: 'Not set'
         first-name: 'First Name'
         placeholder-first-name: 'Enter first name'
         last-name: 'Last Name'

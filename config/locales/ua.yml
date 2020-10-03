@@ -65,16 +65,28 @@ ua:
   devise:
     password:
       new:
+        new_tab_title: 'Забули пароль?'
         new_title: 'Забули Ваш пароль?'
-        email_label: 'Електронна адреса: '
-        email_placeholder: 'Введіть електронну адресу'
         submit_forgot_password: 'Надіслати інструкцію відновлення пароля'
 
       edit:
-        edit_title: 'Зінити Ваш пароль'
-        password_label: 'Новий пароль'
-        confirm_password_label: 'Підтвердіть новий пароль'
+        edit_tab_title: 'Змінити пароль'
+        edit_title: 'Змінити Ваш пароль'
+        password_placeholder: 'Новий пароль'
+        confirm_password_placeholder: 'Підтвердіть новий пароль'
         submit_change_password: 'Змінити пароль'
+
+    registrations:
+      new:
+        tab_title: 'Реєстрація'
+        registration_title: 'Сторінка реєстрації'
+        have_account_text: 'Ви вже маєте акаунт?'
+
+    sessions:
+      new:
+        tab_title: 'Вхід'
+        login_title: 'Сторінка авторизації'
+        create_account_text: "Немає акаунта?"
 
     mailer:
       reset_password:
@@ -150,9 +162,9 @@ ua:
         btn-cancel: 'Скасувати'
       form:
         sex:
-          male: 'чоловік'
-          female: 'жінка'
-          no_sex: 'не вказано'
+          male: 'Чоловік'
+          female: 'Жінка'
+          no_sex: 'Не вказано'
         first-name: "Ім'я"
         placeholder-first-name: "Введіть ім'я"
         last-name: 'Фамілія'
