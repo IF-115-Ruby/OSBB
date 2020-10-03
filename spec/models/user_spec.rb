@@ -15,6 +15,14 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "#downcase_email" do
+    it "downcases an email before saving" do
+      user.email = "EXEMPLE@GMAIL.COM"
+      user.save
+      expect(user.email).to eq("exemple@gmail.com")
+    end
+  end
+
   describe "length is invalid" do
     it "does not allow a first name longer than 50 characters" do
       user.first_name = "a" * 51
