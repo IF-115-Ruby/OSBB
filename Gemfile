@@ -31,6 +31,10 @@ gem "factory_bot_rails"
 gem 'faker'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# Gem 'rails-i18n' use for internationalization
+gem 'rails-i18n'
+# Gem 'httparty' use for third party API
+gem 'httparty'
 
 group :development, :test do
   gem 'annotate'
