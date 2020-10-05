@@ -8,25 +8,21 @@ class User < ApplicationRecord
   MEMBERS = "members".freeze
   SIMPLE = "simple".freeze
 
-  ROLES = [
-    ADMIN,
-    LEAD,
-    MEMBERS,
-    SIMPLE
-  ].freeze
+  ROLES = [ADMIN, LEAD, MEMBERS, SIMPLE].freeze
+  SEX_TYPES = %w[male female no_sex].freeze
+
+  mount_uploader :avatar, AvatarUploader
 
   belongs_to :osbb, optional: true
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, length: { maximum: 255 }
-  validates :mobile, presence: true,
-                     numericality: true,
-                     length: { minimum: 10, maximum: 14 }
-  validates :sex, presence: true, length: { maximum: 10 }
-  validates :password, presence: true, length: { minimum: 5, maximum: 25 }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
+                    uniqueness: true, length: { maximum: 255 }
+  validates :mobile, numericality: true, allow_nil: true, length: { minimum: 10, maximum: 14 }
 
   enum role: ROLES
+  enum sex: SEX_TYPES
 
   def full_name
     "#{first_name} #{last_name}"
@@ -45,12 +41,11 @@ end
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
 #  mobile                 :string
-#  password               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer
-#  sex                    :string
+#  sex                    :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  osbb_id                :bigint
