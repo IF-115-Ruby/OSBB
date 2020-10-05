@@ -46,3 +46,8 @@ ua:
     nubm_four: '4'
     nubm_two: '2'
     all_text: 'Зміни, які ви бажаєте, було відхилено'
+
+  time:
+    formats:
+      long: "%d.%m.%Y %H:%M"
+

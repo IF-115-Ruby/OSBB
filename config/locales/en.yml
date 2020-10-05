@@ -47,3 +47,7 @@ en:
     nubm_four: '4'
     nubm_two: '2'
     all_text: 'The change you wanted was rejected'
+
+  time:
+    formats:
+      long: "%d/%m/%Y %H:%M"

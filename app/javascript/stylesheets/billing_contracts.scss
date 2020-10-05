@@ -1,0 +1,53 @@
+.billing-form {
+  max-width: 500px;
+  .form-buttons {
+    margin: 20px 0;
+    text-align: center;
+    input,
+    a {
+      width: 180px;
+      margin: 5px 10px;
+    }
+  }
+  .form-error {
+    display: block;
+    margin-top: 3px;
+    text-align: left;
+  }
+
+  .radio > label {
+    margin-top: 5px;
+  }
+}
+
+.billing-contract {
+  max-width: 700px;
+  margin: 0 auto;
+  h1 {
+    margin-top: 40px;
+  }
+  h2 {
+    margin-top: 25px;
+  }
+  .billing-contract-info {
+    margin-top: 20px;
+    .info-item {
+      margin-top: 10px;
+    }
+    .name {
+      font-weight: bold;
+    }
+    nav {
+      margin-top: 20px;
+    }
+    ul {
+      padding: 0;
+      li {
+        margin: 5px 5px;
+        a {
+          width: 180px;
+        }
+      }
+    }
+  }
+}

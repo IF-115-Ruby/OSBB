@@ -1,0 +1,10 @@
+.container-wrapper
+  .new-button
+    = link_to 'New billing contract',
+      new_billing_contract_path,
+      class: 'btn btn-primary'
+  h1
+    | All billing contracts
+  .row
+    - @billing_contracts.each do |billing_contract|
+      = render billing_contract
