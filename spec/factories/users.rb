@@ -3,11 +3,11 @@ FactoryBot.define do
     email { Faker::Internet.email }
     first_name { Faker::Name.first_name }
     last_name  { Faker::Name.last_name }
-    avatar { Faker::File.file_name }
+    avatar { File.open("#{Rails.root}/app/assets/images/User_Account.png") }
     password { Faker::Internet.password }
     mobile { Faker::Number.leading_zero_number(digits: 10) }
     birthday { Faker::Date.birthday(min_age: 18, max_age: 65) }
-    sex { Faker::Demographic.sex }
+    sex { User::SEX_TYPES.sample }
     role { User::ROLES.sample }
   end
 end
@@ -28,7 +28,7 @@ end
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer
-#  sex                    :string
+#  sex                    :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  osbb_id                :bigint

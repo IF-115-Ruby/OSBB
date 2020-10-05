@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_102408) do
     t.string "mobile"
     t.date "birthday"
     t.string "avatar"
-    t.string "sex"
+    t.integer "sex"
     t.integer "role"
     t.bigint "osbb_id"
     t.index ["email"], name: "index_users_on_email", unique: true
