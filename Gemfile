@@ -18,8 +18,11 @@ gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'font_awesome5_rails', '~> 1.2.0'
 gem 'jbuilder', '~> 2.7'
+gem 'meta-tags', '~> 2.13.0'
 gem 'rubocop-rails', '~> 2.8.1'
+gem 'slim-rails', '~> 3.2.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -40,6 +43,7 @@ group :development, :test do
   gem 'annotate'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop-rspec', require: false
 end
@@ -58,6 +62,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '= 0.17', require: false
   gem 'webdrivers'
 end
