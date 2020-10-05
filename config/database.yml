@@ -84,5 +84,3 @@ test:
 production:
   <<: *default
   database: OSBB_production
-  username: OSBB
-  password: <%= ENV['OSBB_DATABASE_PASSWORD'] %>
