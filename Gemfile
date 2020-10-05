@@ -27,7 +27,6 @@ gem 'slim-rails', '~> 3.2.0'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 gem 'devise'
 
 # Use Active Storage variant
@@ -41,6 +40,7 @@ group :development, :test do
   gem 'annotate'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop-rspec', require: false
 end
@@ -49,6 +49,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
+  gem 'pry', '~> 0.13.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -59,6 +60,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '= 0.17', require: false
   gem 'webdrivers'
 end

@@ -17,7 +17,13 @@ RSpec.describe User, type: :model do
 
   describe "#downcase_email" do
     it "downcases an email before saving" do
-      user.email = "EXAMPLE@GMAIL.COM"
+      user.email = "EXAMPLE@gmail.com"
+      user.save
+      expect(user.email).to eq("example@gmail.com")
+    end
+
+    it "downcases email before saving" do
+      user.email = "example@gmail.com"
       user.save
       expect(user.email).to eq("example@gmail.com")
     end
