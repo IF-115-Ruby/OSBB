@@ -1,0 +1,18 @@
+.row
+  - @osbbs.each do |osbb| 
+      .col-md-4
+        p 
+          | OSBB's name: 
+          b = osbb.name
+        p 
+          | Phone number: 
+          = osbb.phone
+        p 
+          | E-mail: 
+          = osbb.email
+        p 
+          | OSBB's website: 
+          = osbb.website
+        p 
+          = link_to 'Show', osbb, class: 'btn btn-outline-primary'
+        hr

@@ -1,0 +1,23 @@
+.container
+  = render  'shared/flash_msg'
+  h1.title 
+    | OSBB info: 
+  .osbb_info
+    .info_item
+      span.nameing OSBB Name: 
+      span.insert = @osbb.name
+    .info_item
+      span.nameing Phone number: 
+      span.insert = @osbb.phone
+    .info_item
+      span.nameing Email: 
+      span.insert = @osbb.email
+    .info_item
+      span.nameing OSBB Website: 
+      span.insert = link_to @osbb.website, "http://#{@osbb.website}", target: '_blank'
+    nav
+      ul.nav.navbar
+        li.nav-item = link_to 'Edit osbb profile', edit_osbb_path, class: "btn btn-outline-warning"
+        li.nav-item = link_to 'Delete osbb',  @osbb, method: :delete, data: { confirm: 'You sure?' }, class: "btn btn-outline-danger"
+        li.nav-item = link_to 'Back', osbbs_path, class: "btn btn-outline-info"
+          

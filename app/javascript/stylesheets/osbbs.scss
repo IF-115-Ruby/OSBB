@@ -1,0 +1,77 @@
+// Place all the styles related to the Osbbs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.input.radio_buttons.optional {
+  display: flex;
+  flex-direction: column;
+}
+.simple_form {
+  abbr[title] {
+    text-decoration: none;
+    color: red;
+    opacity: 0.55;
+  }
+  ::placeholder {
+    opacity: 0.6;
+    font-size: 14px;
+  }
+}
+
+
+label {
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+.osbb_info {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 560px;
+}
+  .info_item {
+    margin: 5px 0 5px 10px;
+  }
+    .nameing {
+      width: 240px;
+      font-size: 24px;
+      display: inline-flex;
+    }
+    .insert {
+      width: 340px;
+    }
+  span {
+    margin-right: 10px;
+  }
+p
+  a.btn-outline-primary {
+    width: 115px;
+    text-align: start;
+  }
+.nav-item 
+  a {
+    margin-left: 2px;
+  }
+
+.container-fluid {
+  h1 {
+    text-align: center;
+  }
+  .new-button {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto 30px;
+  }
+    a.btn-primary {
+      width: 180px;
+    }
+  }
+nav > .navbar {
+  justify-content: flex-start;
+}  
+
+.error {
+  color: firebrick;
+  background-color: antiquewhite;
+  padding: 3px;
+}
