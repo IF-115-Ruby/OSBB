@@ -22,6 +22,7 @@ gem 'font_awesome5_rails', '~> 1.2.0'
 gem 'jbuilder', '~> 2.7'
 gem 'meta-tags', '~> 2.13.0'
 gem 'rubocop-rails', '~> 2.8.1'
+gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'slim-rails', '~> 3.2.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -31,18 +32,18 @@ gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem "factory_bot_rails"
-gem 'faker'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'factory_bot_rails'
+gem 'faker'
 
 group :development, :test do
   gem 'annotate'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec', '~> 1.43', '>= 1.43.2', require: false
 end
 
 group :development do
@@ -57,10 +58,11 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '~> 3.33'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', '= 0.17', require: false
   gem 'webdrivers'
 end

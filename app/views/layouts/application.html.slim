@@ -7,9 +7,9 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body
+  body.d-flex.flex-column.min-vh-100
     = render 'shared/header'
-
-    = yield
+    .container-fluid.flex-grow-1
+      = yield
 
     = render 'shared/footer'
