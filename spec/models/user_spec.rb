@@ -17,9 +17,15 @@ RSpec.describe User, type: :model do
 
   describe "#downcase_email" do
     it "downcases an email before saving" do
-      user.email = "EXEMPLE@GMAIL.COM"
+      user.email = "EXAMPLE@gmail.com"
       user.save
-      expect(user.email).to eq("exemple@gmail.com")
+      expect(user.email).to eq("example@gmail.com")
+    end
+
+    it "downcases email before saving" do
+      user.email = "example@gmail.com"
+      user.save
+      expect(user.email).to eq("example@gmail.com")
     end
   end
 
@@ -78,14 +84,19 @@ end
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  email      :string(254)      not null
-#  first_name :string(50)       not null
-#  last_name  :string(50)       not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                     :bigint           not null, primary key
+#  email                  :string(254)      not null
+#  encrypted_password     :string           default(""), not null
+#  first_name             :string(50)       not null
+#  last_name              :string(50)       not null
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 # Indexes
 #
-#  index_users_on_email  (email) UNIQUE
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
