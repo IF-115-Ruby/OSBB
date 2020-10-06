@@ -9,7 +9,7 @@ RSpec.describe Osbb, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many(:users).dependent(:nullify) }
-end
+  end
 
   describe 'validations' do
     describe 'name' do
