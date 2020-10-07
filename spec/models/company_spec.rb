@@ -19,7 +19,7 @@ end
 #  email        :string
 #  fax          :integer
 #  name         :string
-#  phone        :integer
+#  phone        :string(14)
 #  website      :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
