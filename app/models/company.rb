@@ -35,8 +35,8 @@ class Company < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :phone, presence: true,
-  numericality: true,
-  length: { minimum: 8, maximum: 14 }
+                    numericality: true,
+                    length: { minimum: 8, maximum: 14 }
   validates :email, presence: true, length: { maximum: 50 }, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
 

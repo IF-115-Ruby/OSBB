@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
-  ADMIN = "admin"
-  LEAD = "lead"
-  MEMBERS = "members"
-  SIMPLE = "simple"
+  ADMIN = "admin".freeze
+  LEAD = "lead".freeze
+  MEMBERS = "members".freeze
+  SIMPLE = "simple".freeze
 
   ROLES = [
     ADMIN,
@@ -24,7 +24,6 @@ class User < ApplicationRecord
   validates :sex, presence: true, length: { maximum: 10 }
   validates :password, presence: true, length: { minimum: 5, maximum: 25 }
 
-  before_save :downcase_email
   enum role: ROLES
 
   belongs_to :osbb, optional: true
