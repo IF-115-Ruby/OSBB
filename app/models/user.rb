@@ -3,14 +3,29 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
+  ADMIN = "admin"
+  LEAD = "lead"
+  MEMBERS = "members"
+  SIMPLE = "simple"
+
+  ROLES = [
+    ADMIN,
+    LEAD,
+    MEMBERS,
+    SIMPLE
+  ].freeze
+
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, length: { maximum: 255 }
   validates :mobile, presence: true,
                      numericality: true,
-                     length: { minimum: 10, maximum: 20 }
+                     length: { minimum: 10, maximum: 14 }
+  validates :sex, presence: true, length: { maximum: 10 }
+  validates :password, presence: true, length: { minimum: 5, maximum: 25 }
+
   before_save :downcase_email
-  enum role: { admin: 0, lead: 1, members: 2, simple: 3 }
+  enum role: ROLES
 
   belongs_to :osbb, optional: true
 
