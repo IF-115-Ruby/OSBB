@@ -9,6 +9,7 @@ class Osbb < ApplicationRecord
   validates :email,  length: { maximum: 255 },
                      format: { with: VALID_EMAIL_REGEX,
                                message: 'format is not valid' }
+  has_many :users, dependent: :nullify
 end
 
 # == Schema Information

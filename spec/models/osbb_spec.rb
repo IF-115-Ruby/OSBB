@@ -7,6 +7,10 @@ RSpec.describe Osbb, type: :model do
     expect(osbb).to be_valid
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many(:users).dependent(:nullify) }
+end
+
   describe 'validations' do
     describe 'name' do
       it 'require a name' do

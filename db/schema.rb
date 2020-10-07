@@ -48,8 +48,16 @@ ActiveRecord::Schema.define(version: 2020_10_06_171954) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "mobile"
+    t.date "birthday"
+    t.string "avatar"
+    t.string "sex"
+    t.integer "role"
+    t.bigint "osbb_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["osbb_id"], name: "index_users_on_osbb_id"
   end
 
+  add_foreign_key "users", "osbbs"
 end
