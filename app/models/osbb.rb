@@ -9,8 +9,9 @@ class Osbb < ApplicationRecord
   validates :email,  length: { maximum: 255 },
                      format: { with: VALID_EMAIL_REGEX,
                                message: 'format is not valid' }
-  has_many :members, class_name: :User, dependent: :nullify
-  has_one :lead, class_name: :User, dependent: :nullify
+  has_many :members, class_name: "User", dependent: :nullify
+  has_one :lead, -> { where "role = #{User::ROLES.each_index.detect { |i| User::ROLES[i] == User::LEAD }}" },
+          class_name: "User", inverse_of: :osbb, dependent: :nullify
 end
 
 # == Schema Information

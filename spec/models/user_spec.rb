@@ -34,76 +34,40 @@ RSpec.describe User, type: :model do
   end
 
   describe "length is invalid" do
-    it "does not allow a first name longer than 50 characters" do
-      user.first_name = "a" * 51
-      expect(user).not_to be_valid
-    end
+    it { is_expected.not_to allow_value("a" * 51).for(:first_name) }
 
-    it "does not allow a last name longer than 50 characters" do
-      user.last_name = "a" * 51
-      expect(user).not_to be_valid
-    end
+    it { is_expected.not_to allow_value("a" * 51).for(:last_name) }
 
-    it "does not allow a email longer than 50 characters" do
-      user.email = "a" * 256
-      expect(user).not_to be_valid
-    end
+    it { is_expected.not_to allow_value("a" * 256).for(:email) }
   end
 
   describe "length is valid" do
-    it "allow a first name no longer than 50 characters" do
-      user.first_name = "a" * 49
-      expect(user).to be_valid
-    end
+    it { is_expected.to allow_value("a" * 49).for(:last_name) }
 
-    it "allow a last name no longer than 50 characters" do
-      user.last_name = "a" * 49
-      expect(user).to be_valid
-    end
+    it { is_expected.to allow_value("a" * 49).for(:first_name) }
 
-    it "allow a email no longer than 254 characters" do
-      user.email = "#{('a' * 245)}@gmail.com"
-      expect(user).to be_valid
-    end
+    it { is_expected.to allow_value("#{('a' * 245)}@gmail.com").for(:email) }
   end
 
   describe "validations" do
     context 'when mobile is valid' do
-      it 'be valid' do
-        user.mobile = '0123456789'
-        expect(user).to be_valid
-      end
+      it { is_expected.to allow_value('0123456789').for(:mobile) }
 
-      it 'reject mobile that has more 10 digits' do
-        user.mobile = '012345678991'
-        expect(user).to be_valid
-      end
+      it { is_expected.to allow_value('012345678991').for(:mobile) }
     end
 
     context 'when mobile not valid' do
-      it 'reject mobile that has characters' do
-        user.mobile = '06866666ab'
-        expect(user).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('06866666ab').for(:mobile) }
 
-      it 'reject mobile that has less 10 digits' do
-        user.mobile = '012345678'
-        expect(user).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('012345678').for(:mobile) }
     end
 
     context "when email is valid" do
-      it "user is valid" do
-        user.email = "example@gmail.com"
-        expect(user).to be_valid
-      end
+      it { is_expected.to allow_value('example@gmail.com').for(:email) }
     end
 
     context "when email is invalid" do
-      it "user is valid" do
-        user.email = "invali-email.com"
-        expect(user).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('invali-email.com').for(:email) }
     end
   end
 end
