@@ -15,6 +15,8 @@ class User < ApplicationRecord
     SIMPLE
   ].freeze
 
+  belongs_to :osbb, optional: true
+
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, length: { maximum: 255 }
@@ -25,8 +27,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 5, maximum: 25 }
 
   enum role: ROLES
-
-  belongs_to :osbb, optional: true
 
   def full_name
     "#{first_name} #{last_name}"
