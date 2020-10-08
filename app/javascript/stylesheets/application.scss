@@ -1,5 +1,6 @@
   @import "bootstrap"; 
   @import '@fortawesome/fontawesome-free';
+  @import 'osbbs';
 
 body{
   background-color: #e1ebee;
@@ -39,6 +40,15 @@ body{
 .nav-links:hover{
   color: whitesmoke;
   background-color: #556588;
+}
+
+#dropdownMenuButton{
+  width: 158px;
+}
+
+.dropdown-lang {
+  background: #798db6;
+  width: 155px;
 }
 
 .footer{
