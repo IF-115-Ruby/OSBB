@@ -14,7 +14,7 @@ class Company < ApplicationRecord
   ELEVATOR = "elevator"
   OTHER = "other"
 
-  COMPANY_TYPE = [
+  COMPANY_TYPES = [
     WATER_SUPPLY,
     HEATING,
     RENT_PAYMENT,
@@ -29,7 +29,7 @@ class Company < ApplicationRecord
     OTHER
   ].freeze
 
-  enum company_types: COMPANY_TYPE
+  enum company_type: COMPANY_TYPES
 
   before_save { email.downcase! }
 

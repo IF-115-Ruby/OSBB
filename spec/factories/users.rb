@@ -8,7 +8,7 @@ FactoryBot.define do
     mobile { Faker::Number.leading_zero_number(digits: 10) }
     birthday { Faker::Date.birthday(min_age: 18, max_age: 65) }
     sex { Faker::Demographic.sex }
-    role { Faker::Number.between(from: 0, to: 3) }
+    role { User::ROLES.sample }
   end
 end
 
