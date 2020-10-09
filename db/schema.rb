@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 2020_10_06_171954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "billing_contracts", force: :cascade do |t|
+    t.string "contract_num", limit: 50, null: false
+    t.boolean "is_active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contract_num"], name: "index_billing_contracts_on_contract_num"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "company_type"
