@@ -9,6 +9,10 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'Associations' do
+    it { is_expected.to belong_to(:osbb).optional }
+  end
+
   describe "#full_name" do
     it "returns full name" do
       expect(user.full_name).to eq("John Doe")
@@ -30,52 +34,40 @@ RSpec.describe User, type: :model do
   end
 
   describe "length is invalid" do
-    it "does not allow a first name longer than 50 characters" do
-      user.first_name = "a" * 51
-      expect(user).not_to be_valid
-    end
+    it { is_expected.not_to allow_value("a" * 51).for(:first_name) }
 
-    it "does not allow a last name longer than 50 characters" do
-      user.last_name = "a" * 51
-      expect(user).not_to be_valid
-    end
+    it { is_expected.not_to allow_value("a" * 51).for(:last_name) }
 
-    it "does not allow a email longer than 50 characters" do
-      user.email = "a" * 256
-      expect(user).not_to be_valid
-    end
+    it { is_expected.not_to allow_value("a" * 256).for(:email) }
   end
 
   describe "length is valid" do
-    it "allow a first name no longer than 50 characters" do
-      user.first_name = "a" * 49
-      expect(user).to be_valid
-    end
+    it { is_expected.to allow_value("a" * 49).for(:last_name) }
 
-    it "allow a last name no longer than 50 characters" do
-      user.last_name = "a" * 49
-      expect(user).to be_valid
-    end
+    it { is_expected.to allow_value("a" * 49).for(:first_name) }
 
-    it "allow a email no longer than 254 characters" do
-      user.email = "#{('a' * 245)}@gmail.com"
-      expect(user).to be_valid
-    end
+    it { is_expected.to allow_value("#{('a' * 245)}@gmail.com").for(:email) }
   end
 
   describe "validations" do
+    context 'when mobile is valid' do
+      it { is_expected.to allow_value('0123456789').for(:mobile) }
+
+      it { is_expected.to allow_value('012345678991').for(:mobile) }
+    end
+
+    context 'when mobile not valid' do
+      it { is_expected.not_to allow_value('06866666ab').for(:mobile) }
+
+      it { is_expected.not_to allow_value('012345678').for(:mobile) }
+    end
+
     context "when email is valid" do
-      it "user is valid" do
-        user.email = "example@gmail.com"
-        expect(user).to be_valid
-      end
+      it { is_expected.to allow_value('example@gmail.com').for(:email) }
     end
 
     context "when email is invalid" do
-      it "user is valid" do
-        user.email = "invali-email.com"
-        expect(user).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('invali-email.com').for(:email) }
     end
   end
 end
@@ -85,18 +77,41 @@ end
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  avatar                 :string
+#  birthday               :date
 #  email                  :string(254)      not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
+#  mobile                 :string
+#  password               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :integer
+#  sex                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  osbb_id                :bigint
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_osbb_id               (osbb_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (osbb_id => osbbs.id)
+#
+
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_osbb_id  (osbb_id)
+
+# Foreign Keys
+#
+#  fk_rails_...  (osbb_id => osbbs.id)
 #
