@@ -5,7 +5,7 @@ class AddLimitUser < ActiveRecord::Migration[6.0]
       t.change :last_name, :string, limit: 50, null: false
       t.change :email, :string, limit: 254, null: false
     end
-    end
+  end
 
   def down
     change_table :users do |t|

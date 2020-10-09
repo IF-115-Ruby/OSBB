@@ -17,6 +17,13 @@ RSpec.describe BillingContract, type: :model do
       it { is_expected.not_to allow_value(nil).for(:is_active) }
     end
   end
+
+  describe 'associations' do
+    context 'when have_many' do
+      it 'bill' do is_expected.to have_many(:bill) end
+      it 'payment' do is_expected.to have_many(:payment) end
+    end
+  end
 end
 
 # == Schema Information
