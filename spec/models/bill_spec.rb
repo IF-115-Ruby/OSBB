@@ -1,13 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Bill, type: :model do
-  describe "validations" do
+  let!(:bill) { FactoryBot.build(:bill) }
+
+  it 'has a valid factory' do
+    expect(bill).to be_valid
+  end
+
+  describe 'validations' do
     it { is_expected.to validate_presence_of(:amount) }
   end
 
   describe 'associations' do
     context 'when belong_to' do
-      it 'billing_contract' do is_expected.to belong_to(:billing_contract).optional end
+      it { is_expected.to belong_to(:billing_contract).optional }
     end
   end
 end

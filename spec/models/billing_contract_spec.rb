@@ -20,8 +20,8 @@ RSpec.describe BillingContract, type: :model do
 
   describe 'associations' do
     context 'when have_many' do
-      it 'bill' do is_expected.to have_many(:bill) end
-      it 'payment' do is_expected.to have_many(:payment) end
+      it { is_expected.to have_many(:bill) }
+      it { is_expected.to have_many(:payment) }
     end
   end
 end
