@@ -1,0 +1,31 @@
+ua:
+  simple_form:
+    "yes": 'Так'
+    "no": 'Ні'
+    required:
+      text: "Поле обов'язкове для заповнення"
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Будь ласка, перевірте нижчевказані помилки:"
+    # Examples
+    labels:
+      defaults:
+        password: 'Пароль'
+      user:
+        new:
+          email: 'E-пошту для входу.'
+        edit:
+          email: 'E-пошта.'
+    hints:
+      defaults:
+        username: "Ім'я користувача для входу."
+        password: 'Повинен містити спеціальні символи'
+    include_blanks:
+      defaults:
+        age: 'Краще не казати'
+    prompts:
+      defaults:
+        age: 'Виберіть свій вік'

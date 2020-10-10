@@ -1,0 +1,16 @@
+.col-md-4
+ .user-index-size
+  p
+    - if user.avatar?
+      = image_tag(user.avatar.url, alt: 'Image', class: 'user-avatar')
+    - else
+      = image_tag("default_a.png", alt: 'Image', class: 'user-avatar')
+  p
+    | User:
+      #{user.full_name}
+  p
+    | E-mail:
+      #{user.email}
+  div
+    = link_to 'Show', [:account, user], class: 'btn btn-outline-primary'
+  hr

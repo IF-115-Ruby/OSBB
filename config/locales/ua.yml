@@ -102,3 +102,50 @@ ua:
     confirm: 'підтвердити свої зміни'
     update: 'Змінити'
 
+  osbbs:
+    index: 
+      title: 'Усі ОСББ:'
+      btn-new: 'Нове ОСББ'
+    show:
+      title: 'ОСББ деталі:'
+      osbb-name: 'Назва ОСББ: '
+      osbb-phone: 'Номер телефону: '
+      osbb-email: 'Е-пошта: '
+      osbb-website: 'Сайт ОСББ: '
+      btn-edit: 'Редагувати профіль ОСББ'
+      btn-delete: 'Видалити ОСББ'
+      btn-back: 'Назад'
+    osbbs:
+      osbb-name: 'Назва ОСББ: '
+      osbb-phone: 'Номер телефону: '
+      osbb-email: 'Е-пошта: '
+      osbb-website: 'Сайт ОСББ: '
+      btn-show: 'Дивитись'
+
+  account:
+    admin:
+      osbbs:
+        new:
+          title: 'Створити ОСББ'
+          btn-create: 'Створити нове ОСББ'
+          btn-cancel: 'Відмінити'
+        form:
+          label-name: 'Назва'
+          plch-name: 'Назва ОСББ'
+          label-phone: 'Номер телефону'
+          plch-phone: '0*********'
+          plch-email: 'osbb@domain.com'
+          plch-website: 'Напр: www.your-website.com'
+        edit:
+          title: 'Оновити профіль ОСББ'
+          btn-edit: 'Редагувати ОСББ'
+          btn-cancel: 'Відмінити'
+  shared:
+    account:
+      header:
+        greetings: 'Привіт'
+        btn-osbbs: 'ОСББ'
+        btn-users: 'Користувачі'
+        btn-bil-contracts: 'Контракти рахунків'
+        btn-user-cabinet: 'Кабінет користувача'
+        btn_destoy_auth: 'Вийти'

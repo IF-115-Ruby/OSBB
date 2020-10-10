@@ -1,6 +1,8 @@
 .container-wrapper
   .new-button
-    = link_to 'New osbb', new_osbb_path, class: 'btn btn-primary'
-  h1 All OSBBs:
+    = link_to "#{t('.btn-new')}", new_account_admin_osbb_path, class: 'btn btn-primary'
+  h1 = t('.title')
   = render 'osbbs', object: @osbbs
-  
+  .pagination-container
+    = paginate @osbbs, theme: 'twitter-bootstrap-4',
+                       pagination_class: "pagination-md"

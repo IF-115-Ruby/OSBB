@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    = display_meta_tags site: "#{t('header.nav_name')}"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = favicon_link_tag 'favicon.png'
+    = stylesheet_pack_tag 'account', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body.account.d-flex.flex-column.min-vh-100
+    = render 'shared/account/header'
+    .container__box.flex-grow-1
+      .container-fluid
+        = render  'shared/flash_msg'
+
+        = yield
+
+    = render 'shared/account/footer'
