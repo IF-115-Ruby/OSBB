@@ -191,6 +191,69 @@ en:
           title: 'Update osbb profile'
           btn-edit: 'Edit osbb'
           btn-cancel: 'Cancel'
+      billing_contracts:
+        index:
+          title: 'All billing contracts'
+          btn-new: 'Create contract'
+        billing_contract:
+          contract_num: 'Contract number:'
+          status: 'Status:'
+          created: 'Created:'
+          active: 'Active'
+          inactive: 'Inactive'
+          btn-show: 'Show'
+        show:
+          contract: 'Contract:'
+          about_contract: 'About contract:'
+          status: 'Status:'
+          active: 'Active'
+          inactive: 'Inactive'
+          created: 'Created:'
+          about_company: 'About company'
+          name_of_company: 'Name:'
+          actions: 'Actions'
+          btn-edit: 'Edit contract'
+          btn-delete: 'Delete contract'
+          btn-back: 'Cancel'
+          are_you_sure: 'Are you sure?'
+        form:
+          label-company: 'Company'
+          label-contract-num: 'Number of contract'
+          label-active: 'Status'
+        edit:
+          edit-title: 'Edit contract'
+          btn-edit: 'Update'
+          btn-cancel: 'Cancel'
+        new:
+          new-title: 'Create contract'
+          btn-create: 'Create'
+          btn-cancel: 'Cancel'
+
+    utility_providers:
+      search_form:
+        name: 'Company'
+        name-of-company: 'Name of company:'
+        iban: 'IBAN'
+        edrpou: 'EDRPOU'
+        search: 'Search'
+      companies:
+        title: 'Add utility provider'
+        btn-choose: 'Choose'
+      index:
+        btn-add: 'Add utility provider'
+        title: 'My utility providers'
+        name-of-company: 'Name of company:'
+        contract-number: 'Conract:'
+        status: 'Status:'
+        created: 'Created:'
+        active: 'Active'
+        inactive: 'Inactive'
+        btn-remove: 'Remove'
+      new:
+        add-utilities-provider: 'Add utility provider'
+        contract-number: 'Number of contract'
+        btn-add: 'Add'
+
   shared:
     account:
       header:
@@ -232,6 +295,7 @@ en:
       btn_edit_company: 'Edit company'
       btn_delete_company: 'Delete company'
       btn_back: 'Back'
+      btn_billing_contracts: 'Contracts'
 
     form:
       name_label: 'Name'

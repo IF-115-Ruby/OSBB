@@ -11,6 +11,7 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to belong_to(:osbb).optional }
+    it { is_expected.to have_many(:billing_contracts) }
   end
 
   describe "#full_name" do

@@ -1,5 +1,5 @@
 module BillingContractsHelper
   def status_contract(value)
-    value ? 'Active' : 'Inactive'
+    value ? '.active' : '.inactive'
   end
 end
