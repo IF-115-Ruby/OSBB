@@ -39,5 +39,17 @@ body
                     i.fas.fa-key
                 .field
                   = f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "new-password"    
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-user
+                .field           
+                  = f.text_field :sex, placeholder: 'sex', autocomplete: "sex"    
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-user
+                .field           
+                  = f.text_field :mobile, placeholder: 'mobile phone', autocomplete: "mobile"    
               .actions
                 = f.submit "Sign Up"
