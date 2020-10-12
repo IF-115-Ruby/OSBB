@@ -14,20 +14,22 @@
 .row {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	flex-wrap: wrap;
 }
 .column {
 	float: left;
-  width: 20%;
 	margin-bottom: 16px;
 	padding: 0 8px;
-	max-width: 251px;
+	flex: 1 0 33%;
+	max-width: 350px;
+	min-width: 200px;
+	margin: 0 3% 3% 3%;
 }
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .card img {
-  width: 100%;
+	width: 100%;
 }
 .profile_container {
 	padding: 0 16px;
