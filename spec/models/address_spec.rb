@@ -14,25 +14,25 @@ RSpec.describe Address, type: :model do
   end
 
   describe 'validations' do
-    context 'when city' do
+    describe 'city' do
       it { is_expected.to allow_value(address.city).for(:city) }
 
       it { is_expected.not_to allow_value('').for(:city) }
     end
 
-    context 'when country' do
+    describe 'country' do
       it { is_expected.to allow_value(address.country).for(:country) }
 
       it { is_expected.not_to allow_value('').for(:country) }
     end
 
-    context 'when state' do
+    describe 'state' do
       it { is_expected.to allow_value(address.state).for(:state) }
 
       it { is_expected.not_to allow_value('').for(:state) }
     end
 
-    context 'when street' do
+    describe 'street' do
       it { is_expected.to allow_value(address.street).for(:street) }
 
       it { is_expected.not_to allow_value('').for(:street) }
@@ -40,7 +40,7 @@ RSpec.describe Address, type: :model do
   end
 
   describe 'associations' do
-    context 'when belong_to' do
+    context 'with belong_to' do
       it { is_expected.to belong_to(:addressable).optional }
     end
 

@@ -13,19 +13,19 @@ RSpec.describe Account, type: :model do
   end
 
   describe 'validations' do
-    context 'when edrpou' do
+    describe 'edrpou' do
       it { is_expected.to allow_value(account.edrpou).for(:edrpou) }
 
       it { is_expected.not_to allow_value("wrong").for(:edrpou) }
     end
 
-    context 'when iban' do
+    describe 'iban' do
       it { is_expected.to allow_value(account.iban).for(:iban) }
 
       it { is_expected.not_to allow_value("wrong").for(:iban) }
     end
 
-    context 'when purpose' do
+    describe 'purpose' do
       it 'not empty' do
         expect(account.purpose).not_to be_empty
       end
@@ -38,7 +38,7 @@ RSpec.describe Account, type: :model do
   end
 
   describe 'associations' do
-    context 'when belong_to' do
+    describe 'with belong_to' do
       it { is_expected.to belong_to(:company).optional }
     end
   end

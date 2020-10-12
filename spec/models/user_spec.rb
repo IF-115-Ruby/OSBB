@@ -70,6 +70,12 @@ RSpec.describe User, type: :model do
       it { is_expected.not_to allow_value('invali-email.com').for(:email) }
     end
   end
+
+  describe 'associations' do
+    context 'when have_one' do
+      it 'address' do is_expected.to have_one(:address) end
+    end
+  end
 end
 
 # == Schema Information
