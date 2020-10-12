@@ -1,10 +1,7 @@
 class Address < ApplicationRecord
-  VALID_FIELDS = /[a-zA-Z]/.freeze
-
   belongs_to :addressable, polymorphic: true, optional: true
 
-  validates :city, :country, :state, :street, presence: true, format: { with: VALID_FIELDS,
-                                                                        message: 'is invalid, must be String' }
+  validates :city, :country, :state, :street, presence: true
 end
 
 # == Schema Information
