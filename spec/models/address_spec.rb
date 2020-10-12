@@ -15,58 +15,38 @@ RSpec.describe Address, type: :model do
 
   describe 'validations' do
     context 'when city' do
-      it 'require a city' do
-        expect(address).to be_valid
-      end
+      it { is_expected.to allow_value(address.city).for(:city) }
 
-      it 'not according to the template' do
-        address.city = ''
-        expect(address).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('').for(:city) }
     end
 
     context 'when country' do
-      it 'be valid' do
-        expect(address).to be_valid
-      end
+      it { is_expected.to allow_value(address.country).for(:country) }
 
-      it 'not according to the template' do
-        address.country = ''
-        expect(address).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('').for(:country) }
     end
 
     context 'when state' do
-      it 'be valid' do
-        expect(address).to be_valid
-      end
+      it { is_expected.to allow_value(address.state).for(:state) }
 
-      it 'invalid state' do
-        address.state = ''
-        expect(address).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('').for(:state) }
     end
 
     context 'when street' do
-      it 'be valid' do
-        expect(address).to be_valid
-      end
+      it { is_expected.to allow_value(address.street).for(:street) }
 
-      it 'invalid street' do
-        address.street = ''
-        expect(address).not_to be_valid
-      end
+      it { is_expected.not_to allow_value('').for(:street) }
     end
   end
 
   describe 'associations' do
     context 'when belong_to' do
-      it 'company' do is_expected.to belong_to(:addressable).optional end
+      it { is_expected.to belong_to(:addressable).optional }
     end
 
     context 'with db column' do
-      it 'addressable_id' do is_expected.to have_db_column(:addressable_id).of_type(:integer) end
-      it 'addressable_type' do is_expected.to have_db_column(:addressable_type).of_type(:string) end
+      it { is_expected.to have_db_column(:addressable_id).of_type(:integer) }
+      it { is_expected.to have_db_column(:addressable_type).of_type(:string) }
     end
   end
 end

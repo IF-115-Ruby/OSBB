@@ -14,25 +14,15 @@ RSpec.describe Account, type: :model do
 
   describe 'validations' do
     context 'when edrpou' do
-      it 'require' do
-        expect(account).to be_valid
-      end
+      it { is_expected.to allow_value(account.edrpou).for(:edrpou) }
 
-      it 'not according to the template' do
-        account.edrpou = 'wrong'
-        expect(account).not_to be_valid
-      end
+      it { is_expected.not_to allow_value("wrong").for(:edrpou) }
     end
 
     context 'when iban' do
-      it 'be valid' do
-        expect(account).to be_valid
-      end
+      it { is_expected.to allow_value(account.iban).for(:iban) }
 
-      it 'not according to the template' do
-        account.iban = 'wrong'
-        expect(account).not_to be_valid
-      end
+      it { is_expected.not_to allow_value("wrong").for(:iban) }
     end
 
     context 'when purpose' do
@@ -49,7 +39,7 @@ RSpec.describe Account, type: :model do
 
   describe 'associations' do
     context 'when belong_to' do
-      it 'company' do is_expected.to belong_to(:company).optional end
+      it { is_expected.to belong_to(:company).optional }
     end
   end
 end
