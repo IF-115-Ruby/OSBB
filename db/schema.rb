@@ -74,21 +74,21 @@ ActiveRecord::Schema.define(version: 2020_10_09_102408) do
     t.string "email", limit: 254, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.string "mobile"
     t.date "birthday"
     t.string "avatar"
     t.string "sex"
     t.integer "role"
     t.bigint "osbb_id"
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["osbb_id"], name: "index_users_on_osbb_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "companies"
   add_foreign_key "users", "osbbs"
 end

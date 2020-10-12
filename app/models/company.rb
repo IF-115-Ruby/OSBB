@@ -33,7 +33,7 @@ class Company < ApplicationRecord
 
   before_save { email.downcase! }
 
-  has_one :account, dependent: :nullify
+  has_one :account, dependent: :destroy
   has_one :address, as: :addressable, dependent: :nullify
 
   validates :name, presence: true, length: { maximum: 50 }
