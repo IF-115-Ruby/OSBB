@@ -7,7 +7,7 @@ header.header.w-100.mb-2.pb-2
     #navbarNav.collapse.navbar-collapse
       ul.navbar-nav
         li.nav-item
-          a.nav-link.ml-3 = link_to about_path
+          a.nav-link.ml-3 href= "/#{I18n.locale}/about"
             button.btn.btn-transparent.auth-btn
               = t('header.link_about_us')
               span.sr-only (current)
