@@ -192,7 +192,7 @@ en:
     header: 'About us'
     paragraph1: '"This cite was developed by creative and self-motivated members of'
     paragraph2: 'academy."'
-    speciality: 'Ruby on rails developer'
+    speciality: 'Ruby on Rails developer'
     andrii_lebukhorskyi: 'Andrii Lebukhorskyi'
     ivan_matsiyk: 'Ivan Matsiyk'
     ihor_moskvyn: 'Ihor Moskvyn'
@@ -202,3 +202,4 @@ en:
     mykhailo_marusyk: 'Mykhailo Marusyk'
     vasyl_matsevko: 'Vasyl Matsevko'
     andrii_kozak: 'Andrii Kozak'
+    photo: 'photo'

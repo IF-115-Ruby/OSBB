@@ -1,0 +1,7 @@
+.column
+  .card
+    = image_tag  "/about_us_photos/#{name}.jpg", alt: "#{t("about.#{name}")} #{t('about.photo')}"
+    .profile_container
+      h2 #{t("about.#{name}")}
+      p.title #{t('about.speciality')}
+      = mail_to mail, mail

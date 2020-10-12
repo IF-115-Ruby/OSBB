@@ -1,7 +1,5 @@
 require 'rails_helper'
 RSpec.describe HomeController, type: :controller do
-  before { get :about }
-
   describe '#index' do
     subject { get :index }
 
@@ -9,6 +7,8 @@ RSpec.describe HomeController, type: :controller do
   end
 
   describe 'render view #about' do
+    before { get :about }
+
     it { is_expected.to render_template(:about) }
   end
 end

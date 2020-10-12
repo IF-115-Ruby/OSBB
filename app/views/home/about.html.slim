@@ -1,66 +1,12 @@
 h1.about-title #{t('about.header')}
 p.about-paragraph #{t('about.paragraph1')} 'Ruby on Rails' <span>SoftServe</span>#{t('about.paragraph2')}
 .row
-  .column
-    .card
-      img alt="Andrii Lebukhorskyi Photo" src="/about_us_photos/andrii_leb.jpg"
-      .profile_container
-        h2 #{t('about.andrii_lebukhorskyi')}
-        p.title #{t('about.speciality')}
-        p.mail andrey.lebuhorskyy@gmail.com
-  .column
-    .card
-      img alt="Ivan Matsiyk Photo" src="/about_us_photos/ivan_mats.jpg"
-      .profile_container
-        h2 #{t('about.ivan_matsiyk')}
-        p.title #{t('about.speciality')}
-        p ivan.matsiyk18092002@gmail.com
-  .column
-    .card
-      img alt="Ihor Moskvyn Photo" src="/about_us_photos/ihor_mos.jpg"
-      .profile_container
-        h2 #{t('about.ihor_moskvyn')}
-        p.title #{t('about.speciality')}
-        p ihor.moskvyn@gmail.com
-  .column
-    .card
-      img alt="Marian Rebeha Photo" src="/about_us_photos/marian_reb.jpg"
-      .profile_container
-        h2 #{t('about.marian_rebeha')}
-        p.title #{t('about.speciality')}
-        p marikrebega@gmail.com
-  .column
-    .card
-      img alt="Ivan Danyliv Photo" src="/about_us_photos/ivan_dan.jpg"
-      .profile_container
-        h2 #{t('about.ivan_danyliv')}
-        p.title #{t('about.speciality')}
-        p danyliv04@gmail.com
-  .column
-    .card
-      img alt="Mykola Ukhanskyi Photo" src="/about_us_photos/mykola_ukh.jpg"
-      .profile_container
-        h2 #{t('about.mykola_ukhanskyi')}
-        p.title #{t('about.speciality')}
-        p ukhanskyi@gmail.com
-  .column
-    .card
-      img alt="Mykhailo Marusyk Photo" src="/about_us_photos/misha_mar.jpg"
-      .profile_container
-        h2 #{t('about.mykhailo_marusyk')}
-        p.title #{t('about.speciality')}
-        p misha.marusyk@gmail.com
-  .column
-    .card
-      img alt="Vasyl Matsevko Photo" src="/about_us_photos/vasyl_mat.jpg"
-      .profile_container
-        h2 #{t('about.vasyl_matsevko')}
-        p.title #{t('about.speciality')}
-        p matsevko.vasil@gmail.com   
-  .column
-    .card
-      img alt="Andrii Kozak Photo" src="/about_us_photos/andrii_koz.jpg"
-      .profile_container
-        h2 #{t('about.andrii_kozak')}
-        p.title #{t('about.speciality')}
-        p kozak-mail@gmail.com   
+  = render partial: 'shared/about_profile', :locals => {name: 'andrii_lebukhorskyi', mail: 'andrey.lebuhorskyy@gmail.com'}
+  = render partial: 'shared/about_profile', :locals => {name: 'ivan_matsiyk', mail: 'ivan.matsiyk18092002@gmail.com'} 
+  = render partial: 'shared/about_profile', :locals => {name: 'ihor_moskvyn', mail: 'ihor.moskvyn@gmail.com'}
+  = render partial: 'shared/about_profile', :locals => {name: 'marian_rebeha', mail: 'marikrebega@gmail.com'}
+  = render partial: 'shared/about_profile', :locals => {name: 'ivan_danyliv', mail: 'danyliv04@gmail.com'}
+  = render partial: 'shared/about_profile', :locals => {name: 'mykola_ukhanskyi', mail: 'ukhanskyi@gmail.com'}
+  = render partial: 'shared/about_profile', :locals => {name: 'mykhailo_marusyk', mail: 'misha.marusyk@gmail.com'}
+  = render partial: 'shared/about_profile', :locals => {name: 'vasyl_matsevko', mail: 'matsevko.vasil@gmail.com'}
+  = render partial: 'shared/about_profile', :locals => {name: 'andrii_kozak', mail: 'kozak-mail@gmail.com'}
