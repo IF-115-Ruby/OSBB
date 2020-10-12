@@ -7,17 +7,17 @@
                            input_html: { class: 'form-control' }
 
   .form-group.user-form
-   = f.input :first_name, label: 'First Name',
+    = f.input :first_name, label: 'Last Name',
                           placeholder: 'First Name',
                           input_html: { class: 'form-control' }
 
   .form-group.user-birth
-   = f.input :birthday, label: "Date of Birth :", as: :date, start_year: Date.today.year,
+    = f.input :birthday, label: "Date of Birth :", as: :date, start_year: Date.today.year,
                                            end_year: Date.today.year - 120,
                                               order: [:day, :month, :year]
 
   .form-group.user-form
-   = f.input :mobile, label: 'Phone number',
+    = f.input :mobile, label: 'Phone number',
                           placeholder: 'Phone number',
                           input_html: { class: 'form-control' }
 
