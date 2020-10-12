@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_10_09_102408) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "company_id"
     t.index ["company_id"], name: "index_accounts_on_company_id"
+    t.index ["edrpou"], name: "index_accounts_on_edrpou", unique: true
+    t.index ["iban"], name: "index_accounts_on_iban", unique: true
   end
 
   create_table "addresses", force: :cascade do |t|

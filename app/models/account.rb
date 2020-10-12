@@ -25,6 +25,8 @@ end
 # Indexes
 #
 #  index_accounts_on_company_id  (company_id)
+#  index_accounts_on_edrpou      (edrpou) UNIQUE
+#  index_accounts_on_iban        (iban) UNIQUE
 #
 # Foreign Keys
 #
