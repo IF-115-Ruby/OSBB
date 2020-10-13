@@ -1,3 +1,6 @@
+.float-right
+  = button_to "Sign out", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
   .container
@@ -8,6 +11,7 @@
             = title 'Change Password Page',  'Change Password'
         .card-body
           form
+           
             .field
               = f.label :email
               br
@@ -22,14 +26,12 @@
                   = resource.unconfirmed_email
               .field
                 = f.label :password
-                i
-                  | (leave blank if you don't want to change it)
                 br
                 .input-group.form-group
                   .input-group-prepend
                     span.input-group-text
                       i.fas.fa-key                                                        
-                  = f.password_field :password, autocomplete: "new-password"
+                  = f.password_field :password,  autocomplete: "new-password"
               .field
                 = f.label :password_confirmation
                 br
@@ -37,18 +39,15 @@
                   .input-group-prepend
                     span.input-group-text
                       i.fas.fa-key                                                        
-                  = f.password_field :password_confirmation, autocomplete: "new-password"
+                  = f.password_field :password_confirmation, placeholder: 'blank if dont want change it',autocomplete: "new-password"
               .field
                 = f.label :current_password
-                i
-                  | (we need your current password to confirm your changes)
                 br
                 .input-group.form-group
                   .input-group-prepend
                     span.input-group-text
                       i.fas.fa-key                                                        
-                  = f.password_field :current_password, autocomplete: "current-password"
+                  = f.password_field :current_password, placeholder: 'confirm your changes', autocomplete: "current-password"
               .actions
-                = f.submit "Update"
-= button_to "Sign out", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+                .d-flex.justify-content-center.h-100
+                  = f.submit "Update"
