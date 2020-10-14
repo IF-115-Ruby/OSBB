@@ -4,6 +4,5 @@ RSpec.describe HomeController, type: :controller do
     subject { get :index }
 
     it { is_expected.to be_successful }
-
   end
 end
