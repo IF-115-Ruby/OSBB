@@ -1,8 +1,8 @@
 header.header.w-100.mb-2.pb-2
   nav.navbar.navbar-expand-lg.navbar-dark.navbar-header
-    = link_to home_path, class: 'nav-name navbar-brand text-black' 
+    = link_to home_path, class: "nav-name navbar-brand text-black"
       = t('header.nav_name')
-    button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
+    button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
       span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
       ul.navbar-nav
@@ -22,7 +22,7 @@ header.header.w-100.mb-2.pb-2
             = link_to url_for(locale: :ua), class: 'dropdown-item btn-transparent auth-btn'
               = t('header.btn_ukr')
       li
-        = link_to new_user_session_path 
+        = link_to new_user_session_path
           span
             button.btn.btn-transparent.auth-btn.ml-2 #{t('header.btn_auth')}
       li
