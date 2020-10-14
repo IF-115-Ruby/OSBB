@@ -2,6 +2,7 @@
 @import '@fortawesome/fontawesome-free';
 @import 'osbbs';
 @import 'billing_contracts';
+@import 'users';
 
 body{
   background-color: #e1ebee;
@@ -55,7 +56,7 @@ body{
 .footer{
   background: #556588;
   color:whitesmoke;
-  
+
   .links{
     ul {list-style-type: none;}
     li a{
@@ -66,7 +67,7 @@ body{
         color:#518fda;
         }
     }
-  } 
+  }
 
   .about-company{
     i{font-size: 25px;}
@@ -75,7 +76,7 @@ body{
       transition: color .2s;
       &:hover{color:#4180CB}
     }
-  } 
+  }
 
   .location{
     i{font-size: 18px;}
@@ -84,7 +85,7 @@ body{
   .copyright p{
     border-top:1.5px solid rgba(255, 255, 255, 0.418);
     font-size: 20px;
-  } 
+  }
 }
 
 p{
@@ -95,4 +96,9 @@ p{
 .imd-build{
   width: 55%;
   height: 200px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
 }

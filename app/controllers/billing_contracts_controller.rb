@@ -1,4 +1,5 @@
 class BillingContractsController < ApplicationController
+  include ControllerHelper
   before_action :set_billing_contract, only: %i[show update edit destroy]
 
   def index
@@ -27,7 +28,7 @@ class BillingContractsController < ApplicationController
 
   def update
     if @billing_contract.update(billing_contract_params)
-      flash[:success] = "Billing contract '#{@billing_contract.contract_num}' updated."
+      successful_update("Billing contract '#{@billing_contract.contract_num}' updated.")
       redirect_to @billing_contract
     else
       flash.now[:warning] = 'Invalid billing contract parameters!'

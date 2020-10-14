@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_102408) do
+ActiveRecord::Schema.define(version: 2020_10_13_163612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_102408) do
     t.string "mobile"
     t.date "birthday"
     t.string "avatar"
-    t.string "sex"
+    t.integer "sex"
     t.integer "role"
     t.bigint "osbb_id"
     t.index ["email"], name: "index_users_on_email", unique: true
