@@ -16,6 +16,7 @@ class User < ApplicationRecord
   ].freeze
 
   belongs_to :osbb, optional: true
+  has_one :address, as: :addressable, dependent: :destroy
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
@@ -45,7 +46,6 @@ end
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
 #  mobile                 :string
-#  password               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string

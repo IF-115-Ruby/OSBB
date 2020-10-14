@@ -24,7 +24,6 @@ end
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
 #  mobile                 :string
-#  password               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string

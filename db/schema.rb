@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_171954) do
+ActiveRecord::Schema.define(version: 2020_10_09_102408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "edrpou"
+    t.string "iban"
+    t.text "purpose"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_accounts_on_company_id"
+    t.index ["edrpou"], name: "index_accounts_on_edrpou", unique: true
+    t.index ["iban"], name: "index_accounts_on_iban", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "street"
+    t.string "addressable_type"
+    t.bigint "addressable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
+  end
 
   create_table "billing_contracts", force: :cascade do |t|
     t.string "contract_num", limit: 50, null: false
@@ -52,21 +76,21 @@ ActiveRecord::Schema.define(version: 2020_10_06_171954) do
     t.string "email", limit: 254, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.string "mobile"
     t.date "birthday"
     t.string "avatar"
     t.string "sex"
     t.integer "role"
     t.bigint "osbb_id"
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["osbb_id"], name: "index_users_on_osbb_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "companies"
   add_foreign_key "users", "osbbs"
 end
