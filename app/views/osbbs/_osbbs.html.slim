@@ -2,17 +2,20 @@
   - @osbbs.each do |osbb| 
       .col-md-4
         p 
-          | OSBB's name: 
+          = t('.osbb-name')
           b = osbb.name
         p 
-          | Phone number: 
-          = osbb.phone
+          = t('.osbb-phone')
+          i = osbb.phone
         p 
-          | E-mail: 
-          = osbb.email
+          = t('.osbb-email')
+          i = osbb.email
         p 
-          | OSBB's website: 
-          = osbb.website
-        p 
-          = link_to 'Show', osbb, class: 'btn btn-outline-primary'
+          = t('.osbb-website')
+          i = osbb.website
+        
+        div
+          = link_to "#{t('.btn-show')}",
+                                   osbb,
+                                   class: 'btn btn-outline-primary'
         hr

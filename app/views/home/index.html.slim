@@ -1,8 +1,7 @@
 .container.w-100
-  row
-    .row
-      .col-9
-        h2.justify-content-center.mt-4 #{t('home.title')}
-        p.mt-4 #{t('home.osbb_app_goal')}
-      .col-3.mt-3.mb-2
-        .building-img = image_tag 'building.jpg', class: 'rounded imd-build ml-5', alt: "#{t('home.alt_text')}"
+  .row
+    .col-9
+      h2.justify-content-center.mt-4 #{t('home.title')}
+      p.mt-4 #{t('home.osbb_app_goal')}
+    .col-3.mt-3.mb-2
+      .building-img = image_tag 'building.jpg', class: 'rounded imd-build ml-5', alt: "#{t('home.alt_text')}"

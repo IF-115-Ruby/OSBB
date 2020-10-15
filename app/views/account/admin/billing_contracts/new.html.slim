@@ -1,0 +1,9 @@
+- provide(:create_btn_text, 'Add new contract')
+- provide(:cancel_btn_text, 'Cancel')
+- provide(:path, account_admin_billing_contracts_path)
+
+.billing-contract
+  h1.title
+    | Add billing contract
+  .container
+    = render 'form', object: @biling_contract

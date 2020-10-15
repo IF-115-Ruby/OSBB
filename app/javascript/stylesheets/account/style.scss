@@ -1,0 +1,42 @@
+@import 'colors.scss';
+body.account {
+  .greetings {
+    color: white;
+  }
+  .header {
+    background-image: none;
+    background-color: $light-steel-blue;
+    height: 62px;
+    .navbar.navbar-expand-lg.navbar-dark.navbar-header {
+      .navbar-collapse.collapse {
+        justify-content: space-between;
+      }
+    }
+  }
+  .container__box {
+    background-image: url("../../../public/golovna.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .container__box > .container-fluid {
+    background: $gainsboro;
+    box-shadow: 0 16px 13px $gainsboro;
+    background-size: cover;
+    min-height: 630px;
+  }
+  .container-fluid {
+    .billing-contract {
+      h1 {
+        margin-top: 0;
+        padding-top: 30px;
+      }
+    }
+    .cabinet__container {
+      nav.col-md-2.d-none.d-md-block.sidebar {
+        background-color: $solitude;
+        border-radius: 10px;
+      }
+    }
+  }
+}

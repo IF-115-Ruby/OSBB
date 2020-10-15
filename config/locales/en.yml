@@ -7,6 +7,7 @@ en:
     btn_eng: 'English'
     btn_ukr: 'Ukrainian'
     btn_auth: 'Login'
+    btn_destoy_auth: 'Logout'
     btn_registr: 'Sign Up'
 
   footer:
@@ -87,7 +88,7 @@ en:
       home_link_text: 'OSBB Application'
       welcome_wishes: 'Thanks for joining and have a great day!'
 
-      change_pass:
+  change_pass:
     sign_out: 'Sign out'
     sure?: 'Are you sure?'
     change_pass_page: 'Change Password Page'
@@ -101,3 +102,51 @@ en:
     blank_if: 'blank if dont want change it'
     confirm: 'confirm your changes'
     update: 'Update'
+  
+  osbbs:
+    index: 
+      title: 'All OSBBs: '
+      btn-new: 'New osbb'
+    show:
+      title: 'OSBB info: '
+      osbb-name: 'OSBB Name: '
+      osbb-phone: 'Phone number: '
+      osbb-email: 'Email: '
+      osbb-website: 'OSBB Website: '
+      btn-edit: 'Edit osbb profile'
+      btn-delete: 'Delete osbb'
+      btn-back: 'Back to Osbbs'
+    osbbs:
+      osbb-name: "OSBB's name: "
+      osbb-phone: 'Phone number: '
+      osbb-email: 'E-mail: ' 
+      osbb-website: "OSBB's Website: "
+      btn-show: 'Show'
+
+  account:
+    admin:
+      osbbs:
+        new:
+          title: 'Create OSBB'
+          btn-create: 'Create new osbb'
+          btn-cancel: 'Cancel'
+        form:
+          label-name: 'Name'
+          plch-name: 'Name of the OSBB'
+          label-phone: 'Phone number'
+          plch-phone: '0*********'
+          plch-email: 'osbb@domain.com'
+          plch-website: 'Ex: www.your-website.com'
+        edit:
+          title: 'Update osbb profile'
+          btn-edit: 'Edit osbb'
+          btn-cancel: 'Cancel'
+  shared:
+    account:
+      header:
+        greetings: 'Hello'
+        btn-osbbs: 'OSBBs'
+        btn-users: 'All Users'
+        btn-bil-contracts: 'Billing Contracts'
+        btn-user-cabinet: 'User Cabinet'
+        btn_destoy_auth: 'Logout'

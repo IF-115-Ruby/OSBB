@@ -1,0 +1,47 @@
+header.header.w-100
+  nav.navbar.navbar-expand-lg.navbar-dark.navbar-header
+    = link_to home_path, class: 'nav-name navbar-brand text-black'
+      = t('header.nav_name')
+    button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
+      span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          span.greetings
+            | #{t('.greetings')} #{current_user.full_name}!
+      ul.nav.navbar-nav.navbar-right
+        li
+          .dropdown
+            button#dropdownMenuButton.btn.btn-transparent.auth-btn.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown'
+              = t('header.select_lang')
+            .dropdown-menu.dropdown-lang
+              = link_to url_for(locale: :en),
+                                 class: 'dropdown-item btn-transparent auth-btn'
+                = t('header.btn_eng')
+              = link_to url_for(locale: :ua),
+                                 class: 'dropdown-item btn-transparent auth-btn'
+                = t('header.btn_ukr')
+        li
+          = link_to osbbs_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 
+                | #{t('.btn-osbbs')}
+        li
+          = link_to account_admin_users_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 
+                | #{t('.btn-users')}
+        li
+          = link_to account_admin_billing_contracts_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 
+                | #{t('.btn-bil-contracts')}
+        li
+          = link_to account_admin_user_cabinets_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2
+                | #{t('.btn-user-cabinet')}
+        li
+          = link_to  destroy_user_session_path, method: :delete
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 #{t('.btn_destoy_auth')}
