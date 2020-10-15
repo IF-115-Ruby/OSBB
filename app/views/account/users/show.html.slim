@@ -1,0 +1,38 @@
+.container
+  h1.title
+    | User info:
+  .show-box
+    .user-avatar-show
+      - if @user.avatar?
+        = image_tag(@user.avatar.url, alt: 'Image', class: 'user-avatar show-user')
+      - else
+        = image_tag("default_a.png", alt: 'Image', class: 'user-avatar show-user')
+    .user-info
+      .user-item
+        span.nameing-user User:
+        span.insert-user = @user.full_name
+      .user-item
+        span.nameing-user Date of Birth:
+        span.insert-user = @user.birthday
+      .user-item
+        span.nameing-user Email:
+        span.insert-user = @user.email
+      .user-item
+        span.nameing-user Phone:
+        span.insert-user = @user.mobile
+      .user-item
+        span.nameing-user Sex:
+        span.insert-user = @user.sex
+      nav
+        ul.nav.navbar-user
+         li.nav-item-user = link_to 'Edit User',
+                                     edit_account_user_path,
+                                     class: "btn btn-outline-warning"
+         li.nav-item-user = link_to 'Delete User',
+                                     [:account, :admin, @user],
+                                     method: :delete,
+                                     data: { confirm: 'Are you sure?' },
+                                     class: "btn btn-outline-danger"
+         li.nav-item-user = link_to 'Back to Users',
+                                     account_admin_users_path,
+                                     class: "btn btn-outline-info"

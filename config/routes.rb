@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/, defaults: { locale: I18n.default_locale } do
+    devise_for :users
+
     root 'home#index', as: 'home'
 
     get "/404", to: "errors#not_found"
     get "/422", to: "errors#unacceptable"
     get "/500", to: "errors#server_error"
-
-    resources :osbbs
-    resources :billing_contracts
+    resources :osbbs, only: %i[index show]
+    namespace :account do
+      resources :users, except: %i[index destroy]
+      namespace :admin do
+        resources :osbbs, except: %i[index show]
+        resources :user_cabinets, only: :index
+        resources :billing_contracts
+        resources :users, only: %i[index destroy]
+      end
+    end
   end
 end

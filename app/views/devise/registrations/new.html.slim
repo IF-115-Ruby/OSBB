@@ -1,5 +1,7 @@
 body
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name,
+                      url: registration_path(resource_name)) do |f|
+
     = render "devise/shared/error_messages", resource: resource
     .container
       .d-flex.justify-content-center.h-100
@@ -14,30 +16,66 @@ body
                   span.input-group-text
                     i.fas.fa-user
                 .field           
-                  = f.text_field :first_name, autofocus: true, placeholder: 'first name', autocomplete: "first_name"
+                  = f.text_field :first_name,
+                             autofocus: true,
+                             placeholder: 'first name',
+                             autocomplete: 'first_name'
+
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-user
                 .field           
-                  = f.text_field :last_name, autofocus: true, placeholder: 'last name', autocomplete: "last_name"    
+                  = f.text_field :last_name,
+                            autofocus: true,
+                            placeholder: 'last name',
+                            autocomplete: 'last_name'
+
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-envelope
                 .field           
-                  = f.email_field :email, autofocus: true, placeholder: 'email', autocomplete: "email"
+                  = f.email_field :email,
+                         autofocus: true,
+                         placeholder: 'email',
+                         autocomplete: 'email'
+
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-user-circle
+                .field           
+                  = f.text_field :sex,
+                                  placeholder: 'sex',
+                                  autocomplete: 'sex'
+ 
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-phone
+                .field           
+                  = f.text_field :mobile,
+                                  placeholder: 'mobile phone',
+                                  autocomplete: 'mobile'
+
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-key
                 .field                                                         
-                  = f.password_field :password, placeholder: 'password', autocomplete: "new-password"
+                  = f.password_field :password,
+                                     placeholder: 'password',
+                                     autocomplete: 'new-password'
+
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-key
-                .field                                                         
-                  = f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "new-password"    
+                .field
+                  = f.password_field :password_confirmation,
+                               placeholder: 'password confirmation',
+                               autocomplete: 'new-password'
+    
               .actions
-                = f.submit "Sign Up"
+                = f.submit 'Sign Up'

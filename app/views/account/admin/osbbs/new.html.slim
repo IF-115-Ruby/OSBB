@@ -1,0 +1,8 @@
+= provide(:button_text, "#{t('.btn-create')}")
+= provide(:cancel_btn_text, "#{t('.btn-cancel')}")
+= provide(:path, osbbs_path)
+
+.form-box
+  h1.title = t('.title')
+  .container
+    = render 'form', object: [:admin, @osbb]

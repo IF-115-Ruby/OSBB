@@ -7,7 +7,9 @@ en:
     btn_eng: 'English'
     btn_ukr: 'Ukrainian'
     btn_auth: 'Login'
+    btn_destoy_auth: 'Logout'
     btn_registr: 'Sign Up'
+
   footer:
     title: 'OSBB Application'
     description: 'OSBB is a legal entity created by the owners of apartments
@@ -19,7 +21,7 @@ en:
     mob_number: '+380-342-723-580'
     email: 'career@softserveinc.com'
     copyright: '© 2020 Copyright: IF-115Ruby'
-    
+
   home:
     title: 'Association of co-owners of an apartment building'
     osbb_app_goal: 'Our site saves you time and reduces the number of routine tasks. Personal
@@ -31,7 +33,7 @@ en:
     alt_text: 'not loaded'
 
   not_found:
-    oops_title1: 'Oops! Page not found'
+    oops_title: 'Oops! Page not found'
     nubm_four: '4'
     nubm_zero: '0'
     all_text: 'We are sorry, but the page you requested was not found'
@@ -43,7 +45,7 @@ en:
     all_text: 'We are sorry, but something went wrong'
 
   unacceptable:
-    oops_title: 'Oops! Server Error'
+    oops_title: 'Oops! Something wrong'
     nubm_four: '4'
     nubm_two: '2'
     all_text: 'The change you wanted was rejected'
@@ -51,3 +53,100 @@ en:
   time:
     formats:
       long: "%d/%m/%Y %H:%M"
+
+  devise:
+    password:
+      new:
+        new_title: 'Forgot your password?'
+        email_label: 'Your Email: '
+        email_placeholder: 'Enter email'
+        submit_forgot_password: 'Send me reset password instructions'
+      edit:
+        edit_title: 'Change your password'
+        password_label: 'New password'
+        confirm_password_label: 'Confirm your new password'
+        submit_change_password: 'Change password'
+
+    mailer:
+      reset_password:
+        hello_title: 'Hello, '
+        main_message: 'Someone has requested a link to change your password. You can do this through the link below.'
+        text_link: 'Change my password'
+        possible_variant: "If you didn't request this, please ignore this email."
+        additional_info: "Your password won't change until you access the link above and create a new one."
+
+    shared:
+      log_in_link: 'Login'
+      sign_up_link: 'Sign up'
+      forgot_password_link: 'Forgot password?'
+
+  user_mailer:
+    welcome_email:
+      welcome_title: 'Welcome to OSBB Application '
+      welcome_message: 'You have successfully signed up to OSBB Application, your username is: '
+      before_link_text: 'To visit WEB site, just follow this link: '
+      home_link_text: 'OSBB Application'
+      welcome_wishes: 'Thanks for joining and have a great day!'
+
+  change_pass:
+    sign_out: 'Sign out'
+    sure?: 'Are you sure?'
+    change_pass_page: 'Change Password Page'
+    change_pass: 'Change Password'
+    email: 'email'
+    pass: 'password'
+    pass_confirm: 'password_confirmation'
+    curr_pass: 'current-password'
+    waiting_cofirm: 'Currently waiting confirmation for'
+    new_pass: 'new-password'
+    blank_if: 'blank if dont want change it'
+    confirm: 'confirm your changes'
+    update: 'Update'
+  
+  osbbs:
+    index: 
+      title: 'All OSBBs: '
+      btn-new: 'New osbb'
+    show:
+      title: 'OSBB info: '
+      osbb-name: 'OSBB Name: '
+      osbb-phone: 'Phone number: '
+      osbb-email: 'Email: '
+      osbb-website: 'OSBB Website: '
+      btn-edit: 'Edit osbb profile'
+      btn-delete: 'Delete osbb'
+      btn-back: 'Back to Osbbs'
+    osbbs:
+      osbb-name: "OSBB's name: "
+      osbb-phone: 'Phone number: '
+      osbb-email: 'E-mail: ' 
+      osbb-website: "OSBB's Website: "
+      btn-show: 'Show'
+
+  account:
+    admin:
+      osbbs:
+        new:
+          title: 'Create OSBB'
+          btn-create: 'Create new osbb'
+          btn-cancel: 'Cancel'
+        form:
+          label-name: 'Name'
+          plch-name: 'Name of the OSBB'
+          label-phone: 'Phone number'
+          plch-phone: '0*********'
+          plch-email: 'osbb@domain.com'
+          plch-website: 'Ex: www.your-website.com'
+        edit:
+          title: 'Update osbb profile'
+          btn-edit: 'Edit osbb'
+          btn-cancel: 'Cancel'
+  shared:
+    account:
+      header:
+        greetings: 'Hello'
+        btn-osbbs: 'OSBBs'
+        btn-users: 'All Users'
+        btn-bil-contracts: 'Billing Contracts'
+        btn-user-cabinet: 'User Cabinet'
+        btn_destoy_auth: 'Logout'

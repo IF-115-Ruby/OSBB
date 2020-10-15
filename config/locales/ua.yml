@@ -8,6 +8,7 @@ ua:
     btn_ukr: 'Українська'
     btn_auth: 'Увійти'
     btn_registr: 'Зареєструватись'
+
   footer:
     title: 'ОСББ Застосунок'
     description: 'ОСББ — юридична особа, створена власниками квартир та/або нежитлових
@@ -42,7 +43,7 @@ ua:
     all_text: 'Перепрошуємо, але щось пішло не так'
 
   unacceptable:
-    oops_title: 'Уупс! Помилка сервера'
+    oops_title: 'Уупс! Щось пішло не так'
     nubm_four: '4'
     nubm_two: '2'
     all_text: 'Зміни, які ви бажаєте, було відхилено'
@@ -51,3 +52,100 @@ ua:
     formats:
       long: "%d.%m.%Y %H:%M"
 
+  devise:
+    password:
+      new:
+        new_title: 'Забули Ваш пароль?'
+        email_label: 'Електронна адреса: '
+        email_placeholder: 'Введіть електронну адресу'
+        submit_forgot_password: 'Надіслати інструкцію відновлення пароля'
+
+      edit:
+        edit_title: 'Зінити Ваш пароль'
+        password_label: 'Новий пароль'
+        confirm_password_label: 'Підтвердіть новий пароль'
+        submit_change_password: 'Змінити пароль'
+
+    mailer:
+      reset_password:
+        hello_title: 'Привіт, '
+        main_message: 'Хтось подав запит на зміну Вашого паролю, Ви можете підтвердити цю зміну через посилання нижче.'
+        text_link: 'Змінити пароль'
+        possible_variant: 'Якщо Ви не робили запит на зміну паролю - проігноруйте це повідомлення.'
+        additional_info: 'Ваш пароль не мінятиметься, доки Ви не перейдете за посиланням вище і не створите новий.'
+
+    shared:
+      log_in_link: 'Увійти'
+      sign_up_link: 'Зареєструватися'
+      forgot_password_link: 'Забули пароль?'
+
+  user_mailer:
+    welcome_email:
+      welcome_title: 'Ласкаво просимо до ОСББ Застосунку '
+      welcome_message: 'Ви успішно зареєструвались на сайті ОСББ, Ваш логін: '
+      before_link_text: 'Для переходу на Застосунок, просто відвідайте це посилання: '
+      home_link_text: 'ОСББ Застосунок'
+      welcome_wishes: 'Дякуємо, що приєдналися. Гарного Вам дня!'
+
+  change_pass:
+    sign_out: 'Вихід'
+    sure?: 'Ви впевнені??'
+    change_pass_page: 'Сторінка зміни паролю'
+    change_pass: 'Змінити пароль'
+    email: 'Електронна пошта'
+    pass: 'Пароль'
+    pass_confirm: 'Підтвердження паролю'
+    curr_pass: 'Теперішній пароль'
+    waiting_cofirm: 'В даний час чекає підтвердження'
+    new_pass: 'новий пароль'
+    blank_if: 'пустий, якщо не змінюєш'
+    confirm: 'підтвердити свої зміни'
+    update: 'Змінити'
+
+  osbbs:
+    index: 
+      title: 'Усі ОСББ:'
+      btn-new: 'Нове ОСББ'
+    show:
+      title: 'ОСББ деталі:'
+      osbb-name: 'Назва ОСББ: '
+      osbb-phone: 'Номер телефону: '
+      osbb-email: 'Е-пошта: '
+      osbb-website: 'Сайт ОСББ: '
+      btn-edit: 'Редагувати профіль ОСББ'
+      btn-delete: 'Видалити ОСББ'
+      btn-back: 'Назад'
+    osbbs:
+      osbb-name: 'Назва ОСББ: '
+      osbb-phone: 'Номер телефону: '
+      osbb-email: 'Е-пошта: '
+      osbb-website: 'Сайт ОСББ: '
+      btn-show: 'Дивитись'
+
+  account:
+    admin:
+      osbbs:
+        new:
+          title: 'Створити ОСББ'
+          btn-create: 'Створити нове ОСББ'
+          btn-cancel: 'Відмінити'
+        form:
+          label-name: 'Назва'
+          plch-name: 'Назва ОСББ'
+          label-phone: 'Номер телефону'
+          plch-phone: '0*********'
+          plch-email: 'osbb@domain.com'
+          plch-website: 'Напр: www.your-website.com'
+        edit:
+          title: 'Оновити профіль ОСББ'
+          btn-edit: 'Редагувати ОСББ'
+          btn-cancel: 'Відмінити'
+  shared:
+    account:
+      header:
+        greetings: 'Привіт'
+        btn-osbbs: 'ОСББ'
+        btn-users: 'Користувачі'
+        btn-bil-contracts: 'Контракти рахунків'
+        btn-user-cabinet: 'Кабінет користувача'
+        btn_destoy_auth: 'Вийти'

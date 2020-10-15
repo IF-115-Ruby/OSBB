@@ -4,13 +4,13 @@ html
     = display_meta_tags site: "#{t('header.nav_name')}"
     = csrf_meta_tags
     = csp_meta_tag
+    = favicon_link_tag 'favicon.png'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body.d-flex.flex-column.min-vh-100
     = render 'shared/header'
     = render  'shared/flash_msg'
-    
     .container-fluid.flex-grow-1
       = yield
 
