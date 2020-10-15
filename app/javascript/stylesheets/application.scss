@@ -26,9 +26,14 @@ body{
   color: whitesmoke
 }
 
-.auth-btn:hover {
+.auth-btn:hover, .btn-submit:hover, .nav-links:hover {
   color: whitesmoke;
   background-color: #556588;
+}
+
+.btn-submit {
+  color: whitesmoke;
+  background-color: #798db6;
 }
 
 .navbar-header{
@@ -37,11 +42,6 @@ body{
 
 .nav-links {
   color: white;
-}
-
-.nav-links:hover{
-  color: whitesmoke;
-  background-color: #556588;
 }
 
 #dropdownMenuButton{
@@ -101,4 +101,15 @@ p{
 .pagination-container {
   display: flex;
   justify-content: center;
+}
+
+.content-abc{
+  background-color: #cfdfe4;
+  border-radius: 20px;
+}
+
+.input-properties{
+  background-color: #eff6f8;
+  border-radius: 2px;
+  border: 0.5px solid #798db6;
 }

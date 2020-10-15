@@ -21,7 +21,7 @@ body
                   span.input-group-text
                     i.fas.fa-key
                 .field
-                  = f.password_field :encrypted_password, placeholder: 'password', autocomplete: "current-password"
+                  = f.password_field :password, placeholder: 'password', autocomplete: "current-password"
               - if devise_mapping.rememberable?
                 .field
                   = f.check_box :remember_me
@@ -32,4 +32,3 @@ body
             .d-flex.justify-content-center.links
               | Don't have an account?
             = render "devise/shared/links"
-       

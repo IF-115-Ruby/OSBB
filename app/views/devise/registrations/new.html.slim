@@ -13,31 +13,31 @@ body
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-user
-                .field           
+                .field
                   = f.text_field :first_name, autofocus: true, placeholder: 'first name', autocomplete: "first_name"
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-user
-                .field           
+                .field
                   = f.text_field :last_name, autofocus: true, placeholder: 'last name', autocomplete: "last_name"    
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-envelope
-                .field           
+                .field
                   = f.email_field :email, autofocus: true, placeholder: 'email', autocomplete: "email"
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-key
-                .field                                                         
+                .field
                   = f.password_field :password, placeholder: 'password', autocomplete: "new-password"
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
                     i.fas.fa-key
-                .field                                                         
+                .field
                   = f.password_field :password_confirmation, placeholder: 'password confirmation', autocomplete: "new-password"    
               .actions
                 = f.submit "Sign Up"
