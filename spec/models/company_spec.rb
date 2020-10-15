@@ -8,6 +8,13 @@ RSpec.describe Company, type: :model do
     it { is_expected.to validate_length_of(:name).is_at_most(50) }
     it { is_expected.to validate_length_of(:email).is_at_most(50) }
   end
+
+  describe 'associations' do
+    context 'when have_one' do
+      it 'account' do is_expected.to have_one(:account) end
+      it 'address' do is_expected.to have_one(:address) end
+    end
+  end
 end
 
 # == Schema Information

@@ -1,0 +1,94 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// Place all the styles related to the Osbbs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.date.optional.user_birthday.field_without_errors,
+.form-group.user-birth,
+.form-group.user-form input,
+.form-group.user-form select {
+  width: 500px;
+  margin: auto;
+}
+
+.date.optional select {
+  margin-right: 10px;
+}
+
+.date.optional label {
+  margin-right: 30px;
+}
+
+.use-avatar {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.form-group.user-form label {
+  margin-bottom: 0;
+  margin-top: 20px;
+  margin-left: 310px;
+}
+
+.form-group.down-btn {
+  margin-left: 310px;
+}
+
+a.btn.btn-outline-danger {
+  margin-left: 10px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 450px;
+}
+
+.user-item {
+  margin: 5px 0 5px 10px;
+}
+
+.nameing-user {
+  width: 150px;
+  font-size: 20px;
+  display: inline-flex;
+}
+
+span.insert-user {
+  font-size: 17px;
+}
+
+.nav-item-user a {
+  margin-left: 10px;
+}
+
+.user-avatar  {
+  width: auto;
+  height: 100px;
+}
+.user-avatar-show {
+  margin: 30px 275px 0px 0px;
+}
+
+.user-avatar-show .show-user{
+  width: auto;
+  height: 150px;
+}
+
+.show-box{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 50px;
+}
+
+.user-index {
+  margin-left: 140px;
+  margin-right: 60px;
+}
+.user-index-size {
+  width: 400px;
+  margin: auto;
+}

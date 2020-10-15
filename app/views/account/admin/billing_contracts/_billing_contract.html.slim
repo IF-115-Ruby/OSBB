@@ -1,0 +1,15 @@
+.col-md-4
+  p
+    | Contract number:
+    b 
+      =< billing_contract.contract_num
+  p
+    | Status:
+    =< status_contract(billing_contract.is_active)
+  p
+    | Created:
+    =< l(billing_contract.created_at, format: :long)
+  p
+    = link_to 'Show', [:account, :admin, billing_contract],
+                      class: 'btn btn-outline-primary'
+  hr

@@ -2,6 +2,11 @@ class Osbb < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE = /\A\d{10}\z/.freeze
 
+  has_many :members, class_name: "User", dependent: :nullify
+  has_one :lead, -> { find_by({ role: User::LEAD }) },
+          class_name: "User", inverse_of: :osbb
+  has_one :address, as: :addressable, dependent: :destroy
+
   validates :name, presence: { message: 'can not be blank' },
                    length: { minimum: 3, maximum: 255 }
   validates :phone,  format: { with: VALID_PHONE,

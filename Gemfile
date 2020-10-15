@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'carrierwave', '~> 2.0'
 gem 'dotenv-rails', groups: %i[development test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
@@ -38,6 +39,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'factory_bot_rails'
 gem 'faker'
 # Gem 'rails-i18n' use for internationalization
+gem 'bootstrap4-kaminari-views'
+gem 'kaminari'
 gem 'rails-i18n'
 
 group :development, :test do

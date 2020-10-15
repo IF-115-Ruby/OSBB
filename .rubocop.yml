@@ -29,6 +29,13 @@ RSpec/MultipleExpectations:
 RSpec/ExampleLength:
   Max: 17
 
+RSpec/FilePath:
+  Enabled: false
+
+RSpec/HookArgument:
+  Exclude:
+    - 'spec/support/controller_macros.rb'
+
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'

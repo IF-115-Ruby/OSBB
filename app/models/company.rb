@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
-  VALID_PHONE = /\A\d{10}\z/.freeze
   WATER_SUPPLY = "water_supply"
   HEATING = "heating"
   RENT_PAYMENT = "rent_payment"
@@ -15,7 +14,7 @@ class Company < ApplicationRecord
   ELEVATOR = "elevator"
   OTHER = "other"
 
-  COMPANY_TYPE = [
+  COMPANY_TYPES = [
     WATER_SUPPLY,
     HEATING,
     RENT_PAYMENT,
@@ -30,12 +29,17 @@ class Company < ApplicationRecord
     OTHER
   ].freeze
 
-  enum company_types: COMPANY_TYPE
+  enum company_type: COMPANY_TYPES
 
   before_save { email.downcase! }
 
+  has_one :account, dependent: :destroy
+  has_one :address, as: :addressable, dependent: :destroy
+
   validates :name, presence: true, length: { maximum: 50 }
-  validates :phone, presence: true, format: { with: VALID_PHONE }
+  validates :phone, presence: true,
+                    numericality: true,
+                    length: { minimum: 8, maximum: 14 }
   validates :email, presence: true, length: { maximum: 50 }, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
 
