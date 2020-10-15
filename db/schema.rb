@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(version: 2020_10_09_201842) do
   end
 
   create_table "bills", force: :cascade do |t|
-    t.bigint "biling_contract_id"
+    t.bigint "billing_contract_id"
     t.datetime "date"
-    t.float "amount"
+    t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "billing_contract_id"
+    t.bigint "billing_contracts_id", null: false
     t.index ["billing_contract_id"], name: "index_bills_on_billing_contract_id"
+    t.index ["billing_contracts_id"], name: "index_bills_on_billing_contracts_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -57,13 +58,14 @@ ActiveRecord::Schema.define(version: 2020_10_09_201842) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.bigint "biling_contract_id"
+    t.bigint "billing_contract_id"
     t.datetime "date"
-    t.float "amount"
+    t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "billing_contract_id"
+    t.bigint "billing_contracts_id", null: false
     t.index ["billing_contract_id"], name: "index_payments_on_billing_contract_id"
+    t.index ["billing_contracts_id"], name: "index_payments_on_billing_contracts_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_201842) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bills", "billing_contracts"
-  add_foreign_key "payments", "billing_contracts"
+  add_foreign_key "bills", "billing_contracts", column: "billing_contracts_id"
+  add_foreign_key "payments", "billing_contracts", column: "billing_contracts_id"
   add_foreign_key "users", "osbbs"
 end

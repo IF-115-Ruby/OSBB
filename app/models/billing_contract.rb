@@ -1,6 +1,6 @@
 class BillingContract < ApplicationRecord
-  has_many :bill, dependent: :nullify
-  has_many :payment, dependent: :nullify
+  has_many :bills, dependent: :nullify
+  has_many :payments, dependent: :nullify
 
   validates :contract_num,
             presence: true,
