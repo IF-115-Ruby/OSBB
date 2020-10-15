@@ -138,7 +138,7 @@ en:
       edit:
         title: 'Edit User'
         btn-edit: 'Edit User'
-        btn-cancle: 'Cancel'
+        btn-cancel: 'Cancel'
       form:
         sex:
           male: 'Male'
@@ -148,7 +148,7 @@ en:
         placeholder-first-name: 'Enter first name'
         last-name: 'Last Name'
         placeholder-last-name: 'Enter last name'
-        user-birth: 'Date of Birth: '
+        user-birth: 'Date of Birth:'
         user-phone: 'Phone:'
         placeholder-phone: 'Enter your phone number'
         user-email: 'Email:'

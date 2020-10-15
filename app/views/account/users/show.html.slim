@@ -1,11 +1,6 @@
 .container
   h1.title = t('.title')
   .show-box
-    .user-avatar-show
-      - if @user.avatar?
-        = image_tag(@user.avatar.url, alt: 'Image', class: 'user-avatar show-user')
-      - else
-        = image_tag("default_a.png", alt: 'Image', class: 'user-avatar show-user')
     .user-info
       .user-item
         span.naming-user = t('.user-name')
@@ -22,16 +17,21 @@
       .user-item
         span.naming-user = t('.user-sex')
         span.insert-user = I18n.t("account.users.form.sex.#{@user.sex}")
-      nav
-        ul.nav.navbar-user
-         li.nav-item-user = link_to t('.btn-edit'),
-                                     edit_account_user_path,
-                                     class: "btn btn-outline-warning"
-         li.nav-item-user = link_to t('.btn-delete'),
-                                     [:account, :admin, @user],
-                                     method: :delete,
-                                     data: { confirm: 'Are you sure?' },
-                                     class: "btn btn-outline-danger"
-         li.nav-item-user = link_to t('.btn-back'),
-                                     account_admin_users_path,
-                                     class: "btn btn-outline-info"
+    .user-avatar-show
+      - if @user.avatar?
+        = image_tag(@user.avatar.url, alt: 'Image', class: 'user-avatar show-user')
+      - else
+        = image_tag("default_a.png", alt: 'Image', class: 'user-avatar show-user')
+  nav
+    ul.nav.navbar-user.show-box
+     li.nav-item-user = link_to t('.btn-edit'),
+                                 edit_account_user_path,
+                                 class: "btn btn-outline-warning"
+     li.nav-item-user = link_to t('.btn-delete'),
+                                 [:account, :admin, @user],
+                                 method: :delete,
+                                 data: { confirm: 'Are you sure?' },
+                                 class: "btn btn-outline-danger"
+     li.nav-item-user = link_to t('.btn-back'),
+                                 account_admin_users_path,
+                                 class: "btn btn-outline-info"

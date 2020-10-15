@@ -147,7 +147,7 @@ ua:
       edit:
         title: 'Редагування'
         btn-edit: 'Редагувати'
-        btn-cancle: 'Скасувати'
+        btn-cancel: 'Скасувати'
       form:
         sex:
           male: 'чоловік'

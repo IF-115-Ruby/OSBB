@@ -13,7 +13,7 @@
   margin: auto;
 }
 
-.form-group.user-birth{
+.form-group.user-birth {
   margin-top: 20px;
 }
 
@@ -49,9 +49,8 @@ a.btn.btn-outline-danger {
 
 .user-info {
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
-  width: 450px;
+  width: 40%;
 }
 
 .user-item {
@@ -78,10 +77,12 @@ span.insert-user {
 }
 
 .user-avatar-show {
-  margin: 30px 275px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.user-avatar-show .show-user {
+.show-user {
   width: auto;
   height: 150px;
 }
@@ -92,8 +93,7 @@ span.insert-user {
 
 .show-box {
   display: flex;
-  flex-direction: row-reverse;
-  margin-top: 50px;
+  justify-content: center;
 }
 
 .user-index {
