@@ -1,4 +1,14 @@
 ua:
+  en:
+  views:
+    pagination:
+      first: "&laquo; перша"
+      last: "остання &raquo;"
+      previous: "&lsaquo; попередня"
+      next: "наступна &rsaquo;"
+      truncate: "&hellip;"
+  date:
+    month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
   title: 'ОСББ Застосунок'
   header:
     nav_name: 'ОСББ Застосунок'
@@ -20,7 +30,7 @@ ua:
     mob_number: '+380-342-723-580'
     email: 'career@softserveinc.com'
     copyright: '© 2020 Copyright: IF-115Ruby'
-    
+
   home:
     title: 'Об`єднання співвласників багатоквартирного будинку'
     osbb_app_goal: 'Наш сайт економить ваш час та зменшує кількість рутинних завдань.
@@ -103,7 +113,7 @@ ua:
     update: 'Змінити'
 
   osbbs:
-    index: 
+    index:
       title: 'Усі ОСББ:'
       btn-new: 'Нове ОСББ'
     show:
@@ -123,7 +133,45 @@ ua:
       btn-show: 'Дивитись'
 
   account:
+    users:
+      show:
+        title: 'Інформація користувача:'
+        user-name: 'Користувач:'
+        user-birth: 'Дата народження:'
+        user-email: 'Пошта:'
+        user-phone: 'Телефон:'
+        user-sex: 'Стать:'
+        btn-edit: 'Редагувати'
+        btn-delete: 'Видалити'
+        btn-back: 'Назад'
+      edit:
+        title: 'Редагування'
+        btn-edit: 'Редагувати'
+        btn-cancle: 'Скасувати'
+      form:
+        sex:
+          male: 'чоловік'
+          female: 'жінка'
+          no_sex: 'не вказано'
+        first-name: "Ім'я"
+        placeholder-first-name: "Введіть ім'я"
+        last-name: 'Фамілія'
+        placeholder-last-name: 'Введіть фамілію'
+        user-birth: 'Дата народження:'
+        user-phone: 'Телефон:'
+        placeholder-phone: 'Ведіть ваш мобільний'
+        user-email: 'Пошта:'
+        placeholder-last-email: 'Введіть пошту'
+        user-sex-selected: "не вказано"
+        sex-label: 'Стать:'
     admin:
+      users:
+        index:
+          title: 'Всі користувачі'
+        user:
+          user: 'Користувач: %{name}'
+          user-email: 'Пошта: %{email}'
+          btn-show: 'Показати'
       osbbs:
         new:
           title: 'Створити ОСББ'

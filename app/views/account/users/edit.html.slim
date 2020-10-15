@@ -1,7 +1,7 @@
-- provide(:create_btn_text, 'Edit User')
-- provide(:cancel_btn_text, 'Cancel')
-- provide(:path, account_users_path)
+- provide(:create_btn_text, t('.btn-edit'))
+- provide(:cancel_btn_text, t('.btn-cancle'))
+- provide(:path, account_admin_users_path)
 h1.title
-  | Edit User
+  = t('.title')
 .container
   = render 'form', object: @user
