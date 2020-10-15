@@ -86,3 +86,18 @@ en:
       before_link_text: 'To visit WEB site, just follow this link: '
       home_link_text: 'OSBB Application'
       welcome_wishes: 'Thanks for joining and have a great day!'
+
+      change_pass:
+    sign_out: 'Sign out'
+    sure?: 'Are you sure?'
+    change_pass_page: 'Change Password Page'
+    change_pass: 'Change Password'
+    email: 'email'
+    pass: 'password'
+    pass_confirm: 'password_confirmation'
+    curr_pass: 'current-password'
+    waiting_cofirm: 'Currently waiting confirmation for'
+    new_pass: 'new-password'
+    blank_if: 'blank if dont want change it'
+    confirm: 'confirm your changes'
+    update: 'Update'
