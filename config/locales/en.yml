@@ -102,9 +102,9 @@ en:
     blank_if: 'blank if dont want change it'
     confirm: 'confirm your changes'
     update: 'Update'
-  
+
   osbbs:
-    index: 
+    index:
       title: 'All OSBBs: '
       btn-new: 'New osbb'
     show:
@@ -119,12 +119,50 @@ en:
     osbbs:
       osbb-name: "OSBB's name: "
       osbb-phone: 'Phone number: '
-      osbb-email: 'E-mail: ' 
+      osbb-email: 'E-mail: '
       osbb-website: "OSBB's Website: "
       btn-show: 'Show'
 
   account:
+    users:
+      show:
+        title: 'User info:'
+        user-name: 'User:'
+        user-birth: 'Date of Birth:'
+        user-email: 'Email:'
+        user-phone: 'Phone:'
+        user-sex: 'Sex:'
+        btn-edit: 'Edit User'
+        btn-delete: 'Delete User'
+        btn-back: 'Back to Users'
+      edit:
+        title: 'Edit User'
+        btn-edit: 'Edit User'
+        btn-cancel: 'Cancel'
+      form:
+        sex:
+          male: 'Male'
+          female: 'Female'
+          no_sex: 'not set'
+        first-name: 'First Name'
+        placeholder-first-name: 'Enter first name'
+        last-name: 'Last Name'
+        placeholder-last-name: 'Enter last name'
+        user-birth: 'Date of Birth:'
+        user-phone: 'Phone:'
+        placeholder-phone: 'Enter your phone number'
+        user-email: 'Email:'
+        placeholder-last-email: 'your@email.com'
+        user-sex-selected: "no_sex"
+        sex-label: 'Sex'
     admin:
+      users:
+        index:
+          title: 'All Users'
+        user:
+          user: 'User: %{name}'
+          user-email: 'E-mail: %{email}'
+          btn-show: 'Show'
       osbbs:
         new:
           title: 'Create OSBB'
