@@ -1,5 +1,5 @@
 h1.about-title #{t('about.header')}
 p.about-paragraph #{t('about.paragraph1')} 'Ruby on Rails' <span>SoftServe</span>#{t('about.paragraph2')}
 .row
-  - User::TEAM_MEMBERS.each do |hash|
+  - AboutHelper::TEAM_MEMBERS.each do |hash|
     = render partial: 'shared/about_profile', locals: {name: hash[:name], mail: hash[:email]}

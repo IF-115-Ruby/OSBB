@@ -31,8 +31,6 @@ class Company < ApplicationRecord
 
   enum company_type: COMPANY_TYPES
 
-  before_save { email.downcase! }
-
   has_one :account, dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
 
