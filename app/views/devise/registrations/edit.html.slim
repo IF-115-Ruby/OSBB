@@ -11,14 +11,14 @@
             = title t('change_pass.change_pass_page'),  t('change_pass.change_pass')
         .card-body
           form
-           
+
             .field
               = f.label t('change_pass.email')
               br
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text
-                    i.fas.fa-envelope         
+                    i.fas.fa-envelope
                 = f.email_field :email, autofocus: true, placeholder: t('change_pass.email'), autocomplete: t('change_pass.email')
               - if devise_mapping.confirmable? && resource.pending_reconfirmation?
                 div
@@ -30,7 +30,7 @@
                 .input-group.form-group
                   .input-group-prepend
                     span.input-group-text
-                      i.fas.fa-key                                                        
+                      i.fas.fa-key
                   = f.password_field :password,  autocomplete: t('change_pass.new_pass')
               .field
                 = f.label t('change_pass.pass_confirm')
@@ -38,7 +38,7 @@
                 .input-group.form-group
                   .input-group-prepend
                     span.input-group-text
-                      i.fas.fa-key                                                        
+                      i.fas.fa-key
                   = f.password_field :password_confirmation, placeholder: t('change_pass.blank_if'),autocomplete: t('change_pass.new_pass')
               .field
                 = f.label t('change_pass.curr_pass')
@@ -46,7 +46,7 @@
                 .input-group.form-group
                   .input-group-prepend
                     span.input-group-text
-                      i.fas.fa-key                                                        
+                      i.fas.fa-key
                   = f.password_field :current_password, placeholder: t('change_pass.confirm'), autocomplete: t('change_pass.curr_pass')
               .actions
                 .d-flex.justify-content-center.h-100

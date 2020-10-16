@@ -10,10 +10,10 @@
             = f.error_notification
             = f.input :email, label: t('devise.password.new.email_label'),
                       placeholder: t('devise.password.new.email_placeholder'),
-                      input_html: { autocomplete: 'email', class: 'form-horizontal input-properties ml-3 float-right mt-3'}
-          
+                      input_html: { autocomplete: 'email', class: 'form-horizontal input-properties ml-3 float-right mt-2'}
+
           .form-actions.mt-2
-            .row.justify-content-center
+            .container.justify-content-center
               = f.submit t('devise.password.new.submit_forgot_password'), class: 'btn btn-submit mt-2'
             .row.justify-content-center.mt-2
               = render 'devise/shared/links'

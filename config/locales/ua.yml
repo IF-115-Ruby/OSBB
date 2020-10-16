@@ -41,19 +41,19 @@ ua:
     alt_text: 'не завантаженo'
 
   not_found:
-    oops_title: 'Уупс! Сторінка не знайдена'
+    oops_title: 'Упс! Сторінка не знайдена'
     nubm_four: '4'
     nubm_zero: '0'
     all_text: 'На жаль, ми не можемо показати інформацію, яку ви шукали'
 
   server_error:
-    oops_title: 'Уупс! Помилка сервера'
+    oops_title: 'Упс! Помилка сервера'
     nubm_five: '5'
     nubm_zero: '0'
     all_text: 'Перепрошуємо, але щось пішло не так'
 
   unacceptable:
-    oops_title: 'Уупс! Щось пішло не так'
+    oops_title: 'Упс! Щось пішло не так'
     nubm_four: '4'
     nubm_two: '2'
     all_text: 'Зміни, які ви бажаєте, було відхилено'
@@ -197,3 +197,18 @@ ua:
         btn-bil-contracts: 'Контракти рахунків'
         btn-user-cabinet: 'Кабінет користувача'
         btn_destoy_auth: 'Вийти'
+  about:
+    header: 'Про нас'
+    paragraph1: '"Цей сайт був розроблений креативними і цілеспрямованими учасниками'
+    paragraph2: 'академії."'
+    speciality: 'Розробник Ruby on rails'
+    andrii_lebukhorskyi: 'Андрій Лебухорський'
+    ivan_matsiyk: 'Іван Мацюк'
+    ihor_moskvyn: 'Ігор Москвин'
+    marian_rebeha: "Мар'ян Ребега"
+    ivan_danyliv: 'Іван Данилів'
+    mykola_ukhanskyi: 'Микола Уханський'
+    mykhailo_marusyk: 'Михайло Марусик'
+    vasyl_matsevko: 'Василь Мацевко'
+    andrii_kozak: 'Андрій Козак'
+    photo: 'фото'
