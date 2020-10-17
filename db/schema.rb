@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_10_13_163612) do
- 
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,9 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_163612) do
     t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "billing_contracts_id", null: false
     t.index ["billing_contract_id"], name: "index_bills_on_billing_contract_id"
-    t.index ["billing_contracts_id"], name: "index_bills_on_billing_contracts_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -89,9 +85,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_163612) do
     t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "billing_contracts_id", null: false
     t.index ["billing_contract_id"], name: "index_payments_on_billing_contract_id"
-    t.index ["billing_contracts_id"], name: "index_payments_on_billing_contracts_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,9 +109,8 @@ ActiveRecord::Schema.define(version: 2020_10_13_163612) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
-  add_foreign_key "bills", "billing_contracts", column: "billing_contracts_id"
-  add_foreign_key "payments", "billing_contracts", column: "billing_contracts_id"
   add_foreign_key "accounts", "companies"
+  add_foreign_key "bills", "billing_contracts"
+  add_foreign_key "payments", "billing_contracts"
   add_foreign_key "users", "osbbs"
 end
