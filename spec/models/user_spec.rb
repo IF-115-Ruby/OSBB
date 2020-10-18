@@ -70,6 +70,20 @@ RSpec.describe User, type: :model do
     context "when email is invalid" do
       it { is_expected.not_to allow_value('invali-email.com').for(:email) }
     end
+
+    it 'is invalid with an image size greater 2mb' do
+      file = File.open(File.join(Rails.root, 'spec/support/images/image-3mb.jpg'))
+      user.avatar = file
+      allow(user.avatar).to receive(:size).and_return(4.megabytes)
+      user.valid?
+      expect(user.errors[:avatar]).to include("should be less than 3MB")
+    end
+
+    context 'when invalid when avatar is not image' do
+      let!(:file) { File.open(File.join(Rails.root, 'spec/support/images/image-3mb.txt')) }
+
+      it { is_expected.not_to allow_value(file).for(:avatar) }
+    end
   end
 
   describe 'associations' do

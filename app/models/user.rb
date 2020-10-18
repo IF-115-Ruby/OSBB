@@ -25,6 +25,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: true, length: { maximum: 255 }
   validates :mobile, numericality: true, allow_nil: true, length: { minimum: 10, maximum: 14 }
+  validate :avatar_size_validation
 
   enum role: ROLES
   enum sex: SEX_TYPES
@@ -39,6 +40,12 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  private
+
+  def avatar_size_validation
+    errors[:avatar] << "should be less than 3MB" if avatar.size > 3.megabytes
   end
 end
 
