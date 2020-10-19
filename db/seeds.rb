@@ -7,7 +7,7 @@ FactoryBot.create_list(:osbb, 100)
 Osbb.all.each { |osbb| FactoryBot.create(:address, addressable: osbb) }
 
 FactoryBot.create_list(:company, 50)
-Company.all.each do |company| 
+Company.all.each do |company|
   FactoryBot.create(:account, company: company)
   FactoryBot.create(:address, addressable: company)
 end

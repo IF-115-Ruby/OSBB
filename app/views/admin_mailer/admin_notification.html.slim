@@ -1,0 +1,93 @@
+scss:
+  div { background-color: #cfdfe4; border-radius: 20px; width: 90%; margin: 0 auto;    padding-bottom: 30px;}
+  h1 { text-align: center; font-weight: bold; padding: 20px 25px; }
+  hr { width: 90%; text-align: center; }
+  h2 { text-align: center; }
+  table { margin:auto; font-size: 23px; padding: 5px;}
+
+  .button {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #6092a3;
+    color: #FFFFFF;
+    border: none;
+    text-align: center;
+    font-size: 17px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  @media(max-width: 450px){
+    table { font-size: 1em; }
+    .button {  }
+  }
+
+div
+  h1
+    = t('devise.mailer.admin_notification.hello_title')
+    | !
+  hr
+  h2
+    = t('devise.mailer.admin_notification.about_user')
+    |:
+  table
+    tr
+      td
+        = t('devise.mailer.admin_notification.user_name')
+        |:
+      td = @user.first_name
+    tr
+      td
+        = t('devise.mailer.admin_notification.user_lastname')
+        |:
+      td = @user.last_name
+    tr
+      td
+        = t('devise.mailer.admin_notification.user_email')
+        |:
+      td = @user.email
+    tr
+      td
+        = t('devise.mailer.admin_notification.user_phone')
+        |:
+      td = @user.mobile
+    tr
+      td
+        = t('devise.mailer.admin_notification.created_at')
+        |:
+      td = @user.created_at
+    tr
+  = link_to "<button class='button'><span>#{t('devise.mailer.admin_notification.show')}</span></button>".html_safe, account_user_url(@user)
+
+

@@ -1,18 +1,26 @@
-div style='background-color: #cfdfe4; border-radius: 20px; width: 75%; margin: 0 auto;'
-  h1 style='border-radius: 20px; text-align: center; font-weight: bold; height: 60px; padding-top: 30px;'
+scss:
+  div { background-color: #cfdfe4; border-radius: 20px; width: 85%; margin: 0 auto; }
+  h1 { text-align: center; font-weight: bold; padding: 20px 25px; }
+  hr { width: 90%; text-align: center; }
+  .marg { margin: 20px }
+  .info { width: 90%; margin: 5px 5%; font-size: 18px; }
+  .end { padding-bottom: 30px; }
+
+div
+  h1
     = t('user_mailer.welcome_email.welcome_title')
     = @user.full_name
     | !
-  hr style='width: 90%; text-align: center;'
-  p style='margin: 20px;'
-    p style='width: 90%; margin: 5px 5%; font-size: 18px;'
+  hr
+  p.marg
+    p.info
       = t('user_mailer.welcome_email.welcome_message')
       = @user.email
       | .
-    p style='width: 90%; margin: 5px 5%; font-size: 18px;'
+    p.info
       = t('user_mailer.welcome_email.before_link_text')
       = link_to home_url
         = t('user_mailer.welcome_email.home_link_text')
       | .
-    p style='width: 90%; margin: 5px 5%; font-size: 18px; padding-bottom: 30px'
+    p.info.end
       = t('user_mailer.welcome_email.welcome_wishes')

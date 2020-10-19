@@ -74,6 +74,15 @@ en:
         text_link: 'Change my password'
         possible_variant: "If you didn't request this, please ignore this email."
         additional_info: "Your password won't change until you access the link above and create a new one."
+      admin_notification:
+        hello_title: 'Hello! New user was successfully registered'
+        about_user: 'Information about user'
+        user_name: 'Name'
+        user_lastname: 'Surname'
+        user_email: 'Mail'
+        user_phone: 'Phone number'
+        created_at: 'Registered at'
+        show: 'Show user...'
 
     shared:
       log_in_link: 'Login'
