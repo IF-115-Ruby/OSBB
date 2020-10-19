@@ -46,7 +46,7 @@ end
 # Table name: companies
 #
 #  id           :bigint           not null, primary key
-#  company_type :string
+#  company_type :integer
 #  email        :string
 #  fax          :integer
 #  name         :string

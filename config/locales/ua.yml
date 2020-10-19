@@ -164,6 +164,7 @@ ua:
         placeholder-last-email: 'Введіть пошту'
         user-sex-selected: "не вказано"
         sex-label: 'Стать:'
+
     admin:
       users:
         index:
@@ -197,6 +198,50 @@ ua:
         btn-bil-contracts: 'Контракти рахунків'
         btn-user-cabinet: 'Кабінет користувача'
         btn_destoy_auth: 'Вийти'
+
+  companies:
+    index:
+      btn_new_company: 'Нова компанія'
+      companies_title: 'Всі компанії'
+
+    search_form:
+      name_email_phone_placeholder: 'Назва, електронна адреса чи номер телефону компанії'
+      company_type_prompt: 'Виберіть тип компанії'
+      btn_search: 'Пошук'
+
+    edit:
+      btn_edit: 'Відредагувати'
+      btn_cancel: 'Відмінити'
+      edit_tittle: 'Редагувати обліковий запис компанії'
+
+    new:
+      btn_create: 'Створити'
+      btn_cancel: 'Відмінити'
+      new_tittle: 'Створити нову компанію'
+
+    show:
+      show_title: 'Інформація про компанію:'
+      company_name: "Назва компанії:"
+      company_type: 'Тип компанії:'
+      phone: 'Номер телефону:'
+      email: 'Електронна адреса:'
+      website: 'Сайт:'
+      fax: 'Факс:'
+      btn_edit_company: 'Редагувати'
+      btn_delete_company: 'Видалити'
+      btn_back: 'Назад'
+
+    form:
+      name_label: 'Назва'
+      name_placeholder: 'Назва компанії'
+      company_type_label: 'Тип компанії'
+      company_type_prompt: 'Виберіть тип компанії'
+      phone_label: 'Номер телефону'
+      fax_label: 'Факс'
+
+    company:
+      btn_show: 'Дивитись'
+
   about:
     header: 'Про нас'
     paragraph1: '"Цей сайт був розроблений креативними і цілеспрямованими учасниками'

@@ -155,6 +155,7 @@ en:
         placeholder-last-email: 'your@email.com'
         user-sex-selected: "no_sex"
         sex-label: 'Sex'
+
     admin:
       users:
         index:
@@ -188,6 +189,50 @@ en:
         btn-bil-contracts: 'Billing Contracts'
         btn-user-cabinet: 'User Cabinet'
         btn_destoy_auth: 'Logout'
+
+  companies:
+    index:
+      btn_new_company: 'New company'
+      companies_title: 'All companies'
+
+    search_form:
+      name_email_phone_placeholder: 'Name, email or phone of the company'
+      company_type_prompt: 'Select your company type'
+      btn_search: 'Search'
+
+    edit:
+      btn_edit: 'Edit company'
+      btn_cancel: 'Cancel'
+      edit_tittle: 'Edit company profile'
+
+    new:
+      btn_create: 'Create new company'
+      btn_cancel: 'Cancel'
+      new_tittle: 'New company'
+
+    show:
+      show_title: 'Company info:'
+      company_name: 'Company name:'
+      company_type: 'Company type:'
+      phone: 'Phone:'
+      email: 'Email:'
+      website: 'Website:'
+      fax: 'Fax:'
+      btn_edit_company: 'Edit company'
+      btn_delete_company: 'Delete company'
+      btn_back: 'Back'
+
+    form:
+      name_label: 'Name'
+      name_placeholder: 'Name of the company'
+      company_type_label: 'Company type'
+      company_type_prompt: 'Select your company type'
+      phone_label: 'Phone number'
+      fax_label: 'Fax'                  
+
+    company:
+      btn_show: 'Show'
+
   about:
     header: 'About us'
     paragraph1: '"This cite was developed by creative and self-motivated members of'

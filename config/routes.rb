@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       namespace :admin do
         resources :osbbs, except: %i[index show]
         resources :user_cabinets, only: :index
-        resources :billing_contracts
+        resources :billing_contracts, :companies
         resources :users, only: %i[index destroy]
       end
     end

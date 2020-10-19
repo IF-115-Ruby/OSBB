@@ -1,0 +1,12 @@
+= search_form_for @ransack, url: account_admin_companies_path, builder: SimpleForm::FormBuilder do |f|
+  .form-group.company-form
+    = f.text_field :name_or_email_or_phone_cont, label: 'Name', label: false,
+                                                 placeholder: t('companies.search_form.name_email_phone_placeholder'),
+                                                 class: 'form-control'
+    .mt-2                         
+      = f.input :company_type_eq, label: 'Company type', label: false,
+                                     prompt: t('companies.search_form.company_type_prompt'),
+                                     collection: Company.company_types,
+                                     input_html: { class: 'form-control' } 
+    .new-button                                        
+      =f.button :submit, t('companies.search_form.btn_search'), class: 'btn btn-primary pull-right'
