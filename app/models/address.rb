@@ -3,14 +3,15 @@ class Address < ApplicationRecord
 
   validates :city, :country, :state, :street, presence: true
 
-  def address
-    [street, city, state, country].compact.join(', ')
-  end
-  geocoded_by :address
+  geocoded_by :full_address
   after_validation :geocode
 
+  def full_address
+    [street, city, state, country].join(', ')
+  end
+
   def query
-    Geocoder.search(address.to_s).first
+    Geocoder.search(full_address.to_s).first
   end
 end
 
