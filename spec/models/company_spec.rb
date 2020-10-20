@@ -13,6 +13,7 @@ RSpec.describe Company, type: :model do
     context 'when have_one' do
       it 'account' do is_expected.to have_one(:account) end
       it 'address' do is_expected.to have_one(:address) end
+      it { is_expected.to have_many(:billing_contracts) }
     end
   end
 end
@@ -22,7 +23,7 @@ end
 # Table name: companies
 #
 #  id           :bigint           not null, primary key
-#  company_type :string
+#  company_type :integer
 #  email        :string
 #  fax          :integer
 #  name         :string

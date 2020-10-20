@@ -1,0 +1,27 @@
+.container-wrapper
+  .new-button
+    = link_to t('.btn-add'),
+      search_account_utility_providers_path,
+      class: 'btn btn-primary'
+  h1
+    = t('.title')
+  .row
+    - @utility_providers.each do |utility_provider|
+      .col-md-4
+        p
+          = t('.name-of-company')
+          b 
+            =<  utility_provider.company.name
+        p 
+          = t('.contract-number')
+          =< utility_provider.contract_num
+        p
+          = t('.status')
+          =< t(status_contract(utility_provider.is_active))
+        = link_to t('.btn-remove'),
+          disassociate_account_utility_provider_path(id: utility_provider),
+          method: :put, data: { confirm: 'You sure?' },
+          class: 'btn btn-outline-danger'
+        hr
+    .pagination-container
+      = paginate @utility_providers, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'

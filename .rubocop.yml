@@ -36,6 +36,10 @@ RSpec/HookArgument:
   Exclude:
     - 'spec/support/controller_macros.rb'
 
+RSpec/NamedSubject:
+  Exclude:
+    - 'spec/**/*'
+
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'

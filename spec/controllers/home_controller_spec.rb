@@ -5,4 +5,10 @@ RSpec.describe HomeController, type: :controller do
 
     it { is_expected.to be_successful }
   end
+
+  describe 'render view #about' do
+    before { get :about }
+
+    it { is_expected.to render_template(:about) }
+  end
 end
