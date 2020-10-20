@@ -30,7 +30,7 @@ Osbb.all.each do |osbb|
 end
 
 FactoryBot.create_list(:company, 50)
-Company.all.each do |company| 
+Company.all.each do |company|
   FactoryBot.create(:account, company: company)
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: company) 

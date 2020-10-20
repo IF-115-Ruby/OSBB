@@ -7,6 +7,7 @@ env:
     - RAILS_ENV=test
     - MOZ_HEADLESS=1
     - CC_TEST_REPORTER_ID=02fb63383b4f54f909129252cca71205e584ab07784e634d9764b38853b97ac6
+    - MAILER_ADDRESS=frankivsk.osbb@gmail.com
 rvm:
   - 2.7.1
 services:
