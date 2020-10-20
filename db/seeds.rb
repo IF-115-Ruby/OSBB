@@ -1,11 +1,5 @@
 require 'factory_bot'
 
-DATES = [
-  "2020-07-11 T17:30:00",
- "2020-08-07 T12:00:00",
-  "2020-09-21 T09:45:30"
-]
-
 FactoryBot.create_list(:user, 10)
 User.all.each { |user| FactoryBot.create(:address, addressable: user) }
 
@@ -19,6 +13,12 @@ Company.all.each do |company|
 end
 
 FactoryBot.create_list(:billing_contract, 100)
+
+DATES = [
+  "2020-07-11 T17:30:00",
+ "2020-08-07 T12:00:00",
+  "2020-09-21 T09:45:30"
+]
 
 BillingContract.all.each do |billing_contract| 
   DATES.each do |date|
