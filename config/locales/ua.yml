@@ -201,6 +201,70 @@ ua:
           title: 'Оновити профіль ОСББ'
           btn-edit: 'Редагувати ОСББ'
           btn-cancel: 'Відмінити'
+      billing_contracts:
+        index:
+          title: 'Всі контракти'
+          btn-new: 'Cтворити контракт'
+        billing_contract:
+          contract_num: 'Контракт:'
+          status: 'Статус:'
+          created: 'Створено:'
+          active: 'Активний'
+          inactive: 'Неактивний'
+          btn-show: 'Показати'
+        show:
+          contract: 'Контракт:'
+          about_contract: 'Інформація про контракт:'
+          status: 'Статус:'
+          active: 'Активний'
+          inactive: 'Неактивний'
+          created: 'Створено:'
+          about_company: 'Про компанію'
+          name_of_company: 'Назва компанії:'
+          actions: 'Дії'
+          btn-edit: 'Редагувати контракт'
+          btn-delete: 'Видалити контракт'
+          btn-back: 'Повернутися назад'
+          are_you_sure: 'Ти впевнений?'
+        form:
+          label-company: 'Компанія'
+          label-contract-num: 'Контракт'
+          label-active: 'Статус'
+        edit:
+          edit-title: 'Редагувати контракт'
+          btn-edit: 'Змінити'
+          btn-cancel: 'Відмінити'
+        new:
+          new-title: 'Створити контракт'
+          btn-create: 'Створити'
+          btn-cancel: 'Відмінити'
+
+    utility_providers:
+      search_form:
+        name: 'Компанія'
+        name-of-company: 'Назва компанії'
+        iban: 'IBAN'
+        edrpou: 'Код ЄДРПОУ'
+        search: 'Шукати'
+      companies:
+        title: 'Додати постачальника послуг'
+        btn-choose: 'Вибрати'
+      index:
+        btn-add: 'Додати постачальника послуг'
+        title: 'Мої постачальники комунальних послуг'
+        name-of-company: 'Назва Компанії'
+        contract-number: 'Контракт:'
+        status: 'Статус:'
+        created: 'Створено:'
+        active: 'Активний'
+        inactive: 'Неактивний'
+        btn-remove: 'Видалити'
+      new:
+        add-utilities-provider: 'Додати постачальника послуг'
+        name-of-company: 'Назва компанії'
+        contract-number: 'Номер контракту'
+        btn-add: 'Підтвердити'
+
   shared:
     account:
       header:
@@ -242,6 +306,7 @@ ua:
       btn_edit_company: 'Редагувати'
       btn_delete_company: 'Видалити'
       btn_back: 'Назад'
+      btn_billing_contracts: 'Контракти'
 
     form:
       name_label: 'Назва'

@@ -8,5 +8,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     website { Faker::Internet.domain_name }
     fax { Faker::Number.leading_zero_number(digits: 10) }
+    account
   end
 end
