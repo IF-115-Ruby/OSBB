@@ -267,7 +267,16 @@ en:
           btn-cancel: 'Cancel'
         form-import:
           error-notice: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try agin.'
-
+          
+        new_import:
+          title: 'Import Billing Contracts From Excel'
+          note: 'Note: Import only new data entered into the proposed spreadsheet template.'
+          select-file: 'Select File:'
+          btn-import: 'Import file'
+          btn-cancel: 'Cancel'
+        form-import:
+          error-notice: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try agin.'
+          
       companies:
         new_import:
           title: 'Import Companies'

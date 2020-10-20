@@ -237,6 +237,8 @@ GEM
     premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
+    pretender (0.3.4)
+      actionpack (>= 4.2)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -431,7 +433,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.7)
+    tzinfo (1.2.8)
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.4)
       tzinfo (>= 1.0.0)
@@ -496,6 +498,7 @@ DEPENDENCIES
   mini_magick
   pg (>= 0.18, < 2.0)
   premailer-rails
+  pretender (~> 0.3.4)
   pry (~> 0.13.1)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
