@@ -1,0 +1,51 @@
+
+.form-group.company-form {
+  width: 500px;
+  margin: auto;
+}
+
+a.btn.btn-outline-danger {  
+  margin-left: 10px;
+}
+
+.company-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 560px;
+}
+
+.info-item {
+  margin: 5px 0 5px 10px;
+}
+
+.name {
+  width: 240px;
+  font-size: 24px;
+  display: inline-flex;
+}
+.value {
+  width: 340px;
+}
+
+.show-btn {
+  margin-left: -3px;
+}
+
+span {
+  margin-right: 10px;
+}
+
+nav {    
+  margin-left: -15px;
+} 
+                                                
+ul {
+  padding: 0;
+  li {
+    margin: 5px;
+    a {
+      width: 150px;
+    }
+  }
+}   

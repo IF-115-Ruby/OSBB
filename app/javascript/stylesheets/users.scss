@@ -13,6 +13,10 @@
   margin: auto;
 }
 
+.form-group.user-birth {
+  margin-top: 20px;
+}
+
 .date.optional select {
   margin-right: 10px;
 }
@@ -26,10 +30,13 @@
   margin: 30px auto;
 }
 
-.form-group.user-form label {
-  margin-bottom: 0;
-  margin-top: 20px;
-  margin-left: 310px;
+.form-group.user-form {
+  label,
+  span.error {
+    margin-bottom: 0;
+    margin-top: 20px;
+    margin-left: 310px;
+  }
 }
 
 .form-group.down-btn {
@@ -42,17 +49,16 @@ a.btn.btn-outline-danger {
 
 .user-info {
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
-  width: 450px;
+  width: 40%;
 }
 
 .user-item {
   margin: 5px 0 5px 10px;
 }
 
-.nameing-user {
-  width: 150px;
+.naming-user {
+  width: 200px;
   font-size: 20px;
   display: inline-flex;
 }
@@ -65,30 +71,41 @@ span.insert-user {
   margin-left: 10px;
 }
 
-.user-avatar  {
+.user-avatar {
   width: auto;
   height: 100px;
 }
+
 .user-avatar-show {
-  margin: 30px 275px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.user-avatar-show .show-user{
+.show-user {
   width: auto;
   height: 150px;
 }
 
-.show-box{
+.navbar-user {
+  margin-top: 20px;
+}
+
+.show-box {
   display: flex;
-  flex-direction: row-reverse;
-  margin-top: 50px;
+  justify-content: center;
 }
 
 .user-index {
   margin-left: 140px;
   margin-right: 60px;
 }
+
 .user-index-size {
   width: 400px;
   margin: auto;
+}
+
+.show-btn {
+  margin-left: 30px;
 }

@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   around_action :switch_locale
   layout :choose_layout
+  before_action :set_raven_context
+
   def switch_locale(&action)
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &action)
@@ -22,4 +24,11 @@ class ApplicationController < ActionController::Base
   end
 
   add_flash_types :danger, :info, :warning, :success
+
+  private
+
+  def set_raven_context
+    Raven.user_context(id: session[:current_user_id])
+    Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+  end
 end

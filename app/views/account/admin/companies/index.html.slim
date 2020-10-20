@@ -1,0 +1,13 @@
+.container-wrapper
+  .new-button
+    = link_to new_account_admin_company_path, class: 'btn btn-primary'
+      = t('companies.index.btn_new_company')
+  h1 
+    = t('companies.index.companies_title')
+  =render 'search_form'
+  .row.mt-4
+    - @companies.each do |company|
+      = render company
+  .pagination-container
+    = paginate @companies, theme: 'twitter-bootstrap-4',
+                       pagination_class: "pagination-md"

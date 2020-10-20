@@ -1,10 +1,15 @@
 .container-wrapper
   .new-button
-    = link_to 'New billing contract',
-      new_account_admin_billing_contract_path,
+    = link_to t('.btn-new'),
+      new_account_admin_company_billing_contract_path(@company),
       class: 'btn btn-primary'
-  h1
-    | All billing contracts
+  h1 
+    = t('.title') 
   .row
+    .col-md-12
     - @billing_contracts.each do |billing_contract|
       = render billing_contract
+  .row
+    .col-md-12
+      .pagination-container
+        = paginate @billing_contracts, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md'

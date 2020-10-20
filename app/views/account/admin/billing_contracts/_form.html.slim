@@ -1,9 +1,6 @@
-= simple_form_for [:account, :admin, @billing_contract],
-                   :html=> { class: 'mx-auto billing-form' } do |f|
-                   
+= simple_form_for [:account, :admin, @company, @billing_contract], :html=> { class: 'mx-auto billing-form' } do |f|
   .form-group
-    = f.input :contract_num, label: 'Contract Number',
-      placeholder: 'Your contract number',
+    = f.input :contract_num, label: t('.label-contract-num'),
       input_html: { class: 'form-control' },
       error_html: { class: 'form-error' }
 
@@ -11,7 +8,7 @@
     = f.input :is_active, as: :radio_buttons,
       checked: true,
       input_html: { class: 'form-check-input' },
-      label: 'Is active?'
+      label: t('.label-active')
 
   .form-buttons
     = f.submit yield(:create_btn_text),

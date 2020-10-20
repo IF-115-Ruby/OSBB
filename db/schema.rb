@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_163612) do
+ActiveRecord::Schema.define(version: 2020_10_16_150422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,12 +44,18 @@ ActiveRecord::Schema.define(version: 2020_10_13_163612) do
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.bigint "user_id"
+    t.index ["company_id"], name: "index_billing_contracts_on_company_id"
+    t.index ["contract_num", "company_id"], name: "index_billing_contracts_on_contract_num_and_company_id", unique: true
     t.index ["contract_num"], name: "index_billing_contracts_on_contract_num"
+    t.index ["user_id", "company_id"], name: "index_billing_contracts_on_user_id_and_company_id", unique: true
+    t.index ["user_id"], name: "index_billing_contracts_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "company_type"
+    t.integer "company_type"
     t.string "phone", limit: 14
     t.string "email"
     t.string "website"
@@ -92,5 +98,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_163612) do
   end
 
   add_foreign_key "accounts", "companies"
+  add_foreign_key "billing_contracts", "companies"
+  add_foreign_key "billing_contracts", "users"
   add_foreign_key "users", "osbbs"
 end

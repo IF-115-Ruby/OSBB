@@ -31,10 +31,11 @@ class Company < ApplicationRecord
 
   enum company_type: COMPANY_TYPES
 
-  before_save { email.downcase! }
-
   has_one :account, dependent: :destroy
+
   has_one :address, as: :addressable, dependent: :destroy
+  has_many :billing_contracts, dependent: :destroy
+  has_many :users, through: :billing_contracts
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :phone, presence: true,
@@ -48,7 +49,7 @@ end
 # Table name: companies
 #
 #  id           :bigint           not null, primary key
-#  company_type :string
+#  company_type :integer
 #  email        :string
 #  fax          :integer
 #  name         :string

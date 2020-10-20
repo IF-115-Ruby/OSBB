@@ -1,4 +1,14 @@
 ua:
+  en:
+  views:
+    pagination:
+      first: "&laquo; перша"
+      last: "остання &raquo;"
+      previous: "&lsaquo; попередня"
+      next: "наступна &rsaquo;"
+      truncate: "&hellip;"
+  date:
+    month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
   title: 'ОСББ Застосунок'
   header:
     nav_name: 'ОСББ Застосунок'
@@ -20,7 +30,7 @@ ua:
     mob_number: '+380-342-723-580'
     email: 'career@softserveinc.com'
     copyright: '© 2020 Copyright: IF-115Ruby'
-    
+
   home:
     title: 'Об`єднання співвласників багатоквартирного будинку'
     osbb_app_goal: 'Наш сайт економить ваш час та зменшує кількість рутинних завдань.
@@ -31,19 +41,19 @@ ua:
     alt_text: 'не завантаженo'
 
   not_found:
-    oops_title: 'Уупс! Сторінка не знайдена'
+    oops_title: 'Упс! Сторінка не знайдена'
     nubm_four: '4'
     nubm_zero: '0'
     all_text: 'На жаль, ми не можемо показати інформацію, яку ви шукали'
 
   server_error:
-    oops_title: 'Уупс! Помилка сервера'
+    oops_title: 'Упс! Помилка сервера'
     nubm_five: '5'
     nubm_zero: '0'
     all_text: 'Перепрошуємо, але щось пішло не так'
 
   unacceptable:
-    oops_title: 'Уупс! Щось пішло не так'
+    oops_title: 'Упс! Щось пішло не так'
     nubm_four: '4'
     nubm_two: '2'
     all_text: 'Зміни, які ви бажаєте, було відхилено'
@@ -55,16 +65,28 @@ ua:
   devise:
     password:
       new:
+        new_tab_title: 'Забули пароль?'
         new_title: 'Забули Ваш пароль?'
-        email_label: 'Електронна адреса: '
-        email_placeholder: 'Введіть електронну адресу'
         submit_forgot_password: 'Надіслати інструкцію відновлення пароля'
 
       edit:
-        edit_title: 'Зінити Ваш пароль'
-        password_label: 'Новий пароль'
-        confirm_password_label: 'Підтвердіть новий пароль'
+        edit_tab_title: 'Змінити пароль'
+        edit_title: 'Змінити Ваш пароль'
+        password_placeholder: 'Новий пароль'
+        confirm_password_placeholder: 'Підтвердіть новий пароль'
         submit_change_password: 'Змінити пароль'
+
+    registrations:
+      new:
+        tab_title: 'Реєстрація'
+        registration_title: 'Сторінка реєстрації'
+        have_account_text: 'Ви вже маєте акаунт?'
+
+    sessions:
+      new:
+        tab_title: 'Вхід'
+        login_title: 'Сторінка авторизації'
+        create_account_text: "Немає акаунта?"
 
     mailer:
       reset_password:
@@ -103,7 +125,7 @@ ua:
     update: 'Змінити'
 
   osbbs:
-    index: 
+    index:
       title: 'Усі ОСББ:'
       btn-new: 'Нове ОСББ'
     show:
@@ -123,7 +145,46 @@ ua:
       btn-show: 'Дивитись'
 
   account:
+    users:
+      show:
+        title: 'Інформація користувача:'
+        user-name: 'Користувач:'
+        user-birth: 'Дата народження:'
+        user-email: 'Пошта:'
+        user-phone: 'Телефон:'
+        user-sex: 'Стать:'
+        btn-edit: 'Редагувати'
+        btn-delete: 'Видалити'
+        btn-back: 'Назад'
+      edit:
+        title: 'Редагування'
+        btn-edit: 'Редагувати'
+        btn-cancel: 'Скасувати'
+      form:
+        sex:
+          male: 'Чоловік'
+          female: 'Жінка'
+          no_sex: 'Не вказано'
+        first-name: "Ім'я"
+        placeholder-first-name: "Введіть ім'я"
+        last-name: 'Фамілія'
+        placeholder-last-name: 'Введіть фамілію'
+        user-birth: 'Дата народження:'
+        user-phone: 'Телефон:'
+        placeholder-phone: 'Ведіть ваш мобільний'
+        user-email: 'Пошта:'
+        placeholder-last-email: 'Введіть пошту'
+        user-sex-selected: "не вказано"
+        sex-label: 'Стать:'
+
     admin:
+      users:
+        index:
+          title: 'Всі користувачі'
+        user:
+          user: 'Користувач: %{name}'
+          user-email: 'Пошта: %{email}'
+          btn-show: 'Показати'
       osbbs:
         new:
           title: 'Створити ОСББ'
@@ -140,6 +201,70 @@ ua:
           title: 'Оновити профіль ОСББ'
           btn-edit: 'Редагувати ОСББ'
           btn-cancel: 'Відмінити'
+      billing_contracts:
+        index:
+          title: 'Всі контракти'
+          btn-new: 'Cтворити контракт'
+        billing_contract:
+          contract_num: 'Контракт:'
+          status: 'Статус:'
+          created: 'Створено:'
+          active: 'Активний'
+          inactive: 'Неактивний'
+          btn-show: 'Показати'
+        show:
+          contract: 'Контракт:'
+          about_contract: 'Інформація про контракт:'
+          status: 'Статус:'
+          active: 'Активний'
+          inactive: 'Неактивний'
+          created: 'Створено:'
+          about_company: 'Про компанію'
+          name_of_company: 'Назва компанії:'
+          actions: 'Дії'
+          btn-edit: 'Редагувати контракт'
+          btn-delete: 'Видалити контракт'
+          btn-back: 'Повернутися назад'
+          are_you_sure: 'Ти впевнений?'
+        form:
+          label-company: 'Компанія'
+          label-contract-num: 'Контракт'
+          label-active: 'Статус'
+        edit:
+          edit-title: 'Редагувати контракт'
+          btn-edit: 'Змінити'
+          btn-cancel: 'Відмінити'
+        new:
+          new-title: 'Створити контракт'
+          btn-create: 'Створити'
+          btn-cancel: 'Відмінити'
+
+    utility_providers:
+      search_form:
+        name: 'Компанія'
+        name-of-company: 'Назва компанії'
+        iban: 'IBAN'
+        edrpou: 'Код ЄДРПОУ'
+        search: 'Шукати'
+      companies:
+        title: 'Додати постачальника послуг'
+        btn-choose: 'Вибрати'
+      index:
+        btn-add: 'Додати постачальника послуг'
+        title: 'Мої постачальники комунальних послуг'
+        name-of-company: 'Назва Компанії'
+        contract-number: 'Контракт:'
+        status: 'Статус:'
+        created: 'Створено:'
+        active: 'Активний'
+        inactive: 'Неактивний'
+        btn-remove: 'Видалити'
+      new:
+        add-utilities-provider: 'Додати постачальника послуг'
+        name-of-company: 'Назва компанії'
+        contract-number: 'Номер контракту'
+        btn-add: 'Підтвердити'
+
   shared:
     account:
       header:
@@ -149,3 +274,63 @@ ua:
         btn-bil-contracts: 'Контракти рахунків'
         btn-user-cabinet: 'Кабінет користувача'
         btn_destoy_auth: 'Вийти'
+
+  companies:
+    index:
+      btn_new_company: 'Нова компанія'
+      companies_title: 'Всі компанії'
+
+    search_form:
+      name_email_phone_placeholder: 'Назва, електронна адреса чи номер телефону компанії'
+      company_type_prompt: 'Виберіть тип компанії'
+      btn_search: 'Пошук'
+
+    edit:
+      btn_edit: 'Відредагувати'
+      btn_cancel: 'Відмінити'
+      edit_tittle: 'Редагувати обліковий запис компанії'
+
+    new:
+      btn_create: 'Створити'
+      btn_cancel: 'Відмінити'
+      new_tittle: 'Створити нову компанію'
+
+    show:
+      show_title: 'Інформація про компанію:'
+      company_name: "Назва компанії:"
+      company_type: 'Тип компанії:'
+      phone: 'Номер телефону:'
+      email: 'Електронна адреса:'
+      website: 'Сайт:'
+      fax: 'Факс:'
+      btn_edit_company: 'Редагувати'
+      btn_delete_company: 'Видалити'
+      btn_back: 'Назад'
+      btn_billing_contracts: 'Контракти'
+
+    form:
+      name_label: 'Назва'
+      name_placeholder: 'Назва компанії'
+      company_type_label: 'Тип компанії'
+      company_type_prompt: 'Виберіть тип компанії'
+      phone_label: 'Номер телефону'
+      fax_label: 'Факс'
+
+    company:
+      btn_show: 'Дивитись'
+
+  about:
+    header: 'Про нас'
+    paragraph1: '"Цей сайт був розроблений креативними і цілеспрямованими учасниками'
+    paragraph2: 'академії."'
+    speciality: 'Розробник Ruby on rails'
+    andrii_lebukhorskyi: 'Андрій Лебухорський'
+    ivan_matsiyk: 'Іван Мацюк'
+    ihor_moskvyn: 'Ігор Москвин'
+    marian_rebeha: "Мар'ян Ребега"
+    ivan_danyliv: 'Іван Данилів'
+    mykola_ukhanskyi: 'Микола Уханський'
+    mykhailo_marusyk: 'Михайло Марусик'
+    vasyl_matsevko: 'Василь Мацевко'
+    andrii_kozak: 'Андрій Козак'
+    photo: 'фото'
