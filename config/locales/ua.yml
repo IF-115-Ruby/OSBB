@@ -138,6 +138,7 @@ ua:
       btn-delete: 'Видалити ОСББ'
       btn-back: 'Назад'
     osbbs:
+      osbb-address: 'Карта'
       osbb-name: 'Назва ОСББ: '
       osbb-phone: 'Номер телефону: '
       osbb-email: 'Е-пошта: '

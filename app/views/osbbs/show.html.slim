@@ -12,6 +12,11 @@
         span.nameing = t('.osbb-email')
         span.insert = @osbb.email
       .info_item
+        span.nameing = t('.osbb-address')
+        p
+          = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@osbb.address.query.coordinates.first},#{@osbb.address.query.coordinates.last}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" if @osbb.address.query if @osbb.address 
+        span.insert = @osbb.address.address if @osbb.address
+      .info_item
         span.nameing = t('.osbb-website')
         span.insert = link_to @osbb.website, "http://#{@osbb.website}", target: '_blank'
       nav

@@ -128,6 +128,7 @@ en:
       btn-delete: 'Delete osbb'
       btn-back: 'Back to Osbbs'
     osbbs:
+      osbb-address: 'Address'
       osbb-name: "OSBB's name: "
       osbb-phone: 'Phone number: '
       osbb-email: 'E-mail: '

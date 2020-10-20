@@ -123,6 +123,7 @@ GEM
     ffi (1.13.1-x86-mingw32)
     font_awesome5_rails (1.2.0)
       railties (>= 4.2)
+    geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.5)
@@ -395,6 +396,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font_awesome5_rails (~> 1.2.0)
+  geocoder
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.2)
