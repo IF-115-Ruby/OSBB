@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  project_heading = style.add_style(b: true, sz: 14)
+  heading = style.add_style(b: true)
+
+  wb.add_worksheet(name: "Billing Contracts") do |sheet|
+    # Add a title row
+    sheet.add_row ["Billing Contracts"], style: project_heading
+    # Create the header row
+    sheet.add_row %w[company_name contract_num is_active company_id], style: heading
+    # Create entries for each billing_contract
+    @billing_contracts.each do |billing_contract|
+      sheet.add_row [@company.name, billing_contract.contract_num, billing_contract.is_active, billing_contract.company_id]
+    end
+  end
+end

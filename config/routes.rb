@@ -23,7 +23,12 @@ Rails.application.routes.draw do
       resources :osbbs
       resources :user_cabinets, only: :index
       resources :companies do
-        resources :billing_contracts
+        resources :billing_contracts do
+          collection do
+            get 'new_import'
+            post 'import'
+          end
+        end
         get 'new_import', on: :collection
         post 'import', on: :collection
       end
