@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :payment do
     amount { Faker::Number.decimal(l_digits: 2) }
-    date { Faker::Time.between(from: 1.day.ago, to: DateTime.now) }
+    date { Faker::Time.between(from: 1.month.ago, to: DateTime.now) }
   end
 end
 
