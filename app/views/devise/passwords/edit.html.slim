@@ -1,24 +1,38 @@
-.container-wrapper.d-flex.justify-content-center
-  .row
-    .container.content-abc.mt-4.mb-2
-      .container.d-flex.justify-content-center.mb-3
-        = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f|
-          .form-group.mb-2.
-            h4.mt-4.font-weight-bold.title.row.justify-content-center
-              = t('devise.password.edit.edit_title')
-            hr.mb-2.mt-3
-            = f.error_notification
-            = f.input :reset_password_token, as: :hidden
-            = f.full_error :reset_password_token
-            .form-inputs
-              = f.input :password, label: t('devise.password.edit.password_label'),
-                required: true, autofocus: true,
-                input_html: { autocomplete: 'new-password', class: 'form-horizontal input-properties ml-3 float-right mt-3'}
-              = f.input :password_confirmation, label: t('devise.password.edit.confirm_password_label'),
-                required: true,
-                input_html: { autocomplete: 'new-password', class: 'form-horizontal input-properties ml-3 float-right mt-3'}
-            .form-actions.mt-4
-              .row.justify-content-center
-                = f.submit t('devise.password.edit.submit_change_password'), class: 'btn btn-submit mb-2'
-              .row.justify-content-center
+.custom-form-wrapper
+  section
+    .container
+      .content-abc.mx-auto.shadow.m-3
+        h1.pt-4.font-weight-bold.row.justify-content-center
+          = title t('devise.password.edit.edit_tab_title'),
+            t('devise.password.edit.edit_title')
+        hr
+        = simple_form_for(resource, as: resource_name, url: password_path(resource_name),
+                                    html: { method: :put}) do |f|
+          = f.error_notification
+          = f.input :reset_password_token, as: :hidden
+          = f.full_error :reset_password_token
+          .container.form-prop
+            .container.form-horizontal.mb-2.mt-4
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :password, autofocus: true, label: false, hint: false,
+                      placeholder: t('devise.password.edit.password_placeholder'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :password_confirmation, autofocus: true,
+                      label: false, hint: false,
+                      placeholder: t('devise.password.edit.confirm_password_placeholder'),
+                      input_html: { class: 'form-control input-prop' }
+            .form-actions.mt-3
+              .container.d-flex.justify-content-center
+                = f.submit t('devise.password.edit.submit_change_password'),
+                  class: 'btn btn-submit pl-5 pr-5'
+            hr
+            .container.pb-3
+              .d-flex.justify-content-center.links.mt-2
                 = render 'devise/shared/links'

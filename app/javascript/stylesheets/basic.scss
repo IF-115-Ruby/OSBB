@@ -1,8 +1,8 @@
-body{
+body {
   background-color: #e1ebee;
 }
 
-.header{
+.header {
   background-image: url("../../../public/ivano-frankivsk2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -10,7 +10,7 @@ body{
   height: 226px;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-weight: bold;
   font-size: x-large;
 }
@@ -29,7 +29,7 @@ body{
   background-color: #798db6;
 }
 
-.navbar-header{
+.navbar-header {
   background-color: inherit;
 }
 
@@ -37,7 +37,7 @@ body{
   color: white;
 }
 
-#dropdownMenuButton{
+#dropdownMenuButton {
   width: 158px;
 }
 
@@ -46,45 +46,53 @@ body{
   width: 155px;
 }
 
-.footer{
+.footer {
   background: #556588;
   color:whitesmoke;
 
-  .links{
-    ul {list-style-type: none;}
-    li a{
+  .links {
+    ul {
+      list-style-type: none;
+    }
+    li a {
       color: whitesmoke;
       transition: color .2s;
-      &:hover{
+      &:hover {
         text-decoration:none;
         color:#518fda;
-        }
+      }
     }
   }
 
-  .about-company{
-    i{font-size: 25px;}
-    a{
+  .about-company {
+    i {
+      font-size: 25px;
+    }
+    a {
       color:whitesmoke;
       transition: color .2s;
-      &:hover{color:#4180CB}
+      &:hover {
+        color:#4180CB;
+      }
     }
   }
 
-  .location i{font-size: 18px;}
+  .location i {
+    font-size: 18px;
+  }
 
-  .copyright p{
+  .copyright p {
     border-top:1.5px solid rgba(255, 255, 255, 0.418);
     font-size: 20px;
   }
 }
 
-p{
+p {
   text-indent: 1.7em;
   text-align: justify;
 }
 
-.imd-build{
+.imd-build {
   width: 55%;
   height: 200px;
 }
@@ -99,13 +107,29 @@ p{
   justify-content: center;
 }
 
-.content-abc{
-  background-color: #cfdfe4;
+.content-abc {
+  min-width: 200px;
+  max-width: 600px;
+  background-color: whitesmoke;
   border-radius: 20px;
 }
 
-.input-properties{
+.input-properties {
   background-color: #eff6f8;
   border-radius: 2px;
   border: 0.5px solid #798db6;
+}
+
+@media screen and (max-width: 600px) {
+  .form-prop {
+    min-width: 170px;
+
+    .icon-prop {
+      min-width: 15px;
+    }
+
+    .input-prop {
+      min-width: 150px;
+    }
+  }
 }
