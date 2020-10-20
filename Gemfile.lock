@@ -61,6 +61,8 @@ GEM
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
+    any_login (1.4.3)
+      rails (>= 4.2.7)
     ast (2.4.1)
     awesome_print (1.8.0)
     bcrypt (3.1.16)
@@ -408,6 +410,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  any_login
   awesome_print (~> 1.8.0)
   bootsnap (>= 1.4.2)
   bootstrap4-kaminari-views

@@ -46,6 +46,15 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def self.grouped_collection_by_role
+    {
+      'admin' => User.admin.limit(2),
+      'lead' => User.lead.limit(3),
+      'members' => User.members.limit(4),
+      'simple' => User.simple.limit(5)
+    }
+  end
+
   private
 
   def avatar_size_validation
