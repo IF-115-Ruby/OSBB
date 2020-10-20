@@ -133,6 +133,7 @@ en:
       osbb-email: 'E-mail: '
       osbb-website: "OSBB's Website: "
       btn-show: 'Show'
+    osbb-address: 'Address'
 
   account:
     users:

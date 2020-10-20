@@ -143,6 +143,7 @@ ua:
       osbb-email: 'Е-пошта: '
       osbb-website: 'Сайт ОСББ: '
       btn-show: 'Дивитись'
+    osbb-address: 'Адрес'
 
   account:
     users:

@@ -3,16 +3,23 @@
     h1.title = t('.title')
     .osbb_info
       .info_item
-        span.nameing = t('.osbb-name')
+        span.naming = t('.osbb-name')
         span.insert = @osbb.name
       .info_item
-        span.nameing = t('.osbb-phone')
+        span.naming = t('.osbb-phone')
         span.insert = @osbb.phone
       .info_item
-        span.nameing = t('.osbb-email')
+        span.naming = t('.osbb-email')
         span.insert = @osbb.email
       .info_item
-        span.nameing = t('.osbb-website')
+        - if @osbb.address
+          span.naming = t('osbbs.osbb-address')
+          - if @osbb.address.query
+            p
+              = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@osbb.address.query.coordinates.first},#{@osbb.address.query.coordinates.last}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04", alt: "Map"  
+          span.insert = @osbb.address.full_address 
+      .info_item
+        span.naming = t('.osbb-website')
         span.insert = link_to @osbb.website, "http://#{@osbb.website}", target: '_blank'
       nav
         ul.nav.navbar
