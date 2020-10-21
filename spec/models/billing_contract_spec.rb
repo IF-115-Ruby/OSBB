@@ -26,6 +26,11 @@ RSpec.describe BillingContract, type: :model do
   end
 
   describe 'associations' do
+    context 'when have_many' do
+      it { is_expected.to have_many(:bills) }
+      it { is_expected.to have_many(:payments) }
+    end
+
     it { is_expected.to belong_to(:company).class_name('Company') }
     it { is_expected.to belong_to(:user).class_name('User').optional }
   end

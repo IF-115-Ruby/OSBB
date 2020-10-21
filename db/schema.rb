@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
     t.index ["user_id"], name: "index_billing_contracts_on_user_id"
   end
 
+  create_table "bills", force: :cascade do |t|
+    t.bigint "billing_contract_id"
+    t.datetime "date"
+    t.decimal "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["billing_contract_id"], name: "index_bills_on_billing_contract_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.integer "company_type"
@@ -76,6 +85,15 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_osbbs_on_name"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "billing_contract_id"
+    t.datetime "date"
+    t.decimal "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["billing_contract_id"], name: "index_payments_on_billing_contract_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,5 +120,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
   add_foreign_key "accounts", "companies"
   add_foreign_key "billing_contracts", "companies"
   add_foreign_key "billing_contracts", "users"
+  add_foreign_key "bills", "billing_contracts"
+  add_foreign_key "payments", "billing_contracts"
   add_foreign_key "users", "osbbs"
 end
