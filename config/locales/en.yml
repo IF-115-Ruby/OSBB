@@ -31,24 +31,19 @@ en:
       of your house, or even the head of a long-established condominium - you are in the
       right place!'
     alt_text: 'not loaded'
+  errors:
+    back_to_home: 'Back to home!'
+    not_found:
+      oops_title: 'Oops! Page not found'
+      all_text: 'We are sorry, but the page you requested was not found'
 
-  not_found:
-    oops_title: 'Oops! Page not found'
-    nubm_four: '4'
-    nubm_zero: '0'
-    all_text: 'We are sorry, but the page you requested was not found'
+    server_error:
+      oops_title: 'Oops! Server Error'
+      all_text: 'We are sorry, but something went wrong'
 
-  server_error:
-    oops_title: 'Oops! Server Error'
-    nubm_five: '5'
-    nubm_zero: '0'
-    all_text: 'We are sorry, but something went wrong'
-
-  unacceptable:
-    oops_title: 'Oops! Something wrong'
-    nubm_four: '4'
-    nubm_two: '2'
-    all_text: 'The change you wanted was rejected'
+    unacceptable:
+      oops_title: 'Oops! Something wrong'
+      all_text: 'The change you wanted was rejected'
 
   time:
     formats:

@@ -9,19 +9,16 @@
   font-family: 'David Libre', serif;
   text-align: center;
   font-size: 2.3em;
+  text-indent: unset;
 }
 
 .about-paragraph span {
   font-weight: bold;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.about-row { justify-content: center; }
 
-.column {
+.about-column {
   float: left;
   margin-bottom: 16px;
   padding: 0 8px;
@@ -31,15 +28,15 @@
   margin: 0 3% 3% 3%;
 }
 
-.card {
+.about-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card img {
+.about-card img {
   width: 100%;
 }
 
-.profile_container {
+.profile-container {
   padding: 0 16px;
   &::after {
     content: "";
@@ -48,23 +45,20 @@
   }
 }
 
-.profile_container h2{
+.profile-container h2{
   font-size: 1.2em;
   margin-top: 10px;
 }
 
-.profile_container p{
+.profile-container p{
   text-indent: 0;
   font-size: 0.8em;
-}
-
-.title {
   color: grey;
   margin-bottom: 0;
 }
 
 @media screen and (max-width: 650px) {
-  .column {
+  .about-column {
     width: 100%;
     display: block;
   }
