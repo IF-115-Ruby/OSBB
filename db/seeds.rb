@@ -30,7 +30,7 @@ Osbb.all.each do |osbb|
 end
 
 FactoryBot.create_list(:company, 50)
-Company.all.each do |company| 
+Company.all.each do |company|
   FactoryBot.create(:account, company: company)
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: company)
@@ -44,6 +44,7 @@ User.select{ |user| user.role != 'admin' }.each do |user|
     billing_contract.update(user: user)
   end
 end
+
 
 DATES = [
   "2020-07-11 T17:30:00",

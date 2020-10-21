@@ -33,6 +33,7 @@
 
   .form-group.user-form.use-avatar
     = f.file_field :avatar, input_html: { class: 'form-control' }
+    = f.error :avatar
 
   .form-group.down-btn
     = f.submit yield(:create_btn_text), class: 'btn btn-primary'

@@ -25,13 +25,18 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
                     uniqueness: true, length: { maximum: 255 }
   validates :mobile, numericality: true, allow_nil: true, length: { minimum: 10, maximum: 14 }
+  validate :avatar_size_validation
 
   enum role: ROLES
   enum sex: SEX_TYPES
 
   paginates_per 9
 
-  after_create :send_welcome_email_to_new_user
+  after_create :send_welcome_email_to_new_user, :send_mail_to_admin
+
+  def send_mail_to_admin
+    AdminMailer.admin_notification(self).deliver_now
+  end
 
   def send_welcome_email_to_new_user
     UserMailer.send_welcome_email(self).deliver_now
@@ -39,6 +44,21 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def self.grouped_collection_by_role
+    {
+      'admin' => User.admin.limit(2),
+      'lead' => User.lead.limit(3),
+      'members' => User.members.limit(4),
+      'simple' => User.simple.limit(5)
+    }
+  end
+
+  private
+
+  def avatar_size_validation
+    errors[:avatar] << "should be less than 3MB" if avatar.size > 3.megabytes
   end
 end
 

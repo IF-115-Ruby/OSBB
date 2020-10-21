@@ -31,24 +31,19 @@ en:
       of your house, or even the head of a long-established condominium - you are in the
       right place!'
     alt_text: 'not loaded'
+  errors:
+    back_to_home: 'Back to home!'
+    not_found:
+      oops_title: 'Oops! Page not found'
+      all_text: 'We are sorry, but the page you requested was not found'
 
-  not_found:
-    oops_title: 'Oops! Page not found'
-    nubm_four: '4'
-    nubm_zero: '0'
-    all_text: 'We are sorry, but the page you requested was not found'
+    server_error:
+      oops_title: 'Oops! Server Error'
+      all_text: 'We are sorry, but something went wrong'
 
-  server_error:
-    oops_title: 'Oops! Server Error'
-    nubm_five: '5'
-    nubm_zero: '0'
-    all_text: 'We are sorry, but something went wrong'
-
-  unacceptable:
-    oops_title: 'Oops! Something wrong'
-    nubm_four: '4'
-    nubm_two: '2'
-    all_text: 'The change you wanted was rejected'
+    unacceptable:
+      oops_title: 'Oops! Something wrong'
+      all_text: 'The change you wanted was rejected'
 
   time:
     formats:
@@ -85,6 +80,13 @@ en:
         text_link: 'Change my password'
         possible_variant: "If you didn't request this, please ignore this email."
         additional_info: "Your password won't change until you access the link above and create a new one."
+      admin_notification:
+        subject: 'New user was registered!'
+        hello_title: 'Hello! New user was successfully registered'
+        about_user: 'Information about user'
+        created_at: 'Registered at'
+        date_format: '%F, %I:%M:%S %p'
+        show: 'Show user...'
 
     shared:
       log_in_link: 'Login'
