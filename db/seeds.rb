@@ -33,7 +33,14 @@ FactoryBot.create_list(:company, 50)
 Company.all.each do |company|
   FactoryBot.create(:account, company: company)
   address = ADRESSES.sample
-  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: company) 
+  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: company)
+  FactoryBot.create_list(:billing_contract, 5, company: company, user: nil)
 end
 
-FactoryBot.create_list(:billing_contract, 100)
+billing_contracts = BillingContract.all.shuffle
+
+User.select{ |user| user.role != 'admin' }.each do |user|
+  billing_contracts.pop(2).each do |billing_contract|
+    billing_contract.update(user: user)
+  end
+end
