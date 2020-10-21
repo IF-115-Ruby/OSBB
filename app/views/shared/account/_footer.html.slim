@@ -8,8 +8,8 @@ footer.footer.pt-2.mb-0
         h5.mt-lg-0.mt-sm-3 = t('footer.links')
         ul.m-0.p-0
           li
-            | -
-            a[href="#"] = t('footer.link_about_us')
+            = link_to about_path 
+              = t('footer.link_about_us')
       .col-lg-4.col-xs-12.location
         h5.mt-lg-0.mt-sm-3 = t('footer.location')
         p.mb-0 = t('footer.address')

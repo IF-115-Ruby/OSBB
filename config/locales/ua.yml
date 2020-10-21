@@ -275,8 +275,9 @@ ua:
         greetings: 'Привіт'
         btn-osbbs: 'ОСББ'
         btn-users: 'Користувачі'
-        btn-bil-contracts: 'Контракти рахунків'
-        btn-user-cabinet: 'Кабінет користувача'
+        btn-bil-contracts: 'Контракти'
+        btn-companies: 'Компанії'
+        btn-user-cabinet: 'Профіль'
         btn_destoy_auth: 'Вийти'
 
   companies:
@@ -285,9 +286,10 @@ ua:
       companies_title: 'Всі компанії'
 
     search_form:
-      name_email_phone_placeholder: 'Назва, електронна адреса чи номер телефону компанії'
-      company_type_prompt: 'Виберіть тип компанії'
+      name_email_phone_placeholder: 'Пошук'
+      company_type_prompt: 'Виберіть'                                                                                       
       btn_search: 'Пошук'
+      all_company_type: 'Всі типи компаній'
 
     edit:
       btn_edit: 'Відредагувати'
