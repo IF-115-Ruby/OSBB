@@ -118,9 +118,9 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
   end
 
   add_foreign_key "accounts", "companies"
-  add_foreign_key "bills", "billing_contracts"
-  add_foreign_key "payments", "billing_contracts"
   add_foreign_key "billing_contracts", "companies"
   add_foreign_key "billing_contracts", "users"
+  add_foreign_key "bills", "billing_contracts"
+  add_foreign_key "payments", "billing_contracts"
   add_foreign_key "users", "osbbs"
 end
