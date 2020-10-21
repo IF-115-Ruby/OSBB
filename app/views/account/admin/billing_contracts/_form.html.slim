@@ -10,9 +10,9 @@
       input_html: { class: 'form-check-input' },
       label: t('.label-active')
 
-  .form-buttons
+  .text-center
     = f.submit yield(:create_btn_text),
-          class: 'btn btn-primary mr-2'
+          class: 'btn btn-primary mr-2 btn-custom'
 
     = link_to yield(:cancel_btn_text),
-          yield(:path), class: 'btn btn-outline-danger'
+          yield(:path), class: 'btn btn-danger btn-custom'

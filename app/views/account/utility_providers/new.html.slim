@@ -1,6 +1,6 @@
-.container.pt-3
-  .jumbotron.up-form
-    h1
+.content.pt-4
+  .form-component
+    h1.title
       = t('.add-utilities-provider')
     .pl-0.text-center
       b
@@ -14,5 +14,5 @@
           input_html: { class: 'form-control' },
           error_html: { class: 'form-error' }
     
-      .form-buttons
-        = f.submit t('.btn-add'), class: 'btn btn-primary'
+      .text-center
+        = f.submit t('.btn-add'), class: 'btn btn-primary btn-custom'

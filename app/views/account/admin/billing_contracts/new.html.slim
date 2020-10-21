@@ -2,9 +2,8 @@
 - provide(:cancel_btn_text, t('.btn-cancel'))
 - provide(:path, account_admin_company_billing_contracts_path)
 
-.billing-contract.pt-3
-  .jumbotron
+.content.pt-3
+  .form-component
     h1.title
       = t('.new-title')
-    .container
-      = render 'form', object: @biling_contract
+    = render 'form', object: @biling_contract
