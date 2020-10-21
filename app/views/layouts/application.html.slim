@@ -13,5 +13,5 @@ html
     = render  'shared/flash_msg'
     .container-fluid.flex-grow-1
       = yield
-
+    = any_login_here if defined?(AnyLogin)
     = render 'shared/footer'

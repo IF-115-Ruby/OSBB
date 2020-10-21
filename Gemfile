@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'any_login'
 gem 'carrierwave', '~> 2.0'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'geocoder'

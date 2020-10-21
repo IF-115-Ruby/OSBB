@@ -91,6 +91,22 @@ RSpec.describe User, type: :model do
       it 'address' do is_expected.to have_one(:address) end
     end
   end
+
+  describe '.grouped_collection_by_role' do
+    subject do
+      described_class.grouped_collection_by_role
+    end
+
+    it 'returns grouped hash by role ' do
+      expect(subject.keys).to eq User::ROLES
+      expect(subject['admin']).to match(described_class.admin.limit(2))
+      expect(subject['lead']).to match(described_class.lead.limit(3))
+      expect(subject['members']).to match(described_class.members.limit(4))
+      expect(subject['simple']).to match(described_class.simple.limit(5))
+    end
+
+    it { is_expected.to include('admin', 'lead', 'members', 'simple') }
+  end
 end
 
 # == Schema Information
