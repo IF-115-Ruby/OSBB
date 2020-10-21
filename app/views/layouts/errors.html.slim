@@ -8,10 +8,5 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body.d-flex.flex-column.min-vh-100
-    = render 'shared/header'
-    = render  'shared/flash_msg'
-    .container-fluid.flex-grow-1
+  body
       = yield
-    = any_login_here if defined?(AnyLogin)
-    = render 'shared/footer'
