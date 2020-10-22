@@ -428,6 +428,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.2)
   meta-tags (~> 2.13.0)
+  mini_magick
   pg (>= 0.18, < 2.0)
   pry (~> 0.13.1)
   puma (~> 4.1)
