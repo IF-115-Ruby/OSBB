@@ -14,7 +14,7 @@
 }
 
 .layout-first-content {
-  background-color: $half-opasity-background;
+  background-color: $half-opacity-background;
 }
 
 .navbar-brand {
@@ -55,12 +55,12 @@
 }
 
 .dropdown-lang {
-  background-color: $half-opasity-background;
+  background-color: $half-opacity-background;
   width: 155px;
 
   &:hover, .layout-dropdown-item:hover {
     font-weight: bold;
-    background-color: $half-opasity-background;
+    background-color: $half-opacity-background;
   }
 }
 
@@ -115,7 +115,7 @@
   }
 
   .copyright p {
-    border-top:1.5px solid $half-opasity-background;
+    border-top:1.5px solid $half-opacity-background;
     font-size: 20px;
   }
 }
