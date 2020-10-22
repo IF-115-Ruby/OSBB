@@ -1,53 +1,51 @@
-.float-right
-  = button_to t('change_pass.sign_out'), registration_path(resource_name), data: { confirm: t('change_pass.sure?') }, method: :delete
-
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .container
-    .d-flex.justify-content-center.h-100
-      .card
-        .card-header
-          h3
-            = title t('change_pass.change_pass_page'),  t('change_pass.change_pass')
-        .card-body
-          form
-
-            .field
-              = f.label t('change_pass.email')
-              br
-              .input-group.form-group
-                .input-group-prepend
-                  span.input-group-text
-                    i.fas.fa-envelope
-                = f.email_field :email, autofocus: true, placeholder: t('change_pass.email'), autocomplete: t('change_pass.email')
-              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-                div
-                  | #{t('change_pass.waiting_cofirm')}
-                  = resource.unconfirmed_email
-              .field
-                = f.label t('change_pass.pass')
-                br
-                .input-group.form-group
-                  .input-group-prepend
-                    span.input-group-text
-                      i.fas.fa-key
-                  = f.password_field :password,  autocomplete: t('change_pass.new_pass')
-              .field
-                = f.label t('change_pass.pass_confirm')
-                br
-                .input-group.form-group
-                  .input-group-prepend
-                    span.input-group-text
-                      i.fas.fa-key
-                  = f.password_field :password_confirmation, placeholder: t('change_pass.blank_if'),autocomplete: t('change_pass.new_pass')
-              .field
-                = f.label t('change_pass.curr_pass')
-                br
-                .input-group.form-group
-                  .input-group-prepend
-                    span.input-group-text
-                      i.fas.fa-key
-                  = f.password_field :current_password, placeholder: t('change_pass.confirm'), autocomplete: t('change_pass.curr_pass')
-              .actions
-                .d-flex.justify-content-center.h-100
-                  = f.submit t('change_pass.update')
+.custom-form-wrapper.pt-3
+  section
+    .container
+      .content-abc.mx-auto.shadow
+        h1.pt-4.font-weight-bold.row.justify-content-center
+          = title t('change_pass.change_pass_page'),
+            t('change_pass.change_pass')
+        hr
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.error_notification
+          .container.form-prop
+            .container.form-horizontal.mb-2.mt-4
+              p.form-group
+                .row
+                  i.fas.fa-envelope.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                      = f.input :email, autofocus: true, label: false,
+                        placeholder: t('change_pass.email'),
+                        input_html: { class: 'form-control input-prop' }
+                      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                        div
+                        | #{t('change_pass.waiting_cofirm')}
+                        = resource.unconfirmed_email
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :password, autofocus: true,
+                      label: false, hint: false,
+                      placeholder: t('change_pass.new_pass'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :password_confirmation, autofocus: true,
+                      label: false, hint: false,
+                      placeholder: t('change_pass.pass_confirm'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :current_password, autofocus: true,
+                      label: false, hint: false,
+                      placeholder: t('change_pass.curr_pass'),
+                      input_html: { class: 'form-control input-prop' }
+              .form-actions.mt-3
+              .container.d-flex.justify-content-center.pb-3
+                = f.submit t('change_pass.update'),
+                  class: 'btn btn-submit pl-5 pr-5'
