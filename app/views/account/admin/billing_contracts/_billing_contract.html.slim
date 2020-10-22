@@ -1,16 +1,14 @@
-.col-md-4
-  p
-    = t('.contract_num')
-    b 
+tr
+  td
+    span.cusom-center-in-table-example    
       =< billing_contract.contract_num
-  p
-    = t('.status')
-    =< t(status_contract(billing_contract.is_active))
-  p 
-    = t('.created')
-    =< l(billing_contract.created_at, format: :long)
-  div
-    = link_to t('.btn-show'),
-    [:account, :admin, @company, billing_contract],
-    class: 'btn btn-outline-primary'
-  hr
+  td
+    span.cusom-center-in-table-example
+      =< t(status_contract(billing_contract.is_active))
+  td
+    span.cusom-center-in-table-example
+      =< l(billing_contract.created_at, format: :long)
+  td.eye-btn.text-center
+    = link_to [:account, :admin, @company, billing_contract]
+      button.btn.btn-outline-dark
+        i.fas.fa-eye

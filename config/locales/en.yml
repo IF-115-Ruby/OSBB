@@ -241,6 +241,7 @@ en:
         search: 'Search'
       companies:
         title: 'Add utility provider'
+      company:
         btn-choose: 'Choose'
       index:
         btn-add: 'Add utility provider'
@@ -328,3 +329,5 @@ en:
     vasyl_matsevko: 'Vasyl Matsevko'
     andrii_kozak: 'Andrii Kozak'
     photo: 'photo'
+
+  utility-providers: 'Utility provideгs'

@@ -6,7 +6,7 @@
   padding-bottom: 20px; 
 
   nav.navbar.navbar-dark, table.table > thead.thead {
-    background-color: $opasity-black;
+    background-color: $opacity-black;
     color: $white;
   }
 
@@ -15,7 +15,7 @@
   }
 
   table.table {
-    background-color: $opasity-gray;
+    background-color: $opacity-gray;
     span {
       min-height: 38px;
       display: inline-flex;

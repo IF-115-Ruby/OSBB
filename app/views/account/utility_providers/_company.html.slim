@@ -1,0 +1,9 @@
+.row
+  .col-md-8.align-self-center
+    =< company.name
+  .col-md-4.align-self-center
+    = link_to t('.btn-choose'),
+      new_account_utility_provider_path(billing_contract: { company_id: company.id } ),
+      class: 'btn btn-primary'
+  .col-md-12
+    hr

@@ -1,9 +1,9 @@
 .form-component {
-  width: 50%;
+  max-width: 650px;
   display: block;
   margin: auto;
   padding: 20px;
-  background-color: $opasity-gray;
+  background-color: $opacity-gray;
   border-radius: 10px;
   min-height: 36px;
   ul {
@@ -15,6 +15,17 @@
       }
     }
   }
+}
+
+.bg-opacity-black {
+  background-color: $opacity-black;
+  color: $white;
+  border-radius: 4px 4px 0 0;
+}
+
+.form-border-radius {
+  border-top: 1px solid $white;
+  border-radius: 0 0 4px 4px;
 }
 
 .content-info {
@@ -43,7 +54,7 @@
   width: 150px;
 }
 
-.btn-custom {  
+.btn-custom {
   width: 180px;
   margin-top: 10px;
 }
