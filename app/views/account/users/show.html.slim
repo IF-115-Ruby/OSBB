@@ -4,9 +4,10 @@
     .show-box
       .user-avatar-show
         - if @user.avatar?
-          = image_tag(@user.avatar.url, alt: 'Image', class: 'user-avatar show-user')
+          - @user.avatar.recreate_versions!
+          = image_tag(@user.avatar.user_show.url, alt: 'Image', class: 'user-avatar')
         - else
-          = image_tag("default_a.png", alt: 'Image', class: 'user-avatar show-user')
+          = image_tag("default_a.png", alt: 'Image', class: 'user-avatar')
       .user-info
         .user-item
           span.naming-user = t('.user-name')

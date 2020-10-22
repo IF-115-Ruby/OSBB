@@ -83,18 +83,8 @@ span.insert-user {
   margin-left: 10px;
 }
 
-.user-avatar {
-  width: auto;
-  height: 100px;
-}
-
 .user-avatar-show {
   margin-right: 50px;
-}
-
-.show-user {
-  width: auto;
-  height: 150px;
 }
 
 .navbar-user {
@@ -140,9 +130,13 @@ span.insert-user {
 }
 
 .form-component.form-component-user {
-max-width: 600px;
+  max-width: 600px;
 }
 
 .col-md-4.user-size-item {
   min-width: 500px;
+}
+
+.user-avatar {
+  border-radius: 50%;
 }
