@@ -3,16 +3,15 @@ body.account {
   .greetings {
     color: white;
   }
-  .header {
-    background-image: none;
+
+  .navbar.navbar-expand-lg.navbar-dark.navbar-header {
     background-color: $light-steel-blue;
-    height: 62px;
-    .navbar.navbar-expand-lg.navbar-dark.navbar-header {
-      .navbar-collapse.collapse {
-        justify-content: space-between;
-      }
+    
+    .navbar-collapse.collapse {
+      justify-content: space-between;
     }
   }
+
   .container__box {
     background-image: url("../../../public/golovna.png");
     background-repeat: no-repeat;
@@ -24,6 +23,9 @@ body.account {
     box-shadow: 0 16px 13px $gainsboro;
     background-size: cover;
     min-height: 630px;
+  }
+  .acount-content {
+    padding-top: 40px;
   }
   .container-fluid {
     .billing-contract {
@@ -38,5 +40,24 @@ body.account {
         border-radius: 10px;
       }
     }
+  }
+  .dropdown-lang {
+    background-color: $light-steel-blue;
+    width: 155px;
+  }
+  .auth-btn:hover, .btn-submit:hover, .nav-links:hover {
+    font-weight: normal;
+    transform: scale(1.03);
+    text-shadow: .3px .3px white;
+  }
+  .auth-btn {
+    color: white;
+  }
+  .dropdown-item:hover {
+    background-color: $light-steel-blue;
+    transform: scale(1);
+  }
+  .alert {
+    margin-bottom: 0;
   }
 }

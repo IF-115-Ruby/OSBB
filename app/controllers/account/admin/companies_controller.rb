@@ -48,6 +48,6 @@ class Account::Admin::CompaniesController < Account::Admin::AdminController
   end
 
   def set_company
-    @company = Company.find(params[:id])
+    @company = Company.find_by(id: params[:id])
   end
 end

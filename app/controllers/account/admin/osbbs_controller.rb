@@ -1,5 +1,12 @@
 class Account::Admin::OsbbsController < Account::Admin::AdminController
-  before_action :osbb, only: %i[edit update destroy]
+  include ControllerHelper
+  before_action :osbb, only: %i[show edit update destroy]
+
+  def index
+    @osbbs = Osbb.page(params[:page]).per(9)
+  end
+
+  def show; end
 
   def new
     @osbb = Osbb.new
@@ -8,12 +15,12 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
   def create
     @osbb = Osbb.new(osbb_params)
     if @osbb.save
-      flash[:success] = "Osbb profile \"#{@osbb.name}\"
-                         - created with id:#{@osbb.id}"
-      redirect_to @osbb
+      successful_update("Osbb profile '#{@osbb.name}'
+                        - created with id:#{@osbb.id}")
+      redirect_to [:account, :admin, @osbb]
     else
       flash.now[:warning] = 'Invalid OSBB parameters'
-      render 'new'
+      render :new
     end
   end
 
@@ -22,16 +29,16 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
   def update
     if @osbb.update(osbb_params)
       flash[:success] = "Osbb profile \"#{@osbb.name}\"  updated"
-      redirect_to @osbb
+      redirect_to [:account, :admin, @osbb]
     else
       flash.now[:warning] = 'Invalid parameters for editing'
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     @osbb.destroy
-    redirect_to [:osbbs]
+    redirect_to account_admin_osbbs_path
     flash[:danger] = "Osbb profile \"#{@osbb.name}\" with id:#{@osbb.id} has been deleted"
   end
 

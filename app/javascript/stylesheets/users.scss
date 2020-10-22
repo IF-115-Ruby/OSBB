@@ -84,8 +84,9 @@ span.insert-user {
 }
 
 .user-avatar {
-  width: auto;
+  width: 100px;
   height: 100px;
+  object-fit: cover;
 }
 
 .user-avatar-show {
@@ -93,8 +94,10 @@ span.insert-user {
 }
 
 .show-user {
-  width: auto;
+  width: 150px;
   height: 150px;
+  object-fit: cover;
+
 }
 
 .navbar-user {

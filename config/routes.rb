@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     get "/422", to: "errors#unacceptable"
     get "/500", to: "errors#server_error"
 
-    resources :osbbs, only: %i[index show]
     namespace :account do
       resources :users, except: %i[index destroy]
       resources :utility_providers, only: %i[index new update] do
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
         put 'disassociate', on: :member
       end
       namespace :admin do
-        resources :osbbs, except: %i[index show]
+        resources :osbbs
         resources :user_cabinets, only: :index
         resources :companies do
           resources :billing_contracts

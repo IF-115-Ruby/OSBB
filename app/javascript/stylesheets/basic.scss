@@ -130,6 +130,12 @@ p {
   margin: 0 auto;
 }
 
+.alert.alert-notice {
+  color: #faea08;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 0;
+}
+
 .pagination-container {
   display: flex;
   justify-content: center;
