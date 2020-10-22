@@ -1,34 +1,27 @@
 = simple_form_for [:account, :admin, @company] do |f|
-  .form-group.company-form
-    = f.input :name, label: t('companies.form.name_label'),
-                     placeholder: t('companies.form.name_label'),
-                     input_html: { class: 'form-control' }
+  = f.input :name, label: t('companies.form.name_label'),
+                   placeholder: t('companies.form.name_label'),
+                   input_html: { class: 'form-control' }
       
-  .form-group.company-form  
-     = f.input :company_type, label: t('companies.form.company_type_label'),
-                             prompt: t('companies.form.company_type_prompt'),
-                             collection: Company::COMPANY_TYPES,
-                             input_html: { class: 'form-control' }
+  = f.input :company_type, label: t('companies.form.company_type_label'),
+                           prompt: t('companies.form.company_type_prompt'),
+                           collection: Company::COMPANY_TYPES,
+                           input_html: { class: 'form-control' }
       
-  .form-group.company-form
-    = f.input :phone, label: t('companies.form.phone_label'),
-                      placeholder: '0*********',
+  = f.input :phone, label: t('companies.form.phone_label'),
+                    placeholder: '0*********',
+                    input_html: { class: 'form-control' }
+
+  = f.input :email, placeholder: 'company@domain.com',
+                    input_html: { class: 'form-control' }                       
+
+  = f.input :website, placeholder: 'Ex: www.your-website.com',
                       input_html: { class: 'form-control' }
 
-  .form-group.company-form
-    = f.input :email, placeholder: 'company@domain.com',
-                      input_html: { class: 'form-control' }                       
+  = f.input :fax, label: t('companies.form.fax_label'),
+                  placeholder: '3********',
+                  input_html: { class: 'form-control' }
 
-  .form-group.company-form
-    = f.input :website, placeholder: 'Ex: www.your-website.com',
-                        input_html: { class: 'form-control' }
-
-  .form-group.company-form
-    = f.input :fax, label: t('companies.form.company_type_label'),
-                      placeholder: '3********',
-                      input_html: { class: 'form-control' }
-
-  .form-group.company-form.mt-3
-   = f.submit yield(:button_text), class: 'btn btn-primary'
-   = link_to  yield(:cancel_btn_text), yield(:path),
-                                            class: 'btn btn-outline-danger'
+  .mt-3
+    = f.submit yield(:button_text), class: 'btn btn-primary'
+    = link_to  yield(:cancel_btn_text), yield(:path), class: 'btn btn-outline-danger'

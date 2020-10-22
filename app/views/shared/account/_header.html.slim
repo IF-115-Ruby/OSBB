@@ -25,18 +25,24 @@ header.header.w-100
           = link_to osbbs_path
             span
               button.btn.btn-transparent.auth-btn.ml-2 
-                | #{t('.btn-osbbs')}
+                = t('.btn-osbbs')
         li
           = link_to account_admin_users_path
             span
               button.btn.btn-transparent.auth-btn.ml-2 
-                | #{t('.btn-users')}
+                = t('.btn-users')
+        li
+          = link_to account_admin_companies_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 
+                = t('.btn-companies')        
         li
           = link_to account_admin_user_cabinets_path
             span
               button.btn.btn-transparent.auth-btn.ml-2
-                | #{t('.btn-user-cabinet')}
+                = t('.btn-user-cabinet')
         li
           = link_to  destroy_user_session_path, method: :delete
             span
-              button.btn.btn-transparent.auth-btn.ml-2 #{t('.btn_destoy_auth')}
+              button.btn.btn-transparent.auth-btn.ml-2 
+                = t('.btn_destoy_auth')

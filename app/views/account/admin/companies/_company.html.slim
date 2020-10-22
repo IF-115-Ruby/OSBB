@@ -1,24 +1,16 @@
-.col-md-4
-  p
-    = t('companies.show.company_name')
-    b
-      =< company.name
-  p
-    = t('companies.show.company_type')
-    =< company.company_type
-  p
-    = t('companies.show.phone')
-    =< company.phone 
-  p
-    = t('companies.show.email')
-    =< company.email
-  p
-    = t('companies.show.website')
-    =< company.website
-  p
-    = t('companies.show.fax')
-    =< company.fax     
-  .show-btn
-    = link_to [:account, :admin, company], class: 'btn btn-outline-primary'
-      = t('companies.company.btn_show')
-  hr
+tr
+  td
+    span.cusom-center-in-table-example
+      = company.name
+  td
+    span.cusom-center-in-table-example
+      = company.company_type
+  td
+    span.cusom-center-in-table-example
+      = company.phone
+  td.eye-btn.text-center
+    = link_to [:account, :admin, company]
+      button.btn.btn-outline-dark
+        i.fas.fa-eye
+      
+      

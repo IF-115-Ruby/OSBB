@@ -264,7 +264,8 @@ en:
         btn-osbbs: 'OSBBs'
         btn-users: 'All Users'
         btn-bil-contracts: 'Billing Contracts'
-        btn-user-cabinet: 'User Cabinet'
+        btn-companies: 'Companies'
+        btn-user-cabinet: 'Profile'
         btn_destoy_auth: 'Logout'
 
   companies:
@@ -273,9 +274,10 @@ en:
       companies_title: 'All companies'
 
     search_form:
-      name_email_phone_placeholder: 'Name, email or phone of the company'
-      company_type_prompt: 'Select your company type'
+      name_email_phone_placeholder: 'Search'
+      company_type_prompt: 'Select'
       btn_search: 'Search'
+      all_company_type: 'All company type'
 
     edit:
       btn_edit: 'Edit company'
@@ -283,7 +285,7 @@ en:
       edit_tittle: 'Edit company profile'
 
     new:
-      btn_create: 'Create new company'
+      btn_create: 'Create'
       btn_cancel: 'Cancel'
       new_tittle: 'New company'
 
