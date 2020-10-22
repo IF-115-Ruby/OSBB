@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     devise_for :users
 
     root 'home#index', as: 'home'
-    get 'about' => 'home#about'
+    get 'about', to: 'home#about'
     get 'custom_error', to: 'home#custom_error'
     get 'random_error', to: 'home#random_error', as: 'random_error'
     get "/404", to: "errors#not_found"
