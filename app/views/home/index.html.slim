@@ -1,0 +1,11 @@
+.container.w-auto.rounded.shadow.layout-content
+  .row.mt-2.rounded.layout-first-content.pt-3.pb-3
+    .layout-text.col-lg-7.mx-auto.my-auto
+      h1.strong.text-center.pb-4
+        strong
+          = t('home.title')
+      p.lead.mt-3 = t('home.osbb_app_goal')
+    .layout-img.col-lg-4.mx-auto.my-auto
+      .container.row.justify-content-center
+        .building-img = image_tag 'building.jpg', class: 'rounded shadow w-100 m-3',
+          alt: t('home.alt_text')

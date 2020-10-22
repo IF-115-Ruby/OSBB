@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=David+Libre&display=swap');
+
+.about-title {
+  font-weight: bold;
+  padding-top: 30px;
+  margin: 30px;
+  margin: 30px 30px 10px;
+}
+
+.about-paragraph {
+  font-family: 'David Libre', serif;
+  text-align: center;
+  font-size: 2.3em;
+  text-indent: unset;
+}
+
+.about-paragraph span {
+  font-weight: bold;
+}
+
+.about-row { justify-content: center; }
+
+.about-column {
+  float: left;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  flex: 1 0 33%;
+  max-width: 350px;
+  min-width: 200px;
+  margin: 0 3% 3% 3%;
+}
+
+.about-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.about-card img {
+  width: 100%;
+}
+
+.profile-container {
+  padding: 0 16px;
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+.profile-container h2 {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.profile-container p {
+  text-indent: 0;
+  font-size: 0.8em;
+  color: grey;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 650px) {
+  .about-column {
+    width: 100%;
+    display: block;
+  }
+}

@@ -1,0 +1,168 @@
+@import 'colors.scss';
+
+.layout-body {
+  background-image: url("../../../public/vesna-frankivsk2.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.layout-content {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.layout-first-content {
+  background-color: $half-opacity-background;
+}
+
+.navbar-brand {
+  height: 3em;
+  font-weight: bold;
+  font-size: x-large;
+
+  &:hover {
+    color: $black;
+    font-weight: bold;
+  }
+}
+
+.auth-btn, .nav-name {
+  color: $black
+}
+
+.auth-btn:hover, .btn-submit:hover, .nav-links:hover {
+  color: $black;
+  font-weight: bold;
+}
+
+.btn-submit {
+  color: $black;
+  background-color: #3b94d9;
+}
+
+.navbar-header {
+  background: none;
+}
+
+.nav-links {
+  color: $black;
+}
+
+#dropdownMenuButton {
+  width: 158px;
+}
+
+.dropdown-lang {
+  background-color: $half-opacity-background;
+  width: 155px;
+
+  &:hover, .layout-dropdown-item:hover {
+    font-weight: bold;
+    background-color: $half-opacity-background;
+  }
+}
+
+
+.lang-link {
+  color: $whitesmoke;
+  
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: $whitesmoke;
+  }
+}
+
+.footer {
+  background: #556588;
+  color:$whitesmoke;
+
+  .links {
+    ul {
+      list-style-type: none;
+    }
+
+    li a {
+      color: $whitesmoke;
+      transition: color .2s;
+
+      &:hover {
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .about-company {
+    i {
+      font-size: 25px;
+    }
+
+    a {
+      color:$whitesmoke;
+      transition: color .2s;
+
+      &:hover {
+        color:#4180CB;
+      }
+    }
+  }
+
+  .location i {
+    font-size: 18px;
+  }
+
+  .copyright p {
+    border-top:1.5px solid $half-opacity-background;
+    font-size: 20px;
+  }
+}
+
+p {
+  text-indent: 1.7em;
+  text-align: justify;
+}
+
+.alert.alert-alert {
+  color: #ca0909;
+  margin: 0 auto;
+}
+
+.alert.alert-notice {
+  color: #faea08;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 0;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
+
+.content-abc {
+  min-width: 200px;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+}
+
+.input-properties {
+  background-color: #eff6f8;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 600px) {
+  .form-prop {
+    min-width: 170px;
+
+    .icon-prop {
+      min-width: 15px;
+    }
+
+    .input-prop {
+      min-width: 150px;
+    }
+  }
+}

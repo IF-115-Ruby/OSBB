@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+.env
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -28,6 +29,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/public/uploads
+
 /public/packs
 /public/packs-test
 /node_modules
@@ -37,3 +40,16 @@ yarn-debug.log*
 
 # Ignore IDE files and packages
 /.history
+
+# Ignore gems packages and files
+/coverage
+
+
+
+# ignore vim files
+*.swp
+*.swo
+*.swk
+*.swl
+*.swm
+*.swn

@@ -1,33 +1,341 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  title: 'OSBB Application'
+  header:
+    nav_name: 'OSBB Application'
+    link_about_us: 'About us'
+    select_lang: 'Select language'
+    btn_eng: 'English'
+    btn_ukr: 'Ukrainian'
+    btn_auth: 'Login'
+    btn_destoy_auth: 'Logout'
+    btn_registr: 'Sign Up'
+
+  footer:
+    title: 'OSBB Application'
+    description: 'OSBB is a legal entity created by the owners of apartments
+      and / or non-residential premises of an apartment building for common use.'
+    links: 'Links'
+    link_about_us: 'About us'
+    location: 'Location'
+    address: 'Akademika Sakharova 23, Ivano-Frankivsk'
+    mob_number: '+380-342-723-580'
+    email: 'career@softserveinc.com'
+    copyright: '© 2020 Copyright: IF-115Ruby'
+
+  home:
+    title: 'Association of co-owners of an apartment building'
+    osbb_app_goal: 'Our site saves you time and reduces the number of routine tasks. Personal
+      accounts of residents increase the transparency of work and trust of residents. It is
+      intended for use by both the management of condominiums and residents of the house. If you
+      are an energetic person or a group of people who want positive changes in the management
+      of your house, or even the head of a long-established condominium - you are in the
+      right place!'
+    alt_text: 'not loaded'
+  errors:
+    back_to_home: 'Back to home!'
+    not_found:
+      oops_title: 'Oops! Page not found'
+      all_text: 'We are sorry, but the page you requested was not found'
+
+    server_error:
+      oops_title: 'Oops! Server Error'
+      all_text: 'We are sorry, but something went wrong'
+
+    unacceptable:
+      oops_title: 'Oops! Something wrong'
+      all_text: 'The change you wanted was rejected'
+
+  time:
+    formats:
+      long: "%d/%m/%Y %H:%M"
+
+  devise:
+    password:
+      new:
+        new_tab_title: 'Forgot password?'
+        new_title: 'Forgot your password?'
+        submit_forgot_password: 'Send me reset password instructions'
+      edit:
+        edit_tab_title: 'Change password'
+        edit_title: 'Change your password'
+        password_placeholder: 'New password'
+        confirm_password_placeholder: 'Confirm your new password'
+        submit_change_password: 'Change password'
+
+    registrations:
+      new:
+        registration_title: 'Register Page'
+        have_account_text: 'Already have an account?'
+
+    sessions:
+      new:
+        tab_title: 'Log in'
+        login_title: 'Log In Page'
+        create_account_text: "Don't have an account?"
+
+    mailer:
+      reset_password:
+        hello_title: 'Hello, '
+        main_message: 'Someone has requested a link to change your password. You can do this through the link below.'
+        text_link: 'Change my password'
+        possible_variant: "If you didn't request this, please ignore this email."
+        additional_info: "Your password won't change until you access the link above and create a new one."
+      admin_notification:
+        subject: 'New user was registered!'
+        hello_title: 'Hello! New user was successfully registered'
+        about_user: 'Information about user'
+        created_at: 'Registered at'
+        date_format: '%F, %I:%M:%S %p'
+        show: 'Show user...'
+
+    shared:
+      log_in_link: 'Login'
+      sign_up_link: 'Sign up'
+      forgot_password_link: 'Forgot password?'
+
+  user_mailer:
+    welcome_email:
+      welcome_title: 'Welcome to OSBB Application '
+      welcome_message: 'You have successfully signed up to OSBB Application, your username is: '
+      before_link_text: 'To visit WEB site, just follow this link: '
+      home_link_text: 'OSBB Application'
+      welcome_wishes: 'Thanks for joining and have a great day!'
+
+  change_pass:
+    sign_out: 'Sign out'
+    sure?: 'Are you sure?'
+    change_pass_page: 'Change Password Page'
+    change_pass: 'Change Password'
+    email: 'Email'
+    pass: 'Password'
+    pass_confirm: 'password_confirmation'
+    curr_pass: 'current-password'
+    waiting_cofirm: 'Currently waiting confirmation for'
+    new_pass: 'new-password'
+    blank_if: 'blank if dont want change it'
+    confirm: 'confirm your changes'
+    update: 'Update'
+
+  account:
+    users:
+      show:
+        title: 'User info:'
+        user-name: 'User:'
+        user-birth: 'Date of Birth:'
+        user-email: 'Email:'
+        user-phone: 'Phone:'
+        user-sex: 'Sex:'
+        btn-edit: 'Edit User'
+        btn-delete: 'Delete User'
+        btn-back: 'Back to Users'
+      edit:
+        title: 'Edit User'
+        btn-edit: 'Edit User'
+        btn-cancel: 'Cancel'
+      form:
+        sex:
+          male: 'Male'
+          female: 'Female'
+          no_sex: 'Not set'
+        first-name: 'First Name'
+        placeholder-first-name: 'Enter first name'
+        last-name: 'Last Name'
+        placeholder-last-name: 'Enter last name'
+        user-birth: 'Date of Birth:'
+        user-phone: 'Phone:'
+        placeholder-phone: 'Enter your phone number'
+        user-email: 'Email:'
+        placeholder-last-email: 'your@email.com'
+        user-sex-selected: "no_sex"
+        sex-label: 'Sex'
+
+    admin:
+      users:
+        index:
+          title: 'All Users'
+        user:
+          user: 'User: %{name}'
+          user-email: 'E-mail: %{email}'
+          btn-show: 'Show'
+      osbbs:
+        new:
+          title: 'Create OSBB'
+          btn-create: 'Create new osbb'
+          btn-cancel: 'Cancel'
+        form:
+          label-name: 'Name'
+          plch-name: 'Name of the OSBB'
+          label-phone: 'Phone number'
+          plch-phone: '0*********'
+          label-email: 'Email'
+          plch-email: 'osbb@domain.com'
+          label-website: 'Website'
+          plch-website: 'Ex: www.your-website.com'
+          label-is_available: 'Is available?'
+        edit:
+          title: 'Update osbb profile'
+          btn-edit: 'Edit osbb'
+          btn-cancel: 'Cancel'
+        index:
+          title: 'All OSBBs: '
+          btn-new: 'New osbb'
+          osbb_name: 'OSBB name'
+          phone_number: 'Phone'
+          email: 'Email'
+          website: 'Website'
+        show:
+          title: 'OSBB info: '
+          osbb-name: 'OSBB Name: '
+          osbb-phone: 'Phone number: '
+          osbb-email: 'Email: '
+          osbb-website: 'OSBB Website: '
+          btn-edit: 'Edit osbb profile'
+          btn-delete: 'Delete osbb'
+          btn-back: 'Back to Osbbs'
+          confirmation: 'Are you sure?'
+        osbb:
+          osbb-name: "OSBB's name: "
+          osbb-phone: 'Phone number: '
+          osbb-email: 'E-mail: '
+          osbb-website: "OSBB's Website: "
+          btn-show: 'Show'
+          osbb-address: 'Address:'
+      user_cabinets:
+        index:
+          companies: 'Companies'
+          utility-providers: 'Utility Providers'
+      billing_contracts:
+        index:
+          title: 'All billing contracts'
+          btn-new: 'Create contract'
+        billing_contract:
+          contract_num: 'Contract number:'
+          status: 'Status:'
+          created: 'Created:'
+          active: 'Active'
+          inactive: 'Inactive'
+          btn-show: 'Show'
+        show:
+          contract: 'Contract:'
+          about_contract: 'About contract:'
+          status: 'Status:'
+          active: 'Active'
+          inactive: 'Inactive'
+          created: 'Created:'
+          about_company: 'About company'
+          name_of_company: 'Name:'
+          actions: 'Actions'
+          btn-edit: 'Edit contract'
+          btn-delete: 'Delete contract'
+          btn-back: 'Cancel'
+          are_you_sure: 'Are you sure?'
+        form:
+          label-company: 'Company'
+          label-contract-num: 'Number of contract'
+          label-active: 'Status'
+        edit:
+          edit-title: 'Edit contract'
+          btn-edit: 'Update'
+          btn-cancel: 'Cancel'
+        new:
+          new-title: 'Create contract'
+          btn-create: 'Create'
+          btn-cancel: 'Cancel'
+
+    utility_providers:
+      search_form:
+        name: 'Company'
+        name-of-company: 'Name of company:'
+        iban: 'IBAN'
+        edrpou: 'EDRPOU'
+        search: 'Search'
+      companies:
+        title: 'Add utility provider'
+      company:
+        btn-choose: 'Choose'
+      index:
+        btn-add: 'Add utility provider'
+        title: 'My utility providers'
+        name-of-company: 'Name of company:'
+        contract-number: 'Conract:'
+        status: 'Status:'
+        created: 'Created:'
+        active: 'Active'
+        inactive: 'Inactive'
+        btn-remove: 'Remove'
+      new:
+        add-utilities-provider: 'Add utility provider'
+        contract-number: 'Number of contract'
+        btn-add: 'Add'
+
+  shared:
+    account:
+      header:
+        greetings: 'Hello'
+        btn-osbbs: 'OSBBs'
+        btn-users: 'All Users'
+        btn-bil-contracts: 'Billing Contracts'
+        btn-companies: 'Companies'
+        btn-user-cabinet: 'Profile'
+        btn_destoy_auth: 'Logout'
+
+  companies:
+    index:
+      btn_new_company: 'New company'
+      companies_title: 'All companies'
+
+    search_form:
+      name_email_phone_placeholder: 'Search'
+      company_type_prompt: 'Select'
+      btn_search: 'Search'
+      all_company_type: 'All company type'
+
+    edit:
+      btn_edit: 'Edit company'
+      btn_cancel: 'Cancel'
+      edit_tittle: 'Edit company profile'
+
+    new:
+      btn_create: 'Create'
+      btn_cancel: 'Cancel'
+      new_tittle: 'New company'
+
+    show:
+      show_title: 'Company info:'
+      company_name: 'Company name:'
+      company_type: 'Company type:'
+      phone: 'Phone:'
+      email: 'Email:'
+      website: 'Website:'
+      fax: 'Fax:'
+      btn_edit_company: 'Edit company'
+      btn_delete_company: 'Delete company'
+      btn_back: 'Back'
+      btn_billing_contracts: 'Contracts'
+
+    form:
+      name_label: 'Name'
+      name_placeholder: 'Name of the company'
+      company_type_label: 'Company type'
+      company_type_prompt: 'Select your company type'
+      phone_label: 'Phone number'
+      fax_label: 'Fax'                  
+
+    company:
+      btn_show: 'Show'
+
+  about:
+    header: 'About us'
+    paragraph1: '"This cite was developed by creative and self-motivated members of'
+    paragraph2: 'academy."'
+    speciality: 'Ruby on Rails developer'
+    andrii_lebukhorskyi: 'Andrii Lebukhorskyi'
+    ivan_matsiyk: 'Ivan Matsiyk'
+    ihor_moskvyn: 'Ihor Moskvyn'
+    marian_rebeha: 'Marian Rebeha'
+    ivan_danyliv: 'Ivan Danyliv'
+    mykola_ukhanskyi: 'Mykola Ukhanskyi'
+    mykhailo_marusyk: 'Mykhailo Marusyk'
+    vasyl_matsevko: 'Vasyl Matsevko'
+    andrii_kozak: 'Andrii Kozak'
+    photo: 'photo'

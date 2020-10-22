@@ -1,0 +1,29 @@
+= simple_form_for [:account, :admin, @osbb] do |f|
+
+  .form-group
+    = f.input :name, label: t('.label-name'),
+                     placeholder: t('.plch-name'),
+                     input_html: { class: 'form-control' }
+  .form-group
+    = f.input :phone, required: true,
+                      label: t('.label-phone'),
+                      placeholder: t('.plch-phone'),
+                      input_html: { class: 'form-control' }
+  .form-group
+    = f.input :email, required: true,
+                      label: t('.label-email'),
+                      placeholder: t('.plch-email'),
+                      input_html: { class: 'form-control' }
+  .form-group
+    = f.input :website, label: t('.label-website'),
+                        placeholder: t('.plch-website'),
+                        input_html: { class: 'form-control' }
+  .form-group
+    = f.input :is_available, label: t('.label-is_available'),
+                             as: :radio_buttons,
+                             input_html: { class: 'form-check-input' }
+  .form-group
+    = f.submit yield(:button_text), class: 'btn btn-primary'
+    = link_to  yield(:cancel_btn_text),
+                          yield(:path),
+                          class: 'btn btn-outline-danger'

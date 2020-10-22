@@ -1,0 +1,39 @@
+.custom-form-wrapper
+  section
+    .container
+      .content-abc.mx-auto.shadow.m-3
+        h1.pt-4.font-weight-bold.row.justify-content-center
+          = title t('devise.sessions.new.tab_title'),
+            t('devise.sessions.new.login_title')
+        hr
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = f.error_notification
+          .container.form-prop
+            .container.form-horizontal.mb-2.mt-4
+              p.form-group
+                .row
+                  i.fas.fa-envelope.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :email, autofocus: true, label: false,
+                      placeholder: t('change_pass.email'),
+                      input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-key.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = f.input :password, autofocus: true,
+                      label: false, hint: false,
+                      placeholder: t('change_pass.pass'),
+                      input_html: { class: 'form-control input-prop'}
+            .form-actions.mt-3
+              .container.d-flex.justify-content-center
+                = f.submit t('devise.sessions.new.tab_title'),
+                  class: 'btn btn-submit pl-5 pr-5'
+              = link_to t('devise.shared.forgot_password_link'), new_password_path(resource_name),
+                class: 'row justify-content-center mt-2'
+            hr
+            .container.pb-3
+              .d-flex.justify-content-center.links.mt-2
+                = t('devise.sessions.new.create_account_text')
+                = link_to t('devise.shared.sign_up_link'), new_registration_path(resource_name),
+                  class: 'ml-3'

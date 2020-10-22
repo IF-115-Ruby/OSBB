@@ -1,0 +1,16 @@
+tr
+  td
+    span.cusom-center-in-table-example
+      = company.name
+  td
+    span.cusom-center-in-table-example
+      = company.company_type
+  td
+    span.cusom-center-in-table-example
+      = company.phone
+  td.eye-btn.text-center
+    = link_to [:account, :admin, company]
+      button.btn.btn-outline-dark
+        i.fas.fa-eye
+      
+      

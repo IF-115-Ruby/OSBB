@@ -1,0 +1,9 @@
+.content.pt-4
+  .form-component.form-component-user
+    - provide(:create_btn_text, t('.btn-edit'))
+    - provide(:cancel_btn_text, t('.btn-cancel'))
+    - provide(:path, account_admin_users_path)
+    h1.title
+      = t('.title')
+    .container
+      = render 'form', object: @user

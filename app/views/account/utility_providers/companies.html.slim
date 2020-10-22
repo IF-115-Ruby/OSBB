@@ -1,0 +1,9 @@
+.content.pt-4
+  .form-component.bg-opacity-black
+    h1.pb-1
+      = t('.title')
+    = render 'search_form'
+  .form-component.form-border-radius
+    = render partial: 'company', collection: @companies
+  .pagination-container.pt-1
+    = paginate @companies, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md'

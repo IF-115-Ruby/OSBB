@@ -1,0 +1,26 @@
+header.header.w-100.shadow.rounded.transparent
+  nav.navbar.navbar-expand-lg.navbar-header.transparent
+    = link_to home_path, class: 'nav-name navbar-brand'
+      .d-inline = image_tag 'logo2.svg', class: 'my-auto header-logo navbar-brand ml-2', alt: t('home.alt_text')
+    button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button"
+      span.mx-auto.mt-1.mb-1
+        i.fas.fa-bars.
+    #navbarNav.collapse.navbar-collapse.w-auto
+      ul.nav.navbar-nav.ml-auto
+        li.nav-item
+          .dropdown
+            button#dropdownMenuButton.btn.btn-transparent.auth-btn.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown'
+              = t('header.select_lang')
+            .dropdown-menu.dropdown-lang
+              = link_to url_for(locale: :en), class: 'dropdown-item layout-dropdown-item'
+                = t('header.btn_eng')
+              = link_to url_for(locale: :ua), class: 'dropdown-item layout-dropdown-item'
+                = t('header.btn_ukr')
+        li.nav-item
+          = link_to new_user_session_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 = t('header.btn_auth')
+        li.nav-item
+          = link_to new_user_registration_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 = t('header.btn_registr')

@@ -1,0 +1,9 @@
+- provide(:create_btn_text, t('.btn-edit'))
+- provide(:cancel_btn_text, t('.btn-cancel'))
+- provide(:path, account_admin_company_billing_contract_path)
+
+.content.pt-4
+  .form-component
+    h1
+      = t('.edit-title')
+    = render 'form', object: @biling_contract

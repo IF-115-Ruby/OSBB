@@ -1,0 +1,9 @@
+- provide(:create_btn_text, t('.btn-create'))
+- provide(:cancel_btn_text, t('.btn-cancel'))
+- provide(:path, account_admin_company_billing_contracts_path)
+
+.content.pt-3
+  .form-component
+    h1.title
+      = t('.new-title')
+    = render 'form', object: @biling_contract

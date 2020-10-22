@@ -1,0 +1,23 @@
+= search_form_for @q, url: search_account_utility_providers_path, method: :get, builder: SimpleForm::FormBuilder do |f|
+  .form-group.mt-1
+    = f.text_field :name_i_cont,
+      label: false,
+      placeholder: t('.name-of-company'),
+      class: 'form-control',
+      error_html: { class: 'form-error' }
+
+  .form-group.mt-1
+    = f.text_field :account_iban_eq,
+      label: false,
+      placeholder: t('.iban'),
+      class: 'form-control',
+      error_html: { class: 'form-error' }
+
+  .form-group.mt-1
+    = f.text_field :account_edrpou_eq,
+      label: false,
+      placeholder: t('.edrpou'),
+      class: 'form-control',
+      error_html: { class: 'form-error' }
+  .form-group.mt-3.text-center
+    = f.button :submit, t('.search'), class: 'btn btn-md btn-secondary btn-custom'

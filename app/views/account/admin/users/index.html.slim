@@ -1,0 +1,10 @@
+.container-wrapper-user
+  h1
+    = t('.title')
+  .user-index
+    .row
+      - @users.each do |user|
+        = render user
+  .pagination-container
+    = paginate @users, theme: 'twitter-bootstrap-4',
+                       pagination_class: "pagination-md"

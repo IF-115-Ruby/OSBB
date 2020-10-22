@@ -1,0 +1,23 @@
+.content.pt-4
+  .form-component
+    h1.title
+      = t('.contract')
+      =< @billing_contract.contract_num
+    .content-info
+      .info-content
+        span.name
+          = t('.status')
+        span.value = t(status_contract(@billing_contract.is_active))
+      .info-content
+        span.name
+          = t('.created')
+        span.value = l(@billing_contract.created_at, format: :long)
+    .d-flex.justify-content-around.flex-wrap
+      = link_to t('.btn-edit'), edit_account_admin_company_billing_contract_path(@company, @billing_contract),
+        class: 'btn btn-warning btn-custom'
+      = link_to t('.btn-delete'),  [:account, :admin, @company, @billing_contract],
+        method: :delete,
+        data: { confirm: t('.are_you_sure') },
+        class: 'btn btn-danger btn-custom'
+      = link_to t('.btn-back'), account_admin_company_billing_contracts_path(@company),
+        class: 'btn btn-info btn-custom'

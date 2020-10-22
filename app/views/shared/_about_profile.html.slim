@@ -1,0 +1,12 @@
+.about-column
+  .card.about-card
+    = image_tag("/about_us_photos/#{name}.jpg", alt: "#{t("about.#{name}")} #{t("about.photo")}")
+    .profile-container
+      h2 = t("about.#{name}")
+      p = t('about.speciality')
+    p.mb-1 style='text-indent: 1em;'
+      i.fas.fa-envelope.mr-2
+      = mail_to mail, mail
+    p style='text-indent: 1em;'
+      i.fab.fa-github.mr-2
+      = link_to  github, github
