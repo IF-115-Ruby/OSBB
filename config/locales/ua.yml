@@ -252,6 +252,7 @@ ua:
         search: 'Шукати'
       companies:
         title: 'Додати постачальника послуг'
+      company:
         btn-choose: 'Вибрати'
       index:
         btn-add: 'Додати постачальника послуг'
@@ -340,3 +341,4 @@ ua:
     vasyl_matsevko: 'Василь Мацевко'
     andrii_kozak: 'Андрій Козак'
     photo: 'фото'
+  utility-providers: 'Постачальники послуг'
