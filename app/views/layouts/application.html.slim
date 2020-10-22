@@ -4,14 +4,14 @@ html
     = display_meta_tags site: t('header.nav_name')
     = csrf_meta_tags
     = csp_meta_tag
-    = favicon_link_tag 'favicon.png'
+    = favicon_link_tag 'logo_tag.svg'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body.d-flex.flex-column.min-vh-100
+  body.d-flex.flex-column.layout-body
     = render 'shared/header'
     = render  'shared/flash_msg'
-    .container-fluid.flex-grow-1
+    .container-fluid.flex-grow-1.layout-content.pt-3.pb-4
       = yield
     = any_login_here if defined?(AnyLogin)
     = render 'shared/footer'
