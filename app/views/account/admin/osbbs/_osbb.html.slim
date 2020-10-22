@@ -1,0 +1,17 @@
+tr
+  td
+    span.cusom-center-in-table-example
+      = osbb.name
+  td
+    span.cusom-center-in-table-example
+      = osbb.phone
+  td
+    span.cusom-center-in-table-example
+      = osbb.email
+  td
+    span.cusom-center-in-table-example
+      = osbb.website
+  td.eye-btn.text-center
+    = link_to [:account, :admin, osbb]
+      button.btn.btn-outline-dark
+        i.fas.fa-eye

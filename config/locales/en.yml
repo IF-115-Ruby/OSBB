@@ -116,27 +116,6 @@ en:
     confirm: 'confirm your changes'
     update: 'Update'
 
-  osbbs:
-    index:
-      title: 'All OSBBs: '
-      btn-new: 'New osbb'
-    show:
-      title: 'OSBB info: '
-      osbb-name: 'OSBB Name: '
-      osbb-phone: 'Phone number: '
-      osbb-email: 'Email: '
-      osbb-website: 'OSBB Website: '
-      btn-edit: 'Edit osbb profile'
-      btn-delete: 'Delete osbb'
-      btn-back: 'Back to Osbbs'
-    osbbs:
-      osbb-name: "OSBB's name: "
-      osbb-phone: 'Phone number: '
-      osbb-email: 'E-mail: '
-      osbb-website: "OSBB's Website: "
-      btn-show: 'Show'
-    osbb-address: 'Address'
-
   account:
     users:
       show:
@@ -188,12 +167,43 @@ en:
           plch-name: 'Name of the OSBB'
           label-phone: 'Phone number'
           plch-phone: '0*********'
+          label-email: 'Email'
           plch-email: 'osbb@domain.com'
+          label-website: 'Website'
           plch-website: 'Ex: www.your-website.com'
+          label-is_available: 'Is available?'
         edit:
           title: 'Update osbb profile'
           btn-edit: 'Edit osbb'
           btn-cancel: 'Cancel'
+        index:
+          title: 'All OSBBs: '
+          btn-new: 'New osbb'
+          osbb_name: 'OSBB name'
+          phone_number: 'Phone'
+          email: 'Email'
+          website: 'Website'
+        show:
+          title: 'OSBB info: '
+          osbb-name: 'OSBB Name: '
+          osbb-phone: 'Phone number: '
+          osbb-email: 'Email: '
+          osbb-website: 'OSBB Website: '
+          btn-edit: 'Edit osbb profile'
+          btn-delete: 'Delete osbb'
+          btn-back: 'Back to Osbbs'
+          confirmation: 'Are you sure?'
+        osbb:
+          osbb-name: "OSBB's name: "
+          osbb-phone: 'Phone number: '
+          osbb-email: 'E-mail: '
+          osbb-website: "OSBB's Website: "
+          btn-show: 'Show'
+          osbb-address: 'Address:'
+      user_cabinets:
+        index:
+          companies: 'Companies'
+          utility-providers: 'Utility Providers'
       billing_contracts:
         index:
           title: 'All billing contracts'
@@ -329,5 +339,3 @@ en:
     vasyl_matsevko: 'Vasyl Matsevko'
     andrii_kozak: 'Andrii Kozak'
     photo: 'photo'
-
-  utility-providers: 'Utility provideгs'

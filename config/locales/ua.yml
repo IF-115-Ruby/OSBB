@@ -127,27 +127,6 @@ ua:
     confirm: 'підтвердити свої зміни'
     update: 'Змінити'
 
-  osbbs:
-    index:
-      title: 'Усі ОСББ:'
-      btn-new: 'Нове ОСББ'
-    show:
-      title: 'ОСББ деталі:'
-      osbb-name: 'Назва ОСББ: '
-      osbb-phone: 'Номер телефону: '
-      osbb-email: 'Е-пошта: '
-      osbb-website: 'Сайт ОСББ: '
-      btn-edit: 'Редагувати профіль ОСББ'
-      btn-delete: 'Видалити ОСББ'
-      btn-back: 'Назад'
-    osbbs:
-      osbb-name: 'Назва ОСББ: '
-      osbb-phone: 'Номер телефону: '
-      osbb-email: 'Е-пошта: '
-      osbb-website: 'Сайт ОСББ: '
-      btn-show: 'Дивитись'
-    osbb-address: 'Адрес'
-
   account:
     users:
       show:
@@ -199,12 +178,43 @@ ua:
           plch-name: 'Назва ОСББ'
           label-phone: 'Номер телефону'
           plch-phone: '0*********'
+          label-email: 'E-пошта'
           plch-email: 'osbb@domain.com'
+          label-website: 'Веб-сайт'
           plch-website: 'Напр: www.your-website.com'
+          label-is_available: 'Дійсний?'
         edit:
           title: 'Оновити профіль ОСББ'
           btn-edit: 'Редагувати ОСББ'
           btn-cancel: 'Відмінити'
+        index:
+          title: 'Усі ОСББ:'
+          btn-new: 'Нове ОСББ'
+          osbb_name: 'Назва ОСББ'
+          phone_number: 'Телефон'
+          email: 'Е-пошта'
+          website: 'Вебсайт'
+        show:
+          title: 'ОСББ деталі:'
+          osbb-name: 'Назва ОСББ: '
+          osbb-phone: 'Номер телефону: '
+          osbb-email: 'Е-пошта: '
+          osbb-website: 'Сайт ОСББ: '
+          btn-edit: 'Редагувати'
+          btn-delete: 'Видалити ОСББ'
+          btn-back: 'Назад'
+          confirmation: 'Ви впевнені?'
+        osbb:
+          osbb-name: 'Назва ОСББ: '
+          osbb-phone: 'Номер телефону: '
+          osbb-email: 'Е-пошта: '
+          osbb-website: 'Сайт ОСББ: '
+          btn-show: 'Дивитись'
+          osbb-address: 'Адреса:'
+          user_cabinets:
+      index:
+        companies: 'Компанії'
+        utility-providers: 'Постачальники послуг'
       billing_contracts:
         index:
           title: 'Всі контракти'
@@ -341,4 +351,3 @@ ua:
     vasyl_matsevko: 'Василь Мацевко'
     andrii_kozak: 'Андрій Козак'
     photo: 'фото'
-  utility-providers: 'Постачальники послуг'

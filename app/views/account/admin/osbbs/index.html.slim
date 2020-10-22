@@ -1,0 +1,30 @@
+.box
+  .all-component
+    nav.navbar.navbar-dark
+      h2.mx-auto
+        = t('.title')
+    table.table
+      thead.thead
+        tr 
+          th
+            span.cusom-center-in-table-example          
+              = t('.osbb_name')
+          th
+            span.cusom-center-in-table-example 
+              = t('.phone_number')
+          th
+            span.cusom-center-in-table-example 
+              = t('.email')
+          th
+            span.cusom-center-in-table-example 
+              = t('.website')
+          th.plus-btn.text-center
+            = link_to new_account_admin_osbb_path
+              button.btn.btn-outline-light
+                i.fas.fa-plus
+      tbody
+        - @osbbs.each do |osbb|
+          = render osbb
+    .pagination-container
+      = paginate @osbbs, theme: 'twitter-bootstrap-4',
+                        pagination_class: 'pagination-md'
