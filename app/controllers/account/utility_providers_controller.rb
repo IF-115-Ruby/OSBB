@@ -28,7 +28,7 @@ class Account::UtilityProvidersController < Account::AccountController
     else
       flash.now[:warning] = 'Wrong billing contract number!'
       @billing_contract ||= BillingContract.new
-      render :new
+      render 'new', locals: { company_id: @company.id }
     end
   end
 
