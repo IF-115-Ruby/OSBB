@@ -7,6 +7,7 @@ gem 'any_login'
 gem 'carrierwave', '~> 2.0'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'geocoder'
+gem 'mini_magick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 # Use postgresql as the database for Active Record
