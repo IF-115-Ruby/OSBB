@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
     root 'home#index', as: 'home'
     get 'about' => 'home#about'
+    get 'custom_error', to: 'home#custom_error'
+    get 'random_error', to: 'home#random_error', as: 'random_error'
     get "/404", to: "errors#not_found"
     get "/422", to: "errors#unacceptable"
     get "/500", to: "errors#server_error"
