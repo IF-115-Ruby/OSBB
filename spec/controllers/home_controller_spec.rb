@@ -11,4 +11,16 @@ RSpec.describe HomeController, type: :controller do
 
     it { is_expected.to render_template(:about) }
   end
+
+  describe 'render view #custom_error' do
+    before { get :custom_error }
+
+    it { is_expected.to render_template(:custom_error) }
+  end
+
+  # rubocop:disable RSpec/UnspecifiedException
+  describe 'respond to #random_error' do
+    it { expect { get :random_error }.to raise_error }
+  end
+  # rubocop:enable RSpec/UnspecifiedException
 end
