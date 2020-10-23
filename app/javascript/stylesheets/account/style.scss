@@ -3,10 +3,13 @@ body.account {
   .greetings {
     color: white;
   }
-
+  .content {
+    width: 100%;
+    padding-bottom: 20px;
+  }
   .navbar.navbar-expand-lg.navbar-dark.navbar-header {
     background-color: $light-steel-blue;
-    
+
     .navbar-collapse.collapse {
       justify-content: space-between;
     }
@@ -20,9 +23,8 @@ body.account {
   }
   .container__box > .container-fluid {
     background: $gainsboro;
-    box-shadow: 0 16px 13px $gainsboro;
     background-size: cover;
-    min-height: 630px;
+    height: 100%;
   }
   .acount-content {
     padding-top: 40px;
@@ -35,7 +37,7 @@ body.account {
       }
     }
     .cabinet__container {
-      nav.col-md-2.d-none.d-md-block.sidebar {
+      nav.col-md-4.d-none.d-md-block.sidebar {
         background-color: $solitude;
         border-radius: 10px;
       }

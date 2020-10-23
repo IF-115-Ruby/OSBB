@@ -207,7 +207,9 @@ en:
       billing_contracts:
         index:
           title: 'All billing contracts'
-          btn-new: 'Create contract'
+          contract_num: 'Contract Number'
+          status: 'Status'
+          created: 'Created'
         billing_contract:
           contract_num: 'Contract number:'
           status: 'Status:'
@@ -249,6 +251,9 @@ en:
         iban: 'IBAN'
         edrpou: 'EDRPOU'
         search: 'Search'
+      utility_provider:
+        active: 'Active'
+        inactive: 'Inactive'
       companies:
         title: 'Add utility provider'
       company:
@@ -319,7 +324,7 @@ en:
       company_type_label: 'Company type'
       company_type_prompt: 'Select your company type'
       phone_label: 'Phone number'
-      fax_label: 'Fax'                  
+      fax_label: 'Fax'
 
     company:
       btn_show: 'Show'
