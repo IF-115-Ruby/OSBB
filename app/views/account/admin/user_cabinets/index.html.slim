@@ -2,7 +2,7 @@
   h1.title #{current_user.full_name} Cabinet.
   .container-fluid
     .row
-      nav.col-md-2.d-none.d-md-block.sidebar
+      nav.col-md-4.d-none.d-md-block.sidebar
         .sidebar-sticky
           ul.nav.flex-column
             li.nav-item
@@ -12,17 +12,17 @@
             li.nav-item
               = link_to t('change_pass.change_pass'), edit_user_registration_path, class: 'nav-link'
             li.nav-item
-              a.nav-link href="#" 
+              a.nav-link href="#"
                 | Bills
             li.nav-item
-              a.nav-link href="#" 
+              a.nav-link href="#"
                 | Neighbors
             li.nav-item
-              a.nav-link href="#" 
+              a.nav-link href="#"
                 | Reports
             li.nav-item
-              a.nav-link href="#" 
+              a.nav-link href="#"
                 | Complaints
             li.nav-item
-              a.nav-link href="#" 
+              a.nav-link href="#"
                 | Suggestions
