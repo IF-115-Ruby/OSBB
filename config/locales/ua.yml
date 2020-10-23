@@ -150,8 +150,8 @@ ua:
           no_sex: 'Не вказано'
         first-name: "Ім'я"
         placeholder-first-name: "Введіть ім'я"
-        last-name: 'Фамілія'
-        placeholder-last-name: 'Введіть фамілію'
+        last-name: 'Прізвище'
+        placeholder-last-name: 'Введіть прізвище'
         user-birth: 'Дата народження:'
         user-phone: 'Телефон:'
         placeholder-phone: 'Ведіть ваш мобільний'
@@ -218,7 +218,9 @@ ua:
       billing_contracts:
         index:
           title: 'Всі контракти'
-          btn-new: 'Cтворити контракт'
+          contract_num: 'Номер контракту'
+          status: 'Статус'
+          created: 'Створено'
         billing_contract:
           contract_num: 'Контракт:'
           status: 'Статус:'
@@ -260,6 +262,9 @@ ua:
         iban: 'IBAN'
         edrpou: 'Код ЄДРПОУ'
         search: 'Шукати'
+      utility_provider:
+        active: 'Активний'
+        inactive: 'Неактивний'
       companies:
         title: 'Додати постачальника послуг'
       company:
@@ -298,7 +303,7 @@ ua:
 
     search_form:
       name_email_phone_placeholder: 'Пошук'
-      company_type_prompt: 'Виберіть'                                                                                       
+      company_type_prompt: 'Виберіть'
       btn_search: 'Пошук'
       all_company_type: 'Всі типи компаній'
 

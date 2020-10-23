@@ -8,10 +8,10 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body.account.d-flex.flex-column
+  body.account.d-flex.flex-column.vh-100
     = render 'shared/account/header'
     = render  'shared/flash_msg'
-    .container__box.flex-grow-1.pb-4
-      .container-fluid.acount-content
+    .container__box.flex-grow-1
+      .container-fluid.acount-content.d-flex
         = yield
     = render 'shared/account/footer'

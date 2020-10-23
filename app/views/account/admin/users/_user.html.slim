@@ -6,7 +6,7 @@
         - user.avatar.recreate_versions!
         = image_tag(user.avatar.user_index.url, alt: 'Image', class: 'user-avatar')
       - else
-        = image_tag("default_a.png", alt: 'Image', class: 'user-avatar')
+        = image_tag( "default_a.png", alt: 'Image', class: 'user-avatar-default')
   div.user-hidden-block
     p = t('.user', name: user.full_name)
 

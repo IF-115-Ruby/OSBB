@@ -137,6 +137,11 @@ span.insert-user {
   min-width: 500px;
 }
 
-.user-avatar {
+.user-avatar, .user-avatar-default {
   border-radius: 50%;
+}
+
+.user-avatar-default {
+  width: 100px;
+  height: 100px;
 }
