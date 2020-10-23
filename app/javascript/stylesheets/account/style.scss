@@ -37,7 +37,8 @@ body.account {
       }
     }
     .cabinet__container {
-      nav.col-md-4.d-none.d-md-block.sidebar {
+      width: 100%;
+      nav.col-md-2.d-none.d-md-block.sidebar {
         background-color: $solitude;
         border-radius: 10px;
       }

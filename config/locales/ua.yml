@@ -238,9 +238,9 @@ ua:
           about_company: 'Про компанію'
           name_of_company: 'Назва компанії:'
           actions: 'Дії'
-          btn-edit: 'Редагувати контракт'
-          btn-delete: 'Видалити контракт'
-          btn-back: 'Повернутися назад'
+          btn-edit: 'Редагувати'
+          btn-delete: 'Видалити'
+          btn-back: 'Назад'
           are_you_sure: 'Ти впевнений?'
         form:
           label-company: 'Компанія'
