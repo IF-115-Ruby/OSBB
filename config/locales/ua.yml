@@ -254,7 +254,16 @@ ua:
           new-title: 'Створити контракт'
           btn-create: 'Створити'
           btn-cancel: 'Відмінити'
-
+      companies_imports:
+        new:
+          title: 'Імпорт компаній'
+          information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
+          errors:
+            one: '1 помилка'
+            few: '%{count} помилки'
+            other: '%{count} помилкок'
+          btn-import: 'Імпортувати'
+          btn-back: 'Назад'
     utility_providers:
       search_form:
         name: 'Компанія'
@@ -301,6 +310,7 @@ ua:
     index:
       btn_new_company: 'Нова компанія'
       companies_title: 'Всі компанії'
+      btn-import: 'Імпортувати'
 
     search_form:
       name_email_phone_placeholder: 'Пошук'
@@ -358,3 +368,14 @@ ua:
     vasyl_matsevko: 'Василь Мацевко'
     andrii_kozak: 'Андрій Козак'
     photo: 'фото'
+
+  activerecord:
+    errors:
+      models:
+        company:
+          attributes:
+            phone:
+              too_short: 'закороткий'
+            email:
+              invalid: 'неправильний'
+  row: 'Кортеж'

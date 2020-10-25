@@ -1,0 +1,23 @@
+.content.pt-3
+  .form-component
+    h1.title
+      = t('.title')
+    = simple_form_for [:account, :admin, @companies_import], :html=> { class: 'mx-auto billing-form' } do |f|
+      - if @companies_import.errors.any?
+        p.text-danger
+          => t('.errors', count: @companies_import.errors.count)
+          = t('.information')
+        ul.text-danger
+          - @companies_import.errors.full_messages.each do |msg|
+            li
+              = msg
+
+      .text-center
+        = f.file_field :file
+      
+      .text-center
+        = f.submit t('.btn-import'),
+          class: 'btn btn-primary mr-2 btn-custom'
+
+        = link_to t('.btn-back'),
+          account_admin_companies_path, class: 'btn btn-outline-danger btn-custom'

@@ -243,7 +243,15 @@ en:
           new-title: 'Create contract'
           btn-create: 'Create'
           btn-cancel: 'Cancel'
-
+      companies_imports:
+        new:
+          title: 'Import Companies'
+          information: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try again.'
+          errors:
+            one: '1 error'
+            other: '%{count} errors'
+          btn-import: 'Import'
+          btn-back: 'Back'
     utility_providers:
       search_form:
         name: 'Company'
@@ -289,6 +297,7 @@ en:
     index:
       btn_new_company: 'New company'
       companies_title: 'All companies'
+      btn-import: 'Import'
 
     search_form:
       name_email_phone_placeholder: 'Search'
@@ -346,3 +355,4 @@ en:
     vasyl_matsevko: 'Vasyl Matsevko'
     andrii_kozak: 'Andrii Kozak'
     photo: 'photo'
+  row: 'Row'

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         resources :companies do
           resources :billing_contracts
         end
+        resources :companies_imports, only: %i[new create]
         resources :users, only: %i[index destroy]
       end
     end

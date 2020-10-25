@@ -41,6 +41,7 @@ gem 'bootstrap4-kaminari-views'
 gem "fog-aws"
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'roo'
 
 group :development, :test do
   gem 'annotate'
