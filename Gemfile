@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 gem 'any_login'
+gem 'axlsx'
+gem 'axlsx_rails'
 gem 'carrierwave', '~> 2.0'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'geocoder'
@@ -42,13 +44,16 @@ gem "fog-aws"
 gem 'kaminari'
 gem 'premailer-rails'
 gem 'rails-i18n'
+gem 'roo'
+gem 'roo-xls'
 gem 'routing-filter'
+gem 'rubyzip'
 gem 'strong_migrations'
 gem 'telegram-bot'
 # Gem 'Wicked_pdf' & 'wkhtmltopdf-binary' for export pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem "wkhtmltopdf-heroku"
+gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
   gem 'amazing_print'

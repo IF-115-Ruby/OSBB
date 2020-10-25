@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       resources :user_cabinets, only: :index
       resources :companies do
         resources :billing_contracts
+        get 'new_import', on: :collection
+        post 'import', on: :collection
       end
       resources :users, only: %i[index destroy]
     end

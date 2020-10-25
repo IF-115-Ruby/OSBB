@@ -41,6 +41,25 @@ class Account::Admin::CompaniesController < Account::Admin::AdminController
     flash[:danger] = "Company profile \"#{@company.name}\" with id:#{@company.id} has been deleted"
   end
 
+  def new_import
+    @companies_import = CompaniesImport.new
+
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+  end
+
+  def import
+    @companies_import = CompaniesImport.new(params[:companies_import])
+
+    if @companies_import.perform
+      redirect_to account_admin_companies_path, flash: { success: 'Companies were imported.' }
+    else
+      render :new_import
+    end
+  end
+
   private
 
   def company_params

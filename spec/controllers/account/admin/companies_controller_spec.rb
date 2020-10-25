@@ -110,4 +110,33 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
       expect(flash[:danger]).to be_present
     end
   end
+
+  describe 'GET#new_import' do
+    before { get :new_import }
+
+    it { is_expected.to respond_with :success }
+    it { is_expected.to render_template :new_import }
+  end
+
+  describe 'POST#import' do
+    context 'when present file params' do
+      subject { post :import, params: { companies_import: file } }
+
+      let!(:file) { { file: fixture_file_upload('files/companies.csv', 'text/csv') } }
+
+      it { is_expected.to have_http_status(:redirect) }
+      it { expect { subject }.to change(Company, :count).by(3) }
+      it { expect { subject }.to change(Address, :count).by(3) }
+      it { expect { subject }.to change(Account, :count).by(3) }
+    end
+
+    context 'when empty params' do
+      subject { post :import, params: nil }
+
+      it { is_expected.to have_http_status(:success) }
+      it { expect { subject }.not_to change(Company, :count) }
+      it { expect { subject }.not_to change(Address, :count) }
+      it { expect { subject }.not_to change(Account, :count) }
+    end
+  end
 end
