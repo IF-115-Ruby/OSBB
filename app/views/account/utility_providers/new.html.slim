@@ -6,7 +6,7 @@
       b
         =< @company.name
     hr.my-4
-    = simple_form_for [:account, @billing_contract], url: new_account_utility_provider_path, method: :put, :html=> { class: 'mx-auto billing-form' } do |f|
+    = simple_form_for [:account, @billing_contract], url: new_account_company_utility_provider_path, method: :put, :html=> { class: 'mx-auto billing-form' } do |f|
       .form-group
         = f.hidden_field :company_id, value: @company.id
         = f.input :contract_num,

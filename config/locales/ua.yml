@@ -265,6 +265,7 @@ ua:
       utility_provider:
         active: 'Активний'
         inactive: 'Неактивний'
+        are_you_sure: 'Ти впевнений?'
       companies:
         title: 'Додати постачальника послуг'
       company:
