@@ -15,6 +15,7 @@
 
 .form-group.user-birth {
   margin-top: 20px;
+  margin-right: 10px;
 }
 
 .date.optional select {
@@ -35,22 +36,33 @@
   span.error {
     margin-bottom: 0;
     margin-top: 20px;
-    margin-left: 310px;
+    margin-left: 20px;
   }
 }
 
+div.form-group.user-form.use-avatar span {
+  margin-left: 0;
+}
+
 .form-group.down-btn {
-  margin-left: 310px;
+  text-align: center;
 }
 
 a.btn.btn-outline-danger {
   margin-left: 10px;
 }
 
+.show-box,
+.user-avatar-show,
+.user-index,
+.user-index-size,
 .user-info {
   display: flex;
+}
+
+.user-avatar-show,
+.user-info {
   flex-direction: column;
-  width: 40%;
 }
 
 .user-item {
@@ -58,7 +70,7 @@ a.btn.btn-outline-danger {
 }
 
 .naming-user {
-  width: 200px;
+  width: 170px;
   font-size: 20px;
   display: inline-flex;
 }
@@ -71,41 +83,65 @@ span.insert-user {
   margin-left: 10px;
 }
 
-.user-avatar {
-  width: auto;
-  height: 100px;
-}
-
 .user-avatar-show {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.show-user {
-  width: auto;
-  height: 150px;
+  margin-right: 50px;
 }
 
 .navbar-user {
   margin-top: 20px;
 }
 
-.show-box {
-  display: flex;
+.show-box,
+.user-avatar-show {
   justify-content: center;
 }
 
 .user-index {
-  margin-left: 140px;
-  margin-right: 60px;
-}
-
-.user-index-size {
-  width: 400px;
-  margin: auto;
+  flex-wrap: wrap;
 }
 
 .show-btn {
   margin-left: 30px;
+}
+
+.layout-user-content,
+.show-user-content {
+  background-color: $half-opacity-background;
+  padding-top: 20px;
+}
+
+.container-wrapper-user {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+.user-index-size {
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+}
+
+.user-hidden-block {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.form-component.form-component-user {
+  max-width: 600px;
+}
+
+.col-md-4.user-size-item {
+  min-width: 500px;
+}
+
+.user-avatar, .user-avatar-default {
+  border-radius: 50%;
+}
+
+.user-avatar-default {
+  width: 100px;
+  height: 100px;
 }

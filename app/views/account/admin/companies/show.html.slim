@@ -1,33 +1,32 @@
-.container 
-  h1.title = t('companies.show.show_title')      
-  .company-info      
-    .info-item
-      span.name = t('companies.show.company_name')
-      span.value = @company.name
-    .info-item
-      span.name = t('companies.show.company_type')
-      span.value = @company.company_type
-    .info-item
-      span.name = t('companies.show.phone')
-      span.value = @company.phone
-    .info-item
-      span.name = t('companies.show.email')
-      span.value = @company.email
-    .info-item
-      span.name = t('companies.show.website')
-      span.value = @company.website
-    .info-item
-      span.name = t('companies.show.fax')
-      span.value = @company.fax
-    nav
-      ul.nav.navbar.d-flex.justify-content-start
-        li.nav-item = link_to edit_account_admin_company_path, class: "btn btn-outline-warning"
-                      = t('companies.show.btn_edit_company')
-        li.nav-item = link_to [:account, :admin, @company], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger"
-                      = t('companies.show.btn_delete_company')
-        li.nav-item = link_to account_admin_companies_path, class: "btn btn-outline-info"
-                      = t('companies.show.btn_back')
-        li.nav-item
-          = link_to t('companies.show.btn_billing_contracts'),
-          account_admin_company_billing_contracts_path(@company),
-          class: 'btn btn-outline-primary'
+.content.pt-4
+  .form-component
+    h1.title = t('companies.show.show_title')
+    .content-info
+      .info-content
+        span.name = t('companies.show.company_name')
+        span.value = @company.name
+      .info-content
+        span.name = t('companies.show.company_type')
+        span.value = @company.company_type
+      .info-content
+        span.name = t('companies.show.phone')
+        span.value = @company.phone
+      .info-content
+        span.name = t('companies.show.email')
+        span.value = @company.email
+      .info-content
+        span.name = t('companies.show.website')
+        span.value = @company.website
+      .info-content
+        span.name = t('companies.show.fax')
+        span.value = @company.fax
+    .d-flex.justify-content-around.flex-wrap
+      = link_to edit_account_admin_company_path, class: "btn btn-warning btn-custom"
+        = t('companies.show.btn_edit_company')
+      = link_to [:account, :admin, @company], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-custom"
+       = t('companies.show.btn_delete_company')
+      = link_to account_admin_companies_path, class: "btn btn-info btn-custom"
+        = t('companies.show.btn_back')
+      = link_to t('companies.show.btn_billing_contracts'),
+        account_admin_company_billing_contracts_path(@company),
+        class: 'btn btn-primary btn-custom'

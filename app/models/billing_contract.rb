@@ -1,4 +1,7 @@
 class BillingContract < ApplicationRecord
+  has_many :bills, dependent: :destroy
+  has_many :payments, dependent: :destroy
+
   validates :contract_num, presence: true, length: { maximum: 50 }, uniqueness: { scope: :company_id }
   validates :is_active, inclusion: { in: [true, false] }
   validates :user_id, uniqueness: { scope: :company_id }, allow_nil: true

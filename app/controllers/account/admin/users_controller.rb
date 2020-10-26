@@ -15,6 +15,6 @@ class Account::Admin::UsersController < Account::Admin::AdminController
   private
 
   def user
-    @user ||= User.find(params[:id])
+    @user ||= User.find_by(id: params[:id])
   end
 end

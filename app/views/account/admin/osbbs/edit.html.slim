@@ -1,7 +1,7 @@
-= provide(:button_text, "#{t('.btn-edit')}")
-= provide(:cancel_btn_text, "#{t('.btn-cancel')}")
-= provide(:path, osbb_path)
-.form-box
-  h1 = t('.title')
-  .container
+= provide(:button_text, t('.btn-edit'))
+= provide(:cancel_btn_text, t('.btn-cancel'))
+= provide(:path, account_admin_osbb_path)
+.content.pt-4
+  .form-component
+    h1 = t('.title')
     = render 'form', object: @osbb

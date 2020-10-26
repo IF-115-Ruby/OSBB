@@ -1,12 +1,12 @@
-.container.pt-3
-  .jumbotron.up-form
-    h1
+.content.pt-4
+  .form-component
+    h1.title
       = t('.add-utilities-provider')
     .pl-0.text-center
       b
         =< @company.name
     hr.my-4
-    = simple_form_for [:account, @billing_contract], url: account_utility_provider_path(:id), method: :put, :html=> { class: 'mx-auto billing-form' } do |f|
+    = simple_form_for [:account, @billing_contract], url: new_account_utility_provider_path, method: :put, :html=> { class: 'mx-auto billing-form' } do |f|
       .form-group
         = f.hidden_field :company_id, value: @company.id
         = f.input :contract_num,
@@ -14,5 +14,5 @@
           input_html: { class: 'form-control' },
           error_html: { class: 'form-error' }
     
-      .form-buttons
-        = f.submit t('.btn-add'), class: 'btn btn-primary'
+      .text-center
+        = f.submit t('.btn-add'), class: 'btn btn-primary btn-custom'

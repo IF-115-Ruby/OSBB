@@ -32,7 +32,7 @@ ua:
     copyright: '© 2020 Copyright: IF-115Ruby'
 
   home:
-    title: 'Об`єднання співвласників багатоквартирного будинку'
+    title: "Об'єднання співвласників багатоквартирного будинку"
     osbb_app_goal: 'Наш сайт економить ваш час та зменшує кількість рутинних завдань.
       Персональні кабінети мешканців збільшують прозорість роботи та довіру мешканців.
       Він орієнтований на використання як керівництвом ОСББ, так і мешканцями будинку.
@@ -40,23 +40,19 @@ ua:
       своїм будинком, чи навіть керівник давно створеного ОСББ – Вам до нас!'
     alt_text: 'не завантаженo'
 
-  not_found:
-    oops_title: 'Упс! Сторінка не знайдена'
-    nubm_four: '4'
-    nubm_zero: '0'
-    all_text: 'На жаль, ми не можемо показати інформацію, яку ви шукали'
+  errors:
+    back_to_home: 'Повернутися на домашню сторінку!'
+    not_found:
+      oops_title: 'Упс! Сторінка не знайдена'
+      all_text: 'На жаль, ми не можемо показати інформацію, яку ви шукали'
 
-  server_error:
-    oops_title: 'Упс! Помилка сервера'
-    nubm_five: '5'
-    nubm_zero: '0'
-    all_text: 'Перепрошуємо, але щось пішло не так'
+    server_error:
+      oops_title: 'Упс! Помилка сервера'
+      all_text: 'Перепрошуємо, але щось пішло не так'
 
-  unacceptable:
-    oops_title: 'Упс! Щось пішло не так'
-    nubm_four: '4'
-    nubm_two: '2'
-    all_text: 'Зміни, які ви бажаєте, було відхилено'
+    unacceptable:
+      oops_title: 'Упс! Щось пішло не так'
+      all_text: 'Зміни, які ви бажаєте, було відхилено'
 
   time:
     formats:
@@ -95,6 +91,13 @@ ua:
         text_link: 'Змінити пароль'
         possible_variant: 'Якщо Ви не робили запит на зміну паролю - проігноруйте це повідомлення.'
         additional_info: 'Ваш пароль не мінятиметься, доки Ви не перейдете за посиланням вище і не створите новий.'
+      admin_notification:
+        subject: 'Зареєстрований новий користувач!'
+        hello_title: 'Привіт! Новий користувач був упішно зареєстрований'
+        about_user: 'Інформація про користувача'
+        created_at: 'Зареєстровано'
+        date_format: '%d/%b/%Y, %T'
+        show: 'Показати користувача...'
 
     shared:
       log_in_link: 'Увійти'
@@ -124,26 +127,6 @@ ua:
     confirm: 'підтвердити свої зміни'
     update: 'Змінити'
 
-  osbbs:
-    index:
-      title: 'Усі ОСББ:'
-      btn-new: 'Нове ОСББ'
-    show:
-      title: 'ОСББ деталі:'
-      osbb-name: 'Назва ОСББ: '
-      osbb-phone: 'Номер телефону: '
-      osbb-email: 'Е-пошта: '
-      osbb-website: 'Сайт ОСББ: '
-      btn-edit: 'Редагувати профіль ОСББ'
-      btn-delete: 'Видалити ОСББ'
-      btn-back: 'Назад'
-    osbbs:
-      osbb-name: 'Назва ОСББ: '
-      osbb-phone: 'Номер телефону: '
-      osbb-email: 'Е-пошта: '
-      osbb-website: 'Сайт ОСББ: '
-      btn-show: 'Дивитись'
-
   account:
     users:
       show:
@@ -167,8 +150,8 @@ ua:
           no_sex: 'Не вказано'
         first-name: "Ім'я"
         placeholder-first-name: "Введіть ім'я"
-        last-name: 'Фамілія'
-        placeholder-last-name: 'Введіть фамілію'
+        last-name: 'Прізвище'
+        placeholder-last-name: 'Введіть прізвище'
         user-birth: 'Дата народження:'
         user-phone: 'Телефон:'
         placeholder-phone: 'Ведіть ваш мобільний'
@@ -195,16 +178,49 @@ ua:
           plch-name: 'Назва ОСББ'
           label-phone: 'Номер телефону'
           plch-phone: '0*********'
+          label-email: 'E-пошта'
           plch-email: 'osbb@domain.com'
+          label-website: 'Веб-сайт'
           plch-website: 'Напр: www.your-website.com'
+          label-is_available: 'Дійсний?'
         edit:
           title: 'Оновити профіль ОСББ'
           btn-edit: 'Редагувати ОСББ'
           btn-cancel: 'Відмінити'
+        index:
+          title: 'Усі ОСББ:'
+          btn-new: 'Нове ОСББ'
+          osbb_name: 'Назва ОСББ'
+          phone_number: 'Телефон'
+          email: 'Е-пошта'
+          website: 'Вебсайт'
+        show:
+          title: 'ОСББ деталі:'
+          osbb-name: 'Назва ОСББ: '
+          osbb-phone: 'Номер телефону: '
+          osbb-email: 'Е-пошта: '
+          osbb-website: 'Сайт ОСББ: '
+          btn-edit: 'Редагувати'
+          btn-delete: 'Видалити ОСББ'
+          btn-back: 'Назад'
+          confirmation: 'Ви впевнені?'
+        osbb:
+          osbb-name: 'Назва ОСББ: '
+          osbb-phone: 'Номер телефону: '
+          osbb-email: 'Е-пошта: '
+          osbb-website: 'Сайт ОСББ: '
+          btn-show: 'Дивитись'
+          osbb-address: 'Адреса:'
+          user_cabinets:
+      index:
+        companies: 'Компанії'
+        utility-providers: 'Постачальники послуг'
       billing_contracts:
         index:
           title: 'Всі контракти'
-          btn-new: 'Cтворити контракт'
+          contract_num: 'Номер контракту'
+          status: 'Статус'
+          created: 'Створено'
         billing_contract:
           contract_num: 'Контракт:'
           status: 'Статус:'
@@ -222,9 +238,9 @@ ua:
           about_company: 'Про компанію'
           name_of_company: 'Назва компанії:'
           actions: 'Дії'
-          btn-edit: 'Редагувати контракт'
-          btn-delete: 'Видалити контракт'
-          btn-back: 'Повернутися назад'
+          btn-edit: 'Редагувати'
+          btn-delete: 'Видалити'
+          btn-back: 'Назад'
           are_you_sure: 'Ти впевнений?'
         form:
           label-company: 'Компанія'
@@ -246,8 +262,12 @@ ua:
         iban: 'IBAN'
         edrpou: 'Код ЄДРПОУ'
         search: 'Шукати'
+      utility_provider:
+        active: 'Активний'
+        inactive: 'Неактивний'
       companies:
         title: 'Додати постачальника послуг'
+      company:
         btn-choose: 'Вибрати'
       index:
         btn-add: 'Додати постачальника послуг'
@@ -271,8 +291,9 @@ ua:
         greetings: 'Привіт'
         btn-osbbs: 'ОСББ'
         btn-users: 'Користувачі'
-        btn-bil-contracts: 'Контракти рахунків'
-        btn-user-cabinet: 'Кабінет користувача'
+        btn-bil-contracts: 'Контракти'
+        btn-companies: 'Компанії'
+        btn-user-cabinet: 'Профіль'
         btn_destoy_auth: 'Вийти'
 
   companies:
@@ -281,9 +302,10 @@ ua:
       companies_title: 'Всі компанії'
 
     search_form:
-      name_email_phone_placeholder: 'Назва, електронна адреса чи номер телефону компанії'
-      company_type_prompt: 'Виберіть тип компанії'
+      name_email_phone_placeholder: 'Пошук'
+      company_type_prompt: 'Виберіть'
       btn_search: 'Пошук'
+      all_company_type: 'Всі типи компаній'
 
     edit:
       btn_edit: 'Відредагувати'

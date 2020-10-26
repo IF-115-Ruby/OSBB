@@ -1,9 +1,13 @@
-#error
-  .error
-    .error-num
-      h3 = t('not_found.oops_title')
+#custom-errors
+  .custom-errors
+    .custom-errors-num
+      h3 = t('errors.not_found.oops_title')
       h1
-        span = t('not_found.nubm_four')
-        span = t('not_found.nubm_zero')
-        span = t('not_found.nubm_four')
-    h2 = t('not_found.all_text')
+        span
+          |4
+        span
+          |0
+        span
+          |4
+    h2 = t('errors.not_found.all_text')
+    = link_to  t('errors.back_to_home'), home_path, class: 'btn btn-dark'

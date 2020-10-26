@@ -31,24 +31,19 @@ en:
       of your house, or even the head of a long-established condominium - you are in the
       right place!'
     alt_text: 'not loaded'
+  errors:
+    back_to_home: 'Back to home!'
+    not_found:
+      oops_title: 'Oops! Page not found'
+      all_text: 'We are sorry, but the page you requested was not found'
 
-  not_found:
-    oops_title: 'Oops! Page not found'
-    nubm_four: '4'
-    nubm_zero: '0'
-    all_text: 'We are sorry, but the page you requested was not found'
+    server_error:
+      oops_title: 'Oops! Server Error'
+      all_text: 'We are sorry, but something went wrong'
 
-  server_error:
-    oops_title: 'Oops! Server Error'
-    nubm_five: '5'
-    nubm_zero: '0'
-    all_text: 'We are sorry, but something went wrong'
-
-  unacceptable:
-    oops_title: 'Oops! Something wrong'
-    nubm_four: '4'
-    nubm_two: '2'
-    all_text: 'The change you wanted was rejected'
+    unacceptable:
+      oops_title: 'Oops! Something wrong'
+      all_text: 'The change you wanted was rejected'
 
   time:
     formats:
@@ -85,6 +80,13 @@ en:
         text_link: 'Change my password'
         possible_variant: "If you didn't request this, please ignore this email."
         additional_info: "Your password won't change until you access the link above and create a new one."
+      admin_notification:
+        subject: 'New user was registered!'
+        hello_title: 'Hello! New user was successfully registered'
+        about_user: 'Information about user'
+        created_at: 'Registered at'
+        date_format: '%F, %I:%M:%S %p'
+        show: 'Show user...'
 
     shared:
       log_in_link: 'Login'
@@ -113,26 +115,6 @@ en:
     blank_if: 'blank if dont want change it'
     confirm: 'confirm your changes'
     update: 'Update'
-
-  osbbs:
-    index:
-      title: 'All OSBBs: '
-      btn-new: 'New osbb'
-    show:
-      title: 'OSBB info: '
-      osbb-name: 'OSBB Name: '
-      osbb-phone: 'Phone number: '
-      osbb-email: 'Email: '
-      osbb-website: 'OSBB Website: '
-      btn-edit: 'Edit osbb profile'
-      btn-delete: 'Delete osbb'
-      btn-back: 'Back to Osbbs'
-    osbbs:
-      osbb-name: "OSBB's name: "
-      osbb-phone: 'Phone number: '
-      osbb-email: 'E-mail: '
-      osbb-website: "OSBB's Website: "
-      btn-show: 'Show'
 
   account:
     users:
@@ -185,16 +167,49 @@ en:
           plch-name: 'Name of the OSBB'
           label-phone: 'Phone number'
           plch-phone: '0*********'
+          label-email: 'Email'
           plch-email: 'osbb@domain.com'
+          label-website: 'Website'
           plch-website: 'Ex: www.your-website.com'
+          label-is_available: 'Is available?'
         edit:
           title: 'Update osbb profile'
           btn-edit: 'Edit osbb'
           btn-cancel: 'Cancel'
+        index:
+          title: 'All OSBBs: '
+          btn-new: 'New osbb'
+          osbb_name: 'OSBB name'
+          phone_number: 'Phone'
+          email: 'Email'
+          website: 'Website'
+        show:
+          title: 'OSBB info: '
+          osbb-name: 'OSBB Name: '
+          osbb-phone: 'Phone number: '
+          osbb-email: 'Email: '
+          osbb-website: 'OSBB Website: '
+          btn-edit: 'Edit osbb profile'
+          btn-delete: 'Delete osbb'
+          btn-back: 'Back to Osbbs'
+          confirmation: 'Are you sure?'
+        osbb:
+          osbb-name: "OSBB's name: "
+          osbb-phone: 'Phone number: '
+          osbb-email: 'E-mail: '
+          osbb-website: "OSBB's Website: "
+          btn-show: 'Show'
+          osbb-address: 'Address:'
+      user_cabinets:
+        index:
+          companies: 'Companies'
+          utility-providers: 'Utility Providers'
       billing_contracts:
         index:
           title: 'All billing contracts'
-          btn-new: 'Create contract'
+          contract_num: 'Contract Number'
+          status: 'Status'
+          created: 'Created'
         billing_contract:
           contract_num: 'Contract number:'
           status: 'Status:'
@@ -236,8 +251,12 @@ en:
         iban: 'IBAN'
         edrpou: 'EDRPOU'
         search: 'Search'
+      utility_provider:
+        active: 'Active'
+        inactive: 'Inactive'
       companies:
         title: 'Add utility provider'
+      company:
         btn-choose: 'Choose'
       index:
         btn-add: 'Add utility provider'
@@ -261,7 +280,8 @@ en:
         btn-osbbs: 'OSBBs'
         btn-users: 'All Users'
         btn-bil-contracts: 'Billing Contracts'
-        btn-user-cabinet: 'User Cabinet'
+        btn-companies: 'Companies'
+        btn-user-cabinet: 'Profile'
         btn_destoy_auth: 'Logout'
 
   companies:
@@ -270,9 +290,10 @@ en:
       companies_title: 'All companies'
 
     search_form:
-      name_email_phone_placeholder: 'Name, email or phone of the company'
-      company_type_prompt: 'Select your company type'
+      name_email_phone_placeholder: 'Search'
+      company_type_prompt: 'Select'
       btn_search: 'Search'
+      all_company_type: 'All company type'
 
     edit:
       btn_edit: 'Edit company'
@@ -280,7 +301,7 @@ en:
       edit_tittle: 'Edit company profile'
 
     new:
-      btn_create: 'Create new company'
+      btn_create: 'Create'
       btn_cancel: 'Cancel'
       new_tittle: 'New company'
 
@@ -303,7 +324,7 @@ en:
       company_type_label: 'Company type'
       company_type_prompt: 'Select your company type'
       phone_label: 'Phone number'
-      fax_label: 'Fax'                  
+      fax_label: 'Fax'
 
     company:
       btn_show: 'Show'

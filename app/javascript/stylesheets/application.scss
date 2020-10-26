@@ -1,11 +1,11 @@
 @import 'bootstrap';
 @import '@fortawesome/fontawesome-free';
+@import 'colors.scss';
 @import 'osbbs';
-@import 'companies';
-@import 'billing_contracts';
 @import 'users';
 @import 'basic';
 @import 'account';
 @import 'errors';
 @import 'about';
-@import 'utility_providers';
+@import 'admin_all_component';
+@import 'admin_form';

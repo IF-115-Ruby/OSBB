@@ -1,15 +1,25 @@
-.container-wrapper
-  .new-button
-    = link_to t('.btn-new'),
-      new_account_admin_company_billing_contract_path(@company),
-      class: 'btn btn-primary'
-  h1 
-    = t('.title') 
-  .row
-    .col-md-12
-    - @billing_contracts.each do |billing_contract|
-      = render billing_contract
-  .row
-    .col-md-12
-      .pagination-container
-        = paginate @billing_contracts, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md'
+.box
+  .all-component
+    nav.navbar.navbar-dark
+      h2
+        = t('.title') 
+    table.table
+      thead.thead
+        tr
+          th
+            span.cusom-center-in-table-example
+              = t('.contract_num')
+          th
+            span.cusom-center-in-table-example
+              = t('.status')
+          th
+            span.cusom-center-in-table-example
+              = t('.created')
+          th.plus-btn.text-center
+            = link_to new_account_admin_company_billing_contract_path(@company)
+              button.btn.btn-outline-light
+                i.fas.fa-plus
+      tbody
+        = render partial: 'billing_contract', collection: @billing_contracts
+  .pagination-container
+    = paginate @billing_contracts, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md'

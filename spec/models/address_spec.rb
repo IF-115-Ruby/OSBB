@@ -59,6 +59,8 @@ end
 #  addressable_type :string
 #  city             :string
 #  country          :string
+#  latitude         :float
+#  longitude        :float
 #  state            :string
 #  street           :string
 #  created_at       :datetime         not null

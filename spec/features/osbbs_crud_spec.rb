@@ -16,7 +16,7 @@ describe Account::Admin::OsbbsController do
     click_on 'Create new osbb'
 
     expect(page).to have_text(
-      "Osbb profile \"#{valid_params[:name]}\" - created with id:#{valid_params[:id]}"
+      "Osbb profile '#{valid_params[:name]}' - created with id:#{valid_params[:id]}"
     )
     expect(page).to have_content(valid_params[:name])
     expect(page).to have_content(valid_params[:phone])
@@ -45,7 +45,7 @@ describe Account::Admin::OsbbsController do
   end
 
   it 'successful updating osbb' do
-    visit osbb_path(osbb)
+    visit account_admin_osbb_path(osbb)
     click_on 'Edit osbb profile'
     fill_in 'Name', with: 'Updeted test'
     fill_in 'Phone', with: '0123456777'
@@ -65,7 +65,7 @@ describe Account::Admin::OsbbsController do
   end
 
   it 'unsuccessful updating osbb' do
-    visit osbb_path(osbb)
+    visit account_admin_osbb_path(osbb)
     click_on 'Edit osbb profile'
     fill_in 'Name', with: '  '
     fill_in 'Phone', with: '012345678901'
@@ -82,7 +82,7 @@ describe Account::Admin::OsbbsController do
   end
 
   it 'successful deleting osbb' do
-    visit osbb_path(osbb)
+    visit account_admin_osbb_path(osbb)
     click_on 'Delete osbb'
     expect(page).to have_text(
       "Osbb profile \"#{osbb.name}\" with id:#{osbb.id} has been deleted"

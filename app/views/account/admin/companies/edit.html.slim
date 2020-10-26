@@ -1,6 +1,8 @@
-= provide(:button_text, t('companies.edit.btn_edit'))
-= provide(:cancel_btn_text, t('companies.edit.btn_cancel'))
-= provide(:path, account_admin_company_path)
+.content.pt-4
+  .form-component
+    = provide(:button_text, t('companies.edit.btn_edit'))
+    = provide(:cancel_btn_text, t('companies.edit.btn_cancel'))
+    = provide(:path, account_admin_company_path)
 
-h1 = t('companies.edit.edit_tittle')
-= render 'form', object: @company
+    h1 = t('companies.edit.edit_tittle')
+    = render 'form', object: @company

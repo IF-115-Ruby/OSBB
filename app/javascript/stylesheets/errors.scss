@@ -12,11 +12,11 @@ body {
   margin: 0;
 }
 
-#error {
+#custom-errors {
   position: relative;
   height: 100vh;
 
-  .error {
+  .custom-errors {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -26,13 +26,13 @@ body {
   }
 }
 
-.error {
+.custom-errors {
   max-width: 520px;
   width: 100%;
   line-height: 1.4;
   text-align: center;
 
-  .error-num {
+  .custom-errors-num {
     position: relative;
     height: 240px;
 
@@ -82,8 +82,8 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  .error {
-    .error-num {
+  .custom-errors {
+    .custom-errors-num {
       height: 200px;
 
       h1 {
@@ -94,8 +94,8 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
-  .error {
-    .error-num {
+  .custom-errors-num {
+    .custom-errors-num {
       height: 162px;
 
       h1 {
