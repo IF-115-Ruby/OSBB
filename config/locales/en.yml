@@ -193,13 +193,13 @@ en:
           btn-delete: 'Delete osbb'
           btn-back: 'Back to Osbbs'
           confirmation: 'Are you sure?'
+          osbb-address: 'Address:'
         osbb:
           osbb-name: "OSBB's name: "
           osbb-phone: 'Phone number: '
           osbb-email: 'E-mail: '
           osbb-website: "OSBB's Website: "
           btn-show: 'Show'
-          osbb-address: 'Address:'
       user_cabinets:
         index:
           companies: 'Companies'
@@ -317,6 +317,7 @@ en:
       btn_delete_company: 'Delete company'
       btn_back: 'Back'
       btn_billing_contracts: 'Contracts'
+      company_address: 'Address:'
 
     form:
       name_label: 'Name'

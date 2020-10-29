@@ -204,13 +204,13 @@ ua:
           btn-delete: 'Видалити ОСББ'
           btn-back: 'Назад'
           confirmation: 'Ви впевнені?'
+          osbb-address: 'Адреса:'
         osbb:
           osbb-name: 'Назва ОСББ: '
           osbb-phone: 'Номер телефону: '
           osbb-email: 'Е-пошта: '
           osbb-website: 'Сайт ОСББ: '
           btn-show: 'Дивитись'
-          osbb-address: 'Адреса:'
           user_cabinets:
       index:
         companies: 'Компанії'
@@ -329,6 +329,7 @@ ua:
       btn_delete_company: 'Видалити'
       btn_back: 'Назад'
       btn_billing_contracts: 'Контракти'
+      company_address: 'Адреса:'
 
     form:
       name_label: 'Назва'
