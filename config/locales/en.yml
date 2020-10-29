@@ -254,6 +254,7 @@ en:
       utility_provider:
         active: 'Active'
         inactive: 'Inactive'
+        are_you_sure: 'Are you sure?'
       companies:
         title: 'Add utility provider'
       company:

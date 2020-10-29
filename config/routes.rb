@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
     namespace :account do
       resources :users, except: %i[index destroy]
-      resources :utility_providers, only: %i[index new update] do
+      resources :companies, only: [] do
+        resources :utility_providers, only: %i[new update]
+      end
+      resources :utility_providers, only: :index do
         get 'search', on: :collection
         put 'disassociate', on: :member
       end

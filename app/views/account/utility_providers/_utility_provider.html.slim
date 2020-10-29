@@ -10,6 +10,6 @@ tr
       =< t(status_contract(utility_provider.is_active))
   td.eye-btn.text-center
     = link_to disassociate_account_utility_provider_path(id: utility_provider),
-      method: :put, data: { confirm: 'You sure?' }
+      method: :put, data: { confirm: t('.are_you_sure') }
       button.btn.btn-outline-dark
         i.far.fa-trash-alt
