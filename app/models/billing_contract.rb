@@ -1,6 +1,7 @@
 class BillingContract < ApplicationRecord
   has_many :bills, dependent: :destroy
   has_many :payments, dependent: :destroy
+  has_many :meter_readings, dependent: :destroy
 
   validates :contract_num, presence: true, length: { maximum: 50 }, uniqueness: { scope: :company_id }
   validates :is_active, inclusion: { in: [true, false] }

@@ -1,0 +1,17 @@
+.m-date {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.form-component.form-component-meter-readings {
+  max-width: 400px;
+  hr {
+    background-color: white;
+    height: 1px;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

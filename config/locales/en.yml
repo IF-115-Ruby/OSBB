@@ -117,6 +117,16 @@ en:
     update: 'Update'
 
   account:
+    meter_readings:
+      index:
+        title: 'Meter readings'
+        date: 'Date:'
+        value: 'Value:'
+      form:
+        meter_reading: 'Meter reading'
+        date: 'Date: '
+        btn_submit: 'Create'
+        btn_cancel: 'Cancel'
     users:
       show:
         title: 'User info:'
@@ -245,6 +255,14 @@ en:
           btn-cancel: 'Cancel'
 
     utility_providers:
+      show:
+        contract: 'Contract:'
+        status: 'Status:'
+        created: 'Created:'
+        btn-show: 'Show meter'
+        btn-delete: 'Delete'
+        btn-add: 'Add meter'
+        btn-back: 'Back'
       search_form:
         name: 'Company'
         name-of-company: 'Name of company:'
@@ -265,6 +283,7 @@ en:
         name-of-company: 'Name of company:'
         contract-number: 'Conract:'
         status: 'Status:'
+        show: 'Show:'
         created: 'Created:'
         active: 'Active'
         inactive: 'Inactive'

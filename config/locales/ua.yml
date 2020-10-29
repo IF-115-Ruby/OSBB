@@ -2,10 +2,10 @@ ua:
   en:
   views:
     pagination:
-      first: "&laquo; перша"
-      last: "остання &raquo;"
-      previous: "&lsaquo; попередня"
-      next: "наступна &rsaquo;"
+      first: "&laquo; Перша"
+      last: "Остання &raquo;"
+      previous: "&lsaquo; Попередня"
+      next: "Наступна &rsaquo;"
       truncate: "&hellip;"
   date:
     month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
@@ -128,6 +128,16 @@ ua:
     update: 'Змінити'
 
   account:
+    meter_readings:
+      index:
+        title: 'Показники лічильника'
+        date: 'Дата:'
+        value: 'Значення:'
+      form:
+        meter_reading: 'Показник лічильника'
+        date: 'Дата: '
+        btn_submit: 'Подати'
+        btn_cancel: 'Відмінити'
     users:
       show:
         title: 'Інформація користувача:'
@@ -256,6 +266,14 @@ ua:
           btn-cancel: 'Відмінити'
 
     utility_providers:
+      show:
+        contract: 'Контракт:'
+        status: 'Статус:'
+        created: 'Створено:'
+        btn-show: 'Показники'
+        btn-delete: 'Видалити'
+        btn-add: 'Додати показник'
+        btn-back: 'Назад'
       search_form:
         name: 'Компанія'
         name-of-company: 'Назва компанії'
@@ -276,6 +294,7 @@ ua:
         name-of-company: 'Назва Компанії'
         contract-number: 'Контракт:'
         status: 'Статус:'
+        show: 'Показати:'
         created: 'Створено:'
         active: 'Активний'
         inactive: 'Неактивний'

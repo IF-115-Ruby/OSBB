@@ -17,6 +17,13 @@ RSpec.describe Account::UtilityProvidersController, type: :controller do
     it { expect(assigns(:utility_providers)).to eq([utility_provider]) }
   end
 
+  describe 'GET#show' do
+    before { get :show, params: { id: utility_provider.id } }
+
+    it { is_expected.to respond_with :success }
+    it { is_expected.to render_template :show }
+  end
+
   describe 'GET #search' do
     before { get :search }
 

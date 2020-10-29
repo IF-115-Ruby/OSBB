@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_123001) do
+ActiveRecord::Schema.define(version: 2020_10_29_171858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,14 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
     t.index ["name"], name: "index_companies_on_name"
   end
 
+  create_table "meter_readings", force: :cascade do |t|
+    t.integer "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "billing_contract_id"
+    t.index ["billing_contract_id"], name: "index_meter_readings_on_billing_contract_id"
+  end
+
   create_table "osbbs", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -121,6 +129,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
   add_foreign_key "billing_contracts", "companies"
   add_foreign_key "billing_contracts", "users"
   add_foreign_key "bills", "billing_contracts"
+  add_foreign_key "meter_readings", "billing_contracts"
   add_foreign_key "payments", "billing_contracts"
   add_foreign_key "users", "osbbs"
 end
