@@ -1,7 +1,7 @@
 .box
   .all-component
     nav.navbar.navbar-dark
-      h2 
+      h2
         = t('companies.index.companies_title')
       .form-row
         = render 'search_form'
@@ -12,15 +12,15 @@
 
     table.table
       thead.thead
-        tr 
+        tr
           th
-            span.cusom-center-in-table-example          
+            span.cusom-center-in-table-example
               = t('companies.show.company_name')
           th
-            span.cusom-center-in-table-example 
+            span.cusom-center-in-table-example
               = t('companies.show.company_type')
           th
-            span.cusom-center-in-table-example 
+            span.cusom-center-in-table-example
               = t('companies.show.phone')
           th.plus-btn.text-center
             = link_to new_account_admin_company_path
