@@ -2,6 +2,9 @@ class CompaniesImport
   include ActiveModel::Model
   require 'roo'
 
+  AMOUNT_ITEMS_IN_ROW = 3
+  START_ROW = 2
+
   attr_accessor :file
 
   def initialize(attributes = {})
@@ -54,7 +57,7 @@ class CompaniesImport
   def find_errors(objects)
     objects.each_with_index do |item, index|
       item.errors.full_messages.map do |msg|
-        errors.add :base, "#{I18n.t('.row')} #{index / 3 + 2}: #{msg}"
+        errors.add :base, "#{I18n.t('.row')} #{index / AMOUNT_ITEMS_IN_ROW + START_ROW}: #{msg}"
       end
     end
   end

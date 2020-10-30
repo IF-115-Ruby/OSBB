@@ -259,9 +259,9 @@ ua:
           title: 'Імпорт компаній'
           information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
           errors:
-            one: '1 помилка'
+            one: '%{count} помилка'
             few: '%{count} помилки'
-            other: '%{count} помилкок'
+            other: '%{count} помилок'
           btn-import: 'Імпортувати'
           btn-back: 'Назад'
     utility_providers:
@@ -378,4 +378,4 @@ ua:
               too_short: 'закороткий'
             email:
               invalid: 'неправильний'
-  row: 'Кортеж'
+  row: 'Рядок'
