@@ -60,8 +60,6 @@ class CompaniesImport
   end
 
   def items
-    imported_companies.map do |company|
-      [company, company.address, company.account]
-    end.flatten
+    imported_companies.flat_map { |company| [company, company.address, company.account] }
   end
 end
