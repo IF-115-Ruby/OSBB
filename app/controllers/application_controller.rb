@@ -1,19 +1,18 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  around_action :switch_locale
   layout :choose_layout
-  before_action :set_raven_context
+  before_action :set_raven_context, :set_locale
 
-  def switch_locale(&action)
-    locale = params[:locale] || I18n.default_locale
-    I18n.with_locale(locale, &action)
-  end
+  protected
 
   def default_url_options(_options = {})
     { locale: I18n.locale }
   end
 
-  protected
+  def set_locale
+    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    session[:locale] = I18n.locale
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name sex mobile])
