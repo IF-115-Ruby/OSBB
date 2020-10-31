@@ -1,0 +1,22 @@
+.content.pt-3
+  .form-component
+    h1.title Import from CSV or XLSX file
+    = simple_form_for [:account, :admin, @payments_import], html: { class: 'mx-auto billing-form' } do |f|
+      - if @payments_import.errors.any?
+        p.text-danger
+          => t('.errors', count: @payments_import.errors.count)
+          = t('.information')
+        ul.text-danger
+          - @payments_import.errors.full_messages.each do |msg|
+            li
+              = msg
+
+      .text-center
+        = f.file_field :file
+
+      .text-center
+        = f.submit 'Import',
+          class: 'btn btn-primary mr-2 btn-custom'
+
+        = link_to 'Back',
+          account_admin_companies_path, class: 'btn btn-outline-danger btn-custom'

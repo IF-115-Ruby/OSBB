@@ -58,13 +58,13 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.2.2)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     any_login (1.4.3)
       rails (>= 4.2.7)
     ast (2.4.1)
-    awesome_print (1.8.0)
     bcrypt (3.1.16)
     bcrypt (3.1.16-java)
     bindex (0.8.1)
@@ -278,6 +278,9 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    roo (2.8.3)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rspec-core (3.9.3)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -409,9 +412,9 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  amazing_print (~> 1.2, >= 1.2.2)
   annotate
   any_login
-  awesome_print (~> 1.8.0)
   bootsnap (>= 1.4.2)
   bootstrap4-kaminari-views
   byebug
@@ -436,6 +439,7 @@ DEPENDENCIES
   rails-controller-testing (~> 1.0, >= 1.0.5)
   rails-i18n
   ransack
+  roo
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.89.1)
   rubocop-rails (~> 2.8.1)

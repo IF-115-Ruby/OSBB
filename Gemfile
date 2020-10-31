@@ -41,10 +41,11 @@ gem 'bootstrap4-kaminari-views'
 gem "fog-aws"
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'roo'
 
 group :development, :test do
   gem 'annotate'
-  gem 'awesome_print', '~> 1.8.0'
+  # gem 'awesome_print', '~> 1.8.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 4.0.1'
@@ -53,6 +54,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'amazing_print', '~> 1.2', '>= 1.2.2'
   gem 'listen', '~> 3.2'
   gem 'pry', '~> 0.13.1'
   gem 'web-console', '>= 3.3.0'

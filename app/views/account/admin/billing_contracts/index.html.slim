@@ -23,3 +23,10 @@
         = render partial: 'billing_contract', collection: @billing_contracts
   .pagination-container
     = paginate @billing_contracts, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-md'
+  .layout-first-content
+    h4.text-center.pt-3.pb-3 Import payments
+    .info-content.pl-5
+      span.name = 'Import from xlsx or csv: '
+      span.value = link_to 'Upload CSV or XLSX',
+          new_account_admin_payments_import_path,
+          class: 'btn btn-dark ml-5 mb-3'
