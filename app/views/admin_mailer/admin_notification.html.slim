@@ -1,9 +1,9 @@
 div.mailer-first-content
-  h1.message-title
+  h1.message-title.centered-paragraph
     = t('devise.mailer.admin_notification.hello_title')
     | !
   hr.hr-line
-  h2.centered-paragraf
+  h2.centered-paragraph
     = t('devise.mailer.admin_notification.about_user')
     |:
   table.admin-table
@@ -30,6 +30,6 @@ div.mailer-first-content
         = t('devise.mailer.admin_notification.created_at')
         |:
       td = @user.created_at.strftime(t('devise.mailer.admin_notification.date_format'))
-  p.centered-paragraf.last-paragraf
+  p.centered-paragraph.last-paragraph
     = link_to account_user_url(@user)
       button.link-btn = t('devise.mailer.admin_notification.show')

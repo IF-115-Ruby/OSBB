@@ -4,11 +4,9 @@
 
 .mailer-first-content {
   background-color: #f7ede4;
-  max-width: 900px;
 }
 
 .message-title {
-  text-align: center;
   font-weight: bolder;
   padding-top: 30px;
 }
@@ -20,10 +18,9 @@
 
 .basic-p {
   margin: 20px;
-  max-width: 900px;
 }
 
-.paragraf {
+.paragraph {
   width: 90%;
   margin: 5px 5%;
   font-size: 20px;
@@ -34,22 +31,20 @@
   border: none;
   color: white;
   padding: 15px 32px;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
 }
 
-.centered-paragraf {
+.centered-paragraph {
   text-align: center;
 }
 
-.last-paragraf {
+.last-paragraph {
   padding-bottom: 20px;
 }
 
-.paragraf-image {
-  max-width: 900px;
+.paragraph-image {
   height: 250px;
   display: block;
   size: cover;

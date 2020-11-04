@@ -1,21 +1,20 @@
 div.mailer-first-content
-  h1.message-title
+  h1.message-title.centered-paragraph
     = t('user_mailer.welcome_email.welcome_title')
     = @user.full_name
     | !
   hr.hr-line
   p.basic-p
-    p.paragraf
+    p.paragraph
       = t('user_mailer.welcome_email.welcome_message')
-      = t('user_mailer.welcome_email.user_info')
       = @user.email
       | .
-    p.paragraf
+    p.paragraph
       = t('user_mailer.welcome_email.before_link_text')
-      p.centered-paragraf
+      p.centered-paragraph
         = link_to home_url, class: 'link-btn'
           = t('user_mailer.welcome_email.home_link_text')
-    p.paragraf.last-paragraf.centered-paragraf
+    p.paragraph.last-paragraph.centered-paragraph
       = t('user_mailer.welcome_email.welcome_wishes')
-    p.paragraf-image
+    p.paragraph-image
       = image_tag attachments['if-mailer.png'].url
