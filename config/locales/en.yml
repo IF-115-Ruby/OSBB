@@ -97,7 +97,7 @@ en:
     welcome_email:
       welcome_title: 'Welcome to OSBB Application '
       welcome_message: 'You have successfully signed up to OSBB Application, your username is: '
-      before_link_text: 'To visit WEB site, just follow this link: '
+      before_link_text: 'To visit WEB site, just click button bellow. '
       home_link_text: 'OSBB Application'
       welcome_wishes: 'Thanks for joining and have a great day!'
 

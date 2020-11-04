@@ -1,12 +1,12 @@
-div style='background-color: #cfdfe4; border-radius: 20px; width: 90%; margin: 0 auto;    padding-bottom: 30px;'
-  h1 style='text-align: center; font-weight: bold; padding: 20px 25px;'
+div.mailer-first-content
+  h1.message-title.centered-paragraph
     = t('devise.mailer.admin_notification.hello_title')
     | !
-  hr style='width: 90%; text-align: center;'
-  h2 style='text-align: center;'
+  hr.hr-line
+  h2.centered-paragraph
     = t('devise.mailer.admin_notification.about_user')
     |:
-  table style='margin:auto; font-size: 23px; padding: 10px;'
+  table.admin-table
     tr
       td
         = t('account.users.form.first-name')
@@ -30,6 +30,6 @@ div style='background-color: #cfdfe4; border-radius: 20px; width: 90%; margin: 0
         = t('devise.mailer.admin_notification.created_at')
         |:
       td = @user.created_at.strftime(t('devise.mailer.admin_notification.date_format'))
-  p style='text-align: center;'
+  p.centered-paragraph.last-paragraph
     = link_to account_user_url(@user)
-      button style='cursor: pointer; font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 3px; background-color: #7491C0; border: 12px solid #7491C0; border-bottom: 12px solid #7491C0; border-right: 18px solid #7491C0; border-left: 18px solid #7491C0; display: inline-block;'#{t('devise.mailer.admin_notification.show')}
+      button.link-btn = t('devise.mailer.admin_notification.show')
