@@ -7,7 +7,7 @@ RSpec.describe HomeController, type: :controller do
   end
 
   describe 'render view #about' do
-    before { get :about }
+    subject { get :about }
 
     it { is_expected.to render_template(:about) }
   end

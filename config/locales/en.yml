@@ -97,7 +97,7 @@ en:
     welcome_email:
       welcome_title: 'Welcome to OSBB Application '
       welcome_message: 'You have successfully signed up to OSBB Application, your username is: '
-      before_link_text: 'To visit WEB site, just follow this link: '
+      before_link_text: 'To visit WEB site, just click button bellow. '
       home_link_text: 'OSBB Application'
       welcome_wishes: 'Thanks for joining and have a great day!'
 
@@ -193,13 +193,13 @@ en:
           btn-delete: 'Delete osbb'
           btn-back: 'Back to Osbbs'
           confirmation: 'Are you sure?'
+          osbb-address: 'Address:'
         osbb:
           osbb-name: "OSBB's name: "
           osbb-phone: 'Phone number: '
           osbb-email: 'E-mail: '
           osbb-website: "OSBB's Website: "
           btn-show: 'Show'
-          osbb-address: 'Address:'
       user_cabinets:
         index:
           companies: 'Companies'
@@ -254,6 +254,7 @@ en:
       utility_provider:
         active: 'Active'
         inactive: 'Inactive'
+        are_you_sure: 'Are you sure?'
       companies:
         title: 'Add utility provider'
       company:
@@ -317,6 +318,7 @@ en:
       btn_delete_company: 'Delete company'
       btn_back: 'Back'
       btn_billing_contracts: 'Contracts'
+      company_address: 'Address:'
 
     form:
       name_label: 'Name'

@@ -58,13 +58,13 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.2.2)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     any_login (1.4.3)
       rails (>= 4.2.7)
     ast (2.4.1)
-    awesome_print (1.8.0)
     bcrypt (3.1.16)
     bcrypt (3.1.16-java)
     bindex (0.8.1)
@@ -96,6 +96,8 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    css_parser (1.7.1)
+      addressable
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -146,6 +148,7 @@ GEM
     geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    htmlentities (4.3.4)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.0)
@@ -213,6 +216,13 @@ GEM
     pg (1.2.3-x86-mingw32)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
+    premailer (1.14.2)
+      addressable
+      css_parser (>= 1.6.0)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.11.1)
+      actionmailer (>= 3)
+      premailer (~> 1.7, >= 1.7.9)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -278,6 +288,9 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    routing-filter (0.6.3)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
     rspec-core (3.9.3)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -409,9 +422,9 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  amazing_print
   annotate
   any_login
-  awesome_print (~> 1.8.0)
   bootsnap (>= 1.4.2)
   bootstrap4-kaminari-views
   byebug
@@ -430,12 +443,14 @@ DEPENDENCIES
   meta-tags (~> 2.13.0)
   mini_magick
   pg (>= 0.18, < 2.0)
+  premailer-rails
   pry (~> 0.13.1)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   rails-controller-testing (~> 1.0, >= 1.0.5)
   rails-i18n
   ransack
+  routing-filter
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.89.1)
   rubocop-rails (~> 2.8.1)

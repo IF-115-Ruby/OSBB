@@ -107,8 +107,8 @@ ua:
   user_mailer:
     welcome_email:
       welcome_title: 'Ласкаво просимо до ОСББ Застосунку '
-      welcome_message: 'Ви успішно зареєструвались на сайті ОСББ, Ваш логін: '
-      before_link_text: 'Для переходу на Застосунок, просто відвідайте це посилання: '
+      welcome_message: 'Ви успішно зареєструвались на сайті ОСББ. Ваш логін: '
+      before_link_text: 'Для переходу на веб-сайт, просто натисніть на кнопку нижче. '
       home_link_text: 'ОСББ Застосунок'
       welcome_wishes: 'Дякуємо, що приєдналися. Гарного Вам дня!'
 
@@ -204,13 +204,13 @@ ua:
           btn-delete: 'Видалити ОСББ'
           btn-back: 'Назад'
           confirmation: 'Ви впевнені?'
+          osbb-address: 'Адреса:'
         osbb:
           osbb-name: 'Назва ОСББ: '
           osbb-phone: 'Номер телефону: '
           osbb-email: 'Е-пошта: '
           osbb-website: 'Сайт ОСББ: '
           btn-show: 'Дивитись'
-          osbb-address: 'Адреса:'
           user_cabinets:
       index:
         companies: 'Компанії'
@@ -265,6 +265,7 @@ ua:
       utility_provider:
         active: 'Активний'
         inactive: 'Неактивний'
+        are_you_sure: 'Ти впевнений?'
       companies:
         title: 'Додати постачальника послуг'
       company:
@@ -329,6 +330,7 @@ ua:
       btn_delete_company: 'Видалити'
       btn_back: 'Назад'
       btn_billing_contracts: 'Контракти'
+      company_address: 'Адреса:'
 
     form:
       name_label: 'Назва'

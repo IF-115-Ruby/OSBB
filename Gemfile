@@ -40,11 +40,13 @@ gem 'faker'
 gem 'bootstrap4-kaminari-views'
 gem "fog-aws"
 gem 'kaminari'
+gem 'premailer-rails'
 gem 'rails-i18n'
+gem 'routing-filter'
 
 group :development, :test do
+  gem 'amazing_print'
   gem 'annotate'
-  gem 'awesome_print', '~> 1.8.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 4.0.1'

@@ -20,6 +20,13 @@
       .info-content
         span.name = t('companies.show.fax')
         span.value = @company.fax
+      .info-content
+        - if @company.address
+          span.name = t('companies.show.company_address')
+          - if @company.address.query
+            .map-box
+              = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@company.address.query.coordinates.first},#{@company.address.query.coordinates.last}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04", alt: "Map"
+              span.value = @company.address.full_address
     .d-flex.justify-content-around.flex-wrap
       = link_to edit_account_admin_company_path, class: "btn btn-warning btn-custom"
         = t('companies.show.btn_edit_company')
