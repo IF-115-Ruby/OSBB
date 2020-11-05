@@ -44,6 +44,10 @@ gem 'premailer-rails'
 gem 'rails-i18n'
 gem 'routing-filter'
 gem 'telegram-bot'
+# Gem 'Wicked_pdf' & 'wkhtmltopdf-binary' for export pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem "wkhtmltopdf-heroku"
 
 group :development, :test do
   gem 'amazing_print'
