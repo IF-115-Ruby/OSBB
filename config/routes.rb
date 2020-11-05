@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   root 'home#index', as: 'home'
   get 'about', to: 'home#about'
-  get 'custom_error', to: 'home#custom_error'
-  get 'random_error', to: 'home#random_error', as: 'random_error'
   get "/404", to: "errors#not_found"
   get "/422", to: "errors#unacceptable"
   get "/500", to: "errors#server_error"
@@ -15,9 +13,10 @@ Rails.application.routes.draw do
     resources :companies, only: [] do
       resources :utility_providers, only: %i[new update]
     end
-    resources :utility_providers, only: :index do
+    resources :utility_providers, only: %i[index show] do
       get 'search', on: :collection
       put 'disassociate', on: :member
+      resources :meter_readings, only: %i[index new create]
     end
     namespace :admin do
       resources :osbbs

@@ -1,0 +1,14 @@
+.content.pt-4
+  .form-component.form-component-meter-readings
+    = simple_form_for [:account, :utility_provider, @meter_reading], method: :post, html: { class: 'mx-auto billing-form' } do |f|
+      = t('.date')
+      = Time.current.strftime("%d-%m-%Y")
+      hr.m-1.
+      .form-group
+        = f.input :value, label: t('.meter_reading'),
+          input_html: { class: 'form-control' },
+          error_html: { class: 'form-error' }
+      .form-group.down-btn.mt-2
+        = f.submit t('.btn_submit'), class: 'btn btn-primary'
+        = link_to  t('.btn_cancel'), account_utility_provider_path(id: params[:utility_provider_id]),
+                                                class: 'btn btn-outline-danger'

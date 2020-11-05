@@ -29,6 +29,7 @@ RSpec.describe BillingContract, type: :model do
     context 'when have_many' do
       it { is_expected.to have_many(:bills) }
       it { is_expected.to have_many(:payments) }
+      it { is_expected.to have_many(:meter_readings) }
     end
 
     it { is_expected.to belong_to(:company).class_name('Company') }
