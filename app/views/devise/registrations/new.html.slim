@@ -122,15 +122,10 @@ javascript:
             $(this).attr("value","false");}
     });
   function myFunction() {
-    if($('#flag').prop('checked')) {
-          $('#OsbbName').addClass('d-flex');
-          $('#OsbbPhone').addClass('d-flex');
-          $('#OsbbEmail').addClass('d-flex');
-          $('#OsbbWeb').addClass('d-flex');
+    let add_osbb = $('#flag');
+    if(add_osbb.prop('checked')) {
+          $('#OsbbName, #OsbbPhone, #OsbbEmail, #OsbbWeb').addClass('d-flex')
         } else {
-          $('#OsbbName').removeClass('d-flex');
-          $('#OsbbPhone').removeClass('d-flex');
-          $('#OsbbEmail').removeClass('d-flex');
-          $('#OsbbWeb').removeClass('d-flex');
+          $('#OsbbName, #OsbbPhone, #OsbbEmail, #OsbbWeb').removeClass('d-flex')
         }
   }
