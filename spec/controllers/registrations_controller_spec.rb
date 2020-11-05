@@ -2,26 +2,21 @@ require 'rails_helper'
 
 RSpec.describe User::RegistrationsController, type: :controller do
   describe "POST #create" do
-    let(:valid_attributes_user) do
+    let!(:valid_attributes_user) do
       FactoryBot.build(:user).attributes
                 .merge({ password: '123456', confirm_password: '123456' })
     end
-    let(:invalid_attributes_user) { FactoryBot.build(:user).attributes }
-    let(:osbb_valid_params) do
+    let!(:invalid_attributes_user) { FactoryBot.build(:user).attributes }
+    let!(:osbb_valid_params) do
       { name: 'Top OSBB',
         phone: '1231231231',
         email: 'osbb@gmail.com',
         website: 'OsbbTOp.com' }
     end
-    let(:valid_attributes_osbb) do
+    let!(:valid_attributes_osbb) do
       valid_attributes_user[:osbb] = osbb_valid_params
-      atributes = { user: valid_attributes_user, flag: true }
-      atributes
-    end
-    let(:invalid_attributes_osbb) do
-      valid_attributes_user[:osbb] = { name: 'To' }
-      atributes = { user: valid_attributes_user, flag: true }
-      atributes
+      fatributes = { user: valid_attributes_user, flag: true }
+      fatributes
     end
 
     before do
@@ -55,7 +50,7 @@ RSpec.describe User::RegistrationsController, type: :controller do
     context "with invalid osbb and user params" do
       it "not creates a new osbb and user" do
         expect do
-          post :create, params: invalid_attributes_osbb
+          post :create, params: valid_attributes_osbb[:osbb] = { name: 'To' }
         end.to change(Osbb, :count).by(0).and change(User, :count).by(0)
       end
     end
