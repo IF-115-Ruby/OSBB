@@ -5,11 +5,10 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   def create
     if params[:flag]
-      build_resource(sign_up_params)
-      @osbb = Osbb.new(name: params[:user][:osbb][:name], phone: params[:user][:osbb][:phone], email: params[:user][:osbb][:email], website: params[:user][:osbb][:website])
+      @osbb = Osbb.new(osbb_params)
+      build_resource(user_params)
       if @osbb.valid? && resource.valid?
-        @osbb.save
-        resource.update(osbb_id: @osbb.id, role: User::LEAD)
+        resource.save
         yield resource if block_given?
         if resource.persisted?
           if resource.active_for_authentication?
@@ -34,7 +33,15 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def osbb_params
+    params[:user][:osbb].permit(:name, :phone, :email, :website)
+  end
+
+  def user_params
+    sign_up_params.merge({osbb: @osbb}).merge({osbb_id: @osbb.id, role: User::LEAD})
+  end
+
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name sex mobile password])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name sex mobile password osbb])
   end
 end
