@@ -187,6 +187,7 @@ en:
           btn-edit: 'Edit osbb'
           btn-cancel: 'Cancel'
         index:
+          osbb_errors: 'Osbb Errors'
           title: 'All OSBBs: '
           btn-new: 'New osbb'
           osbb_name: 'OSBB name'

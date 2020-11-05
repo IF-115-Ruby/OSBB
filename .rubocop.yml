@@ -13,6 +13,7 @@ AllCops:
     - 'bin/*'
     - 'db/**/*'
     - 'node_modules/**/*'
+    - 'app/controllers/user/registrations_controller.rb'
   NewCops: enable
   TargetRubyVersion: 2.7.1
 

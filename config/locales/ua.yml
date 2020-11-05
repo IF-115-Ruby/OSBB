@@ -198,6 +198,7 @@ ua:
           btn-edit: 'Редагувати ОСББ'
           btn-cancel: 'Відмінити'
         index:
+          osbb_errors: 'ОСББ помилки'
           title: 'Усі ОСББ:'
           btn-new: 'Нове ОСББ'
           osbb_name: 'Назва ОСББ'

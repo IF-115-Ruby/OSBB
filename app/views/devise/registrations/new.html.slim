@@ -65,36 +65,43 @@
                 .row
                   i.fas.fa-building.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
                   .col-sm-10
-                    = check_box_tag 'flag'
+                    = check_box_tag 'flag',true,false, onchange: "myFunction()",autocomplete: "off"
               = f.simple_fields_for :osbb do |o|
                 = o.error_notification
+                - if @osbb
+                  - unless @osbb.errors.full_messages.empty?
+                      p
+                        | #{t('account.admin.osbbs.index.osbb_errors')}
+                  ul
+                    - @osbb.errors.full_messages.each do |message|
+                      li= message
                 p.form-group
-                  .row
-                    i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
-                    .col-sm-10
-                      = o.input :name, autofocus: true, label: false,
-                        placeholder: 'osbb name',
-                        input_html: { class: 'form-control input-prop' }
+                    .row#OsbbName.d-none
+                      i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                      .col-sm-10
+                        = o.input :name, autofocus: true, label: false,
+                          placeholder: t('account.admin.osbbs.index.osbb_name'),
+                          input_html: { class: 'form-control input-prop'}
                 p.form-group
-                  .row
-                    i.fas.fa-user.fa-lg.inputfa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .row#OsbbPhone.d-none
+                    i.fas.fa-phone.fa-lg.inputfa-fw.mt-2.control-label.col-sm-2.icon-prop
                     .col-sm-10
                       = o.input :phone, autofocus: true, label: false,
-                        placeholder: 'osbb phone',
+                        placeholder: t('account.admin.osbbs.index.phone_number'),
                         input_html: { class: 'form-control input-prop' }
                 p.form-group
-                  .row
-                    i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .row#OsbbEmail.d-none
+                    i.fas.fa-envelope.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
                     .col-sm-10
                       = o.input :email, autofocus: true, label: false,
-                        placeholder: 'osbb email',
+                        placeholder: t('account.admin.osbbs.index.email'),
                         input_html: { class: 'form-control input-prop' }
                 p.form-group
-                  .row
-                    i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .row#OsbbWeb.d-none
+                    i.fab.fa-chrome.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
                     .col-sm-10
                       = o.input :website, autofocus: true, label: false,
-                        placeholder: 'osbb website',
+                        placeholder: t('account.admin.osbbs.index.website'),
                         input_html: { class: 'form-control input-prop' }
               
             .form-actions.mt-3
@@ -106,3 +113,24 @@
               .d-flex.justify-content-center.links.mt-2
                 = t('devise.registrations.new.have_account_text')
                 = render 'devise/shared/links'
+script src="https://code.jquery.com/jquery-1.12.4.js" 
+javascript:
+  $(document).on("click", "[type='checkbox']", function(e) {
+        if (this.checked) {
+            $(this).attr("value", "true");
+        } else {
+            $(this).attr("value","false");}
+    });
+  function myFunction() {
+    if($('#flag').prop('checked')) {
+          $('#OsbbName').addClass('d-flex');
+          $('#OsbbPhone').addClass('d-flex');
+          $('#OsbbEmail').addClass('d-flex');
+          $('#OsbbWeb').addClass('d-flex');
+        } else {
+          $('#OsbbName').removeClass('d-flex');
+          $('#OsbbPhone').removeClass('d-flex');
+          $('#OsbbEmail').removeClass('d-flex');
+          $('#OsbbWeb').removeClass('d-flex');
+        }
+  }
