@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 class User::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: :create
 
   def create
     if params[:flag]
@@ -38,7 +36,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    sign_up_params.merge({role: User::LEAD})
+    sign_up_params.merge({ role: User::LEAD })
   end
 
   def configure_sign_up_params
