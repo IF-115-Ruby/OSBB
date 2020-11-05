@@ -49,8 +49,10 @@ RSpec.describe User::RegistrationsController, type: :controller do
 
     context "with invalid osbb and user params" do
       it "not creates a new osbb and user" do
+        invalid = valid_attributes_osbb
+        invalid[:user][:osbb] = { name: 'To' }
         expect do
-          post :create, params: valid_attributes_osbb[:osbb] = { name: 'To' }
+          post :create, params: invalid
         end.to change(Osbb, :count).by(0).and change(User, :count).by(0)
       end
     end
