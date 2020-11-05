@@ -5,9 +5,9 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   def create
     if params[:flag]
-      @osbb = Osbb.new(osbb_params)
       build_resource(user_params)
-      if @osbb.valid? && resource.valid?
+      resource.osbb_attributes = osbb_params
+      if resource.valid?
         resource.save
         yield resource if block_given?
         if resource.persisted?
@@ -34,14 +34,14 @@ class User::RegistrationsController < Devise::RegistrationsController
   protected
 
   def osbb_params
-    params[:user][:osbb].permit(:name, :phone, :email, :website)
+    params[:user][:osbb_attributes].permit(:name, :phone, :email, :website)
   end
 
   def user_params
-    sign_up_params.merge({osbb: @osbb}).merge({osbb_id: @osbb.id, role: User::LEAD})
+    sign_up_params.merge({role: User::LEAD})
   end
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name sex mobile password osbb])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name sex mobile password osbb_attributes])
   end
 end

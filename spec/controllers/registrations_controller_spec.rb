@@ -14,7 +14,7 @@ RSpec.describe User::RegistrationsController, type: :controller do
         website: 'OsbbTOp.com' }
     end
     let!(:valid_attributes_osbb) do
-      valid_attributes_user[:osbb] = osbb_valid_params
+      valid_attributes_user[:osbb_attributes] = osbb_valid_params
       fatributes = { user: valid_attributes_user, flag: true }
       fatributes
     end
@@ -50,7 +50,7 @@ RSpec.describe User::RegistrationsController, type: :controller do
     context "with invalid osbb and user params" do
       it "not creates a new osbb and user" do
         invalid = valid_attributes_osbb
-        invalid[:user][:osbb] = { name: 'To' }
+        invalid[:user][:osbb_attributes] = { name: 'To' }
         expect do
           post :create, params: invalid
         end.to change(Osbb, :count).by(0).and change(User, :count).by(0)

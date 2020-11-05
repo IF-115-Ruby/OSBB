@@ -65,16 +65,8 @@
                 .row
                   i.fas.fa-building.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
                   .col-sm-10
-                    = check_box_tag 'flag',true,false, onchange: "myFunction()",autocomplete: "off"
-              = f.simple_fields_for :osbb do |o|
-                = o.error_notification
-                - if @osbb
-                  - unless @osbb.errors.full_messages.empty?
-                      p
-                        | #{t('account.admin.osbbs.index.osbb_errors')}
-                  ul
-                    - @osbb.errors.full_messages.each do |message|
-                      li= message
+                    = check_box_tag 'flag',true,true, onchange: "myFunction()"
+              = f.simple_fields_for :osbb_attributes do |o|
                 p.form-group
                     .row#OsbbName.d-none
                       i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
@@ -115,6 +107,7 @@
                 = render 'devise/shared/links'
 script src="https://code.jquery.com/jquery-1.12.4.js" 
 javascript:
+  $(document).ready ( myFunction());
   $(document).on("click", "[type='checkbox']", function(e) {
         if (this.checked) {
             $(this).attr("value", "true");

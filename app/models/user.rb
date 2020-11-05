@@ -14,7 +14,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :osbb, optional: true
-
+  validates_associated :osbb
+  accepts_nested_attributes_for :osbb
   has_one :address, as: :addressable, dependent: :destroy
 
   has_many :billing_contracts, dependent: :nullify

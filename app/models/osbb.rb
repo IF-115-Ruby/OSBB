@@ -5,7 +5,7 @@ class Osbb < ApplicationRecord
   has_many :members, class_name: "User", dependent: :nullify
   has_one :lead, -> { find_by({ role: User::LEAD }) },
           class_name: "User", inverse_of: :osbb
-  accepts_nested_attributes_for :lead
+
   has_one :address, as: :addressable, dependent: :destroy
 
   validates :name, presence: { message: 'can not be blank' },
