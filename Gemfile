@@ -43,6 +43,7 @@ gem 'kaminari'
 gem 'premailer-rails'
 gem 'rails-i18n'
 gem 'routing-filter'
+gem 'react-rails'
 
 group :development, :test do
   gem 'amazing_print'
