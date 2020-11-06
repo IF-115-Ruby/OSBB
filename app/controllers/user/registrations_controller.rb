@@ -45,7 +45,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    sign_up_params.merge({ role: User::LEAD }) if params[:flag]
+    sign_up_params.merge({ role: User::LEAD })
   end
 
   def configure_sign_up_params
