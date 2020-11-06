@@ -55,6 +55,10 @@ class User < ApplicationRecord
     }
   end
 
+  def companies_for_output
+    companies.map(&:name).join(', ')
+  end
+
   private
 
   def avatar_size_validation

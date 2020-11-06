@@ -49,4 +49,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.perform_deliveries = false
+
+  config.telegram_updates_controller.session_store = :memory_store
+  Telegram.reset_bots
+  Telegram::Bot::ClientStub.stub_all!
 end
