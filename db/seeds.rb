@@ -18,7 +18,7 @@ ADRESSES = [
 ].freeze
 
 FactoryBot.create_list(:user, 10)
-Osbb.all.each do |user| 
+User.all.each do |user| 
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: user) 
 end

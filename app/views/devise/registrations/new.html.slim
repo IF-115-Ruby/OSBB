@@ -61,6 +61,41 @@
                       label: false, hint: false,
                       placeholder: t('devise.password.edit.confirm_password_placeholder'),
                       input_html: { class: 'form-control input-prop' }
+              p.form-group
+                .row
+                  i.fas.fa-building.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = check_box_tag 'newOsbb',false,false
+              = f.simple_fields_for :osbb_attributes, resource.osbb do |o|
+                p.form-group
+                    .row#OsbbName.d-none
+                      i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                      .col-sm-10
+                        = o.input :name, autofocus: true, label: false,
+                          placeholder: t('account.admin.osbbs.index.osbb_name'),
+                          input_html: { class: 'form-control input-prop'}
+                p.form-group
+                  .row#OsbbPhone.d-none
+                    i.fas.fa-phone.fa-lg.inputfa-fw.mt-2.control-label.col-sm-2.icon-prop
+                    .col-sm-10
+                      = o.input :phone, autofocus: true, label: false,
+                        placeholder: t('account.admin.osbbs.index.phone_number'),
+                        input_html: { class: 'form-control input-prop' }
+                p.form-group
+                  .row#OsbbEmail.d-none
+                    i.fas.fa-envelope.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                    .col-sm-10
+                      = o.input :email, autofocus: true, label: false,
+                        placeholder: t('account.admin.osbbs.index.email'),
+                        input_html: { class: 'form-control input-prop' }
+                p.form-group
+                  .row#OsbbWeb.d-none
+                    i.fab.fa-chrome.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                    .col-sm-10
+                      = o.input :website, autofocus: true, label: false,
+                        placeholder: t('account.admin.osbbs.index.website'),
+                        input_html: { class: 'form-control input-prop' }
+              
             .form-actions.mt-3
               .container.d-flex.justify-content-center
                 = f.submit t('devise.shared.sign_up_link'),

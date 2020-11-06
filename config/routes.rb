@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   filter :locale
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'user/registrations' }
 
   root 'home#index', as: 'home'
   get 'about', to: 'home#about'
