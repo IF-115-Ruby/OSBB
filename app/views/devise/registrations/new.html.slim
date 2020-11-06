@@ -65,7 +65,7 @@
                 .row
                   i.fas.fa-building.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
                   .col-sm-10
-                    = check_box_tag 'flag',false,false, onchange: "myFunction()"
+                    = check_box_tag 'flag',false,false
               = f.simple_fields_for :osbb_attributes, resource.osbb do |o|
                 p.form-group
                     .row#OsbbName.d-none
@@ -105,26 +105,3 @@
               .d-flex.justify-content-center.links.mt-2
                 = t('devise.registrations.new.have_account_text')
                 = render 'devise/shared/links'
-script src="https://code.jquery.com/jquery-1.12.4.js" 
-javascript:
-  $(function(){
-    let test = localStorage.input === 'true'? true: false;
-    $('#flag').prop('checked', test || false);
-    myFunction();
-  });
-  $('#flag').on('change', function() {
-    localStorage.input = $(this).is(':checked');
-  });
-  $(document).on("click", "[type='checkbox']", function(e) {
-        if (this.checked) {
-            $(this).attr("value", "true");
-        } else {
-            $(this).attr("value","false");}
-    });
-  function myFunction() {
-    if($('#flag').prop('checked')) {
-          $('#OsbbName, #OsbbPhone, #OsbbEmail, #OsbbWeb').addClass('d-flex')
-        } else {
-          $('#OsbbName, #OsbbPhone, #OsbbEmail, #OsbbWeb').removeClass('d-flex')
-        }
-  }
