@@ -1,13 +1,13 @@
-class TelegramWebhooksController < Telegram::Bot::UpdatesController
+class TelegramWebhooksController < Telegram::Bot::UpdatesController # rubocop:disable Metrics/ClassLength
   include Telegram::Bot::UpdatesController::MessageContext
   include Telegram::Bot::UpdatesController::CallbackQueryContext
 
   def start!(*)
     if session?
-      respond_with :message, text: 'Choose action', reply_markup: menu_markup
+      respond_message('Choose action', menu_markup)
     else
       save_context :auth
-      respond_with :message, text: 'Hi! Give me your mobile number.', reply_markup: phone_markup
+      respond_message('Hi! Give me your mobile number.', phone_markup)
     end
   end
 
@@ -17,7 +17,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
       session[:user_id] = user.id
       session[:session_key] = session_key
     else
-      respond_with(:message, text: "User not found.")
+      respond_message('User not found.')
     end
     start!
   end
@@ -25,9 +25,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   def add_meter_reading!(*)
     if session[:session_key]
       save_context :add_meter
-      respond_with :message, text: "Choose utility provider", reply_markup: {
-        keyboard: user.companies.map { |c| [{ text: c.name }] }, resize_keyboard: true, one_time_keyboard: true
-      }
+      respond_message("Choose utility provider", companies)
     else
       start!
     end
@@ -36,40 +34,40 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   def add_meter(*company_name)
     session[:company] = Company.find_by(name: company_name.join(' ')).id
     save_context :save_meter_reading
-    respond_with :message, text: 'Write meter reading'
+    respond_message('Write meter reading')
   end
 
   def save_meter_reading(value, *)
-    billing_contract = user.billing_contracts.find_by(company_id: session[:company])
-
     meter_reading = billing_contract.meter_readings.build(value: to_number(value))
 
     if meter_reading.save
-      respond_with :message, text: "Saved meter reading #{value}.", reply_markup: menu_markup
+      respond_message("Saved meter reading #{value}.", menu_markup)
     else
-      respond_with :message, text: "Can't add meter reading #{value}.", reply_markup: menu_markup
+      respond_message("Can't add meter reading #{value}.", menu_markup)
     end
   end
 
   def companies!(*)
-    session? ? respond_with(:message, text: user.companies.map(&:name).join(', ')) : start!
+    return respond_message(user.companies_for_output) if session?
+
+    start!
   end
 
   def disassociate!(*)
     session[:session_key] = nil
 
-    respond_with :message, text: 'Account disassociated!', reply_markup: { hide_keyboard: true }
+    respond_message('Account disassociated!', hide_keyboard: true)
   end
 
   def help!(*)
-    respond_with :message, text: 'Available commands:
+    respond_message('Available commands:
       /companies - List your utility providers
       /add_meter_reading
-      /disassociate - Disassociate account'
+      /disassociate - Disassociate account')
   end
 
   def action_missing(*_args)
-    respond_with :message, text: "Method missing /#{action_options[:command]}." if action_type == :command
+    respond_message("Method missing /#{action_options[:command]}.") if action_type == :command
   end
 
   def message(*)
@@ -99,6 +97,14 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     User.find_by(id: session[:user_id])
   end
 
+  def billing_contract
+    user.billing_contracts.find_by(company_id: session[:company])
+  end
+
+  def respond_message(message, markup = {})
+    respond_with :message, text: message, reply_markup: markup
+  end
+
   def menu_markup
     {
       keyboard: [[{ text: 'My utilities providers' }, { text: 'Add meter reading' }],
@@ -110,6 +116,12 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   def phone_markup
     {
       keyboard: [[{ text: 'Send Phone Number', request_contact: true }]], resize_keyboard: true, one_time_keyboard: true
+    }
+  end
+
+  def companies
+    {
+      keyboard: user.companies.map { |c| [{ text: c.name }] }, resize_keyboard: true, one_time_keyboard: true
     }
   end
 
