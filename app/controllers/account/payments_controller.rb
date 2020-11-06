@@ -3,13 +3,15 @@ class Account::PaymentsController < Account::AccountController
 
   def show
     @utility_provider = current_user.billing_contracts.find_by id: params[:id]
+
     if @utility_provider.present?
       respond_to do |format|
         format.html
         format.pdf { render_pdf }
       end
     else
-      flash.now[:warning] = 'Contract not found!'
+      redirect_to account_payments_path
+      flash[:alert] = 'Contract not found!'
     end
   end
 
