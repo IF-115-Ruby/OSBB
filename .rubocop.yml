@@ -55,10 +55,6 @@ Metrics/BlockLength:
     - 'spec/**/*'
     - 'config/environments/*'
 
-Metrics/AbcSize:
-  Exclude:
-    - 'app/controllers/user/registrations_controller.rb'
-
 Metrics/MethodLength:
   Exclude:
     - 'app/helpers/*'
