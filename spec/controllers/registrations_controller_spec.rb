@@ -15,7 +15,7 @@ RSpec.describe User::RegistrationsController, type: :controller do
     end
     let!(:valid_attributes_osbb) do
       valid_attributes_user[:osbb_attributes] = osbb_valid_params
-      fatributes = { user: valid_attributes_user, flag: true }
+      fatributes = { user: valid_attributes_user, newOsbb: true }
       fatributes
     end
 

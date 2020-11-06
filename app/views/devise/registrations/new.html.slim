@@ -65,7 +65,7 @@
                 .row
                   i.fas.fa-building.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
                   .col-sm-10
-                    = check_box_tag 'flag',false,false
+                    = check_box_tag 'newOsbb',false,false
               = f.simple_fields_for :osbb_attributes, resource.osbb do |o|
                 p.form-group
                     .row#OsbbName.d-none

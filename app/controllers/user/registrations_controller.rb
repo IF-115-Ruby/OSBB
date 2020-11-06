@@ -2,7 +2,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: :create
 
   def create
-    if params[:flag]
+    if params[:newOsbb]
       build_resource(user_params)
       resource.osbb_attributes = osbb_params
       resource.valid? ? save_resource : render_sign_up
