@@ -84,3 +84,7 @@ test:
 production:
   <<: *default
   database: OSBB_production
+  connect_timeout: 5
+  variables:
+    statement_timeout: 15s
+    lock_timeout: 10s

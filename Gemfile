@@ -43,6 +43,7 @@ gem 'kaminari'
 gem 'premailer-rails'
 gem 'rails-i18n'
 gem 'routing-filter'
+gem 'strong_migrations'
 gem 'telegram-bot'
 
 group :development, :test do

@@ -378,6 +378,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    strong_migrations (0.7.2)
+      activerecord (>= 5)
     telegram-bot (0.14.4)
       actionpack (>= 4.0, < 6.1)
       activesupport (>= 4.0, < 6.1)
@@ -469,6 +471,7 @@ DEPENDENCIES
   slim-rails (~> 3.2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  strong_migrations
   telegram-bot
   turbolinks (~> 5)
   tzinfo-data
