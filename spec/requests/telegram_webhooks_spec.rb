@@ -58,7 +58,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
 
       before { dispatch_command :start }
 
-      it { is_expected.to respond_with_message('Not found user.') }
+      it { is_expected.to respond_with_message('User not found.') }
     end
   end
 
@@ -94,7 +94,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
         dispatch_message '', contact
       end
 
-      it { is_expected.to respond_with_message('Choose Utility provider') }
+      it { is_expected.to respond_with_message('Choose utility provider') }
       it { expect(bot.requests[:sendMessage].last[:reply_markup]).to be_present }
     end
 
@@ -112,7 +112,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
       dispatch_command :add_meter_reading
     end
 
-    it { is_expected.to respond_with_message("Write Meter Reading") }
+    it { is_expected.to respond_with_message("Write meter reading") }
   end
 
   describe '#save_meter_reading' do
@@ -128,7 +128,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
 
       let(:meter_reading) { '13649' }
 
-      it { is_expected.to respond_with_message("Saved Meter Reading #{meter_reading}.") }
+      it { is_expected.to respond_with_message("Saved meter reading #{meter_reading}.") }
     end
 
     context 'when incorrect meter reading' do
@@ -164,7 +164,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
     end
 
     it { expect { dispatch_message 'My utilities providers' }.to respond_with_message(companies) }
-    it { expect { dispatch_message 'Add meter reading' }.to respond_with_message('Choose Utility provider') }
+    it { expect { dispatch_message 'Add meter reading' }.to respond_with_message('Choose utility provider') }
     it { expect { dispatch_message 'Disassociate account' }.to respond_with_message('Account disassociated!') }
     it { expect { dispatch_message 'Help' }.to respond_with_message(/Available commands:/) }
   end

@@ -17,7 +17,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
       session[:user_id] = user.id
       session[:session_key] = session_key
     else
-      respond_with(:message, text: "Not found user.")
+      respond_with(:message, text: "User not found.")
     end
     start!
   end
@@ -25,7 +25,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   def add_meter_reading!(*)
     if session[:session_key]
       save_context :add_meter
-      respond_with :message, text: "Choose Utility provider", reply_markup: {
+      respond_with :message, text: "Choose utility provider", reply_markup: {
         keyboard: user.companies.map { |c| [{ text: c.name }] }, resize_keyboard: true, one_time_keyboard: true
       }
     else
@@ -36,7 +36,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   def add_meter(*company_name)
     session[:company] = Company.find_by(name: company_name.join(' ')).id
     save_context :save_meter_reading
-    respond_with :message, text: 'Write Meter Reading'
+    respond_with :message, text: 'Write meter reading'
   end
 
   def save_meter_reading(value, *)
@@ -45,7 +45,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     meter_reading = billing_contract.meter_readings.build(value: to_number(value))
 
     if meter_reading.save
-      respond_with :message, text: "Saved Meter Reading #{value}.", reply_markup: menu_markup
+      respond_with :message, text: "Saved meter reading #{value}.", reply_markup: menu_markup
     else
       respond_with :message, text: "Can't add meter reading #{value}.", reply_markup: menu_markup
     end
