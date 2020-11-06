@@ -8,7 +8,6 @@ class User::RegistrationsController < Devise::RegistrationsController
       if resource.valid?
         resource.save
         yield resource if block_given?
-        if resource.persisted?
           if resource.active_for_authentication?
             set_flash_message! :notice, :signed_up
             sign_up(resource_name, resource)
@@ -18,7 +17,6 @@ class User::RegistrationsController < Devise::RegistrationsController
             expire_data_after_sign_in!
             respond_with resource, location: after_inactive_sign_up_path_for(resource)
           end
-        end
       else
         render :new
         clean_up_passwords resource
@@ -36,7 +34,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    sign_up_params.merge({ role: User::LEAD })
+    sign_up_params.merge({ role: User::LEAD }) if params[:flag]
   end
 
   def configure_sign_up_params
