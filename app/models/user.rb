@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_one :address, as: :addressable, dependent: :destroy, inverse_of: :addressable
   has_many :billing_contracts, dependent: :nullify
   has_many :companies, through: :billing_contracts
+  has_many :payments, through: :billing_contracts
 
   validates_associated :osbb, :address
   accepts_nested_attributes_for :osbb, :address
@@ -50,6 +51,14 @@ class User < ApplicationRecord
 
   def companies_for_output
     companies.map(&:name).join(', ')
+  end
+
+  def balance_total
+    billing_contracts.map(&:balance_utility_provider).inject(0, &:+)
+  end
+
+  def last_payment_date
+    payments.ordered_by_date.first&.date
   end
 
   private

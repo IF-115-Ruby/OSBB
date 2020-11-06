@@ -7,23 +7,23 @@
   .form-component
     h1.title
       = t('.contract')
-      =< @billing_contract.contract_num
+      =< @utility_provider.contract_num
     .content-info
       .info-content
         span.name
           = t('.status')
-        span.value = t(status_contract(@billing_contract.is_active))
+        span.value = t(status_contract(@utility_provider.is_active))
       .info-content
         span.name
           = t('.created')
-        span.value = l(@billing_contract.created_at, format: :long)
+        span.value = l(@utility_provider.created_at, format: :long)
     .d-flex.justify-content-around.flex-wrap
-      = link_to t('.btn-show'), account_utility_provider_meter_readings_path(utility_provider_id: @billing_contract.id),
+      = link_to t('.btn-show'), account_utility_provider_meter_readings_path(utility_provider_id: @utility_provider.id),
         class: 'btn btn-primary btn-custom'
-      = link_to t('.btn-delete'), disassociate_account_utility_provider_path(@billing_contract),
+      = link_to t('.btn-delete'), disassociate_account_utility_provider_path(@utility_provider),
         method: :put, data: { confirm: t('.are_you_sure') },
         class: 'btn btn-danger btn-custom'
-      = link_to t('.btn-add'), new_account_utility_provider_meter_reading_path(utility_provider_id: @billing_contract.id),
+      = link_to t('.btn-add'), new_account_utility_provider_meter_reading_path(utility_provider_id: @utility_provider.id),
         class: 'btn btn-success btn-custom'
       = link_to t('.btn-back'), account_utility_providers_path,
         class: 'btn btn-dark btn-custom'

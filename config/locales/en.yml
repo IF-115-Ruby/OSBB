@@ -307,6 +307,7 @@ en:
         btn-delete: 'Delete'
         btn-add: 'Add meter'
         btn-back: 'Back'
+        are_you_sure: 'Are you sure?'
       search_form:
         name: 'Company'
         name-of-company: 'Name of company:'
@@ -314,14 +315,32 @@ en:
         edrpou: 'EDRPOU'
         search: 'Search'
       utility_provider:
+        pay: 'Pay'
+        amount: '%{amount} UAH'
+        contract: 'Contract:'
+        balance: 'Balance:'
         active: 'Active'
         inactive: 'Inactive'
-        are_you_sure: 'Are you sure?'
       companies:
+        types:
+          water_supply: 'Water supply'
+          heating: 'Heating'
+          rent_payment: 'Rent payment'
+          accommodation_payment: 'Accommodation payment'
+          gas: 'Gas'
+          electricity: 'Electricity'
+          garbage_removal: 'Garbage removal'
+          internet: 'Internet'
+          intercom: 'Intercom'
+          tv: 'TV'
+          elevator: 'Elevator'
+          other: 'Other'
         title: 'Add utility provider'
       company:
         btn-choose: 'Choose'
       index:
+        last_payment: 'Last payment: '
+        total_payment: 'Total payment: '
         btn-add: 'Add utility provider'
         title: 'My utility providers'
         name-of-company: 'Name of company:'
