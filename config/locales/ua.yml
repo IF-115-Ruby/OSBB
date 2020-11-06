@@ -305,6 +305,22 @@ ua:
         name-of-company: 'Назва компанії'
         contract-number: 'Номер контракту'
         btn-add: 'Підтвердити'
+      receipt_pdf:
+        invoice: 'Рахунок-фактура #:'
+        osbb: 'ОСББ'
+        contract: 'Контракт №:'
+        payer: 'Платник:'
+        sender: 'Відправник'
+        recipient: 'Отримувач'
+        bank: 'Банк:'
+        bank_code: 'Код банку:'
+        summary: 'Підсумок'
+        indicator: 'Показник:'
+        amount: 'Сума:'
+        comission: 'Комісія:'
+        total: 'Усього:'
+        currency: 'грн.'
+        btn-show: 'Показати pdf'
 
   shared:
     account:

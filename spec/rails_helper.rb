@@ -44,6 +44,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :helper
   config.include Warden::Test::Helpers
   config.extend ControllerMacros, type: :controller
   # You can uncomment this line to turn off ActiveRecord support entirely.
@@ -78,4 +79,8 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+def current_user
+  controller.send(:current_user)
 end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/500", to: "errors#server_error"
 
   namespace :account do
+    resources :payments, only: %i[index show]
     resources :users, except: %i[index destroy]
     resources :companies, only: [] do
       resources :utility_providers, only: %i[new update]

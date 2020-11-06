@@ -1,0 +1,101 @@
+.invoice-box
+  table cellpadding="0" cellspacing="0"
+    tr.top
+    td colspan="2"
+      table
+        tr
+          td.title
+            = image_tag wicked_pdf_asset_base64('logo2.svg')
+            h1.invoice-header = t('account.utility_providers.receipt_pdf.osbb')
+          td
+            = t('account.utility_providers.receipt_pdf.invoice')
+            =< @utility_provider.payments.last.billing_contract_id
+            br/
+            = t('account.admin.billing_contracts.show.name_of_company')
+            =< @utility_provider.company.name
+            br/
+            = t('companies.form.company_type_label')
+            |:
+            =< @utility_provider.company.company_type
+            br/
+            = t('account.users.show.user-phone')
+            =< @utility_provider.company.phone
+            br/
+            = t('companies.show.fax')
+            =< @utility_provider.company.fax
+            br/
+            = t('account.admin.osbbs.form.label-email')
+            |:
+            =< @utility_provider.company.email
+      hr
+      h1
+        = t('account.utility_providers.receipt_pdf.contract')
+        =< @utility_provider.contract_num
+      p
+        = t('account.utility_providers.receipt_pdf.payer')
+        =< current_user.full_name
+        br/
+        = t('account.admin.osbbs.form.label-email')
+        |:
+        =< current_user.email
+        br/
+        = t('account.users.show.user-phone')
+        =< current_user.mobile
+        br/
+        |
+        br/
+        = t('account.admin.billing_contracts.index.created')
+        |:
+        =< @utility_provider.payments.last.date.strftime(t('devise.mailer.admin_notification.date_format'))
+    tr.information
+    td colspan="1"
+    tr.heading
+      td
+        = t('account.utility_providers.receipt_pdf.sender')
+      td
+        = t('account.utility_providers.receipt_pdf.recipient')
+    tr.details
+      td
+        => t('account.utility_providers.receipt_pdf.bank')
+        |PrivatBank
+        br/
+        => t('account.utility_providers.receipt_pdf.bank_code')
+        |351233486
+        br/
+        |1234 **** **** 2134
+      td
+        => t('account.utility_providers.receipt_pdf.bank')
+        |PrivatBank
+        br/
+        => t('account.utility_providers.receipt_pdf.bank_code')
+        |354623486
+        br/
+        |3568 **** **** 2345
+    tr.heading
+      td
+        = t('account.utility_providers.receipt_pdf.summary')
+      td
+        |Electricity
+    tr.item
+      td
+        = t('account.utility_providers.receipt_pdf.indicator')
+      td
+        | 234
+    tr.item
+      td
+        = t('account.utility_providers.receipt_pdf.amount')
+      td
+        | #{@utility_provider.payments.last.amount}
+        =< t('account.utility_providers.receipt_pdf.currency')
+    tr.item.last
+      td
+        = t('account.utility_providers.receipt_pdf.comission')
+      td
+        | 3.0
+        =< t('account.utility_providers.receipt_pdf.currency')
+    tr.total
+      td
+      td
+        => t('account.utility_providers.receipt_pdf.total')
+        = @utility_provider.payments.last.amount + 3
+        =< t('account.utility_providers.receipt_pdf.currency')

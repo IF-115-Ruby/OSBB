@@ -293,6 +293,22 @@ en:
         add-utilities-provider: 'Add utility provider'
         contract-number: 'Number of contract'
         btn-add: 'Add'
+      receipt_pdf:
+        invoice: 'Invoice #:'
+        osbb: "OSBB"
+        contract: 'Contract #:'
+        payer: 'Payer:'
+        sender: 'Sender'
+        recipient: 'Recipient'
+        bank: 'Bank:'
+        bank_code: 'Bank code:'
+        summary: 'Summary'
+        indicator: 'Indicator:'
+        amount: 'Amount:'
+        comission: 'Comission:'
+        total: 'Total:'
+        currency: 'UAH'
+        btn-show: 'Show pdf'
 
   shared:
     account:
