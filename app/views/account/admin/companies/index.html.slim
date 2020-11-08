@@ -5,6 +5,11 @@
         = t('companies.index.companies_title')
       .form-row
         = render 'search_form'
+      .form-row
+        = link_to t('companies.index.btn-import'),
+            new_import_account_admin_companies_path,
+            class: 'btn btn-outline-primary'
+
     table.table
       thead.thead
         tr 

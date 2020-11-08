@@ -1,0 +1,5 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Companies") do |sheet|
+  sheet.add_row %w[company_type email fax name phone website city country state street edrpou iban purpose]
+end
