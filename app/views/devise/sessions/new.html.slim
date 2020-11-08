@@ -37,3 +37,4 @@
                 = t('devise.sessions.new.create_account_text')
                 = link_to t('devise.shared.sign_up_link'), new_registration_path(resource_name),
                   class: 'ml-3'
+= any_login_here if defined?(AnyLogin)

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Account::Admin::OsbbsController, type: :controller do
+  render_views
+
   let!(:osbb) { create(:osbb) }
   let!(:valid_params) { attributes_for :osbb }
   let!(:invalid_params) { { name: '' } }

@@ -3,6 +3,7 @@ body.account {
   .greetings {
     color: white;
   }
+
   .content {
     width: 100%;
     padding-bottom: 20px;
@@ -21,14 +22,17 @@ body.account {
     background-attachment: fixed;
     background-size: cover;
   }
+
   .container__box > .container-fluid {
     background: $gainsboro;
     background-size: cover;
     height: 100%;
   }
+
   .acount-content {
     padding: 40px 0;
   }
+
   .container-fluid {
     .billing-contract {
       h1 {
@@ -36,31 +40,71 @@ body.account {
         padding-top: 30px;
       }
     }
+
     .cabinet__container {
       width: 100%;
+
       nav.col-md-2.d-none.d-md-block.sidebar {
         background-color: $solitude;
         border-radius: 10px;
       }
     }
   }
+
   .dropdown-lang {
     background-color: $light-steel-blue;
     width: 155px;
   }
+  
+  .export-bc {
+    .dropdown-format {
+      background-color: $opacity-black;
+      min-width: 1rem;
+      left: -12px !important;
+
+      .dropdown-item:hover {
+        background-color: $opacity-gray;
+        color: #000;
+        transform: scale(1);
+      }
+    }
+  }
+  
   .auth-btn:hover, .btn-submit:hover, .nav-links:hover {
     font-weight: normal;
     transform: scale(1.03);
     text-shadow: .3px .3px white;
   }
+
   .auth-btn {
     color: white;
   }
+
   .dropdown-item:hover {
     background-color: $light-steel-blue;
     transform: scale(1);
   }
+
   .alert {
     margin-bottom: 0;
+  }
+
+  .billing_contracts_import_file {
+    label.file.optional {
+      display: none;
+    }
+
+    .file.optional.form-check-input {
+      position: static;
+    }
+  }
+
+  .simple_form.mx-auto.billing-form {
+    .text-center {
+      .btn.btn-success.btn-custom {
+        width: 50px;
+        margin-left: 10px;
+      }
+    }
   }
 }

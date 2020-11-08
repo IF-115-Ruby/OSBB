@@ -232,6 +232,11 @@ ua:
           contract_num: 'Номер контракту'
           status: 'Статус'
           created: 'Створено'
+          export-title: 'Скачати Контракти'
+          import-title: 'Імпортувати Контракти'
+          export_csv_title: 'Скачати billing-contracts.csv'
+          export_xlsx_title: 'Скачати billing-contracts.xlsx'
+          upload_title: 'Імпортувати Контракти'
         billing_contract:
           contract_num: 'Контракт:'
           status: 'Статус:'
@@ -265,6 +270,16 @@ ua:
           new-title: 'Створити контракт'
           btn-create: 'Створити'
           btn-cancel: 'Відмінити'
+
+        new_import:
+          title: 'Імпортувати контракти з Excel'
+          note: 'Примітка: Імпортуйте лише нові дані, введені у запропонований шаблон електронної таблиці.'
+          select-file: 'Виберіть файл:'
+          btn-import: 'Імпортувати'
+          btn-cancel: 'Відмінити'
+        form-import:
+          error-notice: 'не дозволяє нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та спробуйте знову.'
+          
       companies:
         new_import:
           title: 'Імпорт компаній'
@@ -276,6 +291,7 @@ ua:
             other: '%{count} помилок'
           btn-import: 'Імпортувати'
           btn-back: 'Назад'
+
     utility_providers:
       show:
         contract: 'Контракт:'

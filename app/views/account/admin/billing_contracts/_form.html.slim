@@ -1,4 +1,4 @@
-= simple_form_for [:account, :admin, @company, @billing_contract], :html=> { class: 'mx-auto billing-form' } do |f|
+= simple_form_for [:account, :admin, @company, @billing_contract], html: { class: 'mx-auto billing-form' } do |f|
   .form-group
     = f.input :contract_num, label: t('.label-contract-num'),
       input_html: { class: 'form-control' },

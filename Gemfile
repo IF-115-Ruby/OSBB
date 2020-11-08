@@ -5,8 +5,8 @@ ruby '2.7.1'
 
 gem 'any_login'
 gem 'axlsx'
-gem 'axlsx_rails'
 gem 'carrierwave', '~> 2.0'
+gem 'caxlsx_rails'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'geocoder'
 gem 'mini_magick'
@@ -36,11 +36,10 @@ gem 'slim-rails', '~> 3.2.0'
 # Use Active Storage variant
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap4-kaminari-views'
 gem 'factory_bot_rails'
 gem 'faker'
-# Gem 'rails-i18n' use for internationalization
-gem 'bootstrap4-kaminari-views'
-gem "fog-aws"
+gem 'fog-aws'
 gem 'kaminari'
 gem 'premailer-rails'
 gem 'rails-i18n'

@@ -6,9 +6,22 @@
   padding-top: 20px;
   padding-bottom: 20px;
 
-  nav.navbar.navbar-dark, table.table > thead.thead {
+  nav.navbar.navbar-dark, .import-form, table.table > thead.thead {
     background-color: $opacity-black;
     color: $white;
+  }
+
+  .import-form {
+    display: flex;
+    justify-content: space-between;
+    
+    .export-bc > .dropdown > span {
+      margin-right: 20px;
+    }
+    
+    .import-bc > span {
+      margin: 0 20px 0 80px;
+    }
   }
 
   nav.navbar.navbar-dark {
