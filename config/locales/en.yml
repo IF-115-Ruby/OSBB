@@ -259,7 +259,6 @@ en:
           new-title: 'Create contract'
           btn-create: 'Create'
           btn-cancel: 'Cancel'
-
         new_import:
           title: 'Import Billing Contracts From Excel'
           note: 'Note: Import only new data entered into the proposed spreadsheet template.'
@@ -272,13 +271,21 @@ en:
       companies:
         new_import:
           title: 'Import Companies'
-          hint-imported-files: 'Import payments from .csv, .xls or .xlsx: '
+          hint-imported-files: 'Import companies from .csv, .xls or .xlsx: '
           information: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try again.'
           errors:
             one: '1 error'
             other: '%{count} errors'
           btn-import: 'Import'
           btn-back: 'Back'
+
+      payments:
+        new_import:
+          title: 'Import payments'
+          hint-imported-files: 'Import payments from .csv, .xls or .xlsx: '
+          btn-template: 'Download template '
+          information: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try again.'
+  
     utility_providers:
       show:
         contract: 'Contract:'

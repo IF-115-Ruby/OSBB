@@ -32,6 +32,12 @@ Rails.application.routes.draw do
         get 'new_import', on: :collection
         post 'import', on: :collection
       end
+      resources :payments, only: %i[new_import import] do
+        collection do
+          get 'new_import'
+          post 'import'
+        end
+      end
       resources :users, only: %i[index destroy]
     end
   end

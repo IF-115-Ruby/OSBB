@@ -279,11 +279,11 @@ ua:
           btn-cancel: 'Відмінити'
         form-import:
           error-notice: 'не дозволяє нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та спробуйте знову.'
-          
+
       companies:
         new_import:
           title: 'Імпорт компаній'
-          hint-imported-files: 'Імпортуйте платежі з .csv, .xls або .xlsx файлу: '
+          hint-imported-files: 'Імпортуйте компанії з .csv, .xls або .xlsx файлу: '
           information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
           errors:
             one: '%{count} помилка'
@@ -291,6 +291,13 @@ ua:
             other: '%{count} помилок'
           btn-import: 'Імпортувати'
           btn-back: 'Назад'
+
+      payments:
+        new_import:
+          title: 'Імпорт платежів'
+          hint-imported-files: 'Імпортуйте платежі з .csv, .xls або .xlsx файлу: '
+          btn-template: 'Завантажити зразок '
+          information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
 
     utility_providers:
       show:
