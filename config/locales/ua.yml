@@ -365,6 +365,10 @@ ua:
         btn-companies: 'Компанії'
         btn-user-cabinet: 'Профіль'
         btn_destoy_auth: 'Вийти'
+      user_cabinet:
+        utility_providers: 'Постачальники КП'
+        notification_settings: 'Сповіщення'
+        personal_info_edit: 'Редагувати профіль'
 
   companies:
     index:

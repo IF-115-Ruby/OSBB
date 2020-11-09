@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     end
     namespace :admin do
       resources :osbbs
-      resources :user_cabinets, only: :index
       resources :companies do
         resources :billing_contracts do
           collection do

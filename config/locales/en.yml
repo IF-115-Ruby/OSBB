@@ -351,6 +351,10 @@ en:
         btn-companies: 'Companies'
         btn-user-cabinet: 'Profile'
         btn_destoy_auth: 'Logout'
+      user_cabinet:
+        utility_providers: 'Utility providers'
+        notification_settings: 'Notification settings'
+        personal_info_edit: 'Personal info edit'
 
   companies:
     index:

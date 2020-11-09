@@ -145,7 +145,10 @@ p {
   min-width: 200px;
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
+}
+
+.content-abc, .form-component {
+  border-radius: 5px 5px 0 0;
 }
 
 .input-properties {

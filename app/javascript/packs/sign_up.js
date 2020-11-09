@@ -14,7 +14,6 @@ $(document).on("click", "[type='checkbox']", function(e) {
     $(this).attr("value","false");}
   });
 function flagIsChecked() {
-  console.log("dd")
   if($('#newOsbb').prop('checked')) {
     $('#OsbbName, #OsbbPhone, #OsbbEmail, #OsbbWeb').addClass('d-flex')
   } else {
