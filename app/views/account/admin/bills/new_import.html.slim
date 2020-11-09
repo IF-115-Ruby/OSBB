@@ -1,0 +1,26 @@
+.content.pt-3
+  .form-component
+    h2.text-center.title.p-2
+      = t('account.admin.payments.new_import.title')
+    = simple_form_for @bills_import, url: import_account_admin_bills_path, html: { class: 'mx-auto billing-form' } do |f|
+      .alert-danger
+        - if @bills_import.errors.any?
+          = pluralize(@bills_import.errors.count, "error")
+          span 
+            =< t('.error-notice') 
+          ul
+            - @bills_import.errors.full_messages.each do |msg|
+              li = msg
+      .text-center.p-1
+        = t('account.admin.bills_imports.new.hint-imported-files')
+      .text-center.p-1
+        = f.input :file, as: :file
+      .text-center.p-1
+        = link_to new_import_account_admin_bills_path(format: 'xlsx'), class: 'btn btn-success btn-custom-for-import'
+          | Download template 
+          i.fas.fa-file-import
+      .text-center
+        = f.submit t('account.admin.companies.new_import.btn-import'),
+          class: 'btn btn-primary mr-2 btn-custom'
+        = link_to t('account.admin.companies.new_import.btn-back'),
+          account_admin_companies_path, class: 'btn btn-outline-danger btn-custom'

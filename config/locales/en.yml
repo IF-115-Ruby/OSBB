@@ -267,7 +267,7 @@ en:
           btn-cancel: 'Cancel'
         form-import:
           error-notice: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try agin.'
-          
+
       companies:
         new_import:
           title: 'Import Companies'
@@ -281,10 +281,14 @@ en:
 
       payments:
         new_import:
-          title: 'Import payments'
-          hint-imported-files: 'Import payments from .csv, .xls or .xlsx: '
+          title: 'Import from .csv, .xls or .xlsx:'
+          hint-imported-files: 'Import payments: '
           btn-template: 'Download template '
           information: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try again.'
+  
+      bills:
+        new_import:
+          hint-imported-files: 'Import bills: '
   
     utility_providers:
       show:

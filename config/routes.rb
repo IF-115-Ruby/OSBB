@@ -40,6 +40,12 @@ Rails.application.routes.draw do
         end
       end
       resources :users, only: %i[index destroy]
+      resources :bills, only: %i[new_import import] do
+        collection do
+          get 'new_import'
+          post 'import'
+        end
+      end
     end
   end
   telegram_webhook TelegramWebhooksController

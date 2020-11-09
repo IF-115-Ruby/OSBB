@@ -270,7 +270,6 @@ ua:
           new-title: 'Створити контракт'
           btn-create: 'Створити'
           btn-cancel: 'Відмінити'
-
         new_import:
           title: 'Імпортувати контракти з Excel'
           note: 'Примітка: Імпортуйте лише нові дані, введені у запропонований шаблон електронної таблиці.'
@@ -294,10 +293,14 @@ ua:
 
       payments:
         new_import:
-          title: 'Імпорт платежів'
-          hint-imported-files: 'Імпортуйте платежі з .csv, .xls або .xlsx файлу: '
+          title: 'Імпортуйте з .csv, .xls або .xlsx файлів:'
+          hint-imported-files: 'Імпорт платежів: '
           btn-template: 'Завантажити зразок '
           information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
+
+      bills:
+        new_import:
+          hint-imported-files: 'Імпорт рахунків: '
 
     utility_providers:
       show:
