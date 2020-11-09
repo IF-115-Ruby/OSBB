@@ -8,16 +8,20 @@ class AdminPolicy
     @user = model
   end
 
-  def index?
+  def user_admin
     @current_user.admin?
   end
 
+  def index?
+    user_admin
+  end
+
   def show?
-    @current_user.admin? || @current_user == @user
+    index? || @current_user == @user
   end
 
   def create?
-    false
+    index? || @current_user == @user
   end
 
   def new?
@@ -25,7 +29,7 @@ class AdminPolicy
   end
 
   def update?
-    @current_user.admin?
+    user_admin
   end
 
   def edit?
@@ -35,6 +39,6 @@ class AdminPolicy
   def destroy?
     return false if @current_user == @user
 
-    @current_user.admin?
+    user_admin
   end
 end
