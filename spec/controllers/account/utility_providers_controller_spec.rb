@@ -17,6 +17,13 @@ RSpec.describe Account::UtilityProvidersController, type: :controller do
     it { expect(assigns(:utility_providers)).to eq([utility_provider]) }
   end
 
+  describe 'GET#show' do
+    before { get :show, params: { id: utility_provider.id } }
+
+    it { is_expected.to respond_with :success }
+    it { is_expected.to render_template :show }
+  end
+
   describe 'GET #search' do
     before { get :search }
 
@@ -26,7 +33,7 @@ RSpec.describe Account::UtilityProvidersController, type: :controller do
 
   describe 'GET #new' do
     context 'when is contract_num' do
-      before { get :new, params: { billing_contract: { company_id: company.id } } }
+      before { get :new, params: { company_id: company.id } }
 
       it { is_expected.to use_before_action(:set_company) }
       it { is_expected.to respond_with :success }
@@ -34,7 +41,7 @@ RSpec.describe Account::UtilityProvidersController, type: :controller do
     end
 
     context 'when is not contract_num' do
-      before { get :new, params: { billing_contract: { company_id: utility_provider.company.id } } }
+      before { get :new, params: { company_id: utility_provider.company.id } }
 
       it { is_expected.to use_before_action(:set_company) }
       it { is_expected.to respond_with :redirect }
@@ -45,10 +52,13 @@ RSpec.describe Account::UtilityProvidersController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       before do
-        put :update, params: { id: utility_provider2.id, billing_contract: {
-          contract_num: utility_provider2.contract_num,
-          company_id: utility_provider2.company.id
-        } }
+        put :update, params: {
+          id: utility_provider2.id,
+          company_id: utility_provider2.company_id,
+          billing_contract: {
+            contract_num: utility_provider2.contract_num
+          }
+        }
       end
 
       it { is_expected.to respond_with :redirect }
@@ -57,10 +67,13 @@ RSpec.describe Account::UtilityProvidersController, type: :controller do
 
     context 'with invalid params' do
       before do
-        put :update, params: { id: utility_provider.id, billing_contract: {
-          contract_num: utility_provider.contract_num,
-          company_id: company.id
-        } }
+        put :update, params: {
+          id: utility_provider.id,
+          company_id: utility_provider2.company_id,
+          billing_contract: {
+            contract_num: utility_provider.contract_num
+          }
+        }
       end
 
       it { is_expected.to respond_with :success }

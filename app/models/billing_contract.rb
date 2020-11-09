@@ -1,6 +1,7 @@
 class BillingContract < ApplicationRecord
   has_many :bills, dependent: :destroy
   has_many :payments, dependent: :destroy
+  has_many :meter_readings, dependent: :destroy
 
   validates :contract_num, presence: true, length: { maximum: 50 }, uniqueness: { scope: :company_id }
   validates :is_active, inclusion: { in: [true, false] }
@@ -9,6 +10,17 @@ class BillingContract < ApplicationRecord
 
   belongs_to :company
   belongs_to :user, optional: true
+
+  def self.to_csv
+    attributes = %w[id company_id contract_num is_active]
+    CSV.generate(headers: true) do |csv|
+      csv << ['Billing Contracts']
+      csv << attributes
+      all.find_each do |billing_contracts|
+        csv << billing_contracts.attributes.values_at(*attributes)
+      end
+    end
+  end
 end
 
 # == Schema Information

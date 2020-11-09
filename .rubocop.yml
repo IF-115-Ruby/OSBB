@@ -23,6 +23,14 @@ Style/FrozenStringLiteralComment:
 Rails/FilePath:
   Enabled: false
 
+RSpec/LetSetup:
+  Exclude:
+    - 'spec/importers/billing_contracts_import_spec.rb'
+
+RSpec/UnspecifiedException:
+  Exclude:
+    - 'spec/controllers/account/admin/billing_contracts_imports_controller_spec.rb'
+
 RSpec/MultipleExpectations:
   Max: 9
 
@@ -36,13 +44,22 @@ RSpec/HookArgument:
   Exclude:
     - 'spec/support/controller_macros.rb'
 
+RSpec/NestedGroups:
+  Exclude:
+    - 'spec/controllers/account/admin/billing_contracts_controller_spec.rb'
+
 RSpec/NamedSubject:
   Exclude:
     - 'spec/**/*'
 
+RSpec/MultipleMemoizedHelpers:
+  Max: 8
+
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'
+Lint/ImplicitStringConcatenation:
+  Exclude:
 
 Style/BlockComments:
   Description: 'Do not use block comments.'
@@ -58,13 +75,24 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - 'app/helpers/*'
+    - 'app/importers/billing_contracts_import.rb'
 
 Metrics/ClassLength:
   Exclude:
     - 'app/models/*'
 
+Metrics/AbcSize:
+  Exclude:
+    - 'app/importers/*'
+
 Layout/LineLength:
   Max: 120
+  Exclude:
+    - 'app/views/account/admin/billing_contracts/index.xlsx.axlsx'
+
+Layout/EmptyLineAfterGuardClause:
+  Exclude:
+    - 'app/importers/applications_import.rb'
 
 Style/StringLiterals:
   Enabled: false

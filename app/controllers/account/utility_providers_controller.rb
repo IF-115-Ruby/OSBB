@@ -1,22 +1,26 @@
 class Account::UtilityProvidersController < Account::AccountController
-  before_action :set_company, only: %i[new update]
-  before_action :set_billing_contract, only: :update
+  before_action :set_company, only: :new
+  before_action :set_billing_contract, only: %i[update]
 
   def index
     @utility_providers = current_user.billing_contracts.page params[:page]
   end
 
+  def show
+    @billing_contract = BillingContract.find_by(id: params[:id])
+  end
+
   def search
     @q = Company.joins(:account).ransack(params[:q])
-    @companies = @q.result.page(params[:page]).per(6)
+    @companies = @q.result(distinct: true).page(params[:page]).per(6)
     render :companies
   end
 
   def new
     if !current_user.companies.find_by(id: @company.id)
-      @billing_contract = BillingContract.new
+      @billing_contract = @company.billing_contracts.build
     else
-      flash[:warning] = 'Contract was associated with another user!'
+      flash[:warning] = 'Company was associated with you!'
       redirect_to %i[account utility_providers]
     end
   end
@@ -46,18 +50,16 @@ class Account::UtilityProvidersController < Account::AccountController
   private
 
   def utility_provider_params
-    params.require(:billing_contract).permit(:contract_num, :company_id)
+    params.require(:billing_contract).permit(:contract_num)
   end
 
   def set_billing_contract
-    @billing_contract = Company.find_by(
-      id: utility_provider_params[:company_id]
-    ).billing_contracts.find_by(
+    @billing_contract = set_company.billing_contracts.find_by(
       contract_num: utility_provider_params[:contract_num]
     )
   end
 
   def set_company
-    @company = Company.find_by(id: utility_provider_params[:company_id])
+    @company = Company.find_by(id: params[:company_id])
   end
 end

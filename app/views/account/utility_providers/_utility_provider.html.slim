@@ -9,7 +9,12 @@ tr
     span.cusom-center-in-table-example
       =< t(status_contract(utility_provider.is_active))
   td.eye-btn.text-center
+    = link_to account_utility_provider_path(utility_provider),
+      method: :get
+      button.btn.btn-outline-dark
+        i.fas.fa-eye
+  td.eye-btn.text-center
     = link_to disassociate_account_utility_provider_path(id: utility_provider),
-      method: :put, data: { confirm: 'You sure?' }
+      method: :put, data: { confirm: t('.are_you_sure') }
       button.btn.btn-outline-dark
         i.far.fa-trash-alt

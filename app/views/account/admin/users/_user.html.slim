@@ -14,4 +14,7 @@
 
     div
       = link_to t('.btn-show'), [:account, user], class: 'btn btn-outline-primary'
+      - unless user.admin?
+        = link_to 'Impersonate', account_admin_start_impersonate_path(user_id: user.id),
+          class: 'btn btn-outline-primary imp' if current_user.admin?
     hr
