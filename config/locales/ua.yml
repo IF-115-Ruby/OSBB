@@ -2,10 +2,10 @@ ua:
   en:
   views:
     pagination:
-      first: "&laquo; перша"
-      last: "остання &raquo;"
-      previous: "&lsaquo; попередня"
-      next: "наступна &rsaquo;"
+      first: "&laquo; Перша"
+      last: "Остання &raquo;"
+      previous: "&lsaquo; Попередня"
+      next: "Наступна &rsaquo;"
       truncate: "&hellip;"
   date:
     month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
@@ -128,6 +128,16 @@ ua:
     update: 'Змінити'
 
   account:
+    meter_readings:
+      index:
+        title: 'Показники лічильника'
+        date: 'Дата:'
+        value: 'Значення:'
+      form:
+        meter_reading: 'Показник лічильника'
+        date: 'Дата: '
+        btn_submit: 'Подати'
+        btn_cancel: 'Відмінити'
     users:
       show:
         title: 'Інформація користувача:'
@@ -188,6 +198,7 @@ ua:
           btn-edit: 'Редагувати ОСББ'
           btn-cancel: 'Відмінити'
         index:
+          osbb_errors: 'ОСББ помилки'
           title: 'Усі ОСББ:'
           btn-new: 'Нове ОСББ'
           osbb_name: 'Назва ОСББ'
@@ -221,6 +232,11 @@ ua:
           contract_num: 'Номер контракту'
           status: 'Статус'
           created: 'Створено'
+          export-title: 'Скачати Контракти'
+          import-title: 'Імпортувати Контракти'
+          export_csv_title: 'Скачати billing-contracts.csv'
+          export_xlsx_title: 'Скачати billing-contracts.xlsx'
+          upload_title: 'Імпортувати Контракти'
         billing_contract:
           contract_num: 'Контракт:'
           status: 'Статус:'
@@ -255,7 +271,43 @@ ua:
           btn-create: 'Створити'
           btn-cancel: 'Відмінити'
 
+        new_import:
+          title: 'Імпортувати контракти з Excel'
+          note: 'Примітка: Імпортуйте лише нові дані, введені у запропонований шаблон електронної таблиці.'
+          select-file: 'Виберіть файл:'
+          btn-import: 'Імпортувати'
+          btn-cancel: 'Відмінити'
+        form-import:
+          error-notice: 'не дозволяє нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та спробуйте знову.'
+
+      companies:
+        new_import:
+          title: 'Імпорт компаній'
+          hint-imported-files: 'Імпортуйте компанії з .csv, .xls або .xlsx файлу: '
+          information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
+          errors:
+            one: '%{count} помилка'
+            few: '%{count} помилки'
+            other: '%{count} помилок'
+          btn-import: 'Імпортувати'
+          btn-back: 'Назад'
+
+      payments:
+        new_import:
+          title: 'Імпорт платежів'
+          hint-imported-files: 'Імпортуйте платежі з .csv, .xls або .xlsx файлу: '
+          btn-template: 'Завантажити зразок '
+          information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
+
     utility_providers:
+      show:
+        contract: 'Контракт:'
+        status: 'Статус:'
+        created: 'Створено:'
+        btn-show: 'Показники'
+        btn-delete: 'Видалити'
+        btn-add: 'Додати показник'
+        btn-back: 'Назад'
       search_form:
         name: 'Компанія'
         name-of-company: 'Назва компанії'
@@ -276,6 +328,7 @@ ua:
         name-of-company: 'Назва Компанії'
         contract-number: 'Контракт:'
         status: 'Статус:'
+        show: 'Показати:'
         created: 'Створено:'
         active: 'Активний'
         inactive: 'Неактивний'
@@ -285,6 +338,22 @@ ua:
         name-of-company: 'Назва компанії'
         contract-number: 'Номер контракту'
         btn-add: 'Підтвердити'
+      receipt_pdf:
+        invoice: 'Рахунок-фактура #:'
+        osbb: 'ОСББ'
+        contract: 'Контракт №:'
+        payer: 'Платник:'
+        sender: 'Відправник'
+        recipient: 'Отримувач'
+        bank: 'Банк:'
+        bank_code: 'Код банку:'
+        summary: 'Підсумок'
+        indicator: 'Показник:'
+        amount: 'Сума:'
+        comission: 'Комісія:'
+        total: 'Усього:'
+        currency: 'грн.'
+        btn-show: 'Показати pdf'
 
   shared:
     account:
@@ -301,6 +370,7 @@ ua:
     index:
       btn_new_company: 'Нова компанія'
       companies_title: 'Всі компанії'
+      btn-import: 'Імпортувати'
 
     search_form:
       name_email_phone_placeholder: 'Пошук'
@@ -358,3 +428,14 @@ ua:
     vasyl_matsevko: 'Василь Мацевко'
     andrii_kozak: 'Андрій Козак'
     photo: 'фото'
+
+  activerecord:
+    errors:
+      models:
+        company:
+          attributes:
+            phone:
+              too_short: 'закороткий'
+            email:
+              invalid: 'неправильний'
+  row: 'Рядок'

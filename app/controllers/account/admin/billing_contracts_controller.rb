@@ -5,6 +5,15 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
 
   def index
     @billing_contracts = @company.billing_contracts.page params[:page]
+    respond_to do |format|
+      format.xlsx do
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=billing-contracts.xlsx"
+      end
+      format.csv { send_data @billing_contracts.to_csv }
+      format.html { render :index }
+    end
   end
 
   def new
@@ -44,10 +53,33 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
     flash[:danger] = "Billing contract '#{@billing_contract.contract_num}' deleted."
   end
 
+  def new_import
+    @billing_contracts_import = BillingContractsImport.new
+    respond_to do |format|
+      format.xlsx do
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=billing-contracts-template.xlsx"
+      end
+
+      format.html { render :new_import }
+    end
+  end
+
+  def import
+    @billing_contracts_import = BillingContractsImport.new(params[:billing_contracts_import])
+
+    if @billing_contracts_import.perform
+      redirect_to account_admin_company_billing_contracts_path, success: 'Billing contracts was successfully uploaded'
+    else
+      render :new_import
+    end
+  end
+
   private
 
   def billing_contract_params
-    params.require(:billing_contract).permit(:contract_num, :is_active)
+    params.require(:billing_contract).permit(:contract_num, :is_active, :company_id)
   end
 
   def set_billing_contract

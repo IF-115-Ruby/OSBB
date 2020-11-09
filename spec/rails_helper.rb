@@ -10,6 +10,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'support/controller_macros'
+require 'telegram/bot/rspec/integration/rails'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -43,6 +44,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :helper
   config.include Warden::Test::Helpers
   config.extend ControllerMacros, type: :controller
   # You can uncomment this line to turn off ActiveRecord support entirely.
@@ -68,6 +70,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+
+  config.after { Telegram.bot.reset }
 end
 
 Shoulda::Matchers.configure do |config|
@@ -75,4 +79,8 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+def current_user
+  controller.send(:current_user)
 end

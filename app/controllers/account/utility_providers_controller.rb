@@ -1,9 +1,13 @@
 class Account::UtilityProvidersController < Account::AccountController
   before_action :set_company, only: :new
-  before_action :set_billing_contract, only: :update
+  before_action :set_billing_contract, only: %i[update]
 
   def index
     @utility_providers = current_user.billing_contracts.page params[:page]
+  end
+
+  def show
+    @billing_contract = BillingContract.find_by(id: params[:id])
   end
 
   def search

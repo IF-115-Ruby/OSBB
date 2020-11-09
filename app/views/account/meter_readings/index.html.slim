@@ -1,0 +1,19 @@
+.box
+  .all-component
+    nav.navbar.navbar-dark
+      h2
+        = t('.title')
+      .plus-btn.text-center
+    table.table
+      thead.thead
+        tr
+          th
+            span.cusom-center-in-table-example
+              = t('.date')
+          th
+            span.cusom-center-in-table-example
+              = t('.value')
+      tbody
+        = render partial: 'account/meter_readings/meter_readings', collection: @meter_readings
+    .pagination-container
+      = paginate @meter_readings, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'

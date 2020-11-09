@@ -153,6 +153,12 @@ p {
   border-radius: 2px;
 }
 
+.all-component {
+  width: fit-content;
+  margin: auto;
+  min-width: 400px;
+}
+
 @media screen and (max-width: 600px) {
   .form-prop {
     min-width: 170px;

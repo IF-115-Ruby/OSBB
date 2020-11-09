@@ -29,7 +29,6 @@ before_script:
   - ./cc-test-reporter before-build
 script:
   - xvfb-run -a --server-args="-screen 0 1024x768x24" bundle exec rake
-  - bundle exec rspec
   - bundle exec rubocop
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

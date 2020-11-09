@@ -14,11 +14,12 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :osbb, optional: true
-
   has_one :address, as: :addressable, dependent: :destroy
-
   has_many :billing_contracts, dependent: :nullify
   has_many :companies, through: :billing_contracts
+
+  validates_associated :osbb
+  accepts_nested_attributes_for :osbb
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
@@ -53,6 +54,10 @@ class User < ApplicationRecord
       'members' => User.members.limit(4),
       'simple' => User.simple.limit(5)
     }
+  end
+
+  def companies_for_output
+    companies.map(&:name).join(', ')
   end
 
   private
