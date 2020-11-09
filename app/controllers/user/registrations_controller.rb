@@ -13,14 +13,6 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def send_mail_to_admin
-    AdminMailer.admin_notification(resource).deliver_now
-  end
-
-  def send_welcome_email_to_new_user
-    UserMailer.send_welcome_email(resource).deliver_now
-  end
-
   def render_sign_up
     render :new
     clean_up_passwords resource
@@ -29,13 +21,12 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   def save_resource
     resource.save
-    send_welcome_email_to_new_user
-    send_mail_to_admin
     if resource.active_for_authentication?
       active_resource
     else
       inactive_resource
     end
+    SignUpEmailSenderWorker.perform_async(resource.id)
   end
 
   def active_resource
