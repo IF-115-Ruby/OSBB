@@ -3,12 +3,12 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   def create
     if params[:newOsbb]
-      build_resource(user_params)
+      build_resource(user_params_with_osbb)
       resource.osbb_attributes = osbb_params
-      resource.valid? ? save_resource : render_sign_up
     else
-      super
+      build_resource(sign_up_params)
     end
+    resource.valid? ? save_resource : render_sign_up
   end
 
   private
@@ -26,6 +26,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     else
       inactive_resource
     end
+    SignUpEmailSenderWorker.perform_async(resource.id)
   end
 
   def active_resource
@@ -44,7 +45,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     params[:user][:osbb_attributes].permit(:name, :phone, :email, :website)
   end
 
-  def user_params
+  def user_params_with_osbb
     sign_up_params.merge({ role: User::LEAD })
   end
 

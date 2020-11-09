@@ -33,16 +33,6 @@ class User < ApplicationRecord
 
   paginates_per 9
 
-  after_create :send_welcome_email_to_new_user, :send_mail_to_admin
-
-  def send_mail_to_admin
-    AdminMailer.admin_notification(self).deliver_now
-  end
-
-  def send_welcome_email_to_new_user
-    UserMailer.send_welcome_email(self).deliver_now
-  end
-
   def full_name
     "#{first_name} #{last_name}"
   end

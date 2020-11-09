@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
   filter :locale
   devise_for :users, controllers: { registrations: 'user/registrations' }
 
+  mount Sidekiq::Web => '/sidekiq'
   root 'home#index', as: 'home'
   get 'about', to: 'home#about'
   get "/404", to: "errors#not_found"
