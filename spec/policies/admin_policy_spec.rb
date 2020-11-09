@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdminPolicy, type: :model do
-  subject { AdminPolicy }
+  subject { described_class }
 
   let(:current_user) { FactoryBot.build(:user) }
   let(:other_user) { FactoryBot.build(:user) }
