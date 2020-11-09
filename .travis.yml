@@ -16,7 +16,9 @@ services:
   - xvfb
 install:
   - travis_retry nvm install --lts
+  - bundle
 before_script:
+  - yarn
   - cp config/database.yml.travis config/database.yml
   - bundle exec rails db:create
   - bundle exec rails db:migrate
