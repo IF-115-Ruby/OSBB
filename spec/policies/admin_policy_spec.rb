@@ -6,7 +6,7 @@ RSpec.describe AdminPolicy, type: :model do
   let(:current_user) { FactoryBot.build(:user) }
   let(:other_user) { FactoryBot.build(:user) }
 
-  permissions :index?, :update?, :show? do
+  permissions :index?, :update? do
     it 'denies access if not an admin' do
       expect(subject).not_to permit(current_user)
     end
