@@ -1,7 +1,8 @@
 language: ruby
 cache:
-  bundler: true
   yarn: true
+  directories:
+  - vendor/bundle
 env:
   global:
     - RAILS_ENV=test
@@ -28,7 +29,6 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - xvfb-run -a --server-args="-screen 0 1024x768x24" bundle exec rake
   - bundle exec rubocop
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
