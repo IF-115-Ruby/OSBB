@@ -28,6 +28,8 @@ class User < ApplicationRecord
   validates :mobile, numericality: true, allow_nil: true, length: { minimum: 10, maximum: 14 }
   validate :avatar_size_validation
 
+  scope :non_admin, -> { where.not(role: :admin) }
+
   enum role: ROLES
   enum sex: SEX_TYPES
 

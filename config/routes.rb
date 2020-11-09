@@ -46,6 +46,8 @@ Rails.application.routes.draw do
           post 'import'
         end
       end
+      get 'start_impersonate', to: 'admin#start_impersonate', as: 'start_impersonate'
+      get 'stop_impersonating', to: 'admin#stop_impersonating', as: 'stop_impersonate'
     end
   end
   telegram_webhook TelegramWebhooksController

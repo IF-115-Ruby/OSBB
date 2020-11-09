@@ -18,6 +18,16 @@ body.account {
     .navbar-collapse.collapse {
       justify-content: space-between;
     }
+
+    .collapse.navbar-collapse {
+      .impersonated {
+        font-size: 14px;
+        position: absolute;
+        top: 1px;
+        right: 0;
+        color: #bfdc50;
+      }
+    }
   }
 
   .container__box {
