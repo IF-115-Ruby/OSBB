@@ -40,6 +40,7 @@ gem 'faker'
 gem 'bootstrap4-kaminari-views'
 gem "fog-aws"
 gem 'kaminari'
+gem 'pundit'
 gem 'rails-i18n'
 
 group :development, :test do
