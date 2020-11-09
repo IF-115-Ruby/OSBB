@@ -12,17 +12,6 @@ class BillingContractsImport < ApplicationsImport
     end
   end
 
-  def validate_data?
-    items_to_import.each_with_index do |items_to_import, index|
-      next if items_to_import.valid?
-
-      items_to_import.errors.full_messages.each do |msg|
-        errors.add :base, "Row #{index + 3}: #{msg}"
-      end
-    end
-    errors.empty?
-  end
-
   def items_to_import
     @items_to_import ||= load_billing_contracts_to_import
   end
