@@ -14,11 +14,12 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :osbb, optional: true
-
   has_one :address, as: :addressable, dependent: :destroy
-
   has_many :billing_contracts, dependent: :nullify
   has_many :companies, through: :billing_contracts
+
+  validates_associated :osbb
+  accepts_nested_attributes_for :osbb
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
@@ -27,20 +28,12 @@ class User < ApplicationRecord
   validates :mobile, numericality: true, allow_nil: true, length: { minimum: 10, maximum: 14 }
   validate :avatar_size_validation
 
+  scope :non_admin, -> { where.not(role: :admin) }
+
   enum role: ROLES
   enum sex: SEX_TYPES
 
   paginates_per 9
-
-  after_create :send_welcome_email_to_new_user, :send_mail_to_admin
-
-  def send_mail_to_admin
-    AdminMailer.admin_notification(self).deliver_now
-  end
-
-  def send_welcome_email_to_new_user
-    UserMailer.send_welcome_email(self).deliver_now
-  end
 
   def full_name
     "#{first_name} #{last_name}"
@@ -53,6 +46,10 @@ class User < ApplicationRecord
       'members' => User.members.limit(4),
       'simple' => User.simple.limit(5)
     }
+  end
+
+  def companies_for_output
+    companies.map(&:name).join(', ')
   end
 
   private

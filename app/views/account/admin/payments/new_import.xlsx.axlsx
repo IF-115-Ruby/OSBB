@@ -1,0 +1,5 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Payments-template") do |sheet|
+  sheet.add_row %w[amount date contract_number]
+end

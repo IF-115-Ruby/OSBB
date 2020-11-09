@@ -1,18 +1,20 @@
-div style='background-color: #cfdfe4; border-radius: 20px; width: 85%; margin: 0 auto;'
-  h1 style='text-align: center; font-weight: bold; padding-top: 30px;'
+div.mailer-first-content
+  h1.message-title.centered-paragraph
     = t('user_mailer.welcome_email.welcome_title')
     = @user.full_name
     | !
-  hr style='width: 90%; text-align: center;'
-  p style='margin: 20px;'
-    p style='width: 90%; margin: 5px 5%; font-size: 18px;'
+  hr.hr-line
+  p.basic-p
+    p.paragraph
       = t('user_mailer.welcome_email.welcome_message')
       = @user.email
       | .
-    p style='width: 90%; margin: 5px 5%; font-size: 18px;'
+    p.paragraph
       = t('user_mailer.welcome_email.before_link_text')
-      = link_to home_url
-        = t('user_mailer.welcome_email.home_link_text')
-      | .
-    p style='width: 90%; margin: 5px 5%; font-size: 18px; padding-bottom: 30px'
+      p.centered-paragraph
+        = link_to home_url, class: 'link-btn'
+          = t('user_mailer.welcome_email.home_link_text')
+    p.paragraph.last-paragraph.centered-paragraph
       = t('user_mailer.welcome_email.welcome_wishes')
+    p.paragraph-image
+      = image_tag attachments['if-mailer.png'].url

@@ -1,21 +1,26 @@
 .box
   .all-component
     nav.navbar.navbar-dark
-      h2 
+      h2
         = t('companies.index.companies_title')
       .form-row
         = render 'search_form'
+      .form-row
+        = link_to t('companies.index.btn-import'),
+            new_import_account_admin_companies_path,
+            class: 'btn btn-outline-primary'
+
     table.table
       thead.thead
-        tr 
+        tr
           th
-            span.cusom-center-in-table-example          
+            span.cusom-center-in-table-example
               = t('companies.show.company_name')
           th
-            span.cusom-center-in-table-example 
+            span.cusom-center-in-table-example
               = t('companies.show.company_type')
           th
-            span.cusom-center-in-table-example 
+            span.cusom-center-in-table-example
               = t('companies.show.phone')
           th.plus-btn.text-center
             = link_to new_account_admin_company_path
@@ -27,3 +32,20 @@
     .pagination-container
       = paginate @companies, theme: 'twitter-bootstrap-4',
                             pagination_class: "pagination-md"
+    .layout-first-content
+      h4.text-center.pt-3.pb-3
+        = t('account.admin.payments.new_import.title')
+      .info-content.text-center.pl-5
+        .row.justify-content-center
+          .col-6.justify-content-center
+            span.name
+              = t('account.admin.payments.new_import.hint-imported-files')
+            span.value = link_to t('account.admin.companies.new_import.btn-import'),
+              new_import_account_admin_payments_path,
+              class: 'btn btn-dark ml-5 mb-3'
+          .col-6.justify-content-center
+            span.name
+              = t('account.admin.bills.new_import.hint-imported-files')
+            span.value = link_to t('account.admin.companies.new_import.btn-import'),
+              new_import_account_admin_bills_path,
+              class: 'btn btn-dark ml-5 mb-3'

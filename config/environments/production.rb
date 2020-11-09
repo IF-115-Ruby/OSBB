@@ -129,4 +129,8 @@ Rails.application.configure do
     enable_starttls_auto: true,
     openssl_verify_mode: 'none'
   }
+
+  config.telegram_updates_controller.session_store = :file_store, Rails.root.join('tmp', 'session_store')
+
+  routes.default_url_options = { host: ENV['DEFAULT_HOST_OPTION'], protocol: 'https' }
 end
