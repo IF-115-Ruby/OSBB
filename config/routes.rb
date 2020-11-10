@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :payments, only: %i[index show]
-    resources :users, except: %i[index destroy]
-    resources :companies, only: [] do
+    resources :users, only: %i[show edit update]
+    resources :companies do
       resources :utility_providers, only: %i[new update]
     end
     resources :utility_providers, only: %i[index show] do

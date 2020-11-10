@@ -1,0 +1,18 @@
+fieldset
+  legend = t('.legend')
+  = f.simple_fields_for :address_attributes, @user.address do |address_form|
+    .form-group.user-form
+      = address_form.input :country, priority: [ @user.address&.country || 'Ukraine' ], label: t('.country'),
+                            input_html: { class: 'form-control' }
+    .form-group.user-form
+      = address_form.input :state, label: t('.state'),
+                            placeholder: t('.placeholder-state'),
+                            input_html: { class: 'form-control' }
+    .form-group.user-form
+      = address_form.input :city, label: t('.city'),
+                            placeholder: t('.placeholder-city'),
+                            input_html: { class: 'form-control' }
+    .form-group.user-form
+      = address_form.input :street, label: t('.street'),
+                            placeholder: t('.placeholder-street'),
+                            input_html: { class: 'form-control' }

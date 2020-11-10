@@ -14,12 +14,12 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :osbb, optional: true
-  has_one :address, as: :addressable, dependent: :destroy
+  has_one :address, as: :addressable, dependent: :destroy, inverse_of: :addressable
   has_many :billing_contracts, dependent: :nullify
   has_many :companies, through: :billing_contracts
 
-  validates_associated :osbb
-  accepts_nested_attributes_for :osbb
+  validates_associated :osbb, :address
+  accepts_nested_attributes_for :osbb, :address
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
