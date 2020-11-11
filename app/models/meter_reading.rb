@@ -1,7 +1,7 @@
 class MeterReading < ApplicationRecord
   belongs_to :billing_contract, optional: true
 
-  validates :value, presence: true, numericality: { only_integer: true }
+  validates :value, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
   validate :value_bigger_than_previous_one?
 
   scope :ordered_by_date, -> { order("created_at DESC") }

@@ -6,13 +6,15 @@ class CalculateBillWorker
     BillingContract.all.each do |billing_contract|
       meter_reading = billing_contract.meter_readings.created_between(billing_contract.last_bill.date, Time.now.utc)
                                       .ordered_by_date.first&.value
-      delta_meter_reading = get_delta_reading(meter_reading, billing_contract) if meter_reading
-      bill_value = get_bill_value(delta_meter_reading, billing_contract)
+      bill_value = get_bill_value(meter_reading, billing_contract)
       billing_contract.bills.create(amount: bill_value, date: Time.now.utc, meter_reading: meter_reading)
     end
   end
 
-  def get_bill_value(delta_meter_reading, billing_contract)
+  private
+
+  def get_bill_value(meter_reading, billing_contract)
+    delta_meter_reading = get_delta_reading(meter_reading, billing_contract) if meter_reading
     bill_value = calculate_bill(delta_meter_reading, billing_contract)
     edit_value_depending_payments(bill_value, billing_contract)
   end
