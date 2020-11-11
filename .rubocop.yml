@@ -28,6 +28,7 @@ RSpec/LetSetup:
     - 'spec/importers/billing_contracts_import_spec.rb'
     - 'spec/models/billing_contract_spec.rb'
     - 'spec/models/user_spec.rb'
+    - 'spec/workers/calculate_bill_worker_spec.rb'
 
 RSpec/UnspecifiedException:
   Exclude:
