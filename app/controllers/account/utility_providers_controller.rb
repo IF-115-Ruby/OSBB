@@ -7,7 +7,7 @@ class Account::UtilityProvidersController < Account::AccountController
   end
 
   def show
-    @billing_contract = BillingContract.find_by(id: params[:id])
+    @utility_provider = current_user.billing_contracts.find(params[:id])
   end
 
   def search
@@ -37,7 +37,7 @@ class Account::UtilityProvidersController < Account::AccountController
   end
 
   def disassociate
-    @billing_contract = current_user.billing_contracts.find_by(id: params[:id])
+    @billing_contract = current_user.billing_contracts.find(params[:id])
 
     if @billing_contract.update(user_id: nil)
       flash[:success] = "Billing contract was removed."
