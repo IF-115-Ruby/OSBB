@@ -1,11 +1,6 @@
 class Payment < ApplicationRecord
   belongs_to :billing_contract, optional: true
 
-  scope :ordered_by_date, -> { order("date DESC") }
-  scope :created_between, lambda { |start_date, end_date|
-    where("payments.date >= ? AND payments.date < ?", start_date, end_date)
-  }
-
   validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   scope :ordered_by_date, -> { order("date DESC") }
