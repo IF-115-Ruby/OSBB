@@ -1,4 +1,5 @@
 class BillingContract < ApplicationRecord
+  has_one :last_bill, -> { ordered_by_date }, class_name: 'Bill', inverse_of: :billing_contract
   has_many :bills, dependent: :destroy
   has_one :last_bill, -> { ordered_by_date }, class_name: 'Bill', inverse_of: :billing_contract
   has_many :payments, dependent: :destroy

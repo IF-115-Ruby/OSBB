@@ -4,6 +4,11 @@ class MeterReading < ApplicationRecord
   validates :value, presence: true, numericality: { only_integer: true }
   validate :value_bigger_than_previous_one?
 
+  scope :ordered_by_date, -> { order("created_at DESC") }
+  scope :created_between, lambda { |start_date, end_date|
+    where("meter_readings.created_at >= ? AND meter_readings.created_at < ?", start_date, end_date)
+  }
+
   private
 
   def value_bigger_than_previous_one?

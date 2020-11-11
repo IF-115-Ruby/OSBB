@@ -29,15 +29,18 @@ Osbb.all.each do |osbb|
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
 end
 
-FactoryBot.create_list(:company, 50)
+FactoryBot.create_list(:company, 5)
 Company.all.each do |company|
   FactoryBot.create(:account, company: company)
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: company)
-  FactoryBot.create_list(:billing_contract, 5, company: company, user: nil)
+  FactoryBot.create_list(:billing_contract, 2, company: company, user: nil)
 end
 
 billing_contracts = BillingContract.all.shuffle
+BillingContract.all.each do |contract|
+  FactoryBot.create(:meter_reading,billing_contract: contract)
+end
 
 User.where.not(role: 'admin').each do |user|
   billing_contracts.pop(50).each do |billing_contract|

@@ -48,15 +48,16 @@ end
 #
 # Table name: companies
 #
-#  id           :bigint           not null, primary key
-#  company_type :integer
-#  email        :string
-#  fax          :integer
-#  name         :string
-#  phone        :string(14)
-#  website      :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id                  :bigint           not null, primary key
+#  company_type        :integer
+#  email               :string
+#  fax                 :integer
+#  name                :string
+#  payment_coefficient :float
+#  phone               :string(14)
+#  website             :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 # Indexes
 #

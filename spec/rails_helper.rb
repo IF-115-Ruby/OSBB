@@ -76,6 +76,10 @@ RSpec.configure do |config|
   config.after { Telegram.bot.reset }
 end
 
+RSpec::Sidekiq.configure do |config|
+  config.warn_when_jobs_not_processed_by_sidekiq = false
+end
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec

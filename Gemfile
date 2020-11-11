@@ -34,6 +34,7 @@ gem 'ransack'
 gem 'rubocop-rails', '~> 2.8.1'
 gem 'sentry-raven'
 gem 'sidekiq'
+gem "sidekiq-cron", "~> 1.1"
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'sinatra', '>= 1.3.0', require: nil
 gem 'slim-rails', '~> 3.2.0'
