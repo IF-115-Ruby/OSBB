@@ -9,7 +9,7 @@
   .form-component.form-component-user
     - provide(:create_btn_text, t('.btn-edit'))
     - provide(:cancel_btn_text, t('.btn-cancel'))
-    - provide(:path, account_admin_users_path)
+    - provide(:path, edit_account_user_path(current_user))
     h1.title
       = t('.title')
     .container

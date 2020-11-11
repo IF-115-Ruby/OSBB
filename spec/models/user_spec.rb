@@ -107,6 +107,10 @@ RSpec.describe User, type: :model do
 
     it { is_expected.to include('admin', 'lead', 'members', 'simple') }
   end
+
+  describe 'neseted attributes' do
+    it { is_expected.to accept_nested_attributes_for(:address) }
+  end
 end
 
 # == Schema Information
