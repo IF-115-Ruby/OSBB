@@ -4,33 +4,34 @@ class CalculateBillWorker
 
   def perform(*_args)
     BillingContract.all.each do |billing_contract|
-      delta_meter_reading = get_delta_reading(billing_contract)
-      bill_value = calculate_bill(delta_meter_reading, billing_contract)
-      bill_value = edit_value_depending_payments(bill_value, billing_contract)
-      byebug
-      FactoryBot.create(:bill, amount: bill_value, date: Time.now.utc, billing_contract: billing_contract,
-                               meter_reading: meter_reading)
+      meter_reading = billing_contract.meter_readings.created_between(billing_contract.last_bill.date, Time.now.utc)
+                                      .ordered_by_date.first&.value
+      delta_meter_reading = get_delta_reading(meter_reading, billing_contract) if meter_reading
+      bill_value = get_bill_value(delta_meter_reading, billing_contract)
+      Bill.create(amount: bill_value, date: Time.now.utc, billing_contract: billing_contract,
+                  meter_reading: meter_reading)
     end
   end
 
-  def get_delta_reading(billing_contract)
-    meter_reading = billing_contract.meter_readings.created_between(billing_contract.last_bill.date, Time.now.utc)
-                                    .ordered_by_date.first&.value
+  def get_bill_value(delta_meter_reading, billing_contract)
+    bill_value = calculate_bill(delta_meter_reading, billing_contract)
+    edit_value_depending_payments(bill_value, billing_contract)
+  end
+
+  def get_delta_reading(meter_reading, billing_contract)
     last_meter_reading = billing_contract.last_bill&.meter_reading
     last_meter_reading ? meter_reading - last_meter_reading : meter_reading
   end
 
   def edit_value_depending_payments(value, contract)
-    payments = contract.payments.created_between(contract.last_bill.date, Time.now.utc)
-    suma = payments.sum(:amount) || 0
+    suma = contract.payments.created_between(contract.last_bill.date, Time.now.utc).sum(:amount) || 0
     suma += contract.last_bill.amount
-    byebug
     value + suma
   end
 
   def calculate_bill(reading, contract)
-    return reading * contract.company.payment_coefficient if reading
+    return -(reading * contract.company.payment_coefficient) if reading
 
-    AVERAGE_METER_READING * contract.company.payment_coefficient
+    -(AVERAGE_METER_READING * contract.company.payment_coefficient)
   end
 end
