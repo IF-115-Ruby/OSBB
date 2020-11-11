@@ -8,8 +8,7 @@ class CalculateBillWorker
                                       .ordered_by_date.first&.value
       delta_meter_reading = get_delta_reading(meter_reading, billing_contract) if meter_reading
       bill_value = get_bill_value(delta_meter_reading, billing_contract)
-      Bill.create(amount: bill_value, date: Time.now.utc, billing_contract: billing_contract,
-                  meter_reading: meter_reading)
+      billing_contract.bills.create(amount: bill_value, date: Time.now.utc, meter_reading: meter_reading)
     end
   end
 
