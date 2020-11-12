@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Account::Admin::BillingContractsController, type: :controller do
   render_views
+  login_admin
 
   describe 'when testing controller actions' do
     let!(:company) { create(:company) }
@@ -12,6 +13,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     before { sign_in billing_contract.user }
 
     describe 'GET #index' do
+      login_admin
       context 'when rendering html' do
         before { get :index, params: { company_id: billing_contract.company.id } }
 
@@ -45,6 +47,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     end
 
     describe 'GET#show' do
+      login_admin
       before { get :show, params: { company_id: billing_contract.company.id, id: billing_contract.id } }
 
       it { is_expected.to respond_with :success }
@@ -53,6 +56,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     end
 
     describe 'GET#new' do
+      login_admin
       before { get :new, params: { company_id: company.id } }
 
       it { is_expected.to respond_with :success }
@@ -61,6 +65,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     end
 
     describe 'POST#create' do
+      login_admin
       context 'with valid params' do
         subject do
           post :create, params: { company_id: billing_contract.company.id, billing_contract: valid_params }
@@ -96,6 +101,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     end
 
     describe 'GET#edit' do
+      login_admin
       before { get :edit, params: { company_id: billing_contract.company.id, id: billing_contract.id } }
 
       it { is_expected.to respond_with :success }
@@ -104,6 +110,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     end
 
     describe 'PUT#update' do
+      login_admin
       context 'with valid params' do
         before do
           put :update, params: {
@@ -140,6 +147,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     end
 
     describe 'DELETE#destroy' do
+      login_admin
       subject do
         delete :destroy, params: { company_id: billing_contract.company.id, id: billing_contract.id }
       end
@@ -164,8 +172,10 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     let!(:incorrect_type_of_file) { { file: fixture_file_upload('files/empty.txt', 'text') } }
 
     login_user
+    login_admin
 
     describe 'GET#new_import' do
+      login_admin
       context 'when rener html' do
         before { get :new_import, params: { company_id: company.id } }
 
@@ -185,6 +195,7 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
     end
 
     describe 'POST#import' do
+      login_admin
       context 'when csv with valid params' do
         before do
           post :import, params: {

@@ -2,11 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Account::Admin::CompaniesController, type: :controller do
   login_user
+  login_admin
   let!(:company) { create(:company) }
   let!(:valid_params) { attributes_for :company }
   let!(:invalid_params) { { name: ' ' } }
 
   describe 'GET#index' do
+    login_admin
     it 'assigns companies and renders template' do
       get :index
       expect(response).to have_http_status(:success)
@@ -17,6 +19,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
 
   describe 'GET#show' do
     login_user
+    login_admin
     before do
       get :show, params: { id: company.id }
     end
@@ -26,6 +29,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'GET#new' do
+    login_admin
     it 'returns success and assigns company' do
       get :new
       expect(response).to have_http_status(:success)
@@ -35,6 +39,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
 
   describe 'POST#create' do
     login_user
+    login_admin
     context 'with valid params' do
       it 'creates a new company' do
         expect do
@@ -59,6 +64,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'GET#edit' do
+    login_admin
     before do
       get :edit, params: { id: company.id }
     end
@@ -68,6 +74,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'PUT#update' do
+    login_admin
     context 'with valid params' do
       before do
         put :update, params: { id: company.id,
@@ -102,6 +109,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
+    login_admin
     it 'destroys the company and redirects to index' do
       expect { delete :destroy, params: { id: company.id } }
         .to change(Company, :count).by(-1)
@@ -112,6 +120,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'GET#new_import' do
+    login_admin
     before { get :new_import }
 
     it { is_expected.to respond_with :success }
@@ -119,6 +128,7 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'POST#import' do
+    login_admin
     context 'when present file params' do
       subject { post :import, params: { companies_import: file } }
 

@@ -8,8 +8,10 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   let!(:invalid_params) { { name: '' } }
 
   login_user
+  login_admin
 
   describe 'GET#index' do
+    login_admin
     it 'assigns osbbs and renders template!' do
       get :index
       expect(response).to have_http_status(:success)
@@ -19,6 +21,7 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   end
 
   describe 'GET#show' do
+    login_admin
     before do
       get :show, params: { id: osbb.id }
     end
@@ -30,6 +33,7 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   end
 
   describe 'GET#new' do
+    login_admin
     it 'returns success and assigns osbb' do
       get :new
       expect(response).to have_http_status(:success)
@@ -38,6 +42,7 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   end
 
   describe 'POST#create' do
+    login_admin
     context 'with valid params' do
       it 'creates a new osbb' do
         expect do
@@ -62,6 +67,7 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   end
 
   describe 'GET#edit' do
+    login_admin
     before do
       get :edit, params: { id: osbb.id }
     end
@@ -73,6 +79,7 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   end
 
   describe 'PUT#update' do
+    login_admin
     context 'with valid params' do
       before do
         put :update, params: { id: osbb.id,
@@ -109,6 +116,7 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
+    login_admin
     it 'destroys the osbb and redirects to index' do
       expect { delete :destroy, params: { id: osbb.id } }
         .to change(Osbb, :count).by(-1)

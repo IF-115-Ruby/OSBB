@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Account::Admin::PaymentsController, type: :controller do
   login_user
+  login_admin
 
   let!(:correct_csv_file) { { file: fixture_file_upload('files/payments_csv.csv', 'text/csv') } }
   let!(:correct_xls_file) { { file: fixture_file_upload('files/payments_xls.xls', 'text/xls') } }
@@ -10,6 +11,7 @@ RSpec.describe Account::Admin::PaymentsController, type: :controller do
   let!(:incorrect_type_of_file) { { file: fixture_file_upload('files/not_csv_file', 'text') } }
 
   describe 'GET#new_import' do
+    login_admin
     before { get :new_import }
 
     it { is_expected.to respond_with :success }
@@ -17,6 +19,7 @@ RSpec.describe Account::Admin::PaymentsController, type: :controller do
   end
 
   describe 'POST#import' do
+    login_admin
     context 'with valid params' do
       before do
         post :import, params: {

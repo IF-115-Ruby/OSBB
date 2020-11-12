@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Account::Admin::UsersController, type: :controller do
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, :admin) }
 
   before { sign_in user }
 
   describe 'GET#index' do
+    login_admin
     it 'assigns users and renders template' do
       get :index
       expect(response).to have_http_status(:success)
@@ -14,6 +15,7 @@ RSpec.describe Account::Admin::UsersController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
+    login_admin
     it 'destroys the user and redirects to index' do
       expect { delete :destroy, params: { id: user.id } }
         .to change(User, :count).by(-1)

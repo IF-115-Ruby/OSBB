@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Account::Admin::AdminController do
   let!(:user) { create(:user, role: 'members') }
-  let!(:lead_user) { create(:user, role: 'lead') }
   let!(:admin_user) { create(:user, role: 'admin') }
 
   it 'visits users page and impersonate user' do
@@ -22,12 +21,5 @@ describe Account::Admin::AdminController do
     )
     expect(page).to have_css('h1', text: 'All Users')
     expect(page).not_to have_css('.btn-outline-warning', text: 'Back to admin')
-  end
-
-  it 'can\'t impersonate users' do
-    login_as lead_user
-    visit account_admin_users_path
-    expect(page).to have_content(lead_user.full_name)
-    expect(page).not_to have_css('.imp', text: 'Impersonate')
   end
 end
