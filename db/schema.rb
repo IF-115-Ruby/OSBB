@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_171858) do
+ActiveRecord::Schema.define(version: 2020_11_10_143645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_171858) do
     t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "meter_reading"
     t.index ["billing_contract_id"], name: "index_bills_on_billing_contract_id"
   end
 
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_171858) do
     t.integer "fax"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "payment_coefficient"
     t.index ["name"], name: "index_companies_on_name"
   end
 

@@ -1,7 +1,7 @@
 class Payment < ApplicationRecord
   belongs_to :billing_contract, optional: true
 
-  validates :amount, presence: true
+  validates :amount, presence: true, numericality: { greater_than: 0 }
 
   scope :ordered_by_date, -> { order("date DESC") }
   scope :created_between, lambda { |start_date, end_date|

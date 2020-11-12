@@ -422,6 +422,7 @@ ua:
       email: 'Електронна адреса:'
       website: 'Сайт:'
       fax: 'Факс:'
+      coefficient: 'Коефіціент оплати'
       btn_edit_company: 'Редагувати'
       btn_delete_company: 'Видалити'
       btn_back: 'Назад'
@@ -435,6 +436,7 @@ ua:
       company_type_prompt: 'Виберіть тип компанії'
       phone_label: 'Номер телефону'
       fax_label: 'Факс'
+      coefficient: 'Коефіціент оплати'
 
     company:
       btn_show: 'Дивитись'

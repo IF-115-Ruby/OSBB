@@ -38,6 +38,9 @@ Company.all.each do |company|
 end
 
 billing_contracts = BillingContract.all.shuffle
+BillingContract.all.each do |contract|
+  FactoryBot.create(:meter_reading,billing_contract: contract)
+end
 
 User.where.not(role: 'admin').each do |user|
   billing_contracts.pop(50).each do |billing_contract|
@@ -57,4 +60,8 @@ BillingContract.all.each do |billing_contract|
     FactoryBot.create(:bill, date: date, billing_contract: billing_contract)
     FactoryBot.create(:payment, date: date, billing_contract: billing_contract)
   end
+end
+
+BillingContract.all.each do |billing_contract| 
+    FactoryBot.create(:payment, date: Time.now.utc, billing_contract: billing_contract)
 end
