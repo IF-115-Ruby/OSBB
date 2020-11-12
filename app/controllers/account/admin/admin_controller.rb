@@ -1,6 +1,4 @@
 class Account::Admin::AdminController < Account::AccountController
-  before_action :authenticate_user!
-
   def start_impersonate
     user = User.non_admin.find_by(id: params[:user_id])
     if user.present?
