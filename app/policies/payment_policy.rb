@@ -1,9 +1,7 @@
 class PaymentPolicy < AdminPolicy
-  def new_import?
-    user_admin
-  end
-
-  def import?
-    user_admin
+  ["new_import?", "import?"].each do |action|
+    define_method(action) do
+      user_admin
+    end
   end
 end

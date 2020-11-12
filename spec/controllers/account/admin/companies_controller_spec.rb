@@ -8,7 +8,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   let!(:invalid_params) { { name: ' ' } }
 
   describe 'GET#index' do
-    login_admin
     it 'assigns companies and renders template' do
       get :index
       expect(response).to have_http_status(:success)
@@ -29,7 +28,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'GET#new' do
-    login_admin
     it 'returns success and assigns company' do
       get :new
       expect(response).to have_http_status(:success)
@@ -64,7 +62,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'GET#edit' do
-    login_admin
     before do
       get :edit, params: { id: company.id }
     end
@@ -74,7 +71,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'PUT#update' do
-    login_admin
     context 'with valid params' do
       before do
         put :update, params: { id: company.id,

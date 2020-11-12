@@ -1,29 +1,7 @@
 class OsbbPolicy < AdminPolicy
-  def index?
-    user_admin
-  end
-
-  def show?
-    user_admin
-  end
-
-  def create?
-    user_admin
-  end
-
-  def new?
-    user_admin
-  end
-
-  def update?
-    user_admin
-  end
-
-  def edit?
-    user_admin
-  end
-
-  def destroy?
-    user_admin
+  ["index?", "show?", "create?", "new?", "update?", "edit?", "destroy?"].each do |action|
+    define_method(action) do
+      user_admin
+    end
   end
 end
