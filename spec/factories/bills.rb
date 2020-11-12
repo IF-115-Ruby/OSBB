@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :bill do
-    amount { rand(-100.25...100.30) }
+    amount { rand(-200.25...50.30) }
     date { Faker::Time.between(from: 1.month.ago, to: DateTime.now) }
     meter_reading { rand(1..50) }
   end
