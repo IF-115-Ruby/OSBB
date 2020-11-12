@@ -21,6 +21,9 @@
   = f.input :fax, label: t('companies.form.fax_label'),
                   placeholder: '3********',
                   input_html: { class: 'form-control' }
+      
+  = f.input :payment_coefficient, label: t('companies.form.coefficient'),
+                  input_html: { class: 'form-control' }  
 
   .mt-3
     = f.submit yield(:button_text), class: 'btn btn-primary'
