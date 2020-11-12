@@ -92,6 +92,7 @@ Layout/LineLength:
   Max: 120
   Exclude:
     - 'app/views/account/admin/billing_contracts/index.xlsx.axlsx'
+    - 'app/views/account/admin/companies/new_import.xlsx.axlsx'
 
 Layout/EmptyLineAfterGuardClause:
   Exclude:

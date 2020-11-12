@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_143645) do
     t.integer "fax"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "payment_coefficient"
+    t.decimal "payment_coefficient"
     t.index ["name"], name: "index_companies_on_name"
   end
 

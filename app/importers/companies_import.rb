@@ -7,7 +7,7 @@ class CompaniesImport < ApplicationsImport
   def load_imported_companies
     (2..open_spreadsheet.last_row).map do |i|
       row = Hash[[open_spreadsheet.row(1), open_spreadsheet.row(i)].transpose]
-      company = Company.new(row_to_hash(row, %w[company_type email fax name phone website]))
+      company = Company.new(row_to_hash(row, %w[company_type email fax name phone website payment_coefficient]))
       company.build_address(row_to_hash(row, %w[city country state street]))
       company.build_account(row_to_hash(row, %w[edrpou iban purpose]))
       company

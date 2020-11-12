@@ -42,6 +42,7 @@ class Company < ApplicationRecord
                     numericality: true,
                     length: { minimum: 8, maximum: 14 }
   validates :email, presence: true, length: { maximum: 50 }, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :payment_coefficient, presence: true, numericality: { greater_than: 0 }
 end
 
 # == Schema Information
@@ -53,7 +54,7 @@ end
 #  email               :string
 #  fax                 :integer
 #  name                :string
-#  payment_coefficient :float
+#  payment_coefficient :decimal(, )
 #  phone               :string(14)
 #  website             :string
 #  created_at          :datetime         not null

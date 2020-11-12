@@ -27,7 +27,7 @@ end
 #  email               :string
 #  fax                 :integer
 #  name                :string
-#  payment_coefficient :float
+#  payment_coefficient :decimal(, )
 #  phone               :string(14)
 #  website             :string
 #  created_at          :datetime         not null

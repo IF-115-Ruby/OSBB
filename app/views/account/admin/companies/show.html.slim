@@ -26,6 +26,9 @@
         span.name = t('companies.show.fax')
         span.value = @company.fax
       .info-content
+        span.name = t('companies.show.coefficient')
+        span.value = @company.payment_coefficient
+      .info-content
         - if @company.address
           span.name = t('companies.show.company_address')
           - if @company.address.query
