@@ -27,13 +27,14 @@
               = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@osbb.address.query.coordinates.first},#{@osbb.address.query.coordinates.last}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04", alt: "Map"
               span.value = @osbb.address.full_address
     .d-flex.justify-content-around.flex-wrap
-      = link_to edit_account_admin_osbb_path,
-                          class: 'btn btn-warning btn-custom'
-        = t('.btn-edit')
-      = link_to [:account, :admin, @osbb],
-                          method: :delete,
-                          data: { confirm: t('.confirmation') },
-                          class: 'btn btn-danger btn-custom'
-        = t('.btn-delete')
-      = link_to account_admin_osbbs_path, class: 'btn btn-info btn-custom'
+      - if policy(@osbb).edit?
+        = link_to edit_account_admin_osbb_path, class: 'btn btn-warning btn-custom'
+          = t('.btn-edit')
+      - if policy(@osbb).destroy?
+        = link_to [:account, :admin, @osbb],
+                            method: :delete,
+                            data: { confirm: t('.confirmation') },
+                            class: 'btn btn-danger btn-custom'
+          = t('.btn-delete')
+      = link_to account_utility_providers_path, class: 'btn btn-info btn-custom'
         = t('.btn-back')

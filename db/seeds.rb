@@ -6,38 +6,36 @@ ADRESSES = [
   { country: "Senegal", state: "Saint-Louis", city: "Saint-Louis", street: "Square Saint Louis" },
   { country: "Ukraine", state: "Ivano-Frankivsk Oblast", city: "Ivano-Frankivsk", street: "Vovchynetska" },
   { country: "Ukraine", state: "Ivano-Frankivsk Oblast", city: "Ivano-Frankivsk", street: "Tychyny" },
-  { country: "USA", state: "MA", city: "Abington", street: "Brockton Avenue" },
-  { country: "USA", state: "NY", city: "Cortlandville", street: "Route" },
-  { country: "USA", state: "NY", city: "Commack", street: "Crooked Hill Road" },
-  { country: "USA", state: "CT", city: "Manchester", street: "Buckland Hills Dr" },
-  { country: "USA", state: "CT", city: "Lisbon", street: "River Rd" },
-  { country: "USA", state: "AL", city: "Calera", street: "Hwy" },
+  { country: "United States", state: "MA", city: "Abington", street: "Brockton Avenue" },
+  { country: "United States", state: "NY", city: "Cortlandville", street: "Route" },
+  { country: "United States", state: "NY", city: "Commack", street: "Crooked Hill Road" },
+  { country: "United States", state: "CT", city: "Manchester", street: "Buckland Hills Dr" },
+  { country: "United States", state: "CT", city: "Lisbon", street: "River Rd" },
+  { country: "United States", state: "AL", city: "Calera", street: "Hwy" },
   { country: "Netherlands", state: "Groningen", city: "Zuidhorn", street: "Dotterbloem" },
   { country: "Netherlands", state: "Groningen", city: "Zuidbroek", street: "Westeind" },
   { country: "Netherlands", state: "Gelderland", city: "Arnhem", street: "Prumelaan" }
 ].freeze
 
-FactoryBot.create_list(:user, 10, :with_avatar)
+FactoryBot.create_list(:user, 2, :with_avatar, role: :admin)
+
+FactoryBot.create_list(:osbb, 30)
+
+Osbb.all.each do |osbb|
+  address = ADRESSES.sample
+  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
+  FactoryBot.create_list(:user, 1, :with_avatar, role: :lead, osbb_id: osbb.id)
+  FactoryBot.create_list(:user, 2, :with_avatar, role: :simple)
+  FactoryBot.create_list(:user, 2, :with_avatar, role: :members, osbb_id: osbb.id)
+end
+
 User.all.each do |user|
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: user)
 end
 
-User.where(role: 'lead').each do |user|
-  osbb = FactoryBot.create(:osbb)
-  user.update(osbb: osbb)
-end
-
-lead = User.find_by(role: 'lead')
-User.where(role: 'members').each do |user|
-  user.update(osbb: lead.osbb)
-end
-
-FactoryBot.create_list(:news, 10, osbb: lead.osbb, user: lead)
-
-Osbb.all.each do |osbb|
-  address = ADRESSES.sample
-  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
+User.lead.all.each do |lead|
+  FactoryBot.create_list(:news, 10, osbb: lead.osbb, user: lead)
 end
 
 FactoryBot.create_list(:company, 50)

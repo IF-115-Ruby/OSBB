@@ -1,13 +1,16 @@
 require 'rails_helper'
 
 describe Account::Admin::OsbbsController do
-  let!(:user) { create(:user, :admin) }
   let!(:osbb) { create(:osbb) }
+
+  let!(:user) { create(:user, role: :simple) }
+  let!(:admin) { create(:user, role: :admin) }
   let!(:valid_params) { attributes_for :osbb }
 
-  before { login_as user }
+  before { login_as admin }
 
   it 'successful creating osbb' do
+    login_as user
     visit new_account_admin_osbb_path
     fill_in 'Name', with: valid_params[:name]
     fill_in 'Phone', with: valid_params[:phone]
@@ -29,6 +32,7 @@ describe Account::Admin::OsbbsController do
   end
 
   it 'unsuccessful creating osbb' do
+    login_as user
     visit new_account_admin_osbb_path
     fill_in 'Name', with: '  '
     fill_in 'Phone', with: '012345678901'

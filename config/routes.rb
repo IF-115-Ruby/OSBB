@@ -13,6 +13,12 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :users, only: %i[show edit update]
+    resource :user, only: [] do
+      member do
+        put 'assign_osbb'
+        get 'new_assign_osbb'
+      end
+    end
     resources :companies do
       resources :utility_providers, only: %i[new update]
     end
@@ -24,6 +30,9 @@ Rails.application.routes.draw do
       resources :payments, only: %i[index show]
     end
     get 'myosbb', to: 'users#myosbb'
+    resources :osbbs, defaults: { format: 'json' } do
+      get 'search', on: :collection
+    end
     namespace :admin do
       resources :osbbs
       resources :companies do

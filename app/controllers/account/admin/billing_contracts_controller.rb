@@ -5,13 +5,13 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
 
   def index
     authorize :billing_contract
-    @billing_contracts = @company.billing_contracts.page params[:page]
+    @billing_contracts = @company.billing_contracts.all
     respond_to do |format|
       format.xlsx do
         response.headers['Content-Disposition'] = "attachment; filename=billing-contracts.xlsx"
       end
       format.csv { send_data @billing_contracts.to_csv }
-      format.html { render :index }
+      format.html { @billing_contracts = @company.billing_contracts.page params[:page] }
     end
   end
 

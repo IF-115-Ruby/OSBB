@@ -1,10 +1,13 @@
 import "bootstrap";
+import "easy-autocomplete";
 import "../stylesheets/application";
 import "./custom";
 import "@fortawesome/fontawesome-free/js/all";
 import "./sign_up";
 import "./user_cabinet";
 import 'semantic-ui-css/semantic.min.css';
+import "./personal_info_edit";
+import "./osbbs";
 
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
