@@ -1,6 +1,5 @@
 class AdminPolicy
   attr_reader :current_user, :model
-  before_action :user_admin
 
   def initialize(current_user, model)
     raise Pundit::NotAuthorizedError, "must be logged in" unless current_user
@@ -17,7 +16,7 @@ class AdminPolicy
     model.admin?
   end
 
-  private 
+  private
 
   def user_admin
     @current_user.admin?
