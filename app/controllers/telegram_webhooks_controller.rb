@@ -24,8 +24,10 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController # rubocop:di
 
   def add_meter_reading!(*)
     if session[:session_key]
+      return respond_message('You don\'t have utility providers.') if user.companies.empty?
+
       save_context :add_meter
-      respond_message("Choose utility provider", companies)
+      respond_message('Choose utility provider', companies)
     else
       start!
     end
@@ -48,9 +50,12 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController # rubocop:di
   end
 
   def companies!(*)
-    return respond_message(user.companies_for_output) if session?
-
-    start!
+    if session? && !user.companies.empty?
+      respond_message("Utility providers: #{user.companies_for_output}")
+    else
+      respond_message('Can\'t find your utility providers.')
+      start!
+    end
   end
 
   def disassociate!(*)
