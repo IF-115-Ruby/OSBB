@@ -32,8 +32,60 @@ RSpec.describe BillingContract, type: :model do
       it { is_expected.to have_many(:meter_readings) }
     end
 
-    it { is_expected.to belong_to(:company).class_name('Company') }
-    it { is_expected.to belong_to(:user).class_name('User').optional }
+    context 'when have_one' do
+      it { is_expected.to have_one(:last_bill) }
+    end
+
+    context 'when belong_to' do
+      it { is_expected.to belong_to(:company).class_name('Company') }
+      it { is_expected.to belong_to(:user).class_name('User').optional }
+    end
+  end
+
+  describe '#balance_utility_provider' do
+    let!(:billing_contract) { create(:billing_contract) }
+    let!(:bill) { create(:bill, billing_contract_id: billing_contract.id, amount: -50, date: '2020-11-09') }
+    let!(:payment) { create(:payment, billing_contract_id: billing_contract.id, amount: 150, date: '2020-11-10') }
+
+    it 'returns positive balance' do
+      expect(billing_contract.balance_utility_provider.to_i).to eq(100)
+    end
+
+    context 'when balance is negative' do
+      before do
+        bill.update(amount: -250)
+      end
+
+      it 'returns balance' do
+        expect(billing_contract.balance_utility_provider.to_i).to eq(-100)
+      end
+    end
+
+    context 'when payments amount is equal to bill amount' do
+      before do
+        bill.update(amount: -150)
+      end
+
+      it 'returns zero' do
+        expect(billing_contract.balance_utility_provider.to_i).to eq(0)
+      end
+    end
+
+    context 'when payments amount is negative' do
+      before do
+        bill.update(amount: -200)
+      end
+
+      it 'returns negative balance' do
+        expect(billing_contract.balance_utility_provider.to_i).to eq(-50)
+      end
+    end
+
+    context 'when bill is nil' do
+      it 'returns zero' do
+        expect(billing_contract.balance_utility_provider(nil)).to eq(0)
+      end
+    end
   end
 end
 

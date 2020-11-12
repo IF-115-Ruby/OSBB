@@ -76,7 +76,7 @@
 }
 
 .footer {
-  background: #556588;
+  background-color: $light-steel-blue;
   color:$whitesmoke;
 
   .links {
@@ -162,6 +162,10 @@ p {
   min-width: 400px;
 }
 
+.t-indent-unset {
+  text-indent: unset;
+}
+
 @media screen and (max-width: 600px) {
   .form-prop {
     min-width: 170px;
@@ -174,4 +178,8 @@ p {
       min-width: 150px;
     }
   }
+}
+
+.ml-30 {
+  margin-left: 30px;
 }

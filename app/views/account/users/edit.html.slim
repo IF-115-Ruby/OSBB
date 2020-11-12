@@ -1,9 +1,15 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Users', url: account_admin_users_path },\
+  { title: 'User', url: account_user_path },\
+  { title: 'Edit' }\
+]
 = render 'shared/account/user_cabinet'
 .content.pt-4
   .form-component.form-component-user
     - provide(:create_btn_text, t('.btn-edit'))
     - provide(:cancel_btn_text, t('.btn-cancel'))
-    - provide(:path, account_admin_users_path)
+    - provide(:path, edit_account_user_path(current_user))
     h1.title
       = t('.title')
     .container

@@ -1,28 +1,30 @@
 footer.footer.pt-2.mb-0
   .container
     .row
-      .col-lg-4.col-xs-12.about-company
-        h4.text-center
-          = t('footer.title')
-        p.pr-4.text-white-75 = t('footer.description')
-      .col-lg-4.col-xs-12.links
-        h5.mt-lg-0.mt-sm-3.text-center = t('footer.links')
+      .col-lg-5.col-xs-12.about-company
+        h4 = t('footer.title')
+        p.pr-5.text-white-50 = t('footer.description')
+      .col-lg-3.col-xs-12.links
+        h5.mt-lg-0.mt-sm-3 = t('footer.links')
         ul.m-0.p-0
-          li.text-center
-            a = link_to t('footer.link_about_us'), about_path
+          li
+            = link_to about_path 
+              = t('footer.link_about_us')
       .col-lg-4.col-xs-12.location
-        h5.mt-lg-0.mt-sm-3.text-center = t('footer.location')
-        p.mb-0.text-center = t('footer.address')
-        p.mb-0.text-center
-          i.fa.fa-phone.mr-3
+        h5.mt-lg-0.mt-sm-3 = t('footer.location')
+        p.mb-0.t-indent-unset
+          i.fas.fa-map-marker-alt.mr-2
+          = t('footer.address')
+        p.mb-0.t-indent-unset
+          i.fa.fa-phone.mr-2
           = t('footer.mob_number')
-        p.mb-0.text-center
-          i.fa.fa-envelope.mr-3
+        p.mb-0.t-indent-unset
+          i.fa.fa-envelope.mr-2
           = t('footer.email')
-        p.d-flex.justify-content-center
-          = link_to ('en'), url_for(locale: :en), class: 'lang-link mt-2'
-          = link_to ('ua'), url_for(locale: :ua), class: 'lang-link mt-2'
+        p.d-flex.justify-content-between.float-right
+          = link_to ('en'), url_for(locale: :en), class: 'auth-btn float-right p-0 m-0'
+          = link_to ('ua'), url_for(locale: :ua), class: 'auth-btn float-right p-0 m-0'
     .row
       .col.copyright
-        p.row.justify-content-center.pt-2
+        p.t-indent-unset
           small.text-white-45 = t('footer.copyright')

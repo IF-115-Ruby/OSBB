@@ -1,7 +1,17 @@
 class Bill < ApplicationRecord
   belongs_to :billing_contract, optional: true
+  has_one :next_bill, ->(bill) { where("date > ?", bill.date).ordered_by_date },
+          through: :billing_contract, source: :bills
 
   validates :amount, presence: true
+
+  scope :ordered_by_date, -> { order("date DESC") }
+
+  def next_date
+    return Time.current unless next_bill
+
+    next_bill.date
+  end
 end
 
 # == Schema Information
