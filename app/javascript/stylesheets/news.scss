@@ -1,0 +1,42 @@
+/* Styles for form */
+
+.news-form {
+  background-color: $white;
+  padding: 20px;
+  margin: 20px auto;
+  border: 1px solid $lola;
+  border-radius: 20px;
+}
+
+.news-w95 {
+  width:95%;
+}
+
+.news-item {
+  width: 100%;
+}
+
+/* Styles for image preview */
+
+.news-img-prev {
+  text-align: center;
+  width: 100%;
+  border: 1px solid $black;
+  border-radius: 20px;
+}
+
+/* Styles for control button*/
+
+#button-width-120 {
+  width: 120px !important;
+}
+
+/* Styles for container*/
+
+.items-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}

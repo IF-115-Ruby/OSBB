@@ -48,6 +48,7 @@ en:
   time:
     formats:
       long: "%d/%m/%Y %H:%M"
+      short: '%B %e, %Y, %I:%M %p'
 
   devise:
     password:
@@ -371,6 +372,32 @@ en:
         total: 'Total:'
         currency: 'UAH'
         btn-show: 'Show pdf'
+
+    news:
+      index:
+        title: 'OSBB`s news'
+        new-post: "Add news"
+      form:
+        title: 'Title:'
+        short-description: 'Short description:'
+        preview-image: 'Image preview:'
+        body: 'News body:'
+        btn-cancel: 'Cancel'
+        btn-confirm: 'Confirm'
+        visible: 'Your post would be visible (If you want to see how your post looks without posting, turn off this check)'
+      news:
+        status: 'Not visible'
+        btn-edit: 'Edit'
+        btn-delete: 'Delete'
+      edit:
+        title: 'Edit news'
+      new:
+        title: 'Add news'
+      show:
+        btn-edit: 'Edit'
+        btn-back: 'Back to all news'
+        btn-delete: 'Delete'
+        status: 'Not visible'
 
   shared:
     account:

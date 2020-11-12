@@ -13,3 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 #Rails.application.config.assets.precompile += %w( application.css account.css )
 Rails.application.config.assets.precompile += %w( receipt.scss )
+Rails.application.config.assets.precompile += %w[ckeditor/config.js]

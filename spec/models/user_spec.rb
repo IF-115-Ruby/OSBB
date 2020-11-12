@@ -13,6 +13,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to belong_to(:osbb).optional }
     it { is_expected.to have_many(:billing_contracts) }
     it { is_expected.to have_many(:payments).through(:billing_contracts) }
+    it { is_expected.to have_many(:news) }
   end
 
   describe "#full_name" do

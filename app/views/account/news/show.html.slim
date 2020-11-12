@@ -1,0 +1,20 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'OSBB News', url: account_news_index_path },\
+  { title: 'Show' }\
+]
+.w-100
+  .news-form.news-w95
+    - unless @post.is_visible?
+      span.badge.badge-warning.float-right.mb-4 = t('.status')
+    = link_to(image_tag(@post.image.url, alt: 'image', class: 'news-img-prev mb-3'), @post.image.url, target: '_blank') if @post.image?
+    h6 = @post.created_at.strftime(t('time.formats.short'))
+    h1.display-4 = @post.title
+    br
+    p = @post.long_description.html_safe
+    hr
+    .d-flex.justify-content-around
+      = link_to t('.btn-back'), account_news_index_path, class: 'btn btn-primary text-center'
+      - if policy(@post).update?
+        = link_to t('.btn-edit'), edit_account_news_path(@post), class: 'btn btn-warning', id: 'button-width-120'
+        = link_to t('.btn-delete'), account_news_path(@post), method: :delete, data: { confirm: t('account.admin.osbbs.show.confirmation') }, class: 'btn btn-danger float-right', id: 'button-width-120'
