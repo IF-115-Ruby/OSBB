@@ -4,12 +4,11 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
   before_action :set_billing_contract, only: %i[show edit update destroy]
 
   def index
+    authorize :billing_contract
     @billing_contracts = @company.billing_contracts.page params[:page]
     respond_to do |format|
       format.xlsx do
-        response.headers[
-          'Content-Disposition'
-        ] = "attachment; filename=billing-contracts.xlsx"
+        response.headers['Content-Disposition'] = "attachment; filename=billing-contracts.xlsx"
       end
       format.csv { send_data @billing_contracts.to_csv }
       format.html { render :index }
@@ -17,12 +16,16 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
   end
 
   def new
+    authorize :billing_contract
     @billing_contract = @company.billing_contracts.build
   end
 
-  def show; end
+  def show
+    authorize @billing_contract
+  end
 
   def create
+    authorize :billing_contract
     @billing_contract = @company.billing_contracts.build(billing_contract_params)
 
     if @billing_contract.save
@@ -34,9 +37,12 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
     end
   end
 
-  def edit; end
+  def edit
+    authorize @billing_contract
+  end
 
   def update
+    authorize @billing_contract
     if @billing_contract.update(billing_contract_params)
       successful_update("Billing contract '#{@billing_contract.contract_num}' updated.")
       redirect_to account_admin_company_billing_contract_path(@company, @billing_contract)
@@ -47,6 +53,7 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
   end
 
   def destroy
+    authorize @billing_contract
     @billing_contract.destroy
 
     redirect_to account_admin_company_billing_contracts_path(@company)
@@ -54,6 +61,7 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
   end
 
   def new_import
+    authorize :billing_contract
     @billing_contracts_import = BillingContractsImport.new
     respond_to do |format|
       format.xlsx do
@@ -67,6 +75,7 @@ class Account::Admin::BillingContractsController < Account::Admin::AdminControll
   end
 
   def import
+    authorize :billing_contract
     @billing_contracts_import = BillingContractsImport.new(params[:billing_contracts_import])
 
     if @billing_contracts_import.perform
