@@ -25,5 +25,6 @@
         class: 'btn btn-danger btn-custom'
       = link_to t('.btn-add'), new_account_utility_provider_meter_reading_path(utility_provider_id: @utility_provider.id),
         class: 'btn btn-success btn-custom'
+      = link_to 'Payments', account_utility_provider_payments_path(@utility_provider), class: 'btn btn-info btn-custom'
       = link_to t('.btn-back'), account_utility_providers_path,
         class: 'btn btn-dark btn-custom'

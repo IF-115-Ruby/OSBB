@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    = display_meta_tags site: "Contract #{@utility_provider.contract_num}"
+    = display_meta_tags site: "Contract #{@payment.billing_contract.contract_num}"
     = csrf_meta_tags
     = csp_meta_tag
     = wicked_pdf_stylesheet_link_tag 'receipt', media: 'all'

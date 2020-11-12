@@ -2,10 +2,7 @@ class Account::MeterReadingsController < ApplicationController
   before_action :set_billing_contract, only: :create
 
   def index
-    @ransack = MeterReading.ransack(params[:q])
-    @meter_readings = @ransack.result.page(params[:page]).per(6)
-                              .where(billing_contract_id: params[:utility_provider_id])
-                              .order(created_at: :desc)
+    @meter_readings = helpers.utility_provider_query(MeterReading)
   end
 
   def new

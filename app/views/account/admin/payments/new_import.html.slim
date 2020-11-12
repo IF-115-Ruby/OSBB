@@ -11,8 +11,8 @@
       .alert-danger
         - if @payments_import.errors.any?
           = pluralize(@payments_import.errors.count, "error")
-          span 
-            =< t('.error-notice') 
+          span
+            =< t('.error-notice')
           ul
             - @payments_import.errors.full_messages.each do |msg|
               li = msg

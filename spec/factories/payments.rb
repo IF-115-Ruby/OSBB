@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :payment do
     amount { rand(40.25...55.30) }
     date { Faker::Time.between(from: 1.month.ago, to: DateTime.now) }
+    billing_contract
   end
 end
 

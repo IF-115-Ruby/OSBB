@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get "/500", to: "errors#server_error"
 
   namespace :account do
-    resources :payments, only: %i[index show]
     resources :users, only: %i[show edit update]
     resources :companies do
       resources :utility_providers, only: %i[new update]
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
       get 'search', on: :collection
       put 'disassociate', on: :member
       resources :meter_readings, only: %i[index new create]
+      resources :payments, only: %i[index show]
     end
     namespace :admin do
       resources :osbbs

@@ -9,44 +9,44 @@
             h1.invoice-header = t('account.utility_providers.receipt_pdf.osbb')
           td
             = t('account.utility_providers.receipt_pdf.invoice')
-            =< @utility_provider.payments.last.billing_contract_id
+            =< @payment.billing_contract.id
             br/
             = t('account.admin.billing_contracts.show.name_of_company')
-            =< @utility_provider.company.name
+            =< @payment.billing_contract.company.name
             br/
             = t('companies.form.company_type_label')
             |:
-            =< @utility_provider.company.company_type
+            =< I18n.t("account.utility_providers.companies.types.#{@payment.billing_contract.company.company_type}")
             br/
             = t('account.users.show.user-phone')
-            =< @utility_provider.company.phone
+            =< @payment.billing_contract.company.phone
             br/
             = t('companies.show.fax')
-            =< @utility_provider.company.fax
+            =< @payment.billing_contract.company.fax
             br/
             = t('account.admin.osbbs.form.label-email')
             |:
-            =< @utility_provider.company.email
+            =< @payment.billing_contract.company.email
       hr
       h1
         = t('account.utility_providers.receipt_pdf.contract')
-        =< @utility_provider.contract_num
+        =< @payment.billing_contract.contract_num
       p
         = t('account.utility_providers.receipt_pdf.payer')
-        =< current_user.full_name
+        =< @payment.billing_contract.user.full_name
         br/
         = t('account.admin.osbbs.form.label-email')
         |:
-        =< current_user.email
+        =< @payment.billing_contract.user.email
         br/
         = t('account.users.show.user-phone')
-        =< current_user.mobile
+        =< @payment.billing_contract.user.mobile
         br/
         |
         br/
         = t('account.admin.billing_contracts.index.created')
         |:
-        =< @utility_provider.payments.last.date.strftime(t('devise.mailer.admin_notification.date_format'))
+        =< @payment.date.strftime(t('devise.mailer.admin_notification.date_format'))
     tr.information
     td colspan="1"
     tr.heading
@@ -75,17 +75,17 @@
       td
         = t('account.utility_providers.receipt_pdf.summary')
       td
-        |Electricity
+        = I18n.t("account.utility_providers.companies.types.#{@payment.billing_contract.company.company_type}")
     tr.item
       td
         = t('account.utility_providers.receipt_pdf.indicator')
       td
-        | 234
+        = @payment.amount
     tr.item
       td
         = t('account.utility_providers.receipt_pdf.amount')
       td
-        | #{@utility_provider.payments.last.amount}
+        | #{@payment.amount}
         =< t('account.utility_providers.receipt_pdf.currency')
     tr.item.last
       td
@@ -97,5 +97,5 @@
       td
       td
         => t('account.utility_providers.receipt_pdf.total')
-        = @utility_provider.payments.last.amount + 3
+        = @payment.amount + 3
         =< t('account.utility_providers.receipt_pdf.currency')
