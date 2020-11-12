@@ -7,6 +7,7 @@ gem 'any_login'
 gem 'axlsx'
 gem 'carrierwave', '~> 2.0'
 gem 'caxlsx_rails'
+gem 'country_select', '~> 4.0'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'geocoder'
 gem 'mini_magick'

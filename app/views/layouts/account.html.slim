@@ -12,6 +12,7 @@ html
     = render 'shared/account/header'
     = render  'shared/flash_msg'
     .container__box.flex-grow-1
+      = yield :breadcrumbs
       .container-fluid.acount-content.d-flex
         = yield
-    = render 'shared/account/footer'
+    = render 'shared/footer'

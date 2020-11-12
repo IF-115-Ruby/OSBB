@@ -12,6 +12,7 @@ RSpec.describe User, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to(:osbb).optional }
     it { is_expected.to have_many(:billing_contracts) }
+    it { is_expected.to have_many(:payments).through(:billing_contracts) }
   end
 
   describe "#full_name" do
@@ -106,6 +107,59 @@ RSpec.describe User, type: :model do
     end
 
     it { is_expected.to include('admin', 'lead', 'members', 'simple') }
+  end
+
+  describe 'neseted attributes' do
+    it { is_expected.to accept_nested_attributes_for(:address) }
+  end
+
+  describe '#last_payment_date' do
+    context 'when return date' do
+      let!(:billing_contract) { create(:billing_contract, user: user) }
+      let!(:date_custom) { '2020-11-09 16:35:24' }
+      let!(:payment) { create(:payment, billing_contract: billing_contract, date: date_custom) }
+
+      it 'retirns last_payment_date' do
+        expect(user.last_payment_date).to eq(date_custom)
+      end
+    end
+
+    context 'when return nil' do
+      it { expect(user.last_payment_date).to eq(nil) }
+    end
+  end
+
+  describe '#balance_total' do
+    let!(:user) { create(:user) }
+    let!(:billing_contract) { create(:billing_contract, user_id: user.id) }
+    let!(:bill) { create(:bill, billing_contract_id: billing_contract.id, amount: 50, date: '2020-11-09') }
+    let!(:payment) { create(:payment, billing_contract_id: billing_contract.id, amount: 150, date: '2020-11-10') }
+
+    context 'when return balance_total is positive' do
+      it 'return 200' do
+        expect(user.balance_total.to_i).to eq(200)
+      end
+    end
+
+    context 'when return balance_total is negative' do
+      before do
+        bill.update(amount: -250)
+      end
+
+      it 'return -100' do
+        expect(user.balance_total.to_i).to eq(-100)
+      end
+    end
+
+    context 'when return balance_total is zero' do
+      before do
+        bill.update(amount: -150)
+      end
+
+      it 'return -100' do
+        expect(user.balance_total.to_i).to eq(0)
+      end
+    end
   end
 end
 

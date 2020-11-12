@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Account::UsersController, type: :controller do
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, address: create(:address)) }
   let!(:valid_params) { attributes_for :user }
   let!(:invalid_params) { { first_name: ' ', last_name: ' ' } }
+  let!(:address_valid_params) { attributes_for :address }
+  let!(:address_invalid_params) { { country: '', city: '' } }
 
   before { sign_in user }
 
@@ -41,7 +43,7 @@ RSpec.describe Account::UsersController, type: :controller do
       it 'assigns the user' do
         expect(assigns(:user)).to eq(user)
         expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(account_user_path(user))
+        expect(response).to redirect_to(edit_account_user_path(user))
       end
 
       it 'updates user attributes' do
@@ -50,6 +52,33 @@ RSpec.describe Account::UsersController, type: :controller do
         expect(user.last_name).to eq(valid_params[:last_name])
         expect(user.email).to eq(valid_params[:email])
         expect(flash[:success]).to be_present
+      end
+    end
+
+    context "with valid address" do
+      let!(:valid_attributes_address) { valid_params[:address_attributes] = address_valid_params }
+
+      before do
+        put :update, params: { id: user.id, user: valid_params }
+      end
+
+      it 'updates address attributes' do
+        user.reload
+        expect(user.address.country).to eq(valid_attributes_address[:country])
+        expect(user.address.state).to eq(valid_attributes_address[:state])
+        expect(user.address.city).to eq(valid_attributes_address[:city])
+        expect(user.address.street).to eq(valid_attributes_address[:street])
+        expect(flash[:success]).to be_present
+      end
+    end
+
+    context "with invalid address" do
+      let(:invalid_attributes_address) { valid_params[:address_attributes] = address_invalid_params }
+
+      it 'does not change address attributes' do
+        expect do
+          put :update, params: { id: user.id, user: valid_params }
+        end.not_to change { user.reload.address.country }
       end
     end
 
