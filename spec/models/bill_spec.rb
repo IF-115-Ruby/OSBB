@@ -41,6 +41,7 @@ end
 #  id                  :bigint           not null, primary key
 #  amount              :decimal(, )
 #  date                :datetime
+#  meter_reading       :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  billing_contract_id :bigint

@@ -417,6 +417,7 @@ en:
       email: 'Email:'
       website: 'Website:'
       fax: 'Fax:'
+      coefficient: 'Payment coeficient'
       btn_edit_company: 'Edit company'
       btn_delete_company: 'Delete company'
       btn_back: 'Back'
@@ -430,6 +431,7 @@ en:
       company_type_prompt: 'Select your company type'
       phone_label: 'Phone number'
       fax_label: 'Fax'
+      coefficient: 'Payment coeficient'
 
     company:
       btn_show: 'Show'

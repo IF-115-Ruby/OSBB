@@ -74,7 +74,7 @@ class Account::Admin::CompaniesController < Account::Admin::AdminController
   private
 
   def company_params
-    params.require(:company).permit(:name, :company_type, :phone, :email, :website, :fax)
+    params.require(:company).permit(:name, :company_type, :phone, :email, :website, :fax, :payment_coefficient)
   end
 
   def set_company
