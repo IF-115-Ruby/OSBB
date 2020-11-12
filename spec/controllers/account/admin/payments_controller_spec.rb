@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Account::Admin::PaymentsController, type: :controller do
-  login_user
+  login_admin
 
   let!(:correct_csv_file) { { file: fixture_file_upload('files/payments_csv.csv', 'text/csv') } }
   let!(:correct_xls_file) { { file: fixture_file_upload('files/payments_xls.xls', 'text/xls') } }

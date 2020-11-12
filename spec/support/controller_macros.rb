@@ -1,10 +1,10 @@
 module ControllerMacros
-  #  def login_admin
-  #    before(:each) do
-  #      @request.env['device.mapping'] = Devise.mappings[:admin]
-  #      sign_in FactoryBot.create(:admin)
-  #    end
-  #  end
+  def login_admin
+    before(:each) do
+      @request.env['device.mapping'] = Devise.mappings[:admin]
+      sign_in FactoryBot.create(:user, role: 'admin')
+    end
+  end
 
   def login_user
     before(:each) do

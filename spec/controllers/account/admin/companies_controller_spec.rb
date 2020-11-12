@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Account::Admin::CompaniesController, type: :controller do
-  login_user
+  login_admin
+
   let!(:company) { create(:company) }
   let!(:valid_params) { attributes_for :company }
   let!(:invalid_params) { { name: ' ' } }
@@ -16,7 +17,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'GET#show' do
-    login_user
     before do
       get :show, params: { id: company.id }
     end
@@ -34,7 +34,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'POST#create' do
-    login_user
     context 'with valid params' do
       it 'creates a new company' do
         expect do

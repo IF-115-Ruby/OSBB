@@ -10,6 +10,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'support/controller_macros'
+require 'pundit/rspec'
 require 'telegram/bot/rspec/integration/rails'
 require 'fileutils'
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -89,4 +90,8 @@ end
 
 def current_user
   controller.send(:current_user)
+end
+
+RSpec::Sidekiq.configure do |config|
+  config.warn_when_jobs_not_processed_by_sidekiq = false
 end

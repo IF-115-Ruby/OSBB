@@ -3,7 +3,7 @@ class ChangeTypePhone < ActiveRecord::Migration[6.0]
     change_table :companies do |t|
       t.change :phone, :string, limit: 14
     end
-    end
+  end
 
   def down
     change_table :companies do |t|

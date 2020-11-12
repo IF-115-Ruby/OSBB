@@ -1,5 +1,6 @@
 class Account::Admin::BillsController < Account::Admin::AdminController
   def new_import
+    authorize :bill
     @bills_import = BillsImport.new
 
     respond_to do |format|
@@ -9,6 +10,7 @@ class Account::Admin::BillsController < Account::Admin::AdminController
   end
 
   def import
+    authorize :bill
     @bills_import = BillsImport.new(params[:bills_import])
 
     if @bills_import.perform

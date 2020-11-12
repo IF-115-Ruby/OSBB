@@ -2,6 +2,7 @@ class Account::Admin::AdminController < Account::AccountController
   def start_impersonate
     user = User.non_admin.find_by(id: params[:user_id])
     if user.present?
+      authorize user
       impersonate_user(user)
       redirect_to home_path
     else
@@ -11,6 +12,7 @@ class Account::Admin::AdminController < Account::AccountController
   end
 
   def stop_impersonating
+    authorize true_user
     stop_impersonating_user
     redirect_to account_admin_users_path
   end
