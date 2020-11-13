@@ -267,6 +267,8 @@ GEM
     pundit (2.1.0)
       activesupport (>= 3.0.0)
     raabro (1.4.0)
+    puma (4.3.6-java)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack

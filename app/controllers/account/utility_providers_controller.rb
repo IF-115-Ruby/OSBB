@@ -39,12 +39,9 @@ class Account::UtilityProvidersController < Account::AccountController
   def disassociate
     @billing_contract = current_user.billing_contracts.find(params[:id])
 
-    if @billing_contract.update(user_id: nil)
-      flash[:success] = "Billing contract was removed."
-    else
-      flash.now[:warning] = 'Something went wrong.'
-    end
+    @billing_contract.update(user_id: nil)
     redirect_to %i[account utility_providers]
+    flash.now[:success] = "Billing contract was removed."
   end
 
   private

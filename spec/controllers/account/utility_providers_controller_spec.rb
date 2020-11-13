@@ -87,5 +87,6 @@ RSpec.describe Account::UtilityProvidersController, type: :controller do
 
     it { expect(assigns(utility_provider.user_id)).to eq(nil) }
     it { is_expected.to respond_with :redirect }
+    it { is_expected.to set_flash }
   end
 end
