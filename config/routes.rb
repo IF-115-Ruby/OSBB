@@ -2,19 +2,21 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   filter :locale
   devise_for :users, controllers: { registrations: 'user/registrations' }
-
+  mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web => '/sidekiq'
+
   root 'home#index', as: 'home'
   get 'about', to: 'home#about'
-  get "/404", to: "errors#not_found"
-  get "/422", to: "errors#unacceptable"
-  get "/500", to: "errors#server_error"
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unacceptable'
+  get '/500', to: 'errors#server_error'
 
   namespace :account do
     resources :users, only: %i[show edit update]
     resources :companies do
       resources :utility_providers, only: %i[new update]
     end
+    resources :news
     resources :utility_providers, only: %i[index show] do
       get 'search', on: :collection
       put 'disassociate', on: :member

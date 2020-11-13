@@ -1,0 +1,9 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'OSBB News', url: account_news_index_path },\
+  { title: 'New' }\
+]
+.container
+  h1.display-3 = t('.title')
+  .news-form
+    = render 'form', post: @post

@@ -57,6 +57,7 @@ ua:
   time:
     formats:
       long: "%d.%m.%Y %H:%M"
+      short: '%d/%m/%Y %H:%M'
 
   devise:
     password:
@@ -376,6 +377,32 @@ ua:
         total: 'Усього:'
         currency: 'грн.'
         btn-show: 'Показати pdf'
+
+    news:
+      index:
+        title: 'Новини ОСББ'
+        new-post: "Додати новину"
+      form:
+        title: 'Заголовок:'
+        short-description: 'Короткий опис:'
+        preview-image: 'Попередній перегляд зображення:'
+        body: 'Тіло новини:'
+        btn-cancel: 'Відмінити'
+        btn-confirm: 'Підтвердити'
+        visible: 'Ваш пост буде відображений на сайті (Якщо ви хочете побачити, як виглядає ваша новина без публікації - заберіть галочку)'
+      news:
+        status: 'Не відображається'
+        btn-edit: 'Редагувати'
+        btn-delete: 'Видалити'
+      edit:
+        title: 'Редагувати новину'
+      new:
+        title: 'Додати новину'
+      show:
+        btn-edit: 'Редагувати'
+        btn-back: 'Всі новини'
+        btn-delete: 'Видалити'
+        status: 'Не відображається'
 
   shared:
     account:

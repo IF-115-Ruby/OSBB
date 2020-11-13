@@ -1,8 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :rememberable, :validatable, :recoverable
   ADMIN = "admin".freeze
   LEAD = "lead".freeze
   MEMBERS = "members".freeze
@@ -11,13 +7,16 @@ class User < ApplicationRecord
   ROLES = [ADMIN, LEAD, MEMBERS, SIMPLE].freeze
   SEX_TYPES = %w[male female no_sex].freeze
 
-  mount_uploader :avatar, AvatarUploader
+  enum role: ROLES
+  enum sex: SEX_TYPES
 
   belongs_to :osbb, optional: true
+
   has_one :address, as: :addressable, dependent: :destroy, inverse_of: :addressable
   has_many :billing_contracts, dependent: :nullify
   has_many :companies, through: :billing_contracts
   has_many :payments, through: :billing_contracts
+  has_many :news, dependent: :nullify
 
   validates_associated :osbb, :address
   accepts_nested_attributes_for :osbb, :address
@@ -31,9 +30,12 @@ class User < ApplicationRecord
 
   scope :non_admin, -> { where.not(role: :admin) }
 
-  enum role: ROLES
-  enum sex: SEX_TYPES
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :rememberable, :validatable, :recoverable
 
+  mount_uploader :avatar, AvatarUploader
   paginates_per 9
 
   def full_name

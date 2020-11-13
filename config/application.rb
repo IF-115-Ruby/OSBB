@@ -25,6 +25,9 @@ module OSBB
 
     config.assets.initialize_on_precompile = false
     config.assets.precompile += %w[mailer.css]
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w[ckeditor/*]
+    config.autoload_paths += %W[#{config.root}/app/models/ckeditor]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

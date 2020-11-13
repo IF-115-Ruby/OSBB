@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2020_11_10_143645) do
     t.index ["billing_contract_id"], name: "index_bills_on_billing_contract_id"
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.integer "company_type"
@@ -84,6 +94,21 @@ ActiveRecord::Schema.define(version: 2020_11_10_143645) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "billing_contract_id"
     t.index ["billing_contract_id"], name: "index_meter_readings_on_billing_contract_id"
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "osbb_id"
+    t.string "title"
+    t.string "short_description"
+    t.text "long_description"
+    t.boolean "is_visible"
+    t.boolean "is_private"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.index ["osbb_id"], name: "index_news_on_osbb_id"
+    t.index ["user_id"], name: "index_news_on_user_id"
   end
 
   create_table "osbbs", force: :cascade do |t|
