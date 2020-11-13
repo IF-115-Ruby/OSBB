@@ -1,14 +1,35 @@
 class BillingContract < ApplicationRecord
   has_many :bills, dependent: :destroy
+  has_one :last_bill, -> { ordered_by_date }, class_name: 'Bill', inverse_of: :billing_contract
   has_many :payments, dependent: :destroy
+  has_many :meter_readings, dependent: :destroy
+
+  belongs_to :company
+  belongs_to :user, optional: true
 
   validates :contract_num, presence: true, length: { maximum: 50 }, uniqueness: { scope: :company_id }
   validates :is_active, inclusion: { in: [true, false] }
   validates :user_id, uniqueness: { scope: :company_id }, allow_nil: true
   validates :company_id, presence: true
 
-  belongs_to :company
-  belongs_to :user, optional: true
+  paginates_per 6
+
+  def self.to_csv
+    attributes = %w[id company_id contract_num is_active]
+    CSV.generate(headers: true) do |csv|
+      csv << ['Billing Contracts']
+      csv << attributes
+      all.find_each do |billing_contracts|
+        csv << billing_contracts.attributes.values_at(*attributes)
+      end
+    end
+  end
+
+  def balance_utility_provider(bill = last_bill)
+    return 0 unless bill
+
+    payments.created_between(bill.date, bill.next_date).sum(:amount) + bill.amount
+  end
 end
 
 # == Schema Information

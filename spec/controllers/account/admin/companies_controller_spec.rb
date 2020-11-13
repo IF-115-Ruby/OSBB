@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Account::Admin::CompaniesController, type: :controller do
-  login_user
+  login_admin
+
   let!(:company) { create(:company) }
   let!(:valid_params) { attributes_for :company }
   let!(:invalid_params) { { name: ' ' } }
@@ -16,7 +17,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'GET#show' do
-    login_user
     before do
       get :show, params: { id: company.id }
     end
@@ -34,7 +34,6 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
   end
 
   describe 'POST#create' do
-    login_user
     context 'with valid params' do
       it 'creates a new company' do
         expect do
@@ -108,6 +107,35 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(account_admin_companies_path)
       expect(flash[:danger]).to be_present
+    end
+  end
+
+  describe 'GET#new_import' do
+    before { get :new_import }
+
+    it { is_expected.to respond_with :success }
+    it { is_expected.to render_template :new_import }
+  end
+
+  describe 'POST#import' do
+    context 'when present file params' do
+      subject { post :import, params: { companies_import: file } }
+
+      let!(:file) { { file: fixture_file_upload('files/companies.csv', 'text/csv') } }
+
+      it { is_expected.to have_http_status(:redirect) }
+      it { expect { subject }.to change(Company, :count).by(3) }
+      it { expect { subject }.to change(Address, :count).by(3) }
+      it { expect { subject }.to change(Account, :count).by(3) }
+    end
+
+    context 'when empty params' do
+      subject { post :import, params: nil }
+
+      it { is_expected.to have_http_status(:success) }
+      it { expect { subject }.not_to change(Company, :count) }
+      it { expect { subject }.not_to change(Address, :count) }
+      it { expect { subject }.not_to change(Account, :count) }
     end
   end
 end

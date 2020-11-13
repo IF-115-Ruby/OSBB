@@ -1,0 +1,13 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'OSBB News' }\
+]
+.container
+  h1.display-3 = t('.title')
+  .items-container
+    - if policy(@news).update?
+      = link_to t('.new-post'), new_account_news_path, class: 'btn btn-primary'
+    = render @news
+    .pagination-container
+      = paginate @news, theme: 'twitter-bootstrap-4',
+                        pagination_class: 'pagination-md'

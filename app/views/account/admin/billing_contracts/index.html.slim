@@ -1,8 +1,14 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Companies', url: account_admin_companies_path },\
+  { title: 'Company', url: account_admin_company_path(@company) },\
+  { title: 'Billing contracts' }\
+]
 .box
   .all-component
     nav.navbar.navbar-dark
       h2
-        = t('.title') 
+        = t('.title')
     table.table
       thead.thead
         tr
@@ -19,6 +25,29 @@
             = link_to new_account_admin_company_billing_contract_path(@company)
               button.btn.btn-outline-light
                 i.fas.fa-plus
+        tr
+          .import-form.border-top.p-2
+            .export-bc
+              .dropdown
+                span 
+                  = t('.export-title')
+                button.btn.btn-outline-light.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown'
+                  i.fas.fa-file-download
+                .dropdown-menu.dropdown-format
+                  = link_to account_admin_company_billing_contracts_path(format: :xlsx),
+                    title: t('.export_xlsx_title'),
+                    class: 'dropdown-item btn-outline-light auth-btn'
+                    = 'xlsx'
+                  = link_to account_admin_company_billing_contracts_path(format: :csv),
+                    title: t('.export_csv_title'),
+                    class: 'dropdown-item btn-outline-light auth-btn'
+                    = 'csv'
+            .import-bc
+              span
+                = t('.import-title')
+              = link_to new_import_account_admin_company_billing_contracts_path, title: t('.upload_title')
+                button.btn.btn-outline-light
+                  i.fas.fa-file-upload
       tbody
         = render partial: 'billing_contract', collection: @billing_contracts
   .pagination-container

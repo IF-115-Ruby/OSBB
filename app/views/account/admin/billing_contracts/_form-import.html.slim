@@ -1,0 +1,27 @@
+= simple_form_for @billing_contracts_import, url: import_account_admin_company_billing_contracts_path, multipart: true,
+ html: { class: 'mx-auto billing-form' } do |f|
+
+  .alert-danger
+    - if @billing_contracts_import.errors.any?
+      = pluralize(@billing_contracts_import.errors.count, "error")
+      span 
+        =< t('.error-notice') 
+      ul
+        - @billing_contracts_import.errors.full_messages.each do |msg|
+          li = msg
+
+  .form-check
+    = f.input :file, as: :file,
+      input_html: { class: 'form-check-input' }
+
+  .text-center
+    = f.submit yield(:import_btn_text),
+          class: 'btn btn-primary mr-2 btn-custom'
+
+    = link_to yield(:cancel_btn_text),
+          yield(:path), class: 'btn btn-danger btn-custom'
+
+    = link_to yield(:download),
+          class: 'btn btn-success btn-custom',
+          title: 'Download xlsx template'
+      i.fas.fa-table

@@ -1,3 +1,7 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'OSBBs' }\
+]
 .box
   .all-component
     nav.navbar.navbar-dark
@@ -5,18 +9,18 @@
         = t('.title')
     table.table
       thead.thead
-        tr 
+        tr
           th
-            span.cusom-center-in-table-example          
+            span.cusom-center-in-table-example
               = t('.osbb_name')
           th
-            span.cusom-center-in-table-example 
+            span.cusom-center-in-table-example
               = t('.phone_number')
           th
-            span.cusom-center-in-table-example 
+            span.cusom-center-in-table-example
               = t('.email')
           th
-            span.cusom-center-in-table-example 
+            span.cusom-center-in-table-example
               = t('.website')
           th.plus-btn.text-center
             = link_to new_account_admin_osbb_path

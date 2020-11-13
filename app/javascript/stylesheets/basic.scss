@@ -76,7 +76,7 @@
 }
 
 .footer {
-  background: #556588;
+  background-color: $light-steel-blue;
   color:$whitesmoke;
 
   .links {
@@ -145,12 +145,25 @@ p {
   min-width: 200px;
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
+}
+
+.content-abc, .form-component {
+  border-radius: 5px 5px 0 0;
 }
 
 .input-properties {
   background-color: #eff6f8;
   border-radius: 2px;
+}
+
+.all-component {
+  width: fit-content;
+  margin: auto;
+  min-width: 400px;
+}
+
+.t-indent-unset {
+  text-indent: unset;
 }
 
 @media screen and (max-width: 600px) {
@@ -165,4 +178,8 @@ p {
       min-width: 150px;
     }
   }
+}
+
+.ml-30 {
+  margin-left: 30px;
 }

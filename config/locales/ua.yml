@@ -2,10 +2,10 @@ ua:
   en:
   views:
     pagination:
-      first: "&laquo; перша"
-      last: "остання &raquo;"
-      previous: "&lsaquo; попередня"
-      next: "наступна &rsaquo;"
+      first: "&laquo; Перша"
+      last: "Остання &raquo;"
+      previous: "&lsaquo; Попередня"
+      next: "Наступна &rsaquo;"
       truncate: "&hellip;"
   date:
     month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
@@ -57,6 +57,7 @@ ua:
   time:
     formats:
       long: "%d.%m.%Y %H:%M"
+      short: '%d/%m/%Y %H:%M'
 
   devise:
     password:
@@ -107,8 +108,8 @@ ua:
   user_mailer:
     welcome_email:
       welcome_title: 'Ласкаво просимо до ОСББ Застосунку '
-      welcome_message: 'Ви успішно зареєструвались на сайті ОСББ, Ваш логін: '
-      before_link_text: 'Для переходу на Застосунок, просто відвідайте це посилання: '
+      welcome_message: 'Ви успішно зареєструвались на сайті ОСББ. Ваш логін: '
+      before_link_text: 'Для переходу на веб-сайт, просто натисніть на кнопку нижче. '
       home_link_text: 'ОСББ Застосунок'
       welcome_wishes: 'Дякуємо, що приєдналися. Гарного Вам дня!'
 
@@ -128,6 +129,16 @@ ua:
     update: 'Змінити'
 
   account:
+    meter_readings:
+      index:
+        title: 'Показники лічильника'
+        date: 'Дата:'
+        value: 'Значення:'
+      form:
+        meter_reading: 'Показник лічильника'
+        date: 'Дата: '
+        btn_submit: 'Подати'
+        btn_cancel: 'Відмінити'
     users:
       show:
         title: 'Інформація користувача:'
@@ -188,6 +199,7 @@ ua:
           btn-edit: 'Редагувати ОСББ'
           btn-cancel: 'Відмінити'
         index:
+          osbb_errors: 'ОСББ помилки'
           title: 'Усі ОСББ:'
           btn-new: 'Нове ОСББ'
           osbb_name: 'Назва ОСББ'
@@ -204,13 +216,13 @@ ua:
           btn-delete: 'Видалити ОСББ'
           btn-back: 'Назад'
           confirmation: 'Ви впевнені?'
+          osbb-address: 'Адреса:'
         osbb:
           osbb-name: 'Назва ОСББ: '
           osbb-phone: 'Номер телефону: '
           osbb-email: 'Е-пошта: '
           osbb-website: 'Сайт ОСББ: '
           btn-show: 'Дивитись'
-          osbb-address: 'Адреса:'
           user_cabinets:
       index:
         companies: 'Компанії'
@@ -221,6 +233,11 @@ ua:
           contract_num: 'Номер контракту'
           status: 'Статус'
           created: 'Створено'
+          export-title: 'Скачати Контракти'
+          import-title: 'Імпортувати Контракти'
+          export_csv_title: 'Скачати billing-contracts.csv'
+          export_xlsx_title: 'Скачати billing-contracts.xlsx'
+          upload_title: 'Імпортувати Контракти'
         billing_contract:
           contract_num: 'Контракт:'
           status: 'Статус:'
@@ -254,8 +271,48 @@ ua:
           new-title: 'Створити контракт'
           btn-create: 'Створити'
           btn-cancel: 'Відмінити'
+        new_import:
+          title: 'Імпортувати контракти з Excel'
+          note: 'Примітка: Імпортуйте лише нові дані, введені у запропонований шаблон електронної таблиці.'
+          select-file: 'Виберіть файл:'
+          btn-import: 'Імпортувати'
+          btn-cancel: 'Відмінити'
+        form-import:
+          error-notice: 'не дозволяє нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та спробуйте знову.'
+
+      companies:
+        new_import:
+          title: 'Імпорт компаній'
+          hint-imported-files: 'Імпортуйте компанії з .csv, .xls або .xlsx файлу: '
+          information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
+          errors:
+            one: '%{count} помилка'
+            few: '%{count} помилки'
+            other: '%{count} помилок'
+          btn-import: 'Імпортувати'
+          btn-back: 'Назад'
+
+      payments:
+        new_import:
+          title: 'Імпортуйте з .csv, .xls або .xlsx файлів:'
+          hint-imported-files: 'Імпорт платежів: '
+          btn-template: 'Завантажити зразок '
+          information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
+
+      bills:
+        new_import:
+          hint-imported-files: 'Імпорт рахунків: '
 
     utility_providers:
+      show:
+        contract: 'Контракт:'
+        status: 'Статус:'
+        created: 'Створено:'
+        btn-show: 'Показники'
+        btn-delete: 'Видалити'
+        btn-add: 'Додати показник'
+        btn-back: 'Назад'
+        are_you_sure: 'Ти впевнений?'
       search_form:
         name: 'Компанія'
         name-of-company: 'Назва компанії'
@@ -263,18 +320,38 @@ ua:
         edrpou: 'Код ЄДРПОУ'
         search: 'Шукати'
       utility_provider:
+        pay: 'Oплата'
+        amount: '%{amount} грн'
+        contract: 'Контракт:'
+        balance: 'Баланс:'
         active: 'Активний'
         inactive: 'Неактивний'
       companies:
+        types:
+          water_supply: 'Постачання води'
+          heating: 'Опалення'
+          rent_payment: 'Оплата за оренду'
+          accommodation_payment: 'Оплата проживання'
+          gas: 'Газ'
+          electricity: 'Електроенергія'
+          garbage_removal: 'Вивезення сміття'
+          internet: 'Інтернет'
+          intercom: 'Домофон'
+          tv: 'Телебачення'
+          elevator: 'Ліфт'
+          other: 'Інше'
         title: 'Додати постачальника послуг'
       company:
         btn-choose: 'Вибрати'
       index:
+        last_payment: 'Останній платіж: '
+        total_payment: 'Загальний платіж: '
         btn-add: 'Додати постачальника послуг'
-        title: 'Мої постачальники комунальних послуг'
+        title: 'Мої комунальні платежі'
         name-of-company: 'Назва Компанії'
         contract-number: 'Контракт:'
         status: 'Статус:'
+        show: 'Показати:'
         created: 'Створено:'
         active: 'Активний'
         inactive: 'Неактивний'
@@ -284,6 +361,48 @@ ua:
         name-of-company: 'Назва компанії'
         contract-number: 'Номер контракту'
         btn-add: 'Підтвердити'
+      receipt_pdf:
+        invoice: 'Рахунок-фактура #:'
+        osbb: 'ОСББ'
+        contract: 'Контракт №:'
+        payer: 'Платник:'
+        sender: 'Відправник'
+        recipient: 'Отримувач'
+        bank: 'Банк:'
+        bank_code: 'Код банку:'
+        summary: 'Підсумок'
+        indicator: 'Показник:'
+        amount: 'Сума:'
+        comission: 'Комісія:'
+        total: 'Усього:'
+        currency: 'грн.'
+        btn-show: 'Показати pdf'
+
+    news:
+      index:
+        title: 'Новини ОСББ'
+        new-post: "Додати новину"
+      form:
+        title: 'Заголовок:'
+        short-description: 'Короткий опис:'
+        preview-image: 'Попередній перегляд зображення:'
+        body: 'Тіло новини:'
+        btn-cancel: 'Відмінити'
+        btn-confirm: 'Підтвердити'
+        visible: 'Ваш пост буде відображений на сайті (Якщо ви хочете побачити, як виглядає ваша новина без публікації - заберіть галочку)'
+      news:
+        status: 'Не відображається'
+        btn-edit: 'Редагувати'
+        btn-delete: 'Видалити'
+      edit:
+        title: 'Редагувати новину'
+      new:
+        title: 'Додати новину'
+      show:
+        btn-edit: 'Редагувати'
+        btn-back: 'Всі новини'
+        btn-delete: 'Видалити'
+        status: 'Не відображається'
 
   shared:
     account:
@@ -295,11 +414,16 @@ ua:
         btn-companies: 'Компанії'
         btn-user-cabinet: 'Профіль'
         btn_destoy_auth: 'Вийти'
+      user_cabinet:
+        utility_providers: 'Постачальники КП'
+        notification_settings: 'Сповіщення'
+        personal_info_edit: 'Редагувати профіль'
 
   companies:
     index:
       btn_new_company: 'Нова компанія'
       companies_title: 'Всі компанії'
+      btn-import: 'Імпортувати'
 
     search_form:
       name_email_phone_placeholder: 'Пошук'
@@ -325,10 +449,12 @@ ua:
       email: 'Електронна адреса:'
       website: 'Сайт:'
       fax: 'Факс:'
+      coefficient: 'Коефіціент оплати'
       btn_edit_company: 'Редагувати'
       btn_delete_company: 'Видалити'
       btn_back: 'Назад'
       btn_billing_contracts: 'Контракти'
+      company_address: 'Адреса:'
 
     form:
       name_label: 'Назва'
@@ -337,6 +463,7 @@ ua:
       company_type_prompt: 'Виберіть тип компанії'
       phone_label: 'Номер телефону'
       fax_label: 'Факс'
+      coefficient: 'Коефіціент оплати'
 
     company:
       btn_show: 'Дивитись'
@@ -356,3 +483,14 @@ ua:
     vasyl_matsevko: 'Василь Мацевко'
     andrii_kozak: 'Андрій Козак'
     photo: 'фото'
+
+  activerecord:
+    errors:
+      models:
+        company:
+          attributes:
+            phone:
+              too_short: 'закороткий'
+            email:
+              invalid: 'неправильний'
+  row: 'Рядок'

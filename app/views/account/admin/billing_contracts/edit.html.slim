@@ -1,3 +1,11 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Companies', url: account_admin_companies_path },\
+  { title: 'Company', url: account_admin_company_path(@company) },\
+  { title: 'Billing contracts', url: account_admin_company_billing_contracts_path },\
+  { title: 'Billing contract', url: account_admin_company_billing_contract_path },\
+  { title: 'Edit', }\
+]
 - provide(:create_btn_text, t('.btn-edit'))
 - provide(:cancel_btn_text, t('.btn-cancel'))
 - provide(:path, account_admin_company_billing_contract_path)

@@ -1,0 +1,12 @@
+.news-item
+  .news-form
+    - unless news.is_visible?
+      span.badge.badge-warning.float-right.mb-4 = t('.status')
+    = link_to(image_tag(news.image.url, alt: 'image', class: 'news-img-prev mb-3'), account_news_path(news)) if news.image?
+    h2.mb-1 = link_to news.title, account_news_path(news)
+    h6 = news.created_at.strftime(t('time.formats.short'))
+    p.mt-3 = news.short_description
+    - if policy(@news).update?
+      hr
+      = link_to t('.btn-edit'), edit_account_news_path(news), class: 'btn btn-warning', id: 'button-width-120'
+      = link_to t('.btn-delete'), account_news_path(news), method: :delete, data: { confirm: t('account.admin.osbbs.show.confirmation') }, class: 'btn btn-danger float-right', id: 'button-width-120'

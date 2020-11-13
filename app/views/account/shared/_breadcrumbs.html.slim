@@ -1,0 +1,6 @@
+.breadcrumb-wrapper
+  ol.breadcrumb
+    - links.each do |link|
+      - home_icon = content_tag(:a, content_tag(:i, '', class: 'bx bx-home'), href: link[:url])
+      - inner_tag = link[:home] ? home_icon : content_tag(:a, link[:title], href: link[:url])
+      = content_tag(:li, inner_tag, class: 'breadcrumb-item active')

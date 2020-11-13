@@ -1,25 +1,34 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Utility providers' }\
+]
+= render 'shared/account/user_cabinet'
 .box
-  .all-component
-    nav.navbar.navbar-dark
-      h2 
-        = t('.title')
-    table.table
-      thead.thead
-        tr
-          th
-            span.cusom-center-in-table-example
-              = t('.name-of-company')
-          th
-            span.cusom-center-in-table-example
-              = t('.contract-number')
-          th
-            span.cusom-center-in-table-example
-              = t('.status')
-          th.plus-btn.text-center
-            = link_to search_account_utility_providers_path
-              button.btn.btn-outline-light
-                i.fas.fa-plus
-      tbody
-        = render partial: 'utility_provider', collection: @utility_providers
-    .pagination-container
-      = paginate @utility_providers, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'
+  .utility-info
+    .row
+      .col-md
+        span
+          h1.text-left
+            = t('.title')
+      .col-md
+        .text-right.utility-text.mt-2
+          - if current_user.last_payment_date
+            = t('.last_payment')
+            = current_user.last_payment_date.strftime("%d-%m-%Y")
+        .text-right
+          = t('.total_payment')
+          - if current_user.balance_total >= 0
+            .text-success.d-inline-block = I18n.t("account.utility_providers.utility_provider.amount",
+              amount: current_user.balance_total.ceil(2))
+          - else
+            .text-danger.d-inline-block = I18n.t("account.utility_providers.utility_provider.amount",
+              amount: current_user.balance_total.ceil(2))
+    hr
+    .row.btn-utility-center.mt-3
+        = link_to t('.btn-add'), search_account_utility_providers_path,
+          class:"btn btn-lg btn-outline-primary btn-utility-custom"
+  .d-flex.flex-wrap.wrap-pading.justify-content-center
+    = render partial: 'utility_provider', collection: @utility_providers
+  .pagination-container
+    = paginate @utility_providers, theme: 'twitter-bootstrap-4',
+                                    pagination_class: 'pagination-sm'

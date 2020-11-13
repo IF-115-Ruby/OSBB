@@ -1,3 +1,8 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Users', url: account_admin_users_path },\
+  { title: 'User' }\
+]
 .content.pt-4
   .form-component
     h1.title = t('.title')
@@ -26,9 +31,6 @@
           span.insert-user = I18n.t("account.users.form.sex.#{@user.sex}")
     nav
       ul.nav.navbar-user.show-box
-       li.nav-item-user = link_to t('.btn-edit'),
-                                   edit_account_user_path,
-                                   class: "btn btn-warning"
        li.nav-item-user = link_to t('.btn-delete'),
                                    [:account, :admin, @user],
                                    method: :delete,

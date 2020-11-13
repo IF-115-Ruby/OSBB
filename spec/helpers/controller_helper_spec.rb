@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rails_helper'
 
 describe ControllerHelper do
   describe '#successful_update' do

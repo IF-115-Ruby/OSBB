@@ -70,6 +70,10 @@ RSpec.describe Osbb, type: :model do
     context 'when have_one' do
       it 'address' do is_expected.to have_one(:address) end
     end
+
+    context 'when have_many' do
+      it 'news' do is_expected.to have_many(:news) end
+    end
   end
 end
 

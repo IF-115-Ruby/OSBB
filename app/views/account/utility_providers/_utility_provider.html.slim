@@ -1,15 +1,39 @@
-tr
-  td
-    span.cusom-center-in-table-example
-      =<  utility_provider.company.name
-  td
-    span.cusom-center-in-table-example
-      =< utility_provider.contract_num
-  td
-    span.cusom-center-in-table-example
-      =< t(status_contract(utility_provider.is_active))
-  td.eye-btn.text-center
-    = link_to disassociate_account_utility_provider_path(id: utility_provider),
-      method: :put, data: { confirm: 'You sure?' }
-      button.btn.btn-outline-dark
-        i.far.fa-trash-alt
+.container.utility-item
+  = link_to account_utility_provider_path(utility_provider,
+    {contract_num: utility_provider.contract_num}), class:"link-show" do
+    .row
+      div.col-md-2.utility-icon
+          - icon_style = icon_for_company(utility_provider.company.company_type)
+          = fa_icon(icon_style[:class], style: "color: #{icon_style[:color]}", size: '3x')
+      .col-md-10.utility-text
+        p.utility-text
+          =  utility_provider.company.name
+        p.utility-type
+          = I18n.t("account.utility_providers.companies.types.#{utility_provider.company.company_type}")
+        hr
+  end
+  .row.row-pading
+    .col-md-9
+      .row
+        .col-md.utility-text
+          = t('.contract')
+        .col-md.utility-text
+          =< utility_provider.contract_num
+      .row.row-content
+        .col-md.utility-text
+          = t('.balance')
+        .col-md.utility-text
+          - if utility_provider.balance_utility_provider >= 0
+            .text-success
+              = I18n.t("account.utility_providers.utility_provider.amount",
+                amount: utility_provider.balance_utility_provider.ceil(2))
+          - else
+            .text-danger
+              = I18n.t("account.utility_providers.utility_provider.amount",
+                amount: utility_provider.balance_utility_provider.ceil(2))
+    .col-md-3.btn-pay
+      - if utility_provider.balance_utility_provider < 0
+        button.btn.btn-outline-primary.btn-pay-custom
+          = t('.pay')
+      - else
+        i.fas.fa-check.color-check

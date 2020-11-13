@@ -1,3 +1,8 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'OSBBs', url: account_admin_osbbs_path },\
+  { title: '  OSBB', }\
+]
 .content.pt-4
   .form-component
     h1.title = t('.title')
@@ -16,10 +21,10 @@
         span.value = link_to @osbb.website, "http://#{@osbb.website}", target: '_blank'
       .info-content
         - if @osbb.address
-          span.name = t('osbbs.osbb-address')
+          span.name = t('.osbb-address')
           - if @osbb.address.query
             .map-box
-              = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@osbb.address.query.coordinates.first},#{@osbb.address.query.coordinates.last}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04", alt: "Map"  
+              = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@osbb.address.query.coordinates.first},#{@osbb.address.query.coordinates.last}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04", alt: "Map"
               span.value = @osbb.address.full_address
     .d-flex.justify-content-around.flex-wrap
       = link_to edit_account_admin_osbb_path,

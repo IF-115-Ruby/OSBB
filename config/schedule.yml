@@ -1,0 +1,3 @@
+Calculate_Bill_Worker_every_month:
+  cron: "0 18 25 * *" #it will retrieve data every 1 minute
+  class: "CalculateBillWorker"

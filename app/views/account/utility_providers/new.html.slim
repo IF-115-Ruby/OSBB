@@ -1,3 +1,9 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Utility providers', url: account_utility_providers_path },\
+  { title: 'Search', url: search_account_utility_providers_path },\
+  { title: 'New' }\
+]
 .content.pt-4
   .form-component
     h1.title
@@ -6,13 +12,13 @@
       b
         =< @company.name
     hr.my-4
-    = simple_form_for [:account, @billing_contract], url: new_account_utility_provider_path, method: :put, :html=> { class: 'mx-auto billing-form' } do |f|
+    = simple_form_for [:account, @billing_contract], url: new_account_company_utility_provider_path, method: :put, :html=> { class: 'mx-auto billing-form' } do |f|
       .form-group
         = f.hidden_field :company_id, value: @company.id
         = f.input :contract_num,
           label: t('.contract-number'),
           input_html: { class: 'form-control' },
           error_html: { class: 'form-error' }
-    
+
       .text-center
         = f.submit t('.btn-add'), class: 'btn btn-primary btn-custom'

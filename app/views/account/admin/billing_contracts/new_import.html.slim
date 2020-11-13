@@ -1,0 +1,25 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Companies', url: account_admin_companies_path },\
+  { title: 'Company', url: account_admin_company_path(@company) },\
+  { title: 'Billing contracts', url: account_admin_company_billing_contracts_path },\
+  { title: 'Import' },\
+]
+- provide(:import_btn_text, t('.btn-import'))
+- provide(:cancel_btn_text, t('.btn-cancel'))
+- provide(:template_xlsx, 'Download template')
+- provide(:path, account_admin_company_billing_contracts_path)
+- provide(:download, new_import_account_admin_company_billing_contracts_path(format: :xlsx))
+
+.content.pt-3
+  .form-component
+    h1 
+      = t('.title')
+
+    p
+      = t('.note')
+
+    h5 
+      = t('.select-file')
+    
+    = render 'form-import', object: @billing_contracts_import

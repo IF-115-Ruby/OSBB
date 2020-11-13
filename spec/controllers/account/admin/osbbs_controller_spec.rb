@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Account::Admin::OsbbsController, type: :controller do
+  render_views
+
   let!(:osbb) { create(:osbb) }
   let!(:valid_params) { attributes_for :osbb }
   let!(:invalid_params) { { name: '' } }
 
-  login_user
+  login_admin
 
   describe 'GET#index' do
     it 'assigns osbbs and renders template!' do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_123001) do
+ActiveRecord::Schema.define(version: 2020_11_10_143645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,18 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
     t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "meter_reading"
     t.index ["billing_contract_id"], name: "index_bills_on_billing_contract_id"
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -73,7 +84,31 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
     t.integer "fax"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "payment_coefficient"
     t.index ["name"], name: "index_companies_on_name"
+  end
+
+  create_table "meter_readings", force: :cascade do |t|
+    t.integer "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "billing_contract_id"
+    t.index ["billing_contract_id"], name: "index_meter_readings_on_billing_contract_id"
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "osbb_id"
+    t.string "title"
+    t.string "short_description"
+    t.text "long_description"
+    t.boolean "is_visible"
+    t.boolean "is_private"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.index ["osbb_id"], name: "index_news_on_osbb_id"
+    t.index ["user_id"], name: "index_news_on_user_id"
   end
 
   create_table "osbbs", force: :cascade do |t|
@@ -121,6 +156,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_123001) do
   add_foreign_key "billing_contracts", "companies"
   add_foreign_key "billing_contracts", "users"
   add_foreign_key "bills", "billing_contracts"
+  add_foreign_key "meter_readings", "billing_contracts"
   add_foreign_key "payments", "billing_contracts"
   add_foreign_key "users", "osbbs"
 end

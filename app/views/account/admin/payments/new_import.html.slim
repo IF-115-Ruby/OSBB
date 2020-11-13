@@ -1,0 +1,31 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Companies', url: account_admin_companies_path },\
+  { title: 'Import' }\
+]
+.content.pt-3
+  .form-component
+    h2.text-center.title.p-2
+      = t('account.admin.payments.new_import.title')
+    = simple_form_for @payments_import, url: import_account_admin_payments_path, html: { class: 'mx-auto billing-form' } do |f|
+      .alert-danger
+        - if @payments_import.errors.any?
+          = pluralize(@payments_import.errors.count, "error")
+          span
+            =< t('.error-notice')
+          ul
+            - @payments_import.errors.full_messages.each do |msg|
+              li = msg
+      .text-center.p-1
+        = t('account.admin.companies.new_import.hint-imported-files')
+      .text-center.p-1
+        = f.input :file, as: :file
+      .text-center.p-1
+        = link_to new_import_account_admin_payments_path(format: 'xlsx'), class: 'btn btn-success btn-custom-for-import'
+          = t('account.admin.payments.new_import.btn-template')
+          i.fas.fa-file-import
+      .text-center
+        = f.submit t('account.admin.companies.new_import.btn-import'),
+          class: 'btn btn-primary mr-2 btn-custom'
+        = link_to t('account.admin.companies.new_import.btn-back'),
+          account_admin_companies_path, class: 'btn btn-outline-danger btn-custom'

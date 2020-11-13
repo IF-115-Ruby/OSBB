@@ -4,12 +4,14 @@ class Account::UsersController < Account::AccountController
 
   def show; end
 
-  def edit; end
+  def edit
+    @user = current_user
+  end
 
   def update
     if @user.update(user_params)
       successful_update("User profile \"#{@user.full_name}\"  updated")
-      redirect_to [:account, @user]
+      redirect_to edit_account_user_path(@user)
     else
       flash.now[:warning] = 'Invalid parameters for editing!'
       render :edit
@@ -24,7 +26,8 @@ class Account::UsersController < Account::AccountController
       :email, :avatar,
       :birthday, :mobile,
       :role, :sex,
-      :password
+      :password,
+      address_attributes: %i[city country state street]
     )
   end
 

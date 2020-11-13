@@ -13,5 +13,8 @@
     p = t('.user-email', email: user.email)
 
     div
-      = link_to t('.btn-show'), [:account, user], class: 'btn btn-outline-primary'
+      = link_to t('.btn-show'), [:account, user], class: 'btn btn-outline-primary ml-30'
+      - unless user.admin?
+        = link_to 'Impersonate', account_admin_start_impersonate_path(user_id: user.id),
+          class: 'btn btn-outline-primary imp' if current_user.admin?
     hr
