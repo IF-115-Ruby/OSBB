@@ -1,4 +1,4 @@
-class NewsPolicy < AdminPolicy
+class NewsPolicy < BasePolicy
   def index?
     user_admin_or_member?
   end
@@ -8,6 +8,14 @@ class NewsPolicy < AdminPolicy
   end
 
   def create?
+    user_admin_or_lead?
+  end
+
+  def new?
+    user_admin_or_lead?
+  end
+
+  def edit?
     user_admin_or_lead?
   end
 

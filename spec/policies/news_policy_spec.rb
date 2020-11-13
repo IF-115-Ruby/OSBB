@@ -8,7 +8,7 @@ RSpec.describe NewsPolicy, type: :policy do
   let!(:member) { create(:user, role: :members) }
   let!(:simple) { create(:user, role: :simple) }
 
-  permissions :index?, :show?, :create?, :update?, :edit?, :destroy? do
+  permissions :index?, :show?, :create?, :new?, :update?, :edit?, :destroy? do
     it "denies access if user is simple" do
       expect(subject).not_to permit(simple)
     end

@@ -3,20 +3,24 @@ class Account::NewsController < Account::AccountController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   before_action :set_news_by_role
-  before_action :set_post, only: %i[show edit update]
+  before_action :set_post, only: %i[show edit update destroy]
 
-  def index; end
+  def index
+    authorize :news
+    @news = @news.page params[:page]
+  end
 
   def show; end
 
   def new
+    authorize :news
     @post = News.new
   end
 
   def create
+    authorize :news
     @post = current_user.news.build(post_params)
     @post.osbb_id = current_user.osbb_id
-    authorize @post
     if @post.save
       redirect_to account_news_index_path
       flash[:success] = "News \"#{@post.title}\" with id:#{@post.id} has been succesfully created!"
@@ -37,8 +41,6 @@ class Account::NewsController < Account::AccountController
   end
 
   def destroy
-    @post = News.find(params[:id])
-    authorize @post
     @post.destroy if @post.present?
     redirect_to account_news_index_path
     flash[:danger] = "News \"#{@post.title}\" with id:#{@post.id} has been deleted"
@@ -51,9 +53,11 @@ class Account::NewsController < Account::AccountController
   end
 
   def set_news_by_role
-    @news = News.where(osbb_id: current_user.osbb_id, is_visible: true).order('created_at DESC').page params[:page]
-    visible_check
-    authorize @news
+    @news = if current_user.lead?
+              News.where(osbb_id: current_user.osbb_id)
+            else
+              News.where(osbb_id: current_user.osbb_id).visible
+            end.ordered
   end
 
   def set_post
@@ -63,12 +67,6 @@ class Account::NewsController < Account::AccountController
 
   def not_found
     render "errors/not_found", layout: 'errors'
-  end
-
-  def visible_check
-    if current_user.admin? || current_user.lead?
-      @news = News.where(osbb_id: current_user.osbb_id).order('created_at DESC').page params[:page]
-    end
   end
 
   def user_not_authorized

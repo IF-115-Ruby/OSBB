@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  scope :non_admin, -> { where.not(role: :admin) }
-
   ADMIN = "admin".freeze
   LEAD = "lead".freeze
   MEMBERS = "members".freeze
@@ -29,6 +27,8 @@ class User < ApplicationRecord
                     uniqueness: true, length: { maximum: 255 }
   validates :mobile, numericality: true, allow_nil: true, length: { minimum: 10, maximum: 14 }
   validate :avatar_size_validation
+
+  scope :non_admin, -> { where.not(role: :admin) }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

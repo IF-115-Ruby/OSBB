@@ -5,6 +5,9 @@ class News < ApplicationRecord
   validates :long_description, :short_description, :title, presence: true
   validate :image_size_validation
 
+  scope :visible, -> { where(is_visible: true) }
+  scope :ordered, -> { order('created_at DESC') }
+
   mount_uploader :image, ImageUploader
   paginates_per 5
 
