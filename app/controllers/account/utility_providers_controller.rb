@@ -1,6 +1,6 @@
 class Account::UtilityProvidersController < Account::AccountController
   before_action :set_company, only: :new
-  before_action :set_billing_contract, only: %i[update]
+  before_action :set_billing_contract, only: :update
 
   def index
     @utility_providers = current_user.billing_contracts.page params[:page]
@@ -17,21 +17,21 @@ class Account::UtilityProvidersController < Account::AccountController
   end
 
   def new
-    if !current_user.companies.find_by(id: @company.id)
-      @billing_contract = @company.billing_contracts.build
-    else
+    if current_user.companies.find_by(id: @company.id)
       flash[:warning] = 'Company was associated with you!'
       redirect_to %i[account utility_providers]
+    else
+      @billing_contract = @company.billing_contracts.build
     end
   end
 
   def update
-    if @billing_contract&.user_id.nil? && @billing_contract&.update(user_id: current_user.id)
-      flash[:success] = "Billing contract updated."
+    if @billing_contract&.update(user_id: current_user.id)
+      flash[:success] = 'Billing contract updated.'
       redirect_to %i[account utility_providers]
     else
       flash.now[:warning] = 'Wrong billing contract number!'
-      @billing_contract ||= BillingContract.new
+      @billing_contract = @company.billing_contracts.build
       render :new
     end
   end
@@ -40,8 +40,8 @@ class Account::UtilityProvidersController < Account::AccountController
     @billing_contract = current_user.billing_contracts.find(params[:id])
 
     @billing_contract.update(user_id: nil)
+    flash[:success] = 'Billing contract was removed.'
     redirect_to %i[account utility_providers]
-    flash.now[:success] = "Billing contract was removed."
   end
 
   private
@@ -52,7 +52,8 @@ class Account::UtilityProvidersController < Account::AccountController
 
   def set_billing_contract
     @billing_contract = set_company.billing_contracts.find_by(
-      contract_num: utility_provider_params[:contract_num]
+      contract_num: utility_provider_params[:contract_num],
+      user_id: nil
     )
   end
 
