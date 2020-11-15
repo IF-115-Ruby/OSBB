@@ -1,5 +1,6 @@
 class Account::Admin::PaymentsController < Account::Admin::AdminController
   def new_import
+    authorize :payment
     @payments_import = PaymentsImport.new
 
     respond_to do |format|
@@ -9,6 +10,7 @@ class Account::Admin::PaymentsController < Account::Admin::AdminController
   end
 
   def import
+    authorize :payment
     @payments_import = PaymentsImport.new(params[:payments_import])
 
     if @payments_import.perform

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Account::Admin::OsbbsController do
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, :admin) }
   let!(:osbb) { create(:osbb) }
   let!(:valid_params) { attributes_for :osbb }
 

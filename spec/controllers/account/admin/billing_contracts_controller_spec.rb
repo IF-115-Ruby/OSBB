@@ -4,12 +4,11 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
   render_views
 
   describe 'when testing controller actions' do
+    login_admin
     let!(:company) { create(:company) }
     let!(:billing_contract) { create(:billing_contract) }
     let!(:valid_params) { { contract_num: '12314', company_id: company.id } }
     let!(:invalid_params) { { contract_num: ' ', company_id: company.id } }
-
-    before { sign_in billing_contract.user }
 
     describe 'GET #index' do
       context 'when rendering html' do
@@ -156,14 +155,13 @@ RSpec.describe Account::Admin::BillingContractsController, type: :controller do
   end
 
   describe 'import methods block' do
+    login_admin
     let!(:company) { create(:company, id: '1') }
     let!(:correct_csv) { { file: fixture_file_upload('files/b-contracts/billing_contracts.csv', 'text/csv') } }
     let!(:correct_xlsx) { { file: fixture_file_upload('files/b-contracts/billing-contracts.xlsx') } }
     let!(:incorrect_csv) { { file: fixture_file_upload('files/b-contracts/billing_contracts-untrue.csv', 'text/csv') } }
     let!(:incorrect_xlsx) { { file: fixture_file_upload('files/b-contracts/billing-contracts-untrue.xlsx') } }
     let!(:incorrect_type_of_file) { { file: fixture_file_upload('files/empty.txt', 'text') } }
-
-    login_user
 
     describe 'GET#new_import' do
       context 'when rener html' do

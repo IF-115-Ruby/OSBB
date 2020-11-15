@@ -3,16 +3,21 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
   before_action :osbb, only: %i[show edit update destroy]
 
   def index
+    authorize :osbb
     @osbbs = Osbb.page(params[:page]).per(9)
   end
 
-  def show; end
+  def show
+    authorize @osbb
+  end
 
   def new
+    authorize :osbb
     @osbb = Osbb.new
   end
 
   def create
+    authorize :osbb
     @osbb = Osbb.new(osbb_params)
     if @osbb.save
       successful_update("Osbb profile '#{@osbb.name}'
@@ -24,9 +29,12 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @osbb
+  end
 
   def update
+    authorize @osbb
     if @osbb.update(osbb_params)
       flash[:success] = "Osbb profile \"#{@osbb.name}\"  updated"
       redirect_to [:account, :admin, @osbb]
@@ -37,6 +45,7 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
   end
 
   def destroy
+    authorize @osbb
     @osbb.destroy
     redirect_to account_admin_osbbs_path
     flash[:danger] = "Osbb profile \"#{@osbb.name}\" with id:#{@osbb.id} has been deleted"

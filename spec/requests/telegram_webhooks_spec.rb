@@ -77,7 +77,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
         dispatch_message '', contact
       end
 
-      it { is_expected.to respond_with_message(user.companies.map(&:name).join(', ')) }
+      it { is_expected.to respond_with_message("Utility providers: #{user.companies.map(&:name).join(', ')}") }
     end
 
     context 'when not logged' do
@@ -112,7 +112,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
       dispatch_command :add_meter_reading
     end
 
-    it { is_expected.to respond_with_message("Write meter reading") }
+    it { is_expected.to respond_with_message('Write meter reading') }
   end
 
   describe '#save_meter_reading' do
@@ -143,7 +143,7 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
   describe '#disassociate!' do
     subject { -> { dispatch_command :disassociate } }
 
-    it { is_expected.to respond_with_message("Account disassociated!") }
+    it { is_expected.to respond_with_message('Account disassociated!') }
   end
 
   describe '#action_missing' do
@@ -163,7 +163,10 @@ RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
       dispatch_message ' '
     end
 
-    it { expect { dispatch_message 'My utilities providers' }.to respond_with_message(companies) }
+    it do
+      expect { dispatch_message 'My utilities providers' }.to respond_with_message("Utility providers: #{companies}")
+    end
+
     it { expect { dispatch_message 'Add meter reading' }.to respond_with_message('Choose utility provider') }
     it { expect { dispatch_message 'Disassociate account' }.to respond_with_message('Account disassociated!') }
     it { expect { dispatch_message 'Help' }.to respond_with_message(/Available commands:/) }

@@ -53,3 +53,5 @@ yarn-debug.log*
 *.swl
 *.swm
 *.swn
+
+/spec/examples.txt

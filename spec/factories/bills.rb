@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :bill do
-    amount { Faker::Number.decimal(l_digits: 2) }
+    amount { rand(-200.25...50.30) }
     date { Faker::Time.between(from: 1.month.ago, to: DateTime.now) }
+    meter_reading { rand(1..50) }
   end
 end
 
@@ -12,6 +13,7 @@ end
 #  id                  :bigint           not null, primary key
 #  amount              :decimal(, )
 #  date                :datetime
+#  meter_reading       :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  billing_contract_id :bigint

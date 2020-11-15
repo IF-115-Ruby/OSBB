@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller?
   layout :choose_layout
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_raven_context, :set_locale
+  impersonates :user
 
   protected
 

@@ -22,3 +22,4 @@ import "../stylesheets/application";
 import "./custom";
 import "@fortawesome/fontawesome-free/js/all";
 import "./sign_up";
+import "./user_cabinet";

@@ -1,41 +1,38 @@
 require 'rails_helper'
 
 RSpec.describe Account::PaymentsController, type: :controller do
-  login_user
-  let!(:utility_provider) { create(:billing_contract, user: current_user) }
-  let!(:wrong_utility_provider) { create(:billing_contract) }
+  let!(:payment) { create(:payment) }
+  let!(:invalid_id) { { id: '' } }
 
-  describe 'when #show format is html' do
-    it 'response status 200' do
-      get :show, params: { id: utility_provider.id }
+  before { sign_in payment.billing_contract.user }
+
+  describe 'GET#index' do
+    it 'response status 200 and renders the index template' do
+      get :index, params: { utility_provider_id: payment.billing_contract.id }
       expect(response).to have_http_status(:success)
+      expect(response).to render_template('index')
     end
   end
 
-  describe 'when utility_provider not found' do
-    it 'expected to flash' do
-      get :show, params: { id: wrong_utility_provider.id }
-      expect(subject.request.flash[:alert]).not_to be_nil
+  describe 'GET#show' do
+    it 'response status 200 when format is html' do
+      get :show, params: { id: payment.id, utility_provider_id: payment.billing_contract.id, format: :html }
+      expect(response).to have_http_status(:success)
+      expect(response.media_type).to eq 'application/pdf'
+    end
+
+    it 'response status 200 format is pdf' do
+      get :show, params: { id: payment.id, utility_provider_id: payment.billing_contract.id, format: :pdf }
+      expect(response).to have_http_status(:success)
+      expect(response.media_type).to eq 'application/pdf'
     end
   end
 
-  describe 'when #show format is pdf' do
-    it 'format should be pdf and response 200' do
-      get :show, format: :pdf, params: { id: utility_provider.id }
-      expect(response.media_type).to eq "application/pdf"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'GET index' do
-    it "renders the index template" do
-      get :index
-      expect(response).to render_template("index")
-    end
-
-    it "response status 200" do
-      get :index
-      expect(response).to have_http_status(:success)
+  describe 'when payment not found' do
+    it 'expected to flash and redirect' do
+      get :show, params: { id: invalid_id, utility_provider_id: payment.billing_contract.id }
+      expect(flash[:alert]).to be_present
+      expect(response).to redirect_to(account_utility_provider_payments_path)
     end
   end
 end

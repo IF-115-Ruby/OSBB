@@ -1,3 +1,8 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Companies', url: account_admin_companies_path },\
+  { title: 'Company' }\
+]
 .content.pt-4
   .form-component
     h1.title = t('companies.show.show_title')
@@ -20,6 +25,9 @@
       .info-content
         span.name = t('companies.show.fax')
         span.value = @company.fax
+      .info-content
+        span.name = t('companies.show.coefficient')
+        span.value = @company.payment_coefficient
       .info-content
         - if @company.address
           span.name = t('companies.show.company_address')

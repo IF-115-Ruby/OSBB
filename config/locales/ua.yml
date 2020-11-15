@@ -57,6 +57,7 @@ ua:
   time:
     formats:
       long: "%d.%m.%Y %H:%M"
+      short: '%d/%m/%Y %H:%M'
 
   devise:
     password:
@@ -270,7 +271,6 @@ ua:
           new-title: 'Створити контракт'
           btn-create: 'Створити'
           btn-cancel: 'Відмінити'
-
         new_import:
           title: 'Імпортувати контракти з Excel'
           note: 'Примітка: Імпортуйте лише нові дані, введені у запропонований шаблон електронної таблиці.'
@@ -294,10 +294,14 @@ ua:
 
       payments:
         new_import:
-          title: 'Імпорт платежів'
-          hint-imported-files: 'Імпортуйте платежі з .csv, .xls або .xlsx файлу: '
+          title: 'Імпортуйте з .csv, .xls або .xlsx файлів:'
+          hint-imported-files: 'Імпорт платежів: '
           btn-template: 'Завантажити зразок '
           information: 'завадили нам імпортувати вашу електронну таблицю. Оновіть електронну таблицю та повторіть спробу.'
+
+      bills:
+        new_import:
+          hint-imported-files: 'Імпорт рахунків: '
 
     utility_providers:
       show:
@@ -308,6 +312,7 @@ ua:
         btn-delete: 'Видалити'
         btn-add: 'Додати показник'
         btn-back: 'Назад'
+        are_you_sure: 'Ти впевнений?'
       search_form:
         name: 'Компанія'
         name-of-company: 'Назва компанії'
@@ -315,16 +320,34 @@ ua:
         edrpou: 'Код ЄДРПОУ'
         search: 'Шукати'
       utility_provider:
+        pay: 'Oплата'
+        amount: '%{amount} грн'
+        contract: 'Контракт:'
+        balance: 'Баланс:'
         active: 'Активний'
         inactive: 'Неактивний'
-        are_you_sure: 'Ти впевнений?'
       companies:
+        types:
+          water_supply: 'Постачання води'
+          heating: 'Опалення'
+          rent_payment: 'Оплата за оренду'
+          accommodation_payment: 'Оплата проживання'
+          gas: 'Газ'
+          electricity: 'Електроенергія'
+          garbage_removal: 'Вивезення сміття'
+          internet: 'Інтернет'
+          intercom: 'Домофон'
+          tv: 'Телебачення'
+          elevator: 'Ліфт'
+          other: 'Інше'
         title: 'Додати постачальника послуг'
       company:
         btn-choose: 'Вибрати'
       index:
+        last_payment: 'Останній платіж: '
+        total_payment: 'Загальний платіж: '
         btn-add: 'Додати постачальника послуг'
-        title: 'Мої постачальники комунальних послуг'
+        title: 'Мої комунальні платежі'
         name-of-company: 'Назва Компанії'
         contract-number: 'Контракт:'
         status: 'Статус:'
@@ -355,6 +378,32 @@ ua:
         currency: 'грн.'
         btn-show: 'Показати pdf'
 
+    news:
+      index:
+        title: 'Новини ОСББ'
+        new-post: "Додати новину"
+      form:
+        title: 'Заголовок:'
+        short-description: 'Короткий опис:'
+        preview-image: 'Попередній перегляд зображення:'
+        body: 'Тіло новини:'
+        btn-cancel: 'Відмінити'
+        btn-confirm: 'Підтвердити'
+        visible: 'Ваш пост буде відображений на сайті (Якщо ви хочете побачити, як виглядає ваша новина без публікації - заберіть галочку)'
+      news:
+        status: 'Не відображається'
+        btn-edit: 'Редагувати'
+        btn-delete: 'Видалити'
+      edit:
+        title: 'Редагувати новину'
+      new:
+        title: 'Додати новину'
+      show:
+        btn-edit: 'Редагувати'
+        btn-back: 'Всі новини'
+        btn-delete: 'Видалити'
+        status: 'Не відображається'
+
   shared:
     account:
       header:
@@ -365,6 +414,10 @@ ua:
         btn-companies: 'Компанії'
         btn-user-cabinet: 'Профіль'
         btn_destoy_auth: 'Вийти'
+      user_cabinet:
+        utility_providers: 'Постачальники КП'
+        notification_settings: 'Сповіщення'
+        personal_info_edit: 'Редагувати профіль'
 
   companies:
     index:
@@ -396,6 +449,7 @@ ua:
       email: 'Електронна адреса:'
       website: 'Сайт:'
       fax: 'Факс:'
+      coefficient: 'Коефіціент оплати'
       btn_edit_company: 'Редагувати'
       btn_delete_company: 'Видалити'
       btn_back: 'Назад'
@@ -409,6 +463,7 @@ ua:
       company_type_prompt: 'Виберіть тип компанії'
       phone_label: 'Номер телефону'
       fax_label: 'Факс'
+      coefficient: 'Коефіціент оплати'
 
     company:
       btn_show: 'Дивитись'

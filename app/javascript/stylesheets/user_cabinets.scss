@@ -1,3 +1,37 @@
-// Place all the styles related to the UserCabinets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.cabinet-container {
+  display: flex;
+  justify-content: center;
+  background-color: $whitesmoke;
+  height: max-content;
+  border-radius: 0 5px 5px 0;
+  .tab {
+    display: flex;
+    flex-flow: column;
+    min-width: 200px;
+    height: max-content;
+    color: black;
+    .active{
+        color: $whitesmoke;
+        background-color: $light-steel-blue;
+        transform: scale(1.03);
+      }
+    .tablinks {
+      border-radius: 0;
+      border: none;
+      padding: 14px 16px;
+      font-size: 17px;
+      text-align: left;
+      &:first-child {
+        border-radius: 0 5px 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 5px 0;
+      }
+      &:hover {
+        font-weight: normal;
+        transform: scale(1.03);
+        text-shadow: 0.3px 0.3px $whitesmoke;
+      }
+    }
+  }
+}

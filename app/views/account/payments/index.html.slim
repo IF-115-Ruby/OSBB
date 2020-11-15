@@ -1,2 +1,27 @@
-h1 index.html
-// link to payments
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Utility providers', url: account_utility_providers_path },\
+  { title: 'Utility provider', url: account_utility_provider_path(@payments.first.billing_contract.id) },\
+  { title: 'Payments' }\
+]
+.box
+  .all-component
+    nav.navbar.navbar-dark
+      h2 Payments
+      .plus-btn.text-center
+    table.table
+      thead.thead
+        tr
+          th
+            span.cusom-center-in-table-example
+              | Date:
+          th
+            span.cusom-center-in-table-example
+              | Value:
+          th
+            span.cusom-center-in-table-example
+              | Show PDF:
+      tbody
+        = render partial: 'account/payments/payments', collection: @payments
+    .pagination-container
+      = paginate @payments, theme: 'twitter-bootstrap-4', pagination_class: 'pagination-sm'

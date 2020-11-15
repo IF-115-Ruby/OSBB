@@ -48,6 +48,7 @@ en:
   time:
     formats:
       long: "%d/%m/%Y %H:%M"
+      short: '%B %e, %Y, %I:%M %p'
 
   devise:
     password:
@@ -158,6 +159,14 @@ en:
         placeholder-last-email: 'your@email.com'
         user-sex-selected: "no_sex"
         sex-label: 'Sex'
+      address_fields:
+        legend: 'Address:'
+        state: 'State:'
+        city: 'City:'
+        street: 'Street:'
+        placeholder-state: 'Your state'
+        placeholder-city: 'Your city'
+        placeholder-street: 'Your street'
 
     admin:
       users:
@@ -267,7 +276,7 @@ en:
           btn-cancel: 'Cancel'
         form-import:
           error-notice: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try agin.'
-          
+
       companies:
         new_import:
           title: 'Import Companies'
@@ -281,10 +290,14 @@ en:
 
       payments:
         new_import:
-          title: 'Import payments'
-          hint-imported-files: 'Import payments from .csv, .xls or .xlsx: '
+          title: 'Import from .csv, .xls or .xlsx:'
+          hint-imported-files: 'Import payments: '
           btn-template: 'Download template '
           information: 'prevented us from importing your spreadsheet. Please update your spreadsheet and try again.'
+  
+      bills:
+        new_import:
+          hint-imported-files: 'Import bills: '
   
     utility_providers:
       show:
@@ -295,6 +308,7 @@ en:
         btn-delete: 'Delete'
         btn-add: 'Add meter'
         btn-back: 'Back'
+        are_you_sure: 'Are you sure?'
       search_form:
         name: 'Company'
         name-of-company: 'Name of company:'
@@ -302,14 +316,32 @@ en:
         edrpou: 'EDRPOU'
         search: 'Search'
       utility_provider:
+        pay: 'Pay'
+        amount: '%{amount} UAH'
+        contract: 'Contract:'
+        balance: 'Balance:'
         active: 'Active'
         inactive: 'Inactive'
-        are_you_sure: 'Are you sure?'
       companies:
+        types:
+          water_supply: 'Water supply'
+          heating: 'Heating'
+          rent_payment: 'Rent payment'
+          accommodation_payment: 'Accommodation payment'
+          gas: 'Gas'
+          electricity: 'Electricity'
+          garbage_removal: 'Garbage removal'
+          internet: 'Internet'
+          intercom: 'Intercom'
+          tv: 'TV'
+          elevator: 'Elevator'
+          other: 'Other'
         title: 'Add utility provider'
       company:
         btn-choose: 'Choose'
       index:
+        last_payment: 'Last payment: '
+        total_payment: 'Total payment: '
         btn-add: 'Add utility provider'
         title: 'My utility providers'
         name-of-company: 'Name of company:'
@@ -341,6 +373,32 @@ en:
         currency: 'UAH'
         btn-show: 'Show pdf'
 
+    news:
+      index:
+        title: 'OSBB`s news'
+        new-post: "Add news"
+      form:
+        title: 'Title:'
+        short-description: 'Short description:'
+        preview-image: 'Image preview:'
+        body: 'News body:'
+        btn-cancel: 'Cancel'
+        btn-confirm: 'Confirm'
+        visible: 'Your post would be visible (If you want to see how your post looks without posting, turn off this check)'
+      news:
+        status: 'Not visible'
+        btn-edit: 'Edit'
+        btn-delete: 'Delete'
+      edit:
+        title: 'Edit news'
+      new:
+        title: 'Add news'
+      show:
+        btn-edit: 'Edit'
+        btn-back: 'Back to all news'
+        btn-delete: 'Delete'
+        status: 'Not visible'
+
   shared:
     account:
       header:
@@ -351,6 +409,10 @@ en:
         btn-companies: 'Companies'
         btn-user-cabinet: 'Profile'
         btn_destoy_auth: 'Logout'
+      user_cabinet:
+        utility_providers: 'Utility providers'
+        notification_settings: 'Notification settings'
+        personal_info_edit: 'Personal info edit'
 
   companies:
     index:
@@ -382,6 +444,7 @@ en:
       email: 'Email:'
       website: 'Website:'
       fax: 'Fax:'
+      coefficient: 'Payment coeficient'
       btn_edit_company: 'Edit company'
       btn_delete_company: 'Delete company'
       btn_back: 'Back'
@@ -395,6 +458,7 @@ en:
       company_type_prompt: 'Select your company type'
       phone_label: 'Phone number'
       fax_label: 'Fax'
+      coefficient: 'Payment coeficient'
 
     company:
       btn_show: 'Show'

@@ -1,24 +1,26 @@
 class Account::PaymentsController < Account::AccountController
+  before_action :set_payments
+
   def index; end
 
   def show
-    @utility_provider = current_user.billing_contracts.find_by id: params[:id]
-
-    if @utility_provider.present?
-      respond_to do |format|
-        format.html
-        format.pdf { render_pdf }
-      end
+    @payment = @payments.find_by(id: params[:id])
+    if @payment.present?
+      render_pdf
     else
-      redirect_to account_payments_path
-      flash[:alert] = 'Contract not found!'
+      redirect_to account_utility_provider_payments_path
+      flash[:alert] = 'Payment not found!'
     end
   end
 
   private
 
+  def set_payments
+    @payments = helpers.utility_provider_query(Payment)
+  end
+
   def render_pdf
-    render pdf: "Invoice No. #{@utility_provider.contract_num}",
+    render pdf: "Invoice No. #{@payment.billing_contract}",
            page_size: 'A4',
            template: "account/payments/receipt_pdf.html.slim",
            layout: "receipt_pdf.html.slim",

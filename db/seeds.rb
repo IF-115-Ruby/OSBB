@@ -18,15 +18,15 @@ ADRESSES = [
 ].freeze
 
 FactoryBot.create_list(:user, 10)
-User.all.each do |user| 
+User.all.each do |user|
   address = ADRESSES.sample
-  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: user) 
+  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: user)
 end
 
 FactoryBot.create_list(:osbb, 100)
-Osbb.all.each do |osbb| 
+Osbb.all.each do |osbb|
   address = ADRESSES.sample
-  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb) 
+  FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
 end
 
 FactoryBot.create_list(:company, 50)
@@ -38,9 +38,12 @@ Company.all.each do |company|
 end
 
 billing_contracts = BillingContract.all.shuffle
+BillingContract.all.each do |contract|
+  FactoryBot.create(:meter_reading,billing_contract: contract)
+end
 
-User.select{ |user| user.role != 'admin' }.each do |user|
-  billing_contracts.pop(2).each do |billing_contract|
+User.where.not(role: 'admin').each do |user|
+  billing_contracts.pop(50).each do |billing_contract|
     billing_contract.update(user: user)
   end
 end
@@ -52,10 +55,13 @@ DATES = [
   "2020-09-21 T09:45:30"
 ]
 
-BillingContract.all.each do |billing_contract| 
+BillingContract.all.each do |billing_contract|
   DATES.each do |date|
-    _amount = Faker::Number.decimal(l_digits: 2)
-    FactoryBot.create(:bill, amount: _amount, date: date, billing_contract: billing_contract)
-    FactoryBot.create(:payment, amount: _amount, date: date, billing_contract: billing_contract)
+    FactoryBot.create(:bill, date: date, billing_contract: billing_contract)
+    FactoryBot.create(:payment, date: date, billing_contract: billing_contract)
   end
+end
+
+BillingContract.all.each do |billing_contract| 
+    FactoryBot.create(:payment, date: Time.now.utc, billing_contract: billing_contract)
 end

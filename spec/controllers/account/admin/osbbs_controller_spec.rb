@@ -7,7 +7,7 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
   let!(:valid_params) { attributes_for :osbb }
   let!(:invalid_params) { { name: '' } }
 
-  login_user
+  login_admin
 
   describe 'GET#index' do
     it 'assigns osbbs and renders template!' do

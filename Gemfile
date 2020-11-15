@@ -7,6 +7,8 @@ gem 'any_login'
 gem 'axlsx'
 gem 'carrierwave', '~> 2.0'
 gem 'caxlsx_rails'
+gem 'ckeditor'
+gem 'country_select', '~> 4.0'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'geocoder'
 gem 'mini_magick'
@@ -14,6 +16,7 @@ gem 'mini_magick'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'pretender', '~> 0.3.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -31,7 +34,10 @@ gem 'meta-tags', '~> 2.13.0'
 gem 'ransack'
 gem 'rubocop-rails', '~> 2.8.1'
 gem 'sentry-raven'
+gem 'sidekiq'
+gem 'sidekiq-cron', '~> 1.1'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
+gem 'sinatra', '>= 1.3.0', require: nil
 gem 'slim-rails', '~> 3.2.0'
 # Use Active Storage variant
 # Reduces boot times through caching; required in config/boot.rb
@@ -42,6 +48,7 @@ gem 'faker'
 gem 'fog-aws'
 gem 'kaminari'
 gem 'premailer-rails'
+gem 'pundit'
 gem 'rails-i18n'
 gem 'roo'
 gem 'roo-xls'
@@ -77,6 +84,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 3.33'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+  gem 'rspec-sidekiq'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
   # Easy installation and use of web drivers to run system tests with browsers
