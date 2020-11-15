@@ -44,7 +44,7 @@ RSpec.describe Account::Admin::PaymentsController, type: :controller do
 
     it { is_expected.to render_template :new_import }
 
-    it 'raise error' do
+    it 'raises error' do
       error = 'Please update your spreadsheet and try agin.'
       expect { raise error }.to raise_error(RuntimeError)
     end
@@ -59,7 +59,7 @@ RSpec.describe Account::Admin::PaymentsController, type: :controller do
 
     it { is_expected.to render_template :new_import }
 
-    it 'raise error' do
+    it 'raises error' do
       error = "Unknown file type:"
       expect { raise error }.to raise_error(RuntimeError)
     end
@@ -73,7 +73,7 @@ RSpec.describe Account::Admin::PaymentsController, type: :controller do
     it { is_expected.to render_template :new_import }
     it { expect([:danger]).to be_present }
 
-    it 'raise error' do
+    it 'raises error' do
       error = 'Field can not be empty!'
       expect { raise error }.to raise_error(StandardError)
     end
