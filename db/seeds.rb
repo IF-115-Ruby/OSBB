@@ -17,7 +17,7 @@ ADRESSES = [
   { country: "Netherlands", state: "Gelderland", city: "Arnhem", street: "Prumelaan" }
 ].freeze
 
-FactoryBot.create_list(:user, 10)
+FactoryBot.create_list(:user, 10, :with_avatar)
 User.all.each do |user|
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: user)
@@ -62,6 +62,6 @@ BillingContract.all.each do |billing_contract|
   end
 end
 
-BillingContract.all.each do |billing_contract| 
+BillingContract.all.each do |billing_contract|
     FactoryBot.create(:payment, date: Time.now.utc, billing_contract: billing_contract)
 end

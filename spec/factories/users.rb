@@ -3,12 +3,15 @@ FactoryBot.define do
     email { Faker::Internet.email }
     first_name { Faker::Name.first_name }
     last_name  { Faker::Name.last_name }
-    avatar { File.open("#{Rails.root}/app/assets/images/User_Account.png") }
     password { Faker::Internet.password }
     mobile { Faker::Number.leading_zero_number(digits: 10) }
     birthday { Faker::Date.birthday(min_age: 18, max_age: 65) }
     sex { User::SEX_TYPES.sample }
     role { User::ROLES.sample }
+
+    trait :with_avatar do
+      avatar { File.open("#{Rails.root}/app/assets/images/User_Account.png") }
+    end
   end
 end
 
