@@ -5,9 +5,12 @@ FactoryBot.define do
     long_description { "<p>CKEditor text filed</p>" }
     is_visible { true }
     is_private { false }
-    image { File.open("#{Rails.root}/app/assets/images/if-mailer.png") }
     user
     osbb
+
+    trait :with_image do
+      image { File.open("#{Rails.root}/app/assets/images/if-mailer.png") }
+    end
   end
 end
 
