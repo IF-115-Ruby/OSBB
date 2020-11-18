@@ -40,7 +40,7 @@ end
 
 FactoryBot.create_list(:company, 50)
 Company.all.each do |company|
-  FactoryBot.create(:account, company: company)
+  FactoryBot.create(:account, accountable: company)
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: company)
   FactoryBot.create_list(:billing_contract, 5, company: company, user: nil)

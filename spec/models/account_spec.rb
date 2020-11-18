@@ -39,7 +39,10 @@ RSpec.describe Account, type: :model do
 
   describe 'associations' do
     describe 'with belong_to' do
-      it { is_expected.to belong_to(:company).optional }
+      it { is_expected.to have_db_column(:accountable_id).of_type(:integer) }
+      it { is_expected.to have_db_column(:accountable_type).of_type(:string) }
+
+      it { is_expected.to belong_to(:accountable).optional }
     end
   end
 end
@@ -48,21 +51,18 @@ end
 #
 # Table name: accounts
 #
-#  id         :bigint           not null, primary key
-#  edrpou     :string
-#  iban       :string
-#  purpose    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  company_id :bigint
+#  id               :bigint           not null, primary key
+#  accountable_type :string
+#  edrpou           :string
+#  iban             :string
+#  purpose          :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  accountable_id   :bigint
 #
 # Indexes
 #
-#  index_accounts_on_company_id  (company_id)
-#  index_accounts_on_edrpou      (edrpou) UNIQUE
-#  index_accounts_on_iban        (iban) UNIQUE
-#
-# Foreign Keys
-#
-#  fk_rails_...  (company_id => companies.id)
+#  index_accounts_on_accountable_type_and_accountable_id  (accountable_type,accountable_id)
+#  index_accounts_on_edrpou                               (edrpou) UNIQUE
+#  index_accounts_on_iban                                 (iban) UNIQUE
 #
