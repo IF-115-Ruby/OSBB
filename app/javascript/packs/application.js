@@ -1,3 +1,4 @@
+import 'semantic-ui-css/semantic.min.css';
 import "bootstrap";
 import "easy-autocomplete";
 import "@fortawesome/fontawesome-free/js/all";
@@ -5,7 +6,6 @@ import "../stylesheets/application";
 import "./custom";
 import "./sign_up";
 import "./user_cabinet";
-import 'semantic-ui-css/semantic.min.css';
 import "./personal_info_edit";
 import "./osbbs";
 

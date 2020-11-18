@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 2020_11_29_150927) do
     t.text "purpose"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_accounts_on_company_id"
+    t.string "accountable_type"
+    t.bigint "accountable_id"
+    t.index ["accountable_type", "accountable_id"], name: "index_accounts_on_accountable_type_and_accountable_id"
     t.index ["edrpou"], name: "index_accounts_on_edrpou", unique: true
     t.index ["iban"], name: "index_accounts_on_iban", unique: true
   end
@@ -155,7 +156,6 @@ ActiveRecord::Schema.define(version: 2020_11_29_150927) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "accounts", "companies"
   add_foreign_key "billing_contracts", "companies"
   add_foreign_key "billing_contracts", "users"
   add_foreign_key "bills", "billing_contracts"

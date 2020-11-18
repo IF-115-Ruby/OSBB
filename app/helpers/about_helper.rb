@@ -18,6 +18,16 @@ module AboutHelper
                     github: 'https://github.com/marikrebega'
                   },
                   {
+                    name: 'andrii_kozak',
+                    email: 'kozak-mail@gmail.com',
+                    github: 'https://github.com/Andrii-Kozak'
+                  },
+                  {
+                    name: 'mykhailo_marusyk',
+                    email: 'misha.marusyk@gmail.com',
+                    github: 'https://github.com/mmarusyk'
+                  },
+                  {
                     name: 'ivan_danyliv',
                     email: 'danyliv04@gmail.com',
                     github: 'https://github.com/IvanDanyliv'
@@ -28,18 +38,8 @@ module AboutHelper
                     github: 'https://github.com/Ukhanskyi'
                   },
                   {
-                    name: 'mykhailo_marusyk',
-                    email: 'misha.marusyk@gmail.com',
-                    github: 'https://github.com/mmarusyk'
-                  },
-                  {
                     name: 'vasyl_matsevko',
                     email: 'matsevko.vasil@gmail.com',
                     github: 'https://github.com/matsevich'
-                  },
-                  {
-                    name: 'andrii_kozak',
-                    email: 'kozak-mail@gmail.com',
-                    github: 'https://github.com/Andrii-Kozak'
                   }].freeze
 end
