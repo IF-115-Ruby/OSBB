@@ -18,6 +18,8 @@ class Account::UsersController < Account::AccountController
     end
   end
 
+  def myosbb; end
+
   private
 
   def user_params

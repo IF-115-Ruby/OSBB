@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :meter_readings, only: %i[index new create]
       resources :payments, only: %i[index show]
     end
+    get 'myosbb', to: 'users#myosbb'
     namespace :admin do
       resources :osbbs
       resources :companies do
@@ -52,5 +53,13 @@ Rails.application.routes.draw do
       get 'stop_impersonating', to: 'admin#stop_impersonating', as: 'stop_impersonate'
     end
   end
+
   telegram_webhook TelegramWebhooksController
+
+  namespace :api do
+    namespace :v1, format: 'json' do
+      get 'balance', to: 'my_osbb#balance'
+      resources :news, only: :index
+    end
+  end
 end

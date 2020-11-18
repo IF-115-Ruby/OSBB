@@ -1,0 +1,33 @@
+
+.tab {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: max-content;
+  .activeLink {
+    color: whitesmoke !important;
+    background-color: #448ab5;
+  }
+  .tablinks {
+    text-decoration: none;
+    color: black;
+    border-radius: 0;
+    border: none;
+    padding: 14px 16px;
+    font-size: 17px;
+    text-align: left;
+    &:first-child {
+      border-radius: 0 5px 0 0;
+    }
+    &:last-child {
+      border-radius: 0 0 5px 0;
+    }
+    &:hover {
+      font-weight: normal;
+      transform: scale(1.03);
+      text-shadow: 0.3px 0.3px whitesmoke;
+    }
+  }
+}
+
+
