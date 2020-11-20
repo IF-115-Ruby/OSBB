@@ -3,7 +3,7 @@
   { title: 'OSBBs', url: account_admin_osbbs_path },\
   { title: '  OSBB', }\
 ]
-= react_component('ShowOsbb', props={osbb: @osbb.to_json})
+= react_component('osbb/ShowOsbb')
 
 / .content.pt-4
 /   .form-component
@@ -21,12 +21,6 @@
 /       .info-content
 /         span.name = t('.osbb-website')
 /         span.value = link_to @osbb.website, "http://#{@osbb.website}", target: '_blank'
-/       .info-content
-/         span.name  iban
-/         span.value = @osbb.account.iban
-/       .info-content
-/         span.name edrpou
-/         span.value = @osbb.account.edrpou
 /       .info-content
 /         - if @osbb.address
 /           span.name = t('.osbb-address')

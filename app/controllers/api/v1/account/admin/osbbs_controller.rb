@@ -1,5 +1,8 @@
-class Api::V1::Account::Admin::OsbbsController < Account::Admin::AdminController
+class Api::V1::Account::Admin::OsbbsController < ApplicationController
+  include ActionController::ImplicitRender # if you need render .jbuilder
+  include ActionView::Layouts # if you need layout for .jbuilder
+
   def show
-    render json: Osbb.find_by(id: params[:id])
+    @osbb = Osbb.find_by(id: params[:id])
   end
 end

@@ -9,7 +9,7 @@ describe Account::Admin::OsbbsController do
 
   before { login_as admin }
 
-  it 'successful creating osbb' do
+  it 'successful creating osbb', js: true do
     login_as user
     visit new_account_admin_osbb_path
     fill_in 'Name', with: valid_params[:name]
@@ -48,7 +48,7 @@ describe Account::Admin::OsbbsController do
     expect(page).to have_css('span.error', text: 'format is not valid')
   end
 
-  it 'successful updating osbb' do
+  it 'successful updating osbb', js: true do
     visit account_admin_osbb_path(osbb)
     click_on 'Edit osbb profile'
     fill_in 'Name', with: 'Updeted test'
@@ -68,7 +68,7 @@ describe Account::Admin::OsbbsController do
     expect(page).to have_css('span', text: 'www.example.org')
   end
 
-  it 'unsuccessful updating osbb' do
+  it 'unsuccessful updating osbb', js: true do
     visit account_admin_osbb_path(osbb)
     click_on 'Edit osbb profile'
     fill_in 'Name', with: '  '
@@ -85,9 +85,11 @@ describe Account::Admin::OsbbsController do
     expect(page).to have_css('span.error', text: 'format is not valid')
   end
 
-  it 'successful deleting osbb' do
+  it 'successful deleting osbb', js: true do
     visit account_admin_osbb_path(osbb)
-    click_on 'Delete osbb'
+    accept_confirm do
+      click_link 'Delete osbb'
+    end
     expect(page).to have_text(
       "Osbb profile \"#{osbb.name}\" with id:#{osbb.id} has been deleted"
     )

@@ -1,15 +1,14 @@
 class Account::Admin::OsbbsController < Account::Admin::AdminController
   include ControllerHelper
-  before_action :osbb, only: %i[show edit update destroy]
+  before_action :osbb, only: %i[edit update destroy]
 
   def index
     authorize :osbb
     @osbbs = Osbb.page(params[:page]).per(9)
   end
 
-  def show
-    authorize @osbb
-  end
+  # def show
+  # end
 
   def new
     authorize :osbb

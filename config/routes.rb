@@ -71,7 +71,7 @@ Rails.application.routes.draw do
       resources :news, only: :index
       namespace :account do
         namespace :admin do
-           resources :osbbs, only: [:show]
+          resources :osbbs, only: [:show]
         end
       end
     end

@@ -3,7 +3,6 @@ ADRESSES = [
   { country: "Qatar", state: "Doha", city: "Doha", street: "Al Mergab" },
   { country: "Senegal", state: "Dakar", city: "Dakar-plateau", street: "Rue Moussé Diop" },
   { country: "Senegal", state: "Dakar", city: "Dakar", street: "Liberté" },
-  { country: "Senegal", state: "Saint-Louis", city: "Saint-Louis", street: "Square Saint Louis" },
   { country: "Ukraine", state: "Ivano-Frankivsk Oblast", city: "Ivano-Frankivsk", street: "Vovchynetska" },
   { country: "Ukraine", state: "Ivano-Frankivsk Oblast", city: "Ivano-Frankivsk", street: "Tychyny" },
   { country: "United States", state: "MA", city: "Abington", street: "Brockton Avenue" },
