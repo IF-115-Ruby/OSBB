@@ -57,6 +57,9 @@ User.where.not(role: 'admin').each do |user|
   end
 end
 
+User.where.not(role: 'simple').each do |user|
+  user.update(osbb: Osbb.all.sample, approved: true)
+end
 
 DATES = [
   "2020-07-11 T17:30:00",

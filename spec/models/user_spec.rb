@@ -98,6 +98,10 @@ RSpec.describe User, type: :model do
     context 'when have_one' do
       it 'address' do is_expected.to have_one(:address) end
     end
+
+    context 'when have_many' do
+      it 'neighbors' do is_expected.to have_many(:neighbors) end
+    end
   end
 
   describe '.grouped_collection_by_role' do
@@ -175,6 +179,7 @@ end
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  approved               :boolean          default(FALSE)
 #  avatar                 :string
 #  birthday               :date
 #  email                  :string(254)      not null

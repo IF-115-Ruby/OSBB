@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  searchkick word: %i[approved]
+
   ADMIN = "admin".freeze
   LEAD = "lead".freeze
   MEMBER = "member".freeze
@@ -17,6 +19,8 @@ class User < ApplicationRecord
   has_many :companies, through: :billing_contracts
   has_many :payments, through: :billing_contracts
   has_many :news, dependent: :nullify
+  has_many :neighbors, ->(user) { non_self(user) },
+           through: :osbb, source: :member
 
   delegate :name, to: :osbb, prefix: true, allow_nil: true
 
@@ -31,6 +35,7 @@ class User < ApplicationRecord
   validate :avatar_size_validation
 
   scope :non_admin, -> { where.not(role: :admin) }
+  scope :non_self, ->(user) { where.not(id: user.id) }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -96,6 +101,7 @@ end
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  approved               :boolean          default(FALSE)
 #  avatar                 :string
 #  birthday               :date
 #  email                  :string(254)      not null

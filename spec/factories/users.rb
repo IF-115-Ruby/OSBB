@@ -20,6 +20,7 @@ end
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  approved               :boolean          default(FALSE)
 #  avatar                 :string
 #  birthday               :date
 #  email                  :string(254)      not null
