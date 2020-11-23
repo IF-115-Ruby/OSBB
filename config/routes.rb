@@ -53,4 +53,9 @@ Rails.application.routes.draw do
     end
   end
   telegram_webhook TelegramWebhooksController
+  namespace :api do
+    namespace :v1 do
+      resources :news
+    end
+  end
 end

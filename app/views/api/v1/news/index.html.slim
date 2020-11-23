@@ -2,5 +2,7 @@
   { home: true, url: home_path },\
   { title: 'OSBB News' }\
 ]
+div
+  |dddddddddddddddddddddddddd
 = render 'shared/account/user_cabinet'
-= react_component 'news/Index', render(template: 'account/news/index.json.jbuilder')
+= react_component 'news/Index', render(template: 'api/v1/news/index.json.jbuilder')
