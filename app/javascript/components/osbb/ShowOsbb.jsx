@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Tabs from "./Tabs";
 
 class ShowOsbb extends React.Component {
     constructor(props) {
@@ -15,9 +16,7 @@ class ShowOsbb extends React.Component {
     }
 
     componentDidMount() {
-      let path = document.location.pathname.split("/");
-      let id = path[path.length - 1];
-      fetch(`/api/v1/account/admin/osbbs/` + id + `.json`)
+      fetch(`/api/v1/account/admin/osbbs/` +this.props.id+ `.json`)
         .then((response) => {
           return response.json()
         })
@@ -28,9 +27,8 @@ class ShowOsbb extends React.Component {
         });
     }
 
-
-    map_img = () => {
-      let src = `https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C${this.state.osbb.address.coordinates[0]},${this.state.osbb.address.coordinates[1]}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04`
+    mapImg = () => {
+      let src = `https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=500x300&markers=size:small%7Ccolor:red%7C${this.state.osbb.address.coordinates[0]},${this.state.osbb.address.coordinates[1]}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04`
       return ( <
         img src = {
           src
@@ -43,33 +41,48 @@ class ShowOsbb extends React.Component {
     AddStyleForParent();
     return (
       <div className="component-show">
-        <h1 className="title">OSBB info: </h1>
-        <div className="content-info">
-          <div className="info-content">
-            <span className="name">OSBB Name: </span>
-            <span className="value">{this.state.osbb.name}</span>
+        <div>
+          <div className="title-content">
+            <div className="d-flex align-items-center">
+              <span><a className="fas-custom" href="/en/account/admin/osbbs"><i className="fas fa-arrow-left fa-lg"></i></a></span>
+            </div>
+            <h1 className="title title-osbb">OSBB info</h1>
+            <div className="d-flex justify-content-around flex-wrap align-items-center">
+              <span><a className="fas-custom" href={'/en/account/admin/osbbs/'+this.state.osbb.id+'/edit'}><i id="edit" className="fas fa-edit fa-lg"></i></a></span>
+              <span><a className="fas-custom" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href={'/en/account/admin/osbbs/'+this.state.osbb.id+'/'}><i id="delete" className="fas fa-trash-alt fa-lg"></i></a></span>
+            </div>
           </div>
-          <div className="info-content">
-            <span className="name">Phone number: </span>
-            <span className="value">{this.state.osbb.phone}</span>
+          <div className="osbb-info">
+            <div className="osbb-content">
+              <span className="item-name">OSBB Name: </span>
+              <span className="item-value">{this.state.osbb.name}</span>
+            </div>
+            <div className="osbb-content">
+              <span className="item-name">Phone number: </span>
+              <span className="item-value">{this.state.osbb.phone}</span>
+            </div>
+            <div className="osbb-content">
+              <span className="item-name">Email: </span>
+              <span className="item-value">{this.state.osbb.email}</span>
+            </div>
+            <div className="osbb-content">
+              <span className="item-name">OSBB Website: </span>
+              <span className="item-value">{this.state.osbb.website}</span>
+            </div>
           </div>
-          <div className="info-content">
-            <span className="name">Email: </span>
-            <span className="value">{this.state.osbb.email}</span>
-          </div>
-          <div className="info-content">
-            <span className="name">OSBB Website: </span>
-            <span className="value">{this.state.osbb.website}</span>
-          </div>
-          <ReturnAccount edrpou={this.state.osbb.account.edrpou} iban={this.state.osbb.account.iban}/>
-          <ReturnAddress full_address={this.state.osbb.address.full_address} map={this.map_img}/>
-        </div>
-        <hr/>
-        <div className="d-flex justify-content-around flex-wrap">
-          <span><a className="btn btn-warning btn-custom" href={'/en/account/admin/osbbs/'+this.state.osbb.id+'/edit'}>Edit osbb profile</a></span>
-          <span><a data-confirm="Are you sure?" className="btn btn-danger btn-custom" rel="nofollow" data-method="delete" href={'/en/account/admin/osbbs/'+this.state.osbb.id+'/'}>Delete osbb</a></span>
-          <span><a className="btn btn-info btn-custom" href="/en/account/admin/osbbs">Back to Osbbs</a></span>
-        </div>
+          <Tabs>
+            <div label="Address">
+              <ReturnAddress full_address={this.state.osbb.address.full_address} map={this.mapImg}/>
+              <hr/>
+            </div>
+            <div label="Bank details">
+              <div className="osbb-info">
+                <ReturnAccount edrpou={this.state.osbb.account.edrpou} iban={this.state.osbb.account.iban}/>
+              </div>
+              <hr/>
+            </div>
+          </Tabs>
+         </div>
       </div>
     );
   }
@@ -86,14 +99,13 @@ function AddStyleForParent() {
 function ReturnAccount(account) {
   if (account) {
     return [
-      <hr key="hr"/>,
-      <div key="iban" className="info-content">
-        <span className="name">OSBB iban: </span>
-        <span className="value">{account.iban}</span>
+      <div key="iban" className="osbb-content">
+        <span className="item-name">Iban: </span>
+        <span className="item-value">{account.iban}</span>
       </div>,
-      <div key="edrpou" className="info-content">
-        <span className="name">OSBB edrpou: </span>
-        <span className="value">{account.edrpou}</span>
+      <div key="edrpou" className="osbb-content">
+        <span className="item-name">Edrpou: </span>
+        <span className="item-value">{account.edrpou}</span>
       </div>
     ]
   }
@@ -103,19 +115,15 @@ function ReturnAccount(account) {
 function ReturnAddress(address) {
   if (address) {
     return (
-      <div className="info-content">
-        <hr/>
-        <span className="name">Address: </span>
-        <span className="value">{address.full_address}</span>
-        <br/>
-        <br/>
-        <div className="map-box">{address.map()}</div>
+      <div className="osbb-content">
+        <div className="content-center">
+          <span className="item-value">{address.full_address}</span>
+        </div>
+        <div className="map-osbb">{address.map()}</div>
       </div>
     )
   }
   else return null;
 }
-
-
 
 export default ShowOsbb

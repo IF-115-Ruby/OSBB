@@ -50,7 +50,8 @@ describe Account::Admin::OsbbsController do
 
   it 'successful updating osbb', js: true do
     visit account_admin_osbb_path(osbb)
-    click_on 'Edit osbb profile'
+    find('#edit').click
+    # click_on 'Edit osbb profile'
     fill_in 'Name', with: 'Updeted test'
     fill_in 'Phone', with: '0123456777'
     fill_in 'Email', with: 'example@email.org'
@@ -70,7 +71,7 @@ describe Account::Admin::OsbbsController do
 
   it 'unsuccessful updating osbb', js: true do
     visit account_admin_osbb_path(osbb)
-    click_on 'Edit osbb profile'
+    find('#edit').click
     fill_in 'Name', with: '  '
     fill_in 'Phone', with: '012345678901'
     fill_in 'Email', with: 'example.email'
@@ -88,7 +89,7 @@ describe Account::Admin::OsbbsController do
   it 'successful deleting osbb', js: true do
     visit account_admin_osbb_path(osbb)
     accept_confirm do
-      click_link 'Delete osbb'
+      find('#delete').click
     end
     expect(page).to have_text(
       "Osbb profile \"#{osbb.name}\" with id:#{osbb.id} has been deleted"

@@ -1,9 +1,9 @@
-.layout-first-content.rounded
+.layout-first-content.rounded-items
   h1.about-title = t('about.header')
   p.about-paragraph
     = t('about.paragraph1')
     | 'Ruby on Rails' <span>SoftServe</span>
     = t('about.paragraph2')
-  .row.about-row
+  .about-row
     - AboutHelper::TEAM_MEMBERS.each do |hash|
       = render partial: 'shared/about_profile', locals: {name: hash[:name], mail: hash[:email], github: hash[:github]}

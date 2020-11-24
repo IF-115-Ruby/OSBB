@@ -1,9 +1,68 @@
 .component-show {
-  max-width: 700px;
+  max-width: 600px;
   display: block;
   margin: auto;
   padding: 20px;
   background-color: $white;
   min-height: 36px;
   border-radius: 10px;
+}
+
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
+.content-center {
+  text-align: center;
+}
+
+.osbb-info {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+.osbb-content {
+  margin-top: 10px;
+}
+
+.item-name {
+  width: 200px;
+  font-size: 18px;
+  display: inline-flex;
+}
+
+.item-value {
+  font-size: 16px;
+  width: 340px;
+}
+
+.map-osbb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 20px 0;
+}
+
+.title-content {
+  grid-template-columns: 20% 60% 20%;
+  display: grid;
+}
+
+.fas-custom {
+  color: #212529;
 }
