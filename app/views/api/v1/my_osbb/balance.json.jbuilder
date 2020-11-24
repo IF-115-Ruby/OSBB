@@ -1,1 +1,1 @@
-json.call(@balance, :last_payment, :balance_total)
+json.call(@user, :last_payment_date, :balance_total)

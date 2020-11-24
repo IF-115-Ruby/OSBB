@@ -1,6 +1,6 @@
 .myosbb {
   display: grid;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 300px auto;
   width: 100vw;
 }
 
@@ -11,4 +11,11 @@
   height: max-content;
   border-radius: 0 5px 5px 0;
   margin: 10px 0;
+}
+
+
+@media (max-width: 992px) {
+  .myosbb {
+    grid-template-columns: 1fr;
+  }
 }

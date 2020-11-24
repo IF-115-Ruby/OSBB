@@ -4,4 +4,8 @@ class UserPolicy < AdminPolicy
       user_admin
     end
   end
+
+  def myosbb?
+    %w[lead members].include?(@current_user.role)
+  end
 end

@@ -14,3 +14,10 @@
 p {
   text-indent: 0;
 }
+
+@media (max-width: 992px) {
+  .lightContainer {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

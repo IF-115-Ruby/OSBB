@@ -18,7 +18,9 @@ class Account::UsersController < Account::AccountController
     end
   end
 
-  def myosbb; end
+  def myosbb
+    authorize :user
+  end
 
   private
 

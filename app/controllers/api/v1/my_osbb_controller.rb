@@ -1,8 +1,5 @@
-class Api::V1::MyOsbbController < ApplicationController
+class Api::V1::MyOsbbController < Api::ApiController
   def balance
-    @balance = {
-      last_payment: current_user.last_payment_date&.strftime("%d-%m-%Y"),
-      balance_total: current_user.balance_total&.ceil(2)
-    }
+    @user = current_user
   end
 end

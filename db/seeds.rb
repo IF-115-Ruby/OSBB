@@ -23,7 +23,18 @@ User.all.each do |user|
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: user)
 end
 
-FactoryBot.create_list(:osbb, 100)
+User.where(role: 'lead').each do |user|
+  osbb = FactoryBot.create(:osbb)
+  user.update(osbb: osbb)
+end
+
+lead = User.find_by(role: 'lead')
+User.where(role: 'members').each do |user|
+  user.update(osbb: lead.osbb)
+end
+
+FactoryBot.create_list(:news, 10, osbb: lead.osbb, user: lead)
+
 Osbb.all.each do |osbb|
   address = ADRESSES.sample
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
