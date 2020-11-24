@@ -18,6 +18,10 @@ class Account::UsersController < Account::AccountController
     end
   end
 
+  def myosbb
+    authorize :user
+  end
+
   private
 
   def user_params

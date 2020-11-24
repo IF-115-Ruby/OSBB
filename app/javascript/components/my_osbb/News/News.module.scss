@@ -1,0 +1,16 @@
+.itemsContainer {
+  margin: 0 auto;
+}
+
+.pagination {
+  display: grid;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+
+@media (max-width: 992px) {
+  .itemsContainer {
+    width: 100%;
+  }
+}
