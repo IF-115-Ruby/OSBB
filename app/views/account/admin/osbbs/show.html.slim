@@ -3,39 +3,4 @@
   { title: 'OSBBs', url: account_admin_osbbs_path },\
   { title: '  OSBB', }\
 ]
-= react_component('osbb/ShowOsbb')
-
-/ .content.pt-4
-/   .form-component
-/     h1.title = t('.title')
-/     .content-info
-/       .info-content
-/         span.name = t('.osbb-name')
-/         span.value = @osbb.name
-/       .info-content
-/         span.name = t('.osbb-phone')
-/         span.value = @osbb.phone
-/       .info-content
-/         span.name = t('.osbb-email')
-/         span.value = @osbb.email
-/       .info-content
-/         span.name = t('.osbb-website')
-/         span.value = link_to @osbb.website, "http://#{@osbb.website}", target: '_blank'
-/       .info-content
-/         - if @osbb.address
-/           span.name = t('.osbb-address')
-/           - if @osbb.address.query
-/             .map-box
-/               = image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@osbb.address.query.coordinates.first},#{@osbb.address.query.coordinates.last}&key=AIzaSyB79BaHbHY_1floWCNQ1nlSx78zj6CYG04", alt: "Map"
-/               span.value = @osbb.address.full_address
-/     .d-flex.justify-content-around.flex-wrap
-/       = link_to edit_account_admin_osbb_path,
-/                           class: 'btn btn-warning btn-custom'
-/         = t('.btn-edit')
-/       = link_to [:account, :admin, @osbb],
-/                           method: :delete,
-/                           data: { confirm: t('.confirmation') },
-/                           class: 'btn btn-danger btn-custom'
-/         = t('.btn-delete')
-/       = link_to account_admin_osbbs_path, class: 'btn btn-info btn-custom'
-/         = t('.btn-back')
+= react_component('osbb/ShowOsbb', props={id: @osbb.id})

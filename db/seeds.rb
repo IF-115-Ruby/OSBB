@@ -1,12 +1,12 @@
 ADRESSES = [
-  { country: "Qatar", state: "Doha", city: "Doha", street: "Souq" },
-  { country: "Qatar", state: "Doha", city: "Doha", street: "Al Mergab" },
+  { country: "Qatar", state: "Doha", city: "Doha", street: "Jawaan" },
   { country: "Senegal", state: "Dakar", city: "Dakar-plateau", street: "Rue Moussé Diop" },
   { country: "Senegal", state: "Dakar", city: "Dakar", street: "Liberté" },
+  { country: "Ukraine", state: "Lviv Oblast", city: "Lviv", street: "Sadova" },
   { country: "Ukraine", state: "Ivano-Frankivsk Oblast", city: "Ivano-Frankivsk", street: "Vovchynetska" },
   { country: "Ukraine", state: "Ivano-Frankivsk Oblast", city: "Ivano-Frankivsk", street: "Tychyny" },
   { country: "United States", state: "MA", city: "Abington", street: "Brockton Avenue" },
-  { country: "United States", state: "NY", city: "Cortlandville", street: "Route" },
+  { country: "United States", state: "NY", city: "Buffalo", street: "Church" },
   { country: "United States", state: "NY", city: "Commack", street: "Crooked Hill Road" },
   { country: "United States", state: "CT", city: "Manchester", street: "Buckland Hills Dr" },
   { country: "United States", state: "CT", city: "Lisbon", street: "River Rd" },
@@ -22,6 +22,7 @@ FactoryBot.create_list(:osbb, 30)
 
 Osbb.all.each do |osbb|
   address = ADRESSES.sample
+  FactoryBot.create(:account, accountable: osbb)
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
   FactoryBot.create_list(:user, 1, :with_avatar, role: :lead, osbb_id: osbb.id)
   FactoryBot.create_list(:user, 2, :with_avatar, role: :simple)

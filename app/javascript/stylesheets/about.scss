@@ -18,16 +18,24 @@
   font-weight: bold;
 }
 
-.about-row { justify-content: center; }
+.about-row {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 30%);
+  justify-items: center;
+}
 
 .about-column {
   float: left;
   margin-bottom: 16px;
   padding: 0 8px;
   flex: 1 0 33%;
-  max-width: 350px;
-  min-width: 200px;
+  width: 350px;
   margin: 0 3% 3% 3%;
+}
+
+.rounded-items {
+  width: 100%;
 }
 
 .about-card {
@@ -57,11 +65,4 @@
   font-size: 0.8em;
   color: grey;
   margin-bottom: 0;
-}
-
-@media screen and (max-width: 650px) {
-  .about-column {
-    width: 100%;
-    display: block;
-  }
 }
