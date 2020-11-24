@@ -22,6 +22,22 @@ class Account::UsersController < Account::AccountController
     authorize :user
   end
 
+  def new_assign_osbb
+    @user = authorize current_user
+  end
+
+  def assign_osbb # rubocop:disable Metrics/AbcSize
+    osbb = Osbb.find_by(name: user_osbb_params[:osbb_id])
+    if current_user.update(osbb_id: osbb.id, role: :members)
+      NewMemberWorker.perform_async(osbb.id, current_user.id)
+      flash[:success] = "Congratulations, You have become a member of #{osbb.name} OSBB"
+      redirect_to account_admin_osbb_path(current_user.osbb)
+    else
+      flash.now[:warning] = 'Something went wrong!'
+      render :new_assign_osbb
+    end
+  end
+
   private
 
   def user_params
@@ -33,6 +49,10 @@ class Account::UsersController < Account::AccountController
       :password,
       address_attributes: %i[city country state street]
     )
+  end
+
+  def user_osbb_params
+    params.require(:user).permit(:osbb_id)
   end
 
   def user

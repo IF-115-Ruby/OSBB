@@ -1,8 +1,18 @@
 class UserPolicy < AdminPolicy
-  %w[index? destroy?].each do |action|
-    define_method(action) do
-      user_admin
-    end
+  def index?
+    user_admin_or_lead?
+  end
+
+  def new_assign_osbb?
+    user_simple_or_admin?
+  end
+
+  def assign_osbb?
+    user_simple?
+  end
+
+  def destroy?
+    user_admin?
   end
 
   def myosbb?

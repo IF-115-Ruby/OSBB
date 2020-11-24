@@ -1,0 +1,26 @@
+- breadcrumbs [\
+  { home: true, url: home_path },\
+  { title: 'Users', url: account_admin_users_path },\
+  { title: 'User', url: account_user_path(current_user) },\
+  { title: 'Edit' }\
+]
+= render 'shared/account/user_cabinet'
+.content.pt-4
+  .form-component.form-component-user
+    - provide(:assign_btn_text, 'Assign OSBB')
+    - provide(:cancel_btn_text, 'Cancel')
+    - provide(:path, new_assign_osbb_account_user_path)
+    h1.title OSBB info
+    .container
+      .form-group.user-form.user-osbb
+        .user-osbb-edit-box
+          -unless current_user.osbb
+            h4 You don't belong to any OSBB yet.
+            .user-osbb-edit-box__item-up
+              p So, you can create your own
+              = link_to 'Create new OSBB', new_account_admin_osbb_path, class: 'btn btn-outline-primary btn-sm'
+            .user-osbb-edit-box__item-middle
+              p Or you can join an already created OSBB
+              #arrow-down
+                #choose-osbb-btn.btn.btn-outline-primary.btn-sm Choose OSBB
+            = render 'account/users/assign_form'

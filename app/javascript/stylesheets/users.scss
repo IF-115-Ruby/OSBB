@@ -95,6 +95,12 @@ span.insert-user {
 
 .user-index {
   flex-wrap: wrap;
+
+  .user-index-size.layout-user-content.rounded {
+    .imp {
+      margin-left: 10px;
+    }
+  }
 }
 
 .show-btn {

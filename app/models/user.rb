@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :payments, through: :billing_contracts
   has_many :news, dependent: :nullify
 
+  delegate :name, to: :osbb, prefix: true, allow_nil: true
+
   validates_associated :osbb, :address
   accepts_nested_attributes_for :osbb, :address
 

@@ -1,0 +1,11 @@
+.user-form.osbb_search_form
+  = simple_form_for [:account, @user], url: assign_osbb_account_user_path, method: :put do |f|
+    .form-group.user-form
+      = f.input :osbb_id, label: 'Choose OSBB:',
+                          as: :search,
+                          placeholder: 'Write preferred OSBB name, phone, email or website',
+                          class: 'search-input'
+
+    .form-group.osbb-info.mt-4.mr-5
+      = f.submit yield(:assign_btn_text), class: 'btn btn-primary', id: 'assign-osbb-btn'
+      = link_to  yield(:cancel_btn_text), yield(:path), class: 'btn btn-outline-danger'

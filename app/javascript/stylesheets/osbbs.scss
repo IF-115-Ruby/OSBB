@@ -57,3 +57,49 @@ nav > .navbar {
 .form-group {
   margin-bottom: 0;
 }
+
+body.account {
+  .new_osbb {
+    .osbb-new-btn {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .user-osbb {
+    .user-osbb-edit-box {
+      position: relative;
+      font-size: 16px;
+    
+      .osbb-info {
+        display: flex;
+        justify-content: center;
+  
+        .btn.btn-primary {
+          margin: 0;
+          width: auto;
+        }
+      }
+      
+      &__item-up, &__item-middle {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 480px;
+
+        p {
+          margin: 3px 0 7px;
+        }
+
+        .btn.btn-outline-primary.btn-sm {
+          width: 135px;
+        }
+      }
+
+      .user-form.osbb_search_form {
+        margin-top: 10px;
+        display: none;
+      }
+    }
+  }
+}
