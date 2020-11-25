@@ -66,6 +66,12 @@ a.btn.btn-outline-danger {
   margin: 5px 0 5px 10px;
 }
 
+.user-item-hr{
+  border-top: 1px solid black;
+  width: 99%;
+  margin: 0;
+}
+
 .naming-user {
   width: 170px;
   font-size: 20px;
@@ -74,6 +80,7 @@ a.btn.btn-outline-danger {
 
 span.insert-user {
   font-size: 17px;
+  white-space: nowrap;
 }
 
 .nav-item-user a {
@@ -141,10 +148,11 @@ span.insert-user {
 }
 
 .user-avatar, .user-avatar-default {
+  border: 1px solid black;
   border-radius: 50%;
 }
 
 .user-avatar-default {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
