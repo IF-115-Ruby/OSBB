@@ -7,6 +7,7 @@ import Menu from './Menu/Menu'
 import News from './News/News'
 import Neighbors from '../neighbors/Index'
 import ShowOsbb from '../osbb/ShowOsbb'
+import Posts from "../posts/Posts"
 
 const MyOsbb = (props) => {
   return (
@@ -22,6 +23,7 @@ const MyOsbb = (props) => {
         </div>
         <Route path='/:locale/account/myosbb/' render={() => <News />}/>
         <Route path='/:locale/account/neighbors/' render={() => <Neighbors />}/>
+        <Route path='/:locale/account/posts/' render={ () => <Posts />}/>
         <Route path={'/:locale/account/ossb/' +props.osbb_id} render={() => <ShowOsbb id={props.osbb_id}/>}/>
       </div>
     </BrowserRouter>
