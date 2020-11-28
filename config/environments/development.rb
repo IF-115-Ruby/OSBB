@@ -63,6 +63,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.telegram_updates_controller.session_store = :file_store,
-                                                      Rails.root.join('tmp', 'session_store'),
-                                                      { expires_in: 1.month }
+                                                     Rails.root.join('tmp', 'session_store'),
+                                                     { expires_in: 1.month }
 end
