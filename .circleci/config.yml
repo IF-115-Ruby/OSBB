@@ -1,0 +1,118 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/OSBB
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_RETRY: 3
+          BUNDLER_VERSION: 2.1.4
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          PG_HOST: 127.0.0.1
+          PGUSER: root
+          MAILER_ADDRESS: frankivsk.osbb@gmail.com
+          CC_TEST_REPORTER_ID: 02fb63383b4f54f909129252cca71205e584ab07784e634d9764b38853b97ac6
+      - image: circleci/postgres:10.14
+        environment:
+          POSTGRES_DB: OSBB_test
+          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_USER: root
+      - image: circleci/redis:4.0.9
+        environment:
+          - REDIS_URL: "redis://localhost:6379/"
+      - image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+        environment:
+          - cluster.name: elasticsearch
+          - xpack.security.enabled: false
+          - transport.host: localhost
+          - network.host: 127.0.0.1
+          - http.port: 9200
+          - discovery.type: single-node
+
+commands:
+  configure_bundler:
+    description: Configure bundler
+    steps:
+      - run:
+          name: Configure bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - restore_cache:
+          key: OSBB-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - configure_bundler
+      - run:
+          name: Install bundle
+          command: bundle install
+      - restore_cache:
+          key: OSBB-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install yarn
+          command: yarn install
+      - restore_cache:
+          key: v1-code-climate-0.1.4
+      - run:
+          name: Install Code Climate reporter
+          command: |
+            if [[ ! -x cc-test-reporter ]]
+            then
+              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.1.4-linux-amd64 > ./cc-test-reporter
+              chmod +x ./cc-test-reporter
+            fi
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+      - run:
+          name: Setup DB
+          command: bundle exec rails db:create db:schema:load --trace
+      - run:
+          name: RSpec
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format progress
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+      - store_artifacts:
+          path: coverage
+
+      - save_cache:
+          key: OSBB-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - save_cache:
+          key: OSBB-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - vendor/yarn
+      - save_cache:
+          key: v1-code-climate-0.1.4
+          paths:
+            - ./cc-test-reporter
+      
+      - run:
+          name: Report code coverage to Code Climate
+          command: |
+            ./cc-test-reporter after-build -t simplecov --exit-code $? || true
+      
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - ./OSBB
+
+workflows:
+  version: 2
+  integration:
+    jobs:
+      - build
