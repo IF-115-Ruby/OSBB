@@ -9,6 +9,10 @@ class OsbbPolicy < AdminPolicy
     user_simple_or_admin?
   end
 
+  def edit?
+    user_simple_or_admin?
+  end
+
   def show?
     user_admin_or_member?
   end
