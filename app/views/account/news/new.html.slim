@@ -4,6 +4,8 @@
   { title: 'New' }\
 ]
 .container
-  h1.display-3 = t('.title')
-  .news-form
-    = render 'form', post: @post
+  = react_component 'my_osbb/News/Create/Create_news'
+/ .container
+/   h1.display-3 = t('.title')
+/   .news-form
+/     = render 'form', post: @post
