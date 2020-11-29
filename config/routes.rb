@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unacceptable'
   get '/500', to: 'errors#server_error'
 
+  resources :search_osbbs, defaults: { format: 'json' } do
+    get 'search', on: :collection
+  end
+
   namespace :account do
     resources :users, only: %i[show edit update]
     resource :user, only: [] do

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Account::OsbbsController, type: :controller do
+RSpec.describe SearchOsbbsController, type: :controller do
+  render_views
+
   let!(:osbb) do
     create(
       :osbb,
@@ -11,14 +13,12 @@ RSpec.describe Account::OsbbsController, type: :controller do
     )
   end
 
-  login_user
-
   describe 'GET#search' do
     before { Osbb.reindex }
 
     it 'returns success when searchs osbb' do
-      Osbb.search('test')
-      expect(response).to have_http_status(:success)
+      Osbb.search(osbb.name)
+      expect(response).to be_successful
     end
 
     it 'finds a searched osbb by name' do
@@ -51,9 +51,9 @@ RSpec.describe Account::OsbbsController, type: :controller do
       expect(result).to match([osbb])
     end
 
-    it 'have http status success' do
+    it 'has http status success' do
       Osbb.search('mail.com')
-      expect(response).to have_http_status(:success)
+      expect(response).to be_successful
     end
 
     it 'can not find an empty value' do
