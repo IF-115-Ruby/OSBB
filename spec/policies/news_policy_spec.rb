@@ -5,7 +5,7 @@ RSpec.describe NewsPolicy, type: :policy do
 
   let!(:admin) { create(:user, role: :admin) }
   let!(:lead) { create(:user, role: :lead) }
-  let!(:member) { create(:user, role: :members) }
+  let!(:member) { create(:user, role: :member) }
   let!(:simple) { create(:user, role: :simple) }
 
   permissions :index?, :show?, :create?, :new?, :update?, :edit?, :destroy? do

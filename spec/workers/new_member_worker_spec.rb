@@ -24,7 +24,7 @@ RSpec.describe NewMemberWorker, type: :worker do
     end
 
     it 'do new job' do
-      valid_user.update(osbb_id: osbb.id, role: :members)
+      valid_user.update(osbb_id: osbb.id, role: :member)
       expect(described_class.perform_async(osbb.id, valid_user.id)).to be_truthy
     end
   end

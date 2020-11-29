@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import SvgIconReturn from 'images/svg_icon_return.svg';
+import SvgIconDelete from 'images/svg_icon_delete.svg';
 
 export class UserShowControl extends Component {
 
   constructor(props) {
     super(props)
-    this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this);
   };
 
   goBack() {
-    window.history.back();
+    window.location.href = '../admin/users/'
   };
 
   handleDelete() {
     const token = document.querySelector('[name=csrf-token]').content
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token
-    axios.delete('../admin/users/' + this.props.user.id)
+    axios.delete('../admin/users/' + this.props.id)
       .then(() => {
-        window.location.href = '../admin/users/'
+        this.goBack()
       })
       .catch((error) => {
         alert(error);
@@ -28,14 +31,29 @@ export class UserShowControl extends Component {
     return (
       <nav>
         <ul className='nav navbar-user show-box'>
-          <li className='nav-item-user'>
-            <button className='btn btn-danger' onClick={this.handleDelete}>Delete</button>
-          </li>
-          <li className='nav-item-user'>
-            <button className='btn btn-info' onClick={this.goBack}>Back</button>
-          </li>
+            <ButtonsComponent svg={SvgIconDelete}
+                              event={ this.handleDelete }
+                              style='btn show-user-btn right-btn'
+            />
+            <ButtonsComponent svg={ SvgIconReturn }
+                              event={ this.goBack }
+                              style='btn show-user-btn left-btn'
+            />
         </ul>
       </nav>
     );
   };
-};
+}
+
+const ButtonsComponent = ({ event, style, svg }) => {
+  return (
+    <li className='nav-item-user'>
+      <button className={ style } onClick={ event }><img src={ svg }/></button>
+    </li>
+  );
+}
+
+ButtonsComponent.propTypes = {
+  event: PropTypes.func,
+  style: PropTypes.string,
+}

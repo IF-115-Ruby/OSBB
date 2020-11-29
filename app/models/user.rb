@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   ADMIN = "admin".freeze
   LEAD = "lead".freeze
-  MEMBERS = "members".freeze
+  MEMBER = "member".freeze
   SIMPLE = "simple".freeze
 
-  ROLES = [ADMIN, LEAD, MEMBERS, SIMPLE].freeze
+  ROLES = [ADMIN, LEAD, MEMBER, SIMPLE].freeze
   SEX_TYPES = %w[male female no_sex].freeze
 
   enum role: ROLES
@@ -48,7 +48,7 @@ class User < ApplicationRecord
     {
       'admin' => User.admin.limit(2),
       'lead' => User.lead.limit(3),
-      'members' => User.members.limit(4),
+      'member' => User.member.limit(4),
       'simple' => User.simple.limit(5)
     }
   end
@@ -63,6 +63,10 @@ class User < ApplicationRecord
 
   def last_payment_date
     payments.ordered_by_date.first&.date
+  end
+
+  def handle_avatar
+    avatar? ? avatar.user_show.url : '/default_a.png'
   end
 
   private

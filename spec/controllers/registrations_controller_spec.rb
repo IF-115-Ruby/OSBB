@@ -45,7 +45,7 @@ RSpec.describe User::RegistrationsController, type: :controller do
         expect do
           post :create, params: { user: valid_attributes_user }
         end.to change(User, :count).by(1)
-        expect(User.last.role).to eq("members")
+        expect(User.last.role).to eq("member")
       end
 
       it "creates a new user without search and create osbb" do
@@ -75,7 +75,7 @@ RSpec.describe User::RegistrationsController, type: :controller do
         expect do
           post :create, params: search_osbb_id
         end.to change(Osbb, :count).by(0).and change(User, :count).by(1)
-        expect(User.last.role).to eq("members")
+        expect(User.last.role).to eq("member")
       end
     end
 

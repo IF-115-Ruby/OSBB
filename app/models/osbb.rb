@@ -5,7 +5,7 @@ class Osbb < ApplicationRecord
   include Searchable
 
   has_many :news, dependent: :nullify
-  has_many :members, class_name: "User", dependent: :nullify
+  has_many :member, class_name: "User", dependent: :nullify
   has_one :lead, -> { find_by({ role: User::LEAD }) },
           class_name: "User", inverse_of: :osbb
 

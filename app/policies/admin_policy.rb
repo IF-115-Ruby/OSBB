@@ -27,7 +27,7 @@ class AdminPolicy
   end
 
   def user_admin_or_member?
-    user_admin_or_lead? || current_user.members?
+    user_admin_or_lead? || current_user.member?
   end
 
   def user_simple?

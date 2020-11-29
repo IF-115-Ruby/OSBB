@@ -5,12 +5,6 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
   before { sign_in user }
 
-  describe 'GET #index' do
-    before { get :index, format: :json }
-
-    it { is_expected.to respond_with :success }
-  end
-
   describe 'GET #show' do
     before { get :show, format: :json, params: { id: user.id } }
 

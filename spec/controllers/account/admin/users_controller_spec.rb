@@ -14,11 +14,10 @@ RSpec.describe Account::Admin::UsersController, type: :controller do
   end
 
   describe 'DELETE#destroy' do
-    it 'destroys the user and redirects to index' do
+    it 'destroys the user and set flash' do
       expect { delete :destroy, params: { id: user.id } }
         .to change(User, :count).by(-1)
-      expect(response).to have_http_status(:redirect)
-      expect(response).to redirect_to(account_admin_users_path)
+      expect(response).to have_http_status(:success)
       expect(flash[:danger]).to be_present
     end
   end

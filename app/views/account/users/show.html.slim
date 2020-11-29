@@ -3,5 +3,4 @@
   { title: 'Users', url: account_admin_users_path },\
   { title: 'User' }\
 ]
-.content.p-4 = react_component('users/show/ShowUser')
-
+.content.p-4 = react_component('users/show/ShowUser', { id: @user.id })

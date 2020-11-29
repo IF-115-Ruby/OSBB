@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Account::Admin::AdminController do
-  let!(:user) { create(:user, role: 'members') }
+  let!(:user) { create(:user, role: 'member') }
   let!(:lead_user) { create(:user, role: 'lead') }
   let!(:admin_user) { create(:user, role: 'admin') }
 

@@ -26,7 +26,7 @@ Osbb.all.each do |osbb|
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
   FactoryBot.create_list(:user, 1, :with_avatar, role: :lead, osbb_id: osbb.id)
   FactoryBot.create_list(:user, 2, :with_avatar, role: :simple)
-  FactoryBot.create_list(:user, 2, :with_avatar, role: :members, osbb_id: osbb.id)
+  FactoryBot.create_list(:user, 2, :with_avatar, role: :member, osbb_id: osbb.id)
 end
 
 User.all.each do |user|

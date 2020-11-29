@@ -16,6 +16,6 @@ class UserPolicy < AdminPolicy
   end
 
   def myosbb?
-    %w[lead members].include?(@current_user.role)
+    %w[lead member].include?(@current_user.role)
   end
 end
