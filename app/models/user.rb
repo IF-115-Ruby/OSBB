@@ -35,7 +35,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :rememberable, :validatable, :recoverable
+         :rememberable, :validatable, :recoverable, :omniauthable, omniauth_providers: %i[facebook]
 
   mount_uploader :avatar, AvatarUploader
   paginates_per 9
@@ -51,6 +51,21 @@ class User < ApplicationRecord
       'member' => User.member.limit(4),
       'simple' => User.simple.limit(5)
     }
+  end
+
+  def self.from_omniauth(auth) # rubocop:disable Metrics/MethodLength
+    name_split = auth.info.name.split(" ")
+    user = User.find_by(email: auth.info.email)
+    user ||= User.create(
+      provider: auth.provider,
+      uid: auth.uid,
+      last_name: name_split[1],
+      first_name: name_split[0],
+      email: auth.info.email,
+      password: Devise.friendly_token[0, 20],
+      role: :simple
+    )
+    user
   end
 
   def companies_for_output
@@ -88,11 +103,13 @@ end
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
 #  mobile                 :string
+#  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer
 #  sex                    :integer
+#  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  osbb_id                :bigint

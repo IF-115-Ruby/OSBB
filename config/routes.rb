@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
-  filter :locale
-  devise_for :users, controllers: { registrations: 'user/registrations' }
+  filter :locale, exclude: %r{^/users/auth}
+  devise_for :users, controllers: { registrations: 'user/registrations', omniauth_callbacks: 'user/omniauth_callbacks' }
   mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web => '/sidekiq'
 
