@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe UserMailer, type: :mailer do
   describe "notify" do
-    let!(:user) { create(:user, role: :members) }
+    let!(:user) { create(:user, role: :member) }
     let!(:lead) { create(:user, role: :lead) }
     let!(:mail) { described_class.send_assign_notification(lead, user) }
 

@@ -1,5 +1,6 @@
 .form-component {
-  max-width: 650px;
+  max-width: 750px;
+  border: 1px solid black;
   display: block;
   margin: auto;
   padding: 20px;
@@ -13,6 +14,10 @@
         width: 180px;
       }
     }
+  }
+
+  button {
+    width: 180px
   }
 }
 

@@ -23,6 +23,41 @@
   float: right;
 }
 
+.show-user-btn {
+  display: inline-block;
+  border:none;
+  width: 100px !important;
+  height: 80px;
+  text-align: center;
+  text-decoration: none;
+  img {
+    width: 70%;
+    height: 70%;
+  }
+}
+
+.right-btn {
+  position:absolute; top:0; right:0;
+  border-bottom: $border-red;
+  border-left: $border-red;
+  border-radius: 0 15px 0 0;
+  background-color: $light-steel-red;
+  &:hover {
+    background-color: $light-steel-red-hover;
+  }
+}
+
+.left-btn {
+  position:absolute; top:0; left:0;
+  border-bottom: $border-blue;
+  border-right: $border-blue;
+  border-radius: 15px 0 0 0;
+  background-color: $light-steel-darker;
+  &:hover {
+    background-color: $light-steel-darker-hover;
+  }
+}
+
 .use-avatar {
   width: 500px;
   margin: 30px auto;
@@ -57,31 +92,34 @@ a.btn.btn-outline-danger {
   display: flex;
 }
 
-.user-avatar-show,
 .user-info {
   flex-direction: column;
+  min-width: 90%;
 }
 
 .user-item {
   margin: 5px 0 5px 10px;
 }
 
+.user-item-hr{
+  border-top: 1px solid black;
+  width: 99%;
+  margin: 0;
+}
+
 .naming-user {
-  width: 170px;
+  width: 50%;
   font-size: 20px;
   display: inline-flex;
 }
 
 span.insert-user {
   font-size: 17px;
+  white-space: nowrap;
 }
 
 .nav-item-user a {
   margin-left: 10px;
-}
-
-.user-avatar-show {
-  margin-right: 50px;
 }
 
 .navbar-user {
@@ -141,6 +179,7 @@ span.insert-user {
 }
 
 .user-avatar, .user-avatar-default {
+  border: 1px solid black;
   border-radius: 50%;
 }
 

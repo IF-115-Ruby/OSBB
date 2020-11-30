@@ -58,7 +58,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_search_params
-    sign_up_params.merge({ role: User::MEMBERS })
+    sign_up_params.merge({ role: User::MEMBER })
   end
 
   def simple_user_role
