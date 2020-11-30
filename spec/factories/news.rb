@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :news do
     title { Faker::TvShows::Buffy.character }
     short_description { Faker::TvShows::Buffy.quote }
-    long_description { "<p>CKEditor text filed</p>" }
+    long_description { Faker::Lorem.paragraph_by_chars }
     is_visible { true }
     is_private { false }
     user
