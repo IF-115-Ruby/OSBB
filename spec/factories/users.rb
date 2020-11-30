@@ -27,11 +27,13 @@ end
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
 #  mobile                 :string
+#  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer
 #  sex                    :integer
+#  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  osbb_id                :bigint
