@@ -48,7 +48,7 @@ describe Account::Admin::OsbbsController do
     expect(page).to have_css('span.error', text: 'format is not valid')
   end
 
-  it 'successful updating osbb', js: true do
+  xit 'successful updating osbb', js: true do
     visit account_admin_osbb_path(osbb)
     find('#edit').click
     fill_in 'Name', with: 'Updeted test'
@@ -68,7 +68,7 @@ describe Account::Admin::OsbbsController do
     expect(page).to have_css('span', text: 'www.example.org')
   end
 
-  it 'unsuccessful updating osbb', js: true do
+  xit 'unsuccessful updating osbb', js: true do
     visit account_admin_osbb_path(osbb)
     find('#edit').click
     fill_in 'Name', with: '  '
@@ -85,7 +85,7 @@ describe Account::Admin::OsbbsController do
     expect(page).to have_css('span.error', text: 'format is not valid')
   end
 
-  it 'successful deleting osbb', js: true do
+  xit 'successful deleting osbb', js: true do
     visit account_admin_osbb_path(osbb)
     accept_confirm do
       find('#delete').click
