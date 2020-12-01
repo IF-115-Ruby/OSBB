@@ -16,7 +16,7 @@ class CreateNews extends React.Component {
     formData.append('short_description',values.short_description);
     formData.append('long_description',long_description);
     formData.append('is_visible',values.is_visible);
-    formData.append('image',image);
+    if (image) formData.append('image',image) ;
     const url = "/api/v1/news";
 
     const token = document.querySelector('meta[name="csrf-token"]').content;
