@@ -7,36 +7,25 @@ import NewsForm from '../NewsForm';
 class CreateNews extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      long_description: "",
-      
-    };
     this.onSubmit = this.onSubmit.bind(this);
-    this.onChangeCKeditor = this.onChangeCKeditor.bind(this);
   }
 
-  onChangeCKeditor(evt){
-    let newContent = evt.editor.getData();
-    this.setState({ long_description: newContent })
-  }
-
-  goBack() {
-    window.location.href = '../admin/users/'
-  };
-
-  onSubmit(values, long_description) {
-    values.long_description=long_description
-
+  onSubmit(values, long_description, image) {
+    const formData = new FormData();
+    formData.append('title',values.title);
+    formData.append('short_description',values.short_description);
+    formData.append('long_description',long_description);
+    formData.append('is_visible',values.is_visible);
+    formData.append('image',image);
     const url = "/api/v1/news";
 
     const token = document.querySelector('meta[name="csrf-token"]').content;
     fetch(url, {
       method: "POST",
       headers: {
-        "X-CSRF-Token": token,
-        "Content-Type": "application/json"
+        "X-CSRF-Token": token
       },
-      body: JSON.stringify(values)
+      body: formData
     })
       .then(response => {
         if (response.ok) {
@@ -50,52 +39,14 @@ class CreateNews extends React.Component {
 
    render() {
    return (
-<div className="container">
-        <div className="row mb-5">
-          <div className="col-lg-12 text-center">
-            <h1 className="mt-5">Add Post</h1>
-          </div>
+    <div className="container">
+      <div className="row mb-5">
+        <div className="col-lg-12 text-center">
+          <h1 className="mt-5">Add Post</h1>
         </div>
-        <NewsForm onSubmit = {this.onSubmit} post = {{title: "", short_description: "", long_description: "", is_visible: "",news_image: null}}/>
-          </div>
-/* <div className="container">
-<h1 className="display-3">Add News</h1>
-<div className="news-form">
-      <form onSubmit={this.onSubmit}>
-      <div className="form-group">
-      <div className="form-control mb-2">
-        <label>Title</label>
-        <input onChange={this.onChange} type="text" name="title"/>
-      </div> 
-      </div>
-      <br/>
-      <div className="form-group">
-      <div className="form-control mb-2">
-        <label>Short description</label>
-        <input onChange={this.onChange} type="text" name="short_description"/>
-      </div> 
-      </div>
-      <br/>
-      <div className="form-group">
-      <div className="form-control mb-2">
-        <label>Long description</label>
-        <input onChange={this.onChange} type="text" name="long_description"/>
-      </div> 
-      </div>
-      <br/>
-      <div>
-      <div className="form-group">
-        <button className="btn-primary btn" type="submit" >
-          Submit
-        </button>
-        <button className="btn-primary btn" type="button" >
-          Clear Values
-        </button>
         </div>
-      </div>
-    </form>
+      <NewsForm onSubmit = {this.onSubmit} post = {{title: "", short_description: "", long_description: "", is_visible: "",news_image: null}}/>
     </div>
-    </div> */
     )
   }
 }

@@ -1,22 +1,23 @@
 class Api::V1::NewsController < Api::ApiController
   before_action :set_news_by_role
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[show update destroy]
   def index
+    authorize :news
     @news = current_user.osbb.news.page params[:page]
   end
 
   def show; end
 
-  def edit; end
-
   def update
-      if @post
-        @post.update(post_params)
-        render json: @post
-      end
+    authorize :news
+    if @post
+      @post.update(post_params)
+      render json: @post
+    end
   end
 
   def create
+    authorize :news
     @post = current_user.news.build(post_params)
     @post.osbb_id = current_user.osbb_id
     if @post.save
@@ -33,7 +34,7 @@ class Api::V1::NewsController < Api::ApiController
   private
 
   def post_params
-    params.require(:news).permit(:title, :short_description, :long_description, :image, :is_visible)
+    params.permit(:id, :title, :short_description, :long_description, :image, :is_visible)
   end
 
   def set_news_by_role

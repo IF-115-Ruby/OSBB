@@ -31,8 +31,8 @@ class NewsItem extends React.Component {
           <a href={`/account/news/${this.props.attributes.id}`}>{this.props.attributes.title}</a>
         </h1>
         <p>{this.props.attributes.short_description}</p>
-        <button rel="Delete" onClick={this.handleDelete} className = "btn btn-primary">Delete</button>
-        <a rel="New post" href={`../account/news/${this.props.attributes.id}/edit`} className = "btn btn-primary">Edit</a>
+        <button onClick={this.handleDelete} className = "btn btn-warning" id = "button-width-120">Delete</button>
+        <a rel="New post" href={`../account/news/${this.props.attributes.id}/edit`} className = "btn btn-danger float-right" id = "button-width-120">Edit</a>
       </div>
     );
   }
