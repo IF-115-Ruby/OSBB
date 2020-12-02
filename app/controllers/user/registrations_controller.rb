@@ -30,6 +30,7 @@ class User::RegistrationsController < Devise::RegistrationsController
       inactive_resource
     end
     send_mails
+    SignUpEmailSenderWorker.perform_async(resource.id)
   end
 
   def active_resource

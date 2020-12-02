@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   end
 
   namespace :account do
+    resources :neighbors, only: :index do
+      get 'search', on: :collection
+    end
     resources :users, only: %i[show edit update]
     resource :user, only: [] do
       member do
@@ -74,6 +77,9 @@ Rails.application.routes.draw do
       get 'balance', to: 'my_osbb#balance'
       resources :users, only: :show
       resources :news, only: %i[index show]
+      resources :neighbors, only: %i[index update] do
+        get 'search', on: :collection
+      end
     end
   end
 end
