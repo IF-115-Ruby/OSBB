@@ -1,6 +1,6 @@
 class Api::V1::NewsController < Api::ApiController
   before_action :set_news_by_role
-  before_action :set_post, only: %i[show update destroy]
+  before_action :set_post, only: %i[show update]
   def index
     authorize :news
     @news = current_user.osbb.news.page params[:page]
@@ -9,7 +9,6 @@ class Api::V1::NewsController < Api::ApiController
   def show; end
 
   def update
-    authorize :news
     if @post
       @post.update(post_params)
       render json: @post
