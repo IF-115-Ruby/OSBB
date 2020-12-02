@@ -62,7 +62,7 @@ class News extends React.Component {
 
     function AddButton() {
       return [
-        <a rel="New post" href="news/new" className = "btn btn-primary">Add News</a>
+        <a rel="New post" href="../../account/news/new" className = "btn btn-primary">Add News</a>
       ]
     }
   }
