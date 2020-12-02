@@ -80,6 +80,9 @@ Rails.application.routes.draw do
       resources :neighbors, only: %i[index update] do
         get 'search', on: :collection
       end
+      namespace :admin do
+        resources :osbbs, only: :show
+      end
     end
   end
 end

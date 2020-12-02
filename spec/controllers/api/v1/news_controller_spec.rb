@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::NewsController, type: :controller do
   let!(:osbb) { create(:osbb) }
-  let!(:user) { create(:user, osbb: osbb) }
+  let!(:user) { create(:user, role: :lead, osbb: osbb) }
   let!(:news) { create(:news) }
 
   before { sign_in user }

@@ -19,17 +19,6 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
     end
   end
 
-  describe 'GET#show' do
-    before do
-      get :show, params: { id: osbb.id }
-    end
-
-    it 'returns success and assigns osbb' do
-      expect(response).to have_http_status(:success)
-      expect(assigns(:osbb)).to eq(osbb)
-    end
-  end
-
   describe 'GET#new' do
     before { get :new }
 

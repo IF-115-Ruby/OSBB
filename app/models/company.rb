@@ -31,8 +31,7 @@ class Company < ApplicationRecord
 
   enum company_type: COMPANY_TYPES
 
-  has_one :account, dependent: :destroy
-
+  has_one :account, as: :accountable, dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
   has_many :billing_contracts, dependent: :destroy
   has_many :users, through: :billing_contracts
