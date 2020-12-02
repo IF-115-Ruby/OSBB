@@ -1,6 +1,8 @@
 class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def facebook
-    callback_for(:facebook)
+  %w[facebook google_oauth2].each do |adapter|
+    define_method(adapter) do
+      callback_for(adapter)
+    end
   end
 
   def callback_for(provider) # rubocop:disable Metrics/AbcSize

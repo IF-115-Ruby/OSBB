@@ -271,6 +271,10 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (8.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-google-oauth2 (0.8.0)
+      jwt (>= 2.0)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
@@ -573,6 +577,7 @@ DEPENDENCIES
   meta-tags (~> 2.13.0)
   mini_magick
   omniauth-facebook
+  omniauth-google-oauth2
   pg (>= 0.18, < 2.0)
   premailer-rails
   pretender (~> 0.3.4)
