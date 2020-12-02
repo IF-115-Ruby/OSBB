@@ -9,6 +9,11 @@ class User < ApplicationRecord
   ROLES = [ADMIN, LEAD, MEMBER, SIMPLE].freeze
   SEX_TYPES = %w[male female no_sex].freeze
 
+  SOCIALS = {
+    facebook: 'Facebook',
+    google_oauth2: 'Google'
+  }.freeze
+
   enum role: ROLES
   enum sex: SEX_TYPES
 
