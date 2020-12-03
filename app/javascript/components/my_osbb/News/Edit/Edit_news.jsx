@@ -11,10 +11,10 @@ class EditNews extends React.Component {
 
   onSubmit(values, long_description, image) {
     const formData = new FormData();
-    for ( var key in values ) {
-      formData.append(key, values[key]);
-    }
-    formData.append('long_description',long_description)
+    formData.append('title',values.title);
+    formData.append('short_description',values.short_description);
+    formData.append('long_description',long_description);
+    formData.append('is_visible',values.is_visible);
     if (image) formData.append('image',image) ;
     const url = `/api/v1/news/${this.props.post.id}`;
 
