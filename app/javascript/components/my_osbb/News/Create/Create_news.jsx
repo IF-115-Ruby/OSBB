@@ -12,10 +12,10 @@ class CreateNews extends React.Component {
 
   onSubmit(values, long_description, image) {
     const formData = new FormData();
-    formData.append('title',values.title);
-    formData.append('short_description',values.short_description);
-    formData.append('long_description',long_description);
-    formData.append('is_visible',values.is_visible);
+    for ( var key in values ) {
+      formData.append(key, values[key]);
+    }
+    formData.append('long_description',long_description)
     if (image) formData.append('image',image) ;
     const url = "/api/v1/news";
 
@@ -45,7 +45,7 @@ class CreateNews extends React.Component {
           <h1 className="mt-5">Add Post</h1>
         </div>
         </div>
-      <NewsForm onSubmit = {this.onSubmit} post = {{title: "", short_description: "", long_description: "", is_visible: "",news_image: null}}/>
+      <NewsForm onSubmit = {this.onSubmit} post = {{title: "", short_description: "", long_description: "", is_visible: ""}}/>
     </div>
     )
   }
