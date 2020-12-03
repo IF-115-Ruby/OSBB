@@ -47,6 +47,7 @@ class News extends React.Component {
 
     return (
       <div className={styles.itemsContainer}>
+        <AddButton/>
         {news}
         <div className={styles.pagination}>
           <Pagination
@@ -58,7 +59,15 @@ class News extends React.Component {
         </div>
       </div>
     )
+
+    function AddButton() {
+      return [
+        <a rel="New post" href="../../account/news/new" className = "btn btn-primary">Add News</a>
+      ]
+    }
   }
+
+  
 }
 
 export default News
