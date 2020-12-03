@@ -9,6 +9,11 @@ class User < ApplicationRecord
   ROLES = [ADMIN, LEAD, MEMBER, SIMPLE].freeze
   SEX_TYPES = %w[male female no_sex].freeze
 
+  SOCIALS = {
+    facebook: 'Facebook',
+    google_oauth2: 'Google'
+  }.freeze
+
   enum role: ROLES
   enum sex: SEX_TYPES
 
@@ -40,7 +45,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :rememberable, :validatable, :recoverable, :omniauthable, omniauth_providers: %i[facebook]
+         :rememberable, :validatable, :recoverable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   mount_uploader :avatar, AvatarUploader
   paginates_per 9

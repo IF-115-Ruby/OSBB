@@ -35,6 +35,10 @@
                     i.fab.fa-facebook-f
                     span.p-3
                       | Continue with Facebook
+                = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-danger w-50 mt-3'
+                    i.fab.fa-google
+                    span.p-3
+                      |  Continue with Google
               = link_to t('devise.shared.forgot_password_link'), new_password_path(resource_name),
                 class: 'row justify-content-center mt-2'
             hr
