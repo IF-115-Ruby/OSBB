@@ -13,6 +13,11 @@
   margin: auto;
 }
 
+.index-user-img {
+  text-indent: 1.7em;
+  text-align: justify;
+}
+
 .form-group.user-birth {
   margin-top: 20px;
   margin-right: 10px;
@@ -173,6 +178,10 @@ span.insert-user {
 }
 
 .user-avatar, .user-avatar-default {
+  border-radius: 50%;
+}
+
+.user-show-img-border {
   border: 1px solid black;
   border-radius: 50%;
 }
