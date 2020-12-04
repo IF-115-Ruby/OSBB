@@ -1,0 +1,11 @@
+div.mailer-first-content
+  h1.message-title.centered-paragraph Greetings #{@lead.full_name}!
+  hr.hr-line
+  p.basic-p
+    p.paragraph User #{link_to @user.full_name, account_user_url(@user)} joined your #{@lead.osbb_name} OSBB.
+
+    p.paragraph Visit your cabinet to check it. And contact with your new OSBB's member.
+    p.centered-paragraph
+      = link_to account_utility_providers_url, class: 'link-btn'
+        | OSBB Lead cabinet
+    p.paragraph.last-paragraph.centered-paragraph Good luck! And have a nice day!

@@ -7,21 +7,18 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
     @osbbs = Osbb.page(params[:page]).per(9)
   end
 
-  def show
-    authorize @osbb
-  end
+  def show; end
 
   def new
     authorize :osbb
     @osbb = Osbb.new
   end
 
-  def create
-    authorize :osbb
-    @osbb = Osbb.new(osbb_params)
+  def create # rubocop:disable Metrics/AbcSize
+    @osbb = authorize Osbb.new(osbb_params)
     if @osbb.save
-      successful_update("Osbb profile '#{@osbb.name}'
-                        - created with id:#{@osbb.id}")
+      successful_update("Osbb profile '#{@osbb.name}' - created with id:#{@osbb.id}")
+      current_user.update(osbb_id: @osbb.id, role: :lead) unless current_user.admin?
       redirect_to [:account, :admin, @osbb]
     else
       flash.now[:warning] = 'Invalid OSBB parameters'

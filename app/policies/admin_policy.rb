@@ -9,7 +9,7 @@ class AdminPolicy
   end
 
   def start_impersonate?
-    user_admin
+    user_admin?
   end
 
   def stop_impersonating?
@@ -18,7 +18,23 @@ class AdminPolicy
 
   private
 
-  def user_admin
+  def user_admin?
     @current_user.admin?
+  end
+
+  def user_admin_or_lead?
+    %w[admin lead].include?(current_user.role)
+  end
+
+  def user_admin_or_member?
+    user_admin_or_lead? || current_user.member?
+  end
+
+  def user_simple?
+    @current_user.simple?
+  end
+
+  def user_simple_or_admin?
+    user_simple? || user_admin?
   end
 end

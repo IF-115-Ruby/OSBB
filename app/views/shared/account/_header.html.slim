@@ -22,21 +22,28 @@ nav.navbar.navbar-expand-lg.navbar-dark.navbar-header
             = link_to url_for(locale: :ua),
                                class: 'dropdown-item btn-transparent auth-btn'
               = t('header.btn_ukr')
-      li
-        = link_to account_admin_osbbs_path
-          span
-            button.btn.btn-transparent.auth-btn.ml-2
-              = t('.btn-osbbs')
-      li
-        = link_to account_admin_users_path
-          span
-            button.btn.btn-transparent.auth-btn.ml-2
-              = t('.btn-users')
-      li
-        = link_to account_admin_companies_path
-          span
-            button.btn.btn-transparent.auth-btn.ml-2
-              = t('.btn-companies')
+      - if current_user.osbb.present?  
+        li
+          = link_to account_myosbb_path
+           span
+              button.btn.btn-transparent.auth-btn.ml-2
+                = 'My OSBB'
+      - if current_user.admin?
+        li
+          = link_to account_admin_osbbs_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2
+                = t('.btn-osbbs')
+        li
+          = link_to account_admin_users_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2
+                = t('.btn-users')
+        li
+          = link_to account_admin_companies_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2
+                = t('.btn-companies')
       li
         = link_to account_utility_providers_path
           span

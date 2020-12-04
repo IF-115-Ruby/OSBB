@@ -1,22 +1,32 @@
-$(window).on("load",function(){
+$(window).on("load", function () {
+  someFunction('#newOsbb', ['#OsbbName', '#OsbbPhone', '#OsbbEmail', '#OsbbWeb']);
+  someFunction('#searchOsbb', ['#OsbbSearch']);
+});
+
+function someFunction(checkboxId, checkboxArrayId) {
   let test = localStorage.input === 'true';
-  $('#newOsbb').prop('checked', test || false);
+  $(checkboxId).prop('checked', test || false);
   flagIsChecked();
-});
-$(document).on('change','#newOsbb', function() {
-  localStorage.input = $(this).is(':checked');
-  flagIsChecked();
-});
-$(document).on("click", "[type='checkbox']", function(e) {
-  if (this.checked) {
-    $(this).attr("value", "true");
-  } else {
-    $(this).attr("value","false");}
+  $(document).on('change', checkboxId, function () {
+    localStorage.input = $(this).is(':checked');
+    flagIsChecked();
   });
-function flagIsChecked() {
-  if($('#newOsbb').prop('checked')) {
-    $('#OsbbName, #OsbbPhone, #OsbbEmail, #OsbbWeb').addClass('d-flex')
-  } else {
-    $('#OsbbName, #OsbbPhone, #OsbbEmail, #OsbbWeb').removeClass('d-flex')
+  $(document).on("click", "[type='checkbox']", function (e) {
+    if (this.checked) {
+      $(this).attr("value", "true");
+    } else {
+      $(this).attr("value", "false");
+    }
+  });
+  function flagIsChecked() {
+    if ($(checkboxId).prop('checked')) {
+      checkboxArrayId.map(item => {
+        $(item).addClass('d-flex')
+      })
+    } else {
+      checkboxArrayId.map(item => {
+        $(item).removeClass('d-flex')
+      })
+    }
   }
 }

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
-  filter :locale
-  devise_for :users, controllers: { registrations: 'user/registrations' }
+  filter :locale, exclude: %r{^/users/auth}
+  devise_for :users, controllers: { registrations: 'user/registrations', omniauth_callbacks: 'user/omniauth_callbacks' }
   mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web => '/sidekiq'
 
@@ -11,8 +11,21 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unacceptable'
   get '/500', to: 'errors#server_error'
 
+  resources :search_osbbs, defaults: { format: 'json' } do
+    get 'search', on: :collection
+  end
+
   namespace :account do
+    resources :neighbors, only: :index do
+      get 'search', on: :collection
+    end
     resources :users, only: %i[show edit update]
+    resource :user, only: [] do
+      member do
+        put 'assign_osbb'
+        get 'new_assign_osbb'
+      end
+    end
     resources :companies do
       resources :utility_providers, only: %i[new update]
     end
@@ -22,6 +35,10 @@ Rails.application.routes.draw do
       put 'disassociate', on: :member
       resources :meter_readings, only: %i[index new create]
       resources :payments, only: %i[index show]
+    end
+    get 'myosbb', to: 'users#myosbb'
+    resources :osbbs, defaults: { format: 'json' } do
+      get 'search', on: :collection
     end
     namespace :admin do
       resources :osbbs
@@ -52,5 +69,20 @@ Rails.application.routes.draw do
       get 'stop_impersonating', to: 'admin#stop_impersonating', as: 'stop_impersonate'
     end
   end
+
   telegram_webhook TelegramWebhooksController
+
+  namespace :api do
+    namespace :v1, format: 'json' do
+      get 'balance', to: 'my_osbb#balance'
+      resources :users, only: :show
+      resources :news
+      resources :neighbors, only: %i[index update] do
+        get 'search', on: :collection
+      end
+      namespace :admin do
+        resources :osbbs, only: :show
+      end
+    end
+  end
 end

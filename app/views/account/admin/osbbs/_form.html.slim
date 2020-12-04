@@ -22,7 +22,7 @@
     = f.input :is_available, label: t('.label-is_available'),
                              as: :radio_buttons,
                              input_html: { class: 'form-check-input' }
-  .form-group
+  .form-group.osbb-new-btn
     = f.submit yield(:button_text), class: 'btn btn-primary'
     = link_to  yield(:cancel_btn_text),
                           yield(:path),

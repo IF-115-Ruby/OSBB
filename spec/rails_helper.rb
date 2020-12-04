@@ -13,7 +13,6 @@ require 'support/controller_macros'
 require 'pundit/rspec'
 require 'telegram/bot/rspec/integration/rails'
 require 'fileutils'
-require 'pundit/rspec'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -41,6 +40,11 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  # Clean up uploaded files for rspec
+  config.after do
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads/test"])
+  end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -96,3 +100,5 @@ end
 RSpec::Sidekiq.configure do |config|
   config.warn_when_jobs_not_processed_by_sidekiq = false
 end
+
+OmniAuth.config.test_mode = true

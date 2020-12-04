@@ -22,6 +22,12 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#handle_avatar' do
+    it 'returns default avatar if user cannot upload image' do
+      expect(user.handle_avatar).to eq('/default_a.png')
+    end
+  end
+
   describe "#downcase_email" do
     it "downcases an email before saving" do
       user.email = "EXAMPLE@gmail.com"
@@ -92,6 +98,10 @@ RSpec.describe User, type: :model do
     context 'when have_one' do
       it 'address' do is_expected.to have_one(:address) end
     end
+
+    context 'when have_many' do
+      it 'neighbors' do is_expected.to have_many(:neighbors) end
+    end
   end
 
   describe '.grouped_collection_by_role' do
@@ -103,11 +113,11 @@ RSpec.describe User, type: :model do
       expect(subject.keys).to eq User::ROLES
       expect(subject['admin']).to match(described_class.admin.limit(2))
       expect(subject['lead']).to match(described_class.lead.limit(3))
-      expect(subject['members']).to match(described_class.members.limit(4))
+      expect(subject['member']).to match(described_class.member.limit(4))
       expect(subject['simple']).to match(described_class.simple.limit(5))
     end
 
-    it { is_expected.to include('admin', 'lead', 'members', 'simple') }
+    it { is_expected.to include('admin', 'lead', 'member', 'simple') }
   end
 
   describe 'neseted attributes' do
@@ -169,6 +179,7 @@ end
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  approved               :boolean          default(FALSE)
 #  avatar                 :string
 #  birthday               :date
 #  email                  :string(254)      not null
@@ -176,11 +187,13 @@ end
 #  first_name             :string(50)       not null
 #  last_name              :string(50)       not null
 #  mobile                 :string
+#  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer
 #  sex                    :integer
+#  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  osbb_id                :bigint

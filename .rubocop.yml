@@ -38,7 +38,7 @@ RSpec/MultipleExpectations:
   Max: 9
 
 RSpec/ExampleLength:
-  Max: 17
+  Max: 18
 
 RSpec/FilePath:
   Enabled: false
@@ -56,7 +56,7 @@ RSpec/NamedSubject:
     - 'spec/**/*'
 
 RSpec/MultipleMemoizedHelpers:
-  Max: 8
+  Max: 10
 
 Lint/AmbiguousBlockAssociation:
   Exclude:

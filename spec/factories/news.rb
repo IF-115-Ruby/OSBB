@@ -2,12 +2,15 @@ FactoryBot.define do
   factory :news do
     title { Faker::TvShows::Buffy.character }
     short_description { Faker::TvShows::Buffy.quote }
-    long_description { "<p>CKEditor text filed</p>" }
+    long_description { Faker::Lorem.paragraph_by_chars }
     is_visible { true }
     is_private { false }
-    image { File.open("#{Rails.root}/app/assets/images/if-mailer.png") }
     user
     osbb
+
+    trait :with_image do
+      image { File.open("#{Rails.root}/app/assets/images/if-mailer.png") }
+    end
   end
 end
 

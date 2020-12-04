@@ -10,21 +10,18 @@ end
 #
 # Table name: accounts
 #
-#  id         :bigint           not null, primary key
-#  edrpou     :string
-#  iban       :string
-#  purpose    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  company_id :bigint
+#  id               :bigint           not null, primary key
+#  accountable_type :string
+#  edrpou           :string
+#  iban             :string
+#  purpose          :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  accountable_id   :bigint
 #
 # Indexes
 #
-#  index_accounts_on_company_id  (company_id)
-#  index_accounts_on_edrpou      (edrpou) UNIQUE
-#  index_accounts_on_iban        (iban) UNIQUE
-#
-# Foreign Keys
-#
-#  fk_rails_...  (company_id => companies.id)
+#  index_accounts_on_accountable_type_and_accountable_id  (accountable_type,accountable_id)
+#  index_accounts_on_edrpou                               (edrpou) UNIQUE
+#  index_accounts_on_iban                                 (iban) UNIQUE
 #

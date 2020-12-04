@@ -211,7 +211,7 @@ en:
           osbb-website: 'OSBB Website: '
           btn-edit: 'Edit osbb profile'
           btn-delete: 'Delete osbb'
-          btn-back: 'Back to Osbbs'
+          btn-back: 'Back'
           confirmation: 'Are you sure?'
           osbb-address: 'Address:'
         osbb:

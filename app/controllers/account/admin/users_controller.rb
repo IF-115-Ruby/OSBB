@@ -10,7 +10,6 @@ class Account::Admin::UsersController < Account::Admin::AdminController
   def destroy
     authorize @user
     @user.destroy
-    redirect_to %i[account admin users]
     flash[:danger] = 'User profile has been deleted'
   end
 

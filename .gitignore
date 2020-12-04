@@ -40,6 +40,7 @@ yarn-debug.log*
 
 # Ignore IDE files and packages
 /.history
+/.vscode
 
 # Ignore gems packages and files
 /coverage

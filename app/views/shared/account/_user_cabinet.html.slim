@@ -3,6 +3,8 @@
     = link_to t('.utility_providers'), account_utility_providers_path, class: 'btn tablinks'
     = link_to t('.notification_settings'), '#', class: 'btn tablinks'
     = link_to t('.personal_info_edit'), edit_account_user_path(current_user), class: 'btn tablinks'
+    - unless current_user.osbb.present?
+      = link_to 'Assign to OSBB', new_assign_osbb_account_user_path, class: 'btn tablinks'
     = link_to t('change_pass.change_pass'), edit_user_registration_path, class: 'btn tablinks'
     - unless current_user.simple?
       = link_to 'Osbb News', account_news_index_path, class: 'btn tablinks'

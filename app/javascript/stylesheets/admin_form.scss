@@ -1,5 +1,5 @@
 .form-component {
-  max-width: 650px;
+  max-width: 750px;
   display: block;
   margin: auto;
   padding: 20px;
@@ -13,6 +13,10 @@
         width: 180px;
       }
     }
+  }
+
+  button {
+    width: 180px
   }
 }
 
@@ -33,11 +37,12 @@
   .info-content {
     margin-top: 10px;
     .name {
-      width: 240px;
-      font-size: 20px;
+      width: 230px;
+      font-size: 18px;
       display: inline-flex;
     }
     .value {
+      font-size: 16px;
       width: 340px;
     }
   }
@@ -54,7 +59,7 @@
 }
 
 .btn-custom {
-  width: 180px;
+  width: 150px;
   margin-top: 10px;
 }
 

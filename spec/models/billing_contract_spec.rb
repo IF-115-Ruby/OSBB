@@ -26,6 +26,8 @@ RSpec.describe BillingContract, type: :model do
   end
 
   describe 'associations' do
+    before { create(:billing_contract) }
+
     context 'when have_many' do
       it { is_expected.to have_many(:bills) }
       it { is_expected.to have_many(:payments) }

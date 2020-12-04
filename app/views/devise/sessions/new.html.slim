@@ -26,9 +26,19 @@
                       placeholder: t('change_pass.pass'),
                       input_html: { class: 'form-control input-prop'}
             .form-actions.mt-3
-              .container.d-flex.justify-content-center
+              .container.d-flex.flex-column.align-items-center
                 = f.submit t('devise.sessions.new.tab_title'),
-                  class: 'btn btn-submit pl-5 pr-5'
+                  class: 'btn btn-submit pl-5 pr-5 w-50'
+                div.p-3
+                  | OR
+                = link_to user_facebook_omniauth_authorize_path, class: 'btn btn-primary w-50'
+                    i.fab.fa-facebook-f
+                    span.p-3
+                      | Continue with Facebook
+                = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-danger w-50 mt-3'
+                    i.fab.fa-google
+                    span.p-3
+                      |  Continue with Google
               = link_to t('devise.shared.forgot_password_link'), new_password_path(resource_name),
                 class: 'row justify-content-center mt-2'
             hr

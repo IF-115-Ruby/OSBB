@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Account::UsersController, type: :controller do
-  let!(:user) { create(:user, address: create(:address)) }
+  let!(:user) { create(:user, role: :simple, address: create(:address)) }
+  let!(:osbb) { create(:osbb, id: 13) }
+  let!(:lead) { create(:user, :lead, osbb_id: osbb.id) } # rubocop:disable RSpec/LetSetup
   let!(:valid_params) { attributes_for :user }
   let!(:invalid_params) { { first_name: ' ', last_name: ' ' } }
   let!(:address_valid_params) { attributes_for :address }
@@ -92,5 +94,22 @@ RSpec.describe Account::UsersController, type: :controller do
         end.not_to change { user.reload.last_name }
       end
     end
+  end
+
+  describe 'GET#new_assign_osbb' do
+    it 'returns success and renders new_assign_osbb template' do
+      get :new_assign_osbb, params: { id: user.id }
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:new_assign_osbb)
+    end
+  end
+
+  describe 'PUT#assign_osbb' do
+    before do
+      put :assign_osbb, params: { id: user.id, user: { osbb_id: osbb.name } }
+    end
+
+    it { is_expected.to respond_with :redirect }
+    it { is_expected.to set_flash }
   end
 end

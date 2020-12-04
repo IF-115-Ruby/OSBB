@@ -63,17 +63,26 @@
                       input_html: { class: 'form-control input-prop' }
               p.form-group
                 .row
+                  i.fas.fa-search.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                  .col-sm-10
+                    = check_box_tag 'searchOsbb', false, false, class: 'mt-2'
+              = f.simple_fields_for :osbb_attributes, resource.osbb do |s|
+                p.form-group
+                  .row#OsbbSearch.d-none.justify-content-center
+                    = render 'search_osbbs/form'
+              p.form-group
+                .row
                   i.fas.fa-building.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
                   .col-sm-10
-                    = check_box_tag 'newOsbb',false,false
+                    = check_box_tag 'newOsbb', false, false, class: 'mt-2'
               = f.simple_fields_for :osbb_attributes, resource.osbb do |o|
                 p.form-group
-                    .row#OsbbName.d-none
-                      i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
-                      .col-sm-10
-                        = o.input :name, autofocus: true, label: false,
-                          placeholder: t('account.admin.osbbs.index.osbb_name'),
-                          input_html: { class: 'form-control input-prop'}
+                  .row#OsbbName.d-none
+                    i.fas.fa-user.fa-lg.fa-fw.mt-2.control-label.col-sm-2.icon-prop
+                    .col-sm-10
+                      = o.input :name, autofocus: true, label: false,
+                        placeholder: t('account.admin.osbbs.index.osbb_name'),
+                        input_html: { class: 'form-control input-prop'}
                 p.form-group
                   .row#OsbbPhone.d-none
                     i.fas.fa-phone.fa-lg.inputfa-fw.mt-2.control-label.col-sm-2.icon-prop
@@ -95,11 +104,10 @@
                       = o.input :website, autofocus: true, label: false,
                         placeholder: t('account.admin.osbbs.index.website'),
                         input_html: { class: 'form-control input-prop' }
-              
             .form-actions.mt-3
               .container.d-flex.justify-content-center
                 = f.submit t('devise.shared.sign_up_link'),
-                  class: 'btn btn-submit pl-5 pr-5'
+                  class: 'btn btn-submit pl-5 pr-5 w-50'
             hr
             .container.pb-3
               .d-flex.justify-content-center.links.mt-2

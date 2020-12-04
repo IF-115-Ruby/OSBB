@@ -8,4 +8,14 @@ class UserMailer < ApplicationMailer
       subject: t('user_mailer.welcome_email.welcome_title')
     )
   end
+
+  def send_assign_notification(lead, user)
+    @lead = lead
+    @user = user
+
+    mail(
+      to: lead.email,
+      subject: "#{user.full_name} joined your OSBB"
+    )
+  end
 end
