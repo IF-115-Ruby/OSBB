@@ -1,10 +1,19 @@
 class Comment < ApplicationRecord
+  include ActionView::Helpers::DateHelper
+
+  default_scope { order(created_at: :desc) }
+
   belongs_to :commentable, polymorphic: true
   belongs_to :user
 
   has_many :comments, as: :commentable, dependent: :destroy
 
   validates :body, presence: true
+
+  def time_ago
+    "#{distance_of_time_in_words(Time.current, updated_at)} ago"
+  end
+
 end
 
 # == Schema Information

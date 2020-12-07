@@ -3,4 +3,4 @@
   { title: 'OSBB News', url: account_news_index_path },\
   { title: 'Show' }\
 ]
-= react_component 'my_osbb/News/ShowNews', { news_id: @post.id }
+= react_component 'my_osbb/News/ShowNews', { news_id: @post.id, current_user: {'avatar': current_user.avatar.url, 'user_id': current_user.id, 'full_name': current_user.full_name}}

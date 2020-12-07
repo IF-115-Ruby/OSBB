@@ -1,7 +1,7 @@
 import React   from 'react';
 import styles from './ShowNews.module.scss'
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
+import CommentsContainer from './Comments/CommentsContainer'
+
 
 class ShowNews extends React.Component {
   constructor(props) {
@@ -46,12 +46,8 @@ class ShowNews extends React.Component {
           <div className={styles.img_div} >
             <img src={ this.state.news.show_image } alt='Image' className = {styles.news_img}></img>
           </div>
-          <Tabs defaultActiveKey="info" id="uncontrolled-tab-example" className="mt-3">
-            <Tab eventKey="info" title="Info">
-              <div className={styles.text_news} dangerouslySetInnerHTML={this.longDescription()}></div>
-            </Tab>
-            <Tab eventKey="comments" title="Comments" disabled>{/* This space for comments!*/}</Tab>
-          </Tabs>
+          <div className={styles.text_news} dangerouslySetInnerHTML={this.longDescription()}></div>
+          <CommentsContainer news_id={this.props.news_id} current_user={this.props.current_user}/>
         </div>
       </div>
     )

@@ -17,7 +17,7 @@ class MyUtilityProviders extends React.Component {
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ balance: data }) });
   }
-  
+
   render () {
     return (
       <div className={styles.items}>
