@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unacceptable'
   get '/500', to: 'errors#server_error'
 
-  resources :search_osbbs, defaults: { format: 'json' } do
+  resources :search_osbbs, only: [], defaults: { format: 'json' } do
     get 'search', on: :collection
   end
 
@@ -37,9 +37,6 @@ Rails.application.routes.draw do
       resources :payments, only: %i[index show]
     end
     get 'myosbb', to: 'users#myosbb'
-    resources :osbbs, defaults: { format: 'json' } do
-      get 'search', on: :collection
-    end
     namespace :admin do
       resources :osbbs
       resources :companies do

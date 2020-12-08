@@ -18,9 +18,9 @@
     = f.input :website, label: t('.label-website'),
                         placeholder: t('.plch-website'),
                         input_html: { class: 'form-control' }
-  .form-group
+  .form-group.ml-4.mt-3.mb-3
     = f.input :is_available, label: t('.label-is_available'),
-                             as: :radio_buttons,
+                             as: :boolean,
                              input_html: { class: 'form-check-input' }
   .form-group.osbb-new-btn
     = f.submit yield(:button_text), class: 'btn btn-primary'

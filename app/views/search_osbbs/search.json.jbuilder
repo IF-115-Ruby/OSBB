@@ -5,6 +5,6 @@ json.osbbs do
     json.phone osbb.phone
     json.email osbb.email
     json.website osbb.website
-    json.url search_osbbs_path(osbb)
+    json.url search_search_osbbs_path(osbb)
   end
 end
