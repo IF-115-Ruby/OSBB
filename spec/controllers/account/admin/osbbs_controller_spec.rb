@@ -19,6 +19,10 @@ RSpec.describe Account::Admin::OsbbsController, type: :controller do
     end
   end
 
+  describe 'GET#show' do
+    include_examples 'return not found exception', Osbb
+  end
+
   describe 'GET#new' do
     before { get :new }
 

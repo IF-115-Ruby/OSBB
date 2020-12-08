@@ -61,6 +61,6 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
   end
 
   def osbb
-    @osbb ||= Osbb.find_by(id: params[:id])
+    @osbb ||= Osbb.find(params[:id])
   end
 end

@@ -7,6 +7,7 @@ class News < ApplicationRecord
 
   scope :visible, -> { where(is_visible: true) }
   scope :ordered, -> { order('created_at DESC') }
+  scope :osbb_by_user, ->(user) { where(osbb_id: user.osbb_id) }
 
   mount_uploader :image, ImageUploader
   paginates_per 5
