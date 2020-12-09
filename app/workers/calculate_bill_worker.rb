@@ -20,7 +20,7 @@ class CalculateBillWorker
       billing_contract.meter_readings.ordered_by_date.first&.value
     end
   end
-
+к
   def get_bill_value(meter_reading, billing_contract)
     delta_meter_reading = get_delta_reading(meter_reading, billing_contract) if meter_reading
     bill_value = calculate_bill(delta_meter_reading, billing_contract)
@@ -32,19 +32,19 @@ class CalculateBillWorker
     last_meter_reading ? meter_reading - last_meter_reading : meter_reading
   end
 
-  def edit_value_depending_payments(value, contract)
-    suma = if contract.last_bill
-             contract.payments.created_between(contract.last_bill.date, Time.now.utc).sum(:amount) || 0
+  def edit_value_depending_payments(value, billing_contract)
+    suma = if billing_contract.last_bill
+      billing_contract.payments.created_between(billing_contract.last_bill.date, Time.now.utc).sum(:amount) || 0
            else
-             contract.payments.sum(:amount) || 0
+            billing_contract.payments.sum(:amount) || 0
            end
-    suma += contract.last_bill.amount if contract.last_bill
+    suma += billing_contract.last_bill.amount if billing_contract.last_bill
     value + suma
   end
 
-  def calculate_bill(reading, contract)
-    return -(reading * contract.company.payment_coefficient) if reading
+  def calculate_bill(meter_reading, billing_contract)
+    return -(meter_reading * billing_contract.company.payment_coefficient) if meter_reading
 
-    -(AVERAGE_METER_READING * contract.company.payment_coefficient)
+    -(AVERAGE_METER_READING * billing_contract.company.payment_coefficient)
   end
 end

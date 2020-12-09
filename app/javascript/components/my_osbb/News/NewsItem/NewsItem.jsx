@@ -11,15 +11,11 @@ class NewsItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
   
-    goBack() {
-      window.location.href = '../account/myosbb'
-    };
-  
     handleDelete() {
       const token = document.querySelector('[name=csrf-token]').content
       axios.defaults.headers.common['X-CSRF-TOKEN'] = token
-      axios.delete('../api/v1/news/' + this.props.attributes.id)
-        .then(window.location.href = `../account/myosbb`)
+      axios.delete('/account/news/' + this.props.attributes.id)
+        .then(window.location.href = `../../account/myosbb`)
         .catch((error) => {
           console.log(error.message)
         });
