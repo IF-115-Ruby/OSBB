@@ -14,7 +14,13 @@ RSpec.describe SearchOsbbsController, type: :controller do
   end
 
   describe 'GET#search' do
-    before { Osbb.reindex }
+    before do
+      Osbb.reindex
+      get :search, format: :json
+    end
+
+    it { is_expected.to respond_with :success }
+    it { is_expected.to render_template :search }
 
     it 'returns success when searchs osbb' do
       Osbb.search(osbb.name)
@@ -64,12 +70,6 @@ RSpec.describe SearchOsbbsController, type: :controller do
     it 'can not find osbb with one letter' do
       result = Osbb.search('t')
       expect(result).not_to match([osbb])
-    end
-
-    it 'returns successful when get search with params' do
-      get :search, xhr: true, params: { term: 'Test' }, format: :json
-
-      expect(response).to be_successful
     end
   end
 end

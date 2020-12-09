@@ -27,11 +27,11 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
   end
 
   def edit
-    authorize @osbb
+    authorize :osbb
   end
 
   def update
-    authorize @osbb
+    authorize :osbb
     if @osbb.update(osbb_params)
       flash[:success] = "Osbb profile \"#{@osbb.name}\"  updated"
       redirect_to [:account, :admin, @osbb]
@@ -42,7 +42,7 @@ class Account::Admin::OsbbsController < Account::Admin::AdminController
   end
 
   def destroy
-    authorize @osbb
+    authorize :osbb
     @osbb.destroy
     redirect_to account_admin_osbbs_path
     flash[:danger] = "Osbb profile \"#{@osbb.name}\" with id:#{@osbb.id} has been deleted"
