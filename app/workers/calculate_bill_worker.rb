@@ -34,9 +34,9 @@ class CalculateBillWorker
 
   def edit_value_depending_payments(value, billing_contract)
     suma = if billing_contract.last_bill
-      billing_contract.payments.created_between(billing_contract.last_bill.date, Time.now.utc).sum(:amount) || 0
+             billing_contract.payments.created_between(billing_contract.last_bill.date, Time.now.utc).sum(:amount) || 0
            else
-            billing_contract.payments.sum(:amount) || 0
+             billing_contract.payments.sum(:amount) || 0
            end
     suma += billing_contract.last_bill.amount if billing_contract.last_bill
     value + suma
