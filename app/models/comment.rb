@@ -10,10 +10,11 @@ class Comment < ApplicationRecord
 
   validates :body, presence: true
 
+  paginates_per 5
+
   def time_ago
     "#{distance_of_time_in_words(Time.current, updated_at)} ago"
   end
-
 end
 
 # == Schema Information

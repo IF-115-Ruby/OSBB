@@ -4,6 +4,7 @@ class Api::V1::CommentsController < Api::ApiController
 
   def index
     @news = News.find(params[:news_id])
+    @comments = @news.comments.page params[:page]
     render 'api/v1/news/comments/index'
   end
 
