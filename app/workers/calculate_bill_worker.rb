@@ -20,7 +20,7 @@ class CalculateBillWorker
       billing_contract.meter_readings.ordered_by_date.first&.value
     end
   end
-к
+
   def get_bill_value(meter_reading, billing_contract)
     delta_meter_reading = get_delta_reading(meter_reading, billing_contract) if meter_reading
     bill_value = calculate_bill(delta_meter_reading, billing_contract)
