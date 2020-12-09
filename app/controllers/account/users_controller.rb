@@ -20,6 +20,7 @@ class Account::UsersController < Account::AccountController
 
   def myosbb
     authorize :user
+    current_user
   end
 
   def new_assign_osbb
