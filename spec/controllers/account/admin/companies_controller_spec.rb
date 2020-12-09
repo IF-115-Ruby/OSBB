@@ -23,6 +23,8 @@ RSpec.describe Account::Admin::CompaniesController, type: :controller do
 
     it { expect(response).to have_http_status(:success) }
     it { expect(assigns(:company)).to eq(company) }
+
+    include_examples 'return not found exception', Company
   end
 
   describe 'GET#new' do

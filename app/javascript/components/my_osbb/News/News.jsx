@@ -33,7 +33,7 @@ class News extends React.Component {
     })
     fetch('/api/v1/news/?page='+pagestring)
       .then((response) => {return response.json()})
-      .then((data) => {this.setState({ 
+      .then((data) => {this.setState({
         news: data.news
        }) });
   }
@@ -67,7 +67,6 @@ class News extends React.Component {
     }
   }
 
-  
 }
 
 export default News

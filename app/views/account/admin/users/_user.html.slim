@@ -1,7 +1,7 @@
 .col-md-4.user-size-item
  .user-index-size.layout-user-content.rounded
   div
-    p
+    .index-user-img
       - if user.avatar?
         - user.avatar.recreate_versions!
         = image_tag(user.avatar.user_index.url, alt: 'Image', class: 'user-avatar')

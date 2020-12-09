@@ -72,8 +72,8 @@ class ShowUser extends Component {
            data-aos-duration="1500"
            className='form-component user-form-max-width zoom-70 position-relative'
       >
-        <div className='user-avatar-show'>
-          <img src={ show_avatar } alt='Image' className='user-avatar'/>
+        <div className='user-avatar-show mb-5'>
+          <img src={ show_avatar } alt='Image' className='user-show-img-border'/>
         </div>
         <h1 data-aos="fade-up"
             data-aos-delay="1400"
