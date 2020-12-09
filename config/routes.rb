@@ -37,6 +37,10 @@ Rails.application.routes.draw do
       resources :payments, only: %i[index show]
     end
     get 'myosbb', to: 'users#myosbb'
+    get 'ossb/:id', to: 'users#myosbb'
+    resources :osbbs, defaults: { format: 'json' } do
+      get 'search', on: :collection
+    end
     namespace :admin do
       resources :osbbs
       resources :companies do

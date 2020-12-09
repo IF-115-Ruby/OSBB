@@ -38,7 +38,6 @@ class ShowOsbb extends React.Component {
     }
 
   render () {
-    AddStyleForParent();
     return (
       <div className="component-show">
         <div>
@@ -85,14 +84,6 @@ class ShowOsbb extends React.Component {
          </div>
       </div>
     );
-  }
-}
-
-function AddStyleForParent() {
-  var el = document.getElementsByClassName("component-show")[0];
-  if (el) {
-    parent = el.parentNode;
-    parent.className = "content pt-4";
   }
 }
 
