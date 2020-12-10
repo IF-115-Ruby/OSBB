@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import EachComment from './EachComment';
-import CommentForm from './CommentForm';
-import { Icon, Pagination } from 'semantic-ui-react';
+import { CommentForm } from './forms/CommentForm';
+import { PaginationContainer } from './Pagination';
+import axios from 'axios';
 
 
 class CommentsContainer extends Component {
@@ -12,43 +13,27 @@ class CommentsContainer extends Component {
       totalPages: '',
       currentPage: '',
       parentBlock:[],
-      loading: false,
 
     };
 
     this.addToState = this.addToState.bind(this);
     this.deleteFromState = this.deleteFromState.bind(this);
     this.setPlaceHolder = this.setPlaceHolder.bind(this);
-    this.handlePage = this.handlePage.bind(this);
     this.updateStateByResponse = this.updateStateByResponse.bind(this);
-    this.initState = this.initState.bind(this);
-
+    this.changeState = this.changeState.bind(this);
   }
 
-  handlePage = (e, {activePage}) => {
-    let gotopage = { activePage }
-    let pagenum = gotopage.activePage
-    let pagestring = pagenum.toString()
-    this.setState({
-      loading:true
-    })
-    fetch('/api/v1/news/' + this.props.news_id + '/comments?page='+pagestring)
-      .then((response) => {return response.json()})
-      .then((data) => {this.initState(data)});
-  }
-
-  initState = (data) => {
-    this.setState({
-      comments: data.comments,
-      currentPage: data.pagination.page,
-      totalPages: data.pagination.pages,
+  changeState = (newState) => {
+    this.setState( {
+      comments: newState.comments,
+      currentPage: newState.pagination.page,
+      totalPages: newState.pagination.pages,
     })
   }
 
   componentDidMount(){
-    fetch('/api/v1/news/' + this.props.news_id + '/comments.json')
-      .then((response) => {return response.json()})
-      .then((data) => { this.initState(data) });
+    axios.get('/api/v1/news/' + this.props.news_id + '/comments.json')
+      .then((response) => {this.changeState(response.data)})
   };
 
   addToState = (newComment) => {
@@ -91,8 +76,8 @@ class CommentsContainer extends Component {
     return(
       <>
       <CommentForm
-        news_id={this.props.news_id}
-        updateState={this.addToState}
+        news_id={news_id}
+        addToState={this.addToState}
         current_user={this.props.current_user}
       />
       {
@@ -115,19 +100,12 @@ class CommentsContainer extends Component {
           )
         })
       }
-      <div className='mx-auto mt-4 d-flex justify-content-center'>
-        <Pagination
-          onPageChange={this.handlePage}
-          siblingRange="6"
-          defaultActivePage={currentPage}
-          totalPages={totalPages}
-          ellipsisItem={{ content: <Icon name='ellipsis horizontal' />, icon: true }}
-          firstItem={{ content: <Icon name='angle double left' />, icon: true }}
-          lastItem={{ content: <Icon name='angle double right' />, icon: true }}
-          prevItem={{ content: <Icon name='angle left' />, icon: true }}
-          nextItem={{ content: <Icon name='angle right' />, icon: true }}
-        />
-      </div>
+      <PaginationContainer
+        currentPage={currentPage}
+        totalPages={totalPages}
+        changeState={this.changeState}
+        news_id={news_id}
+      />
       </>
     )
   }

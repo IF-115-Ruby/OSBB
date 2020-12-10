@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(created_at: :desc, commentable_type: :asc) }
 
   belongs_to :commentable, polymorphic: true
   belongs_to :user

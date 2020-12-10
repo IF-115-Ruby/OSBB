@@ -1,45 +1,26 @@
-import React, { Component } from 'react';
-import { Comment, Avatar, Form, Button, Input} from 'antd';
+import React, { Component } from 'react'
+import { Comment, Form, Button, Input} from 'antd';
 import 'antd/dist/antd.css';
 import axios from 'axios';
+import { Editor } from './Editor';
 
-
-const { TextArea } = Input;
-
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
-  <>
-    <Form.Item>
-      <TextArea rows={4} onChange={onChange} value={value} />
-    </Form.Item>
-    <Form.Item>
-      <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
-        Add Comment
-      </Button>
-    </Form.Item>
-  </>
-);
-
-class CommentForm extends Component {
+class ReplyForm extends Component {
   constructor(props){
     super(props)
     this.state = {
       value: '',
       submitting: false,
+      placeHolder: '',
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.addComment = this.addComment.bind(this);
   }
 
-  addComment = (comment_id) => {
-    this.props.updateState({
-      'body': this.state.value,
-      'id': comment_id,
-      'time': 'less than a minute ago ',
-      'user_avatar': this.props.current_user.avatar,
-      'user_full_name': this.props.current_user.full_name,
-    });
+  componentDidUpdate(prev) {
+    if (prev.placeHolder !== this.props.placeHolder) {
+      this.setState({value: this.props.placeHolder})
+    }
   }
 
   handleChange = e => {
@@ -65,13 +46,13 @@ class CommentForm extends Component {
 
     axios({
       method: 'post',
-      url: '/api/v1/news/' + this.props.news_id + '/comments',
+      url: '/api/v1/comments/'+ this.props.parent + '/comments',
       data: formData,
       headers: {'Content-Type': 'multipart/form-data' }
       })
       .then((response) => {
         console.log(response);
-        this.addComment(response.data.id);
+        this.props.updateParentBlock(response.data)
       })
       .catch((response) => {
           console.log(response);
@@ -91,12 +72,6 @@ class CommentForm extends Component {
     return (
       <>
         <Comment
-          avatar={
-            <Avatar
-              src= { this.props.current_user.avatar }
-              alt= { this.props.current_user.full_name }
-            />
-          }
           content={
             <Editor
               onChange={this.handleChange}
@@ -111,4 +86,4 @@ class CommentForm extends Component {
   }
 }
 
-export default CommentForm;
+export default ReplyForm

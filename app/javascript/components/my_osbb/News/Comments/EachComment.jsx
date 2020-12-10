@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 import styles from './Comments.module.scss';
 import axios from 'axios';
-import ReplyForm from './ReplyForm';
+import ReplyForm from './forms/ReplyForm';
 
 
 const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, parent, updateParentBlock, updateParent, news_id } ) => {
@@ -109,17 +109,17 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
       }
       datetime={ time }
     >
-      {/* <ReplyForm
+     <ReplyForm
       key={id}
       id={id}
       onChange={onChange}
-      parent={parent}
+      parent={parent ? parent : id}
       setPlaceHolder={setPlaceHolder}
       updateParentBlock={updateParentBlock}
       updateParent={updateParent}
       news_id={news_id}
       placeHolder={placeHolder}
-      /> */}
+      />
       { nestedComment() }
 
     </Comment>
