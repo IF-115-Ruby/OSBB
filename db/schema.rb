@@ -148,9 +148,9 @@ ActiveRecord::Schema.define(version: 2020_11_29_150927) do
     t.integer "sex"
     t.integer "role"
     t.bigint "osbb_id"
+    t.boolean "approved", default: false
     t.string "provider"
     t.string "uid"
-    t.boolean "approved", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["osbb_id"], name: "index_users_on_osbb_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
