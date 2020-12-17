@@ -17,6 +17,7 @@ ADRESSES = [
 ].freeze
 
 FactoryBot.create_list(:user, 2, :with_avatar, role: :admin)
+FactoryBot.create_list(:user, 5, :with_avatar, role: :simple)
 
 FactoryBot.create_list(:osbb, 30)
 
@@ -25,7 +26,6 @@ Osbb.all.each do |osbb|
   FactoryBot.create(:account, accountable: osbb)
   FactoryBot.create(:address, country: address[:country], state: address[:state], city: address[:city], street: address[:street], addressable: osbb)
   FactoryBot.create_list(:user, 1, :with_avatar, role: :lead, osbb_id: osbb.id)
-  FactoryBot.create_list(:user, 2, :with_avatar, role: :simple)
   FactoryBot.create_list(:user, 2, :with_avatar, role: :member, osbb_id: osbb.id)
 end
 
@@ -57,7 +57,7 @@ User.where.not(role: 'admin').each do |user|
   end
 end
 
-User.where.not(role: 'simple').each do |user|
+User.where.not(role: ['simple', 'admin']).each do |user|
   user.update(osbb: Osbb.all.sample, approved: true)
 end
 
