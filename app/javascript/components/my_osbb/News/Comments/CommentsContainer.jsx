@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import EachComment from './EachComment';
 import { CommentForm } from './forms/CommentForm';
 import { PaginationContainer } from './Pagination';
-import axios from 'axios';
-
+import { getComments } from './requests';
 
 class CommentsContainer extends Component {
   constructor(props) {
@@ -32,8 +31,10 @@ class CommentsContainer extends Component {
   }
 
   componentDidMount(){
-    axios.get('/api/v1/news/' + this.props.news_id + '/comments.json')
-      .then((response) => {this.changeState(response.data)})
+    const news_id = this.props.news_id
+    getComments(news_id).then(this.changeState).catch((err) => {
+      console.log(err);
+    });
   };
 
   addToState = (newComment) => {

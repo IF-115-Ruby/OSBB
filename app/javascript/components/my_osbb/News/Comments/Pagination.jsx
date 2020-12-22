@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Icon, Pagination } from 'semantic-ui-react';
-import axios from 'axios';
+import { getComments } from './requests';
 
 
 export const PaginationContainer = ({ totalPages, currentPage, changeState, news_id }) => {
@@ -38,11 +38,13 @@ export const PaginationContainer = ({ totalPages, currentPage, changeState, news
     let pagenum = gotopage.activePage
     let pagestring = pagenum.toString()
 
-    axios.get('/api/v1/news/' + news_id + '/comments?page=' + pagestring)
-    .then((response) => {changeState(response.data)})
+    getComments(news_id, pagestring).then(res => {
+      changeState(res)
+    });
     changeIcon(activePage)
   }
   return(
+    totalPages < 2 ? null :
     <div className='mx-auto mt-4 d-flex justify-content-center'>
       <Pagination
         onPageChange={handlePage}

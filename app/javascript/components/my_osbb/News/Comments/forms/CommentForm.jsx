@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Comment, Avatar } from 'antd';
 import 'antd/dist/antd.css';
-import axios from 'axios';
 import { Editor } from './Editor';
+import { createComment } from '../requests';
 
 export const CommentForm = ({ current_user, news_id, addToState }) => {
   const [value, setValue] = useState('')
@@ -27,25 +27,13 @@ export const CommentForm = ({ current_user, news_id, addToState }) => {
       return;
     }
     setLoad(true);
-    let formData = new FormData();
-    formData.append('body', value);
 
-    const token = document.querySelector('[name=csrf-token]').content;
-    axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
-
-    axios({
-      method: 'post',
-      url: '/api/v1/news/' + news_id + '/comments',
-      data: formData,
-      headers: {'Content-Type': 'multipart/form-data' }
-      })
-      .then((response) => {
-        console.log(response);
-        addComment(response.data.id);
-      })
-      .catch((response) => {
-          console.log(response);
-      });
+    const url = '/api/v1/news/' + news_id + '/comments'
+    createComment(url, {'Content-Type': 'multipart/form-data' }, value).then(res => {
+      addComment(res.id)
+    }).catch((err) => {
+      console.log(err);
+    });
 
     setTimeout(() => {
       setValue('');
@@ -67,6 +55,7 @@ export const CommentForm = ({ current_user, news_id, addToState }) => {
           onSubmit={ handleSubmit }
           submitting={ load }
           value={ value }
+          focus={false}
         />
       }
     />

@@ -26,9 +26,11 @@ class Api::V1::CommentsController < Api::ApiController
 
   def destroy
     @comment.destroy
-    if params[:parent_comment]
+    if params[:parent_comment] && params[:parent_comment] != params[:id]
       @response = News.find_by(id: params[:news_id]).comments.find_by(id: params[:parent_comment])
       render 'api/v1/news/comments/update.json'
+    else
+      render json: 'done'
     end
   end
 

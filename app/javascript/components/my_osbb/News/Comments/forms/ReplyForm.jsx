@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Comment, Form, Button, Input} from 'antd';
 import 'antd/dist/antd.css';
-import axios from 'axios';
 import { Editor } from './Editor';
+import { createComment } from '../requests';
 
 class ReplyForm extends Component {
   constructor(props){
@@ -38,31 +38,20 @@ class ReplyForm extends Component {
       submitting: true,
     });
 
-    let formData = new FormData();
-    formData.append('body', this.state.value);
-
-    const token = document.querySelector('[name=csrf-token]').content;
-    axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
-
-    axios({
-      method: 'post',
-      url: '/api/v1/comments/'+ this.props.parent + '/comments',
-      data: formData,
-      headers: {'Content-Type': 'multipart/form-data' }
-      })
-      .then((response) => {
-        console.log(response);
-        this.props.updateParentBlock(response.data)
-      })
-      .catch((response) => {
-          console.log(response);
-      });
+    const url = '/api/v1/comments/'+ this.props.parent + '/comments'
+    createComment(url, {'Content-Type': 'multipart/form-data' }, this.state.value).then(res => {
+      this.props.updateParentBlock(res);
+    }).catch((err) => {
+      console.log(err);
+    });
 
     setTimeout(() => {
       this.setState({
         submitting: false,
         value: '',
       });
+      this.props.hideReply();
+      this.props.setPlaceHolder('');
     }, 1000);
   };
 
@@ -71,16 +60,17 @@ class ReplyForm extends Component {
 
     return (
       <>
-        <Comment
+        {this.props.showReply && <Comment
           content={
             <Editor
               onChange={this.handleChange}
               onSubmit={this.handleSubmit}
               submitting={submitting}
               value={value}
+              focus={true}
             />
           }
-        />
+        />}
       </>
     );
   }

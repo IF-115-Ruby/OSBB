@@ -4,10 +4,20 @@ import 'antd/dist/antd.css';
 
 const { TextArea } = Input;
 
-export const Editor = ({ onChange, onSubmit, submitting, value }) => (
+export const Editor = ({ onChange, onSubmit, submitting, value, focus }) => (
   <>
     <Form.Item>
-      <TextArea rows={4} onChange={onChange} value={value} />
+      <TextArea
+        rows={4}
+        onPressEnter={onSubmit}
+        onChange={onChange}
+        value={value}
+        allowClear={true}
+        maxLength={500}
+        showCount={true}
+        autoFocus={focus}
+        placeholder="Write your comment..."
+      />
     </Form.Item>
     <Form.Item>
       <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">

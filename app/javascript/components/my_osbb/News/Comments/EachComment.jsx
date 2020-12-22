@@ -3,9 +3,9 @@ import { Comment, Avatar, Tooltip, } from 'antd';
 import 'antd/dist/antd.css';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 import styles from './Comments.module.scss';
-import axios from 'axios';
 import ReplyForm from './forms/ReplyForm';
-
+import { formatReply } from './_commentsHelper';
+import { deleteComment } from './requests';
 
 const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, parent, updateParentBlock, updateParent, news_id } ) => {
 
@@ -13,6 +13,8 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
   const [dislikes, setDislikes] = useState(0);
   const [action, setAction] = useState(null);
   const [placeHolder, setPlaceHolder] = useState(null);
+  const [showReply, setShowReply] = useState(false);
+  const [showSubcomments, setShowSubcomments] = useState(false)
 
   const like = () => {
     setLikes(1);
@@ -26,32 +28,25 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
     setAction('disliked');
   };
 
-  const updateState = () => {
-    onChange(id)
+  const reply = () => {
+    setShowReply(!showReply);
+    setPlaceHolder(`@${name}, `);
   }
 
-  const reply = () => {
-    setPlaceHolder(`@${name}, `);
-    // updateParent(parent)
+  const hideReply = () => {
+    setShowReply(false);
+  }
+
+  const showMore = () => {
+    setShowSubcomments(!showSubcomments);
   }
 
   const handleDelete = () => {
-    const token = document.querySelector('[name=csrf-token]').content
-    axios.defaults.headers.common['X-CSRF-TOKEN'] = token
-    axios.delete('/api/v1/comments/'+ id, {
-      params: {
-        parent_comment: parent,
-        news_id: news_id,
-      }
-    })
-      .then((response) => {
-        console.log(response);
-        updateParentBlock(response.data)
-        updateState();
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    deleteComment(id, parent, news_id).then(res => {
+      (res=='done') ? onChange(id) : updateParentBlock(res)
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   const actions = [
@@ -67,13 +62,13 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
         <span className="comment-action">{dislikes}</span>
       </span>
     </Tooltip>,
-    <span key="comment-basic-reply-to" onClick={reply}>Reply to</span>,
+    <span key="comment-basic-reply-to" onClick={reply}>{ showReply ? 'Cancel' : 'Reply to' }</span>,
     <span key="comment-basic-delete" onClick={handleDelete}>Delete</span>,
   ];
 
   const nestedComment = () => {
     if (subcomments) {
-      return subcomments.map(c => (
+      return subcomments.map( (c, i) => (
         <EachComment
           key={c.id}
           id={c.id}
@@ -114,17 +109,27 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
       id={id}
       onChange={onChange}
       parent={parent ? parent : id}
-      setPlaceHolder={setPlaceHolder}
       updateParentBlock={updateParentBlock}
       updateParent={updateParent}
       news_id={news_id}
       placeHolder={placeHolder}
+      setPlaceHolder={setPlaceHolder}
+      hideReply={hideReply}
+      showReply={showReply}
       />
-      { nestedComment() }
-
+    <div className="media position-relative">
+    {
+      subcomments &&
+      <a onClick={showMore} className="stretched-link">
+        <span>{ formatReply(subcomments.length, showSubcomments) }</span>
+      </a>
+    }
+    </div>
+    { showSubcomments && nestedComment() }
     </Comment>
   </>
   )
 }
 
 export default EachComment;
+
