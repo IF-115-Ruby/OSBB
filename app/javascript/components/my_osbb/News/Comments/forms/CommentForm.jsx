@@ -32,7 +32,7 @@ export const CommentForm = ({ current_user, news_id, addToState }) => {
     createComment(url, undefined, {'Content-Type': 'multipart/form-data' }, value).then(res => {
       addComment(res.id)
     }).catch((err) => {
-      console.log(err);
+      alert(err);
     });
 
     setTimeout(() => {

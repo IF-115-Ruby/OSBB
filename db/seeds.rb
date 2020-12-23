@@ -41,9 +41,6 @@ end
 
 News.all.each do |news|
   FactoryBot.create_list(:comment, 10, commentable: news, user: User.where(osbb_id: news.osbb_id).sample)
-end
-
-News.all.each do |news|
   FactoryBot.create_list(:comment, 2, commentable: Comment.all.sample, user: User.where(osbb_id: news.osbb_id).sample)
 end
 

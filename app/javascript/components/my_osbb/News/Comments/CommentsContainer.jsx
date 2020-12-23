@@ -33,7 +33,7 @@ class CommentsContainer extends Component {
   componentDidMount(){
     const news_id = this.props.news_id
     getComments(news_id).then(this.changeState).catch((err) => {
-      console.log(err);
+      alert(err);
     });
   };
 

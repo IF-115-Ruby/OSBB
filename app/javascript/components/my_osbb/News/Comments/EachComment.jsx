@@ -45,7 +45,7 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
     deleteComment(id, parent, news_id).then(res => {
       (res=='done') ? onChange(id) : updateParentBlock(res)
     }).catch((err) => {
-      console.log(err);
+      alert(err);
     });
   }
 
