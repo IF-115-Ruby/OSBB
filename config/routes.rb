@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :neighbors, only: :index do
       get 'search', on: :collection
     end
+
     resources :users, only: %i[show edit update]
     resource :user, only: [] do
       member do
@@ -26,9 +27,11 @@ Rails.application.routes.draw do
         get 'new_assign_osbb'
       end
     end
+
     resources :companies do
       resources :utility_providers, only: %i[new update]
     end
+
     resources :news
     resources :utility_providers, only: %i[index show] do
       get 'search', on: :collection
@@ -36,11 +39,15 @@ Rails.application.routes.draw do
       resources :meter_readings, only: %i[index new create]
       resources :payments, only: %i[index show]
     end
+
     get 'myosbb', to: 'users#myosbb'
     get 'ossb/:id', to: 'users#myosbb'
+    get 'posts', to: 'users#posts'
+
     resources :osbbs, defaults: { format: 'json' } do
       get 'search', on: :collection
     end
+
     namespace :admin do
       resources :osbbs
       resources :companies do
@@ -69,6 +76,7 @@ Rails.application.routes.draw do
       get 'start_impersonate', to: 'admin#start_impersonate', as: 'start_impersonate'
       get 'stop_impersonating', to: 'admin#stop_impersonating', as: 'stop_impersonate'
     end
+    get '*path', to: 'users#myosbb', via: :all
   end
 
   telegram_webhook TelegramWebhooksController
@@ -84,6 +92,7 @@ Rails.application.routes.draw do
       namespace :admin do
         resources :osbbs, only: :show
       end
+      resources :posts, defaults: { format: 'json' }
     end
   end
 end

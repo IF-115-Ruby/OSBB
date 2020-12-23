@@ -35,7 +35,8 @@ User.all.each do |user|
 end
 
 User.lead.all.each do |lead|
-  FactoryBot.create_list(:news, 10, osbb: lead.osbb, user: lead)
+  FactoryBot.create_list(:news, 10, :with_image, osbb: lead.osbb, user: lead)
+  FactoryBot.create_list(:post, 10, :with_image, osbb: lead.osbb, user: lead)
 end
 
 FactoryBot.create_list(:company, 50)

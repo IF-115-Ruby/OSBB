@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :news, dependent: :nullify
   has_many :neighbors, ->(user) { non_self(user) },
            through: :osbb, source: :member
+  has_many :posts, dependent: :nullify
 
   delegate :name, to: :osbb, prefix: true, allow_nil: true
 
