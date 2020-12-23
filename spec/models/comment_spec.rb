@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let!(:news) { FactoryBot.build(:news) }
-  let!(:comment) { FactoryBot.build(:comment, commentable: news, user: news.user) }
+  let!(:comment) { FactoryBot.build(:comment) }
 
   context "when valid Factory" do
     it "has a valid factory" do

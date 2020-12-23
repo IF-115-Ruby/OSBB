@@ -45,7 +45,7 @@ class Api::V1::CommentsController < Api::ApiController
   end
 
   def handle_response
-    if comment.commentable_type == 'News'
+    if @comment.commentable_type == 'News'
       render json: @comment
     else
       @response = News.find(params[:id_news]).comments.find(params[:comment_id])

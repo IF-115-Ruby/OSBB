@@ -29,7 +29,7 @@ export const CommentForm = ({ current_user, news_id, addToState }) => {
     setLoad(true);
 
     const url = '/api/v1/news/' + news_id + '/comments'
-    createComment(url, {'Content-Type': 'multipart/form-data' }, value).then(res => {
+    createComment(url, undefined, {'Content-Type': 'multipart/form-data' }, value).then(res => {
       addComment(res.id)
     }).catch((err) => {
       console.log(err);

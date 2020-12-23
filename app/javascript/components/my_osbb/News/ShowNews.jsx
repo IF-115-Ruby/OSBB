@@ -47,6 +47,7 @@ class ShowNews extends React.Component {
             <img src={ this.state.news.show_image } alt='Image' className = {styles.news_img}></img>
           </div>
           <div className={styles.text_news} dangerouslySetInnerHTML={this.longDescription()}></div>
+          <hr/>
           <CommentsContainer news_id={this.props.news_id} current_user={this.props.current_user}/>
         </div>
       </div>

@@ -1,6 +1,12 @@
 FactoryBot.define do
   factory :comment do
-    body { Faker::TvShows::GameOfThrones.quote }
+    for_news
+
+    trait :for_news do
+      body { Faker::TvShows::GameOfThrones.quote }
+      association(:commentable, factory: :news)
+      user
+    end
   end
 end
 

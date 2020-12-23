@@ -5,9 +5,14 @@ export const getComments = async (news_id, pagestring = 1) => {
   return data;
 }
 
-export const createComment = async (url, params, headers, value) => {
+export const createComment = async (url, news_id, headers, value) => {
   let formData = new FormData();
   formData.append('body', value);
+
+  const params = {
+    id_news: news_id,
+  }
+
   const { data } = await httpService.post(url, params, headers, formData);
   return data;
 }

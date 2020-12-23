@@ -92,7 +92,7 @@ Rails.application.routes.draw do
     namespace :v1, format: 'json' do
       get 'balance', to: 'my_osbb#balance'
       resources :users, only: :show
-      resources :news, only: %i[index show] do
+      resources :news do
         resources :comments
       end
       resources :comments do
