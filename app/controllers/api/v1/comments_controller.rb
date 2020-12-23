@@ -16,18 +16,13 @@ class Api::V1::CommentsController < Api::ApiController
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-    if @comment.commentable_type == 'News'
-      render json: @comment
-    else
-      @response = News.find_by(id: 20).comments.find_by(id: params[:comment_id])
-      render 'api/v1/news/comments/update.json'
-    end
+    handle_response
   end
 
   def destroy
     @comment.destroy
     if params[:parent_comment] && params[:parent_comment] != params[:id]
-      @response = News.find_by(id: params[:news_id]).comments.find_by(id: params[:parent_comment])
+      @response = News.find(params[:news_id]).comments.find(params[:parent_comment])
       render 'api/v1/news/comments/update.json'
     else
       render json: 'done'
@@ -47,5 +42,14 @@ class Api::V1::CommentsController < Api::ApiController
 
   def for_delete
     @comment = Comment.find(params[:id])
+  end
+
+  def handle_response
+    if comment.commentable_type == 'News'
+      render json: @comment
+    else
+      @response = News.find(params[:id_news]).comments.find(params[:comment_id])
+      render 'api/v1/news/comments/update.json'
+    end
   end
 end
