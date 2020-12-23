@@ -39,6 +39,14 @@ User.lead.all.each do |lead|
   FactoryBot.create_list(:post, 10, :with_image, osbb: lead.osbb, user: lead)
 end
 
+News.all.each do |news|
+  FactoryBot.create_list(:comment, 10, commentable: news, user: User.where(osbb_id: news.osbb_id).sample)
+end
+
+News.all.each do |news|
+  FactoryBot.create_list(:comment, 2, commentable: Comment.all.sample, user: User.where(osbb_id: news.osbb_id).sample)
+end
+
 FactoryBot.create_list(:company, 50)
 Company.all.each do |company|
   FactoryBot.create(:account, accountable: company)

@@ -77,4 +77,4 @@ class ReplyForm extends Component {
   }
 }
 
-export default ReplyForm
+export default ReplyForm;

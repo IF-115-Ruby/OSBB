@@ -100,7 +100,7 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
         />
       }
       content={
-        <p className={styles.p}>{ comment }</p>
+        <p className={styles.textIndentForComments}>{ comment }</p>
       }
       datetime={ time }
     >
@@ -117,6 +117,7 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
       hideReply={hideReply}
       showReply={showReply}
       />
+    { showSubcomments && nestedComment() }
     <div className="media position-relative">
     {
       subcomments &&
@@ -125,11 +126,9 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
       </a>
     }
     </div>
-    { showSubcomments && nestedComment() }
     </Comment>
   </>
   )
 }
 
 export default EachComment;
-

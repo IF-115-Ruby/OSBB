@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Icon, Pagination } from 'semantic-ui-react';
 import { getComments } from './requests';
 
-
 export const PaginationContainer = ({ totalPages, currentPage, changeState, news_id }) => {
 
   const handleIcon = (style) => {
