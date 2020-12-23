@@ -21,12 +21,14 @@ class NewsItem extends React.Component {
         });
       };
   render () {
+    const { id, title, short_description } = this.props.attributes
+
     return (
       <div className={styles.lightContainer}>
         <h1 className={styles.title}>
-          <a href={`/account/news/${this.props.attributes.id}`}>{this.props.attributes.title}</a>
+          <a href={`/account/news/${id}`}>{title}</a>
         </h1>
-        <p>{this.props.attributes.short_description}</p>
+        <p>{short_description}</p>
         <button onClick={this.handleDelete} className = "btn btn-warning" id = "button-width-120">Delete</button>
         <a rel="New post" href={`/account/news/${this.props.attributes.id}/edit`} className = "btn btn-danger float-right" id = "button-width-120">Edit</a>
       </div>
