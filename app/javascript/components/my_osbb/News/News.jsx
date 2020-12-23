@@ -24,14 +24,11 @@ class News extends React.Component {
       }) });
   }
 
-  handlePage = (e, {activePage}) => {
-    let gotopage = { activePage }
-    let pagenum = gotopage.activePage
-    let pagestring = pagenum.toString()
+  handleSwitchPage = (e, {activePage}) => {
     this.setState({
       loading:true
     })
-    fetch('/api/v1/news/?page='+pagestring)
+    fetch('/api/v1/news/?page='+ activePage)
       .then((response) => {return response.json()})
       .then((data) => {this.setState({
         news: data.news
@@ -39,34 +36,29 @@ class News extends React.Component {
   }
 
   render () {
-    var news = this.state.news.map((news) => {
-      return(
-        <NewsItem attributes={news} />
-      )
+    const { news, page, pages } = this.state
+
+    var newsList = news.map((news) => {
+      return( <NewsItem attributes={news} /> )
     })
 
     return (
       <div className={styles.itemsContainer}>
         <AddButton/>
-        {news}
-        <div className={styles.pagination}>
-          <Pagination
-            onPageChange={this.handlePage}
-            siblingRange='8'
-            defaultActivePage={this.state.page}
-            totalPages={this.state.pages}
-          />
-        </div>
+        {newsList}
+        {
+          pages < 2 ? null :
+          <div className={styles.pagination}>
+            <Pagination onPageChange={this.handleSwitchPage} siblingRange='8' defaultActivePage={page} totalPages={pages} />
+          </div>
+        }
       </div>
     )
 
     function AddButton() {
-      return [
-        <a rel="New post" href="../../account/news/new" className = "btn btn-primary">Add News</a>
-      ]
+      return [ <a rel="New post" href="../../account/news/new" className = "btn btn-primary">Add News</a> ]
     }
   }
-
 }
 
 export default News

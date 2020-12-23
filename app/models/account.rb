@@ -4,9 +4,9 @@ class Account < ApplicationRecord
 
   belongs_to :accountable, polymorphic: true, optional: true
   validates :edrpou, format: { with: VALID_EDRPOU,
-                               message: 'is invalid, must be 8 digits long' }
+                               message: 'is invalid, must be 8 digits long' }, uniqueness: true
   validates :iban, format: { with: VALID_IBAN,
-                             message: 'is invalid' }
+                             message: 'is invalid' }, uniqueness: true
 end
 
 # == Schema Information
