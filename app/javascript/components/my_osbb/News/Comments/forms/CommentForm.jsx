@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Comment, Avatar } from 'antd';
-import 'antd/dist/antd.css';
 import { Editor } from './Editor';
 import { createComment } from '../requests';
 

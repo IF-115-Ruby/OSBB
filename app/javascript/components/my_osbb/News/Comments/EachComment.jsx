@@ -1,6 +1,5 @@
 import React, { createElement, useState } from 'react';
 import { Comment, Avatar, Tooltip, } from 'antd';
-import 'antd/dist/antd.css';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 import styles from './Comments.module.scss';
 import ReplyForm from './forms/ReplyForm';
