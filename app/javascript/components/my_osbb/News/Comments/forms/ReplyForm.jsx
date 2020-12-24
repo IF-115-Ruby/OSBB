@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Comment } from 'app/views/account/utility_providers/companies.html.slim';
+import { Comment } from 'antd';
+import 'antd/dist/antd.css';
 import { Editor } from './Editor';
 import { createComment } from '../requests';
 
