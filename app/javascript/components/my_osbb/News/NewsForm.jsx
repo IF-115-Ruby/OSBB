@@ -80,7 +80,7 @@ class NewsForm extends React.Component {
                     <div className="form-group">
                       <label  htmlFor="image">Image preview:</label>
                     </div>
-                    <input 
+                    <input
                       type="file"
                       name="image"
                       onChange={(event) =>{

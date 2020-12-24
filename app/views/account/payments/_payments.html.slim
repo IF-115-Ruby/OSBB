@@ -5,7 +5,7 @@ tr
       =< payments.date.strftime(t('devise.mailer.admin_notification.date_format'))
   td
     span.cusom-center-in-table-example
-      =< payments.amount
+      =< '%.2f' % payments.amount
   td.eye-btn.text-center
     = link_to account_utility_provider_payment_path(utility_provider_id: payments.billing_contract.id, id: payments.id, format: :pdf),
       method: :get
