@@ -1,5 +1,5 @@
 h3.lead Choose Osbb to assigning
-= simple_form_for [:registrations, @user], url: search_osbbs_path do |s|
+= simple_form_for [:registrations, @user], url: search_search_osbbs_path do |s|
   .form-group.user-form
     = s.input_field :osbb_id, label: 'Choose OSBB', as: :search, class: 'search-input'
     = s.hidden_field :osbb_id, id: 'osdd_id', name: 'user[osbb_id]', as: :search, class: 'search-input'

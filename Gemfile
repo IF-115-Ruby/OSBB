@@ -65,7 +65,6 @@ gem 'telegram-bot'
 # Gem 'Wicked_pdf' & 'wkhtmltopdf-binary' for export pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
   gem 'amazing_print'
@@ -96,6 +95,10 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'simplecov', '= 0.17', require: false
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'wkhtmltopdf-heroku'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

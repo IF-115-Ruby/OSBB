@@ -77,10 +77,10 @@ class NewsForm extends React.Component {
                     />
                   </div>
                   <div className="form-group mb-4">
-                    <div className="form-group mb-4">
+                    <div className="form-group">
                       <label  htmlFor="image">Image preview:</label>
                     </div>
-                    <input 
+                    <input
                       type="file"
                       name="image"
                       onChange={(event) =>{
@@ -93,11 +93,9 @@ class NewsForm extends React.Component {
                       className="invalid-feedback"
                     />
                   </div>
-                  <div className="form-group mb-4">
-                    <Field name="is_visible" type="checkbox" />
-                    <div className="pr-2">
+                  <div className="form-group mb-3">
+                    <Field className="mr-2" name="is_visible" type="checkbox" />
                     <label htmlFor="is_visible">Your post would be visible (If you want to see how your post looks without posting, turn off this check) </label>
-                    </div>
                   </div>
                   <div className="form-group mb-4">
                     <label htmlFor="long_description">Long description</label>

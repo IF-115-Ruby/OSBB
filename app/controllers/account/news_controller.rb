@@ -1,5 +1,4 @@
 class Account::NewsController < Account::AccountController
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   before_action :set_news_by_role
@@ -54,9 +53,9 @@ class Account::NewsController < Account::AccountController
 
   def set_news_by_role
     @news = if current_user.lead?
-              News.where(osbb_id: current_user.osbb_id)
+              News.osbb_by_user(current_user)
             else
-              News.where(osbb_id: current_user.osbb_id).visible
+              News.osbb_by_user(current_user).visible
             end.ordered
   end
 

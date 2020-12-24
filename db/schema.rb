@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_150927) do
+ActiveRecord::Schema.define(version: 2020_12_23_155544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 2020_11_29_150927) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.bigint "user_id"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.integer "company_type"
@@ -132,6 +143,22 @@ ActiveRecord::Schema.define(version: 2020_11_29_150927) do
     t.index ["billing_contract_id"], name: "index_payments_on_billing_contract_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "short_description"
+    t.text "long_description"
+    t.string "image"
+    t.boolean "is_visible"
+    t.boolean "is_private"
+    t.bigint "osbb_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["is_visible"], name: "index_posts_on_is_visible"
+    t.index ["osbb_id"], name: "index_posts_on_osbb_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", limit: 50, null: false
     t.string "last_name", limit: 50, null: false
@@ -148,9 +175,9 @@ ActiveRecord::Schema.define(version: 2020_11_29_150927) do
     t.integer "sex"
     t.integer "role"
     t.bigint "osbb_id"
+    t.boolean "approved", default: false
     t.string "provider"
     t.string "uid"
-    t.boolean "approved", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["osbb_id"], name: "index_users_on_osbb_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -161,5 +188,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_150927) do
   add_foreign_key "bills", "billing_contracts"
   add_foreign_key "meter_readings", "billing_contracts"
   add_foreign_key "payments", "billing_contracts"
+  add_foreign_key "posts", "osbbs"
+  add_foreign_key "posts", "users"
   add_foreign_key "users", "osbbs"
 end

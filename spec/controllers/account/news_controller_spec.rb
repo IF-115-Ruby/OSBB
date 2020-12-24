@@ -38,6 +38,8 @@ RSpec.describe Account::NewsController, type: :controller do
       expect(response).to have_http_status(:success)
       expect(assigns(:news)).to eq([news])
     end
+
+    include_examples 'return not found exception', News
   end
 
   describe 'GET#new' do

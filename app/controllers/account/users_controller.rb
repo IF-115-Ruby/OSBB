@@ -22,18 +22,23 @@ class Account::UsersController < Account::AccountController
     authorize :user
   end
 
+  def posts
+    authorize :user
+  end
+
   def new_assign_osbb
     @user = authorize current_user
   end
 
   def assign_osbb # rubocop:disable Metrics/AbcSize
+    @user = current_user
     osbb = Osbb.find_by(name: user_osbb_params[:osbb_id])
-    if current_user.update(osbb_id: osbb.id, role: :member)
+    if osbb && current_user.update(osbb_id: osbb.id, role: :member)
       NewMemberWorker.perform_async(osbb.id, current_user.id)
       flash[:success] = "Congratulations, You have become a member of #{osbb.name} OSBB"
       redirect_to account_admin_osbb_path(current_user.osbb)
     else
-      flash.now[:warning] = 'Something went wrong!'
+      flash.now[:warning] = 'You have to choose the existing OSBB!'
       render :new_assign_osbb
     end
   end

@@ -1,0 +1,31 @@
+.posts {
+  margin: 0 auto;
+  position: relative;
+}
+
+.createPost {
+  position: absolute;
+  left: 10px;
+  top: -32px;
+
+  a {
+    i {
+      color: #4183c4;
+    }
+
+    &:hover {
+      background-color: #448ab5 !important;
+          
+      i {
+        color: #ffffff;
+      }
+    }
+  }  
+}
+
+@media (max-width: 992px) {
+  .createPost {
+    left: 35px;
+    top: -8px;
+  }
+}

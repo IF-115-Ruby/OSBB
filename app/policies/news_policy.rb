@@ -1,30 +1,10 @@
 class NewsPolicy < BasePolicy
-  def index?
-    user_admin_or_member?
+  %i[index? show?].each do |method|
+    define_method(method) { user_admin_or_member? }
   end
 
-  def show?
-    user_admin_or_member?
-  end
-
-  def create?
-    user_admin_or_lead?
-  end
-
-  def new?
-    user_admin_or_lead?
-  end
-
-  def edit?
-    user_admin_or_lead?
-  end
-
-  def update?
-    user_admin_or_lead?
-  end
-
-  def destroy?
-    user_admin_or_lead?
+  %i[create? new? edit? update? destroy?].each do |method|
+    define_method(method) { user_admin_or_lead? }
   end
 
   private

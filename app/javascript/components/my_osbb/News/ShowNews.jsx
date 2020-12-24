@@ -1,7 +1,7 @@
 import React   from 'react';
 import styles from './ShowNews.module.scss'
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
+import CommentsContainer from './Comments/CommentsContainer'
+
 
 class ShowNews extends React.Component {
   constructor(props) {
@@ -15,6 +15,11 @@ class ShowNews extends React.Component {
     return { __html: this.state.news.long_description };
   }
 
+  not_visible = () => {
+    if (!this.state.news.is_visible) {
+      return <span><i className="fas fa-eye-slash fa-lg"></i></span>
+    }
+  }
 
   componentDidMount() {
     fetch('/api/v1/news/'+ this.props.news_id)
@@ -27,8 +32,9 @@ class ShowNews extends React.Component {
       <div className={styles.news_main_div}>
         <div className={styles.news_form}>
           <div className={styles.title_news}>
-            <div className="d-flex align-items-center">
-              <span><a className='text-dark' href="/account/news"><i className="fas fa-arrow-left fa-lg"></i></a></span>
+            <div className="d-flex justify-content-around flex-wrap align-items-center">
+              <span><a className='text-dark' href="/en/account/myosbb/"><i className="fas fa-arrow-left fa-lg"></i></a></span>
+              {this.not_visible()}
             </div>
             <h1 className="title"> {this.state.news.title}</h1>
             <div className="d-flex justify-content-around flex-wrap align-items-center">
@@ -40,12 +46,9 @@ class ShowNews extends React.Component {
           <div className={styles.img_div} >
             <img src={ this.state.news.show_image } alt='Image' className = {styles.news_img}></img>
           </div>
-          <Tabs defaultActiveKey="info" id="uncontrolled-tab-example" className="mt-3">
-            <Tab eventKey="info" title="Info">
-              <div className={styles.text_news} dangerouslySetInnerHTML={this.longDescription()}></div>
-            </Tab>
-            <Tab eventKey="comments" title="Comments" disabled>{/* This space for comments!*/}</Tab>
-          </Tabs>
+          <div className={styles.text_news} dangerouslySetInnerHTML={this.longDescription()}></div>
+          <hr/>
+          <CommentsContainer news_id={this.props.news_id} current_user={this.props.current_user}/>
         </div>
       </div>
     )

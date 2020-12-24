@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Account::Admin::OsbbsController do
+describe Account::Admin::OsbbsController, type: :feature do
   let!(:osbb) { create(:osbb) }
 
   let!(:user) { create(:user, role: :simple) }
@@ -90,8 +90,9 @@ describe Account::Admin::OsbbsController do
     accept_confirm do
       find('#delete').click
     end
-    expect(page).to have_text(
-      "Osbb profile \"#{osbb.name}\" with id:#{osbb.id} has been deleted"
+    expect(page).to have_css(
+      '.alert',
+      text: "Osbb profile \"#{osbb.name}\" with id:#{osbb.id} has been deleted"
     )
     expect(page).not_to have_content(osbb.email)
   end

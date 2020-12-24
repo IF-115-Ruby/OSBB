@@ -1,12 +1,14 @@
 class News < ApplicationRecord
   belongs_to :user
   belongs_to :osbb
+  has_many :comments, as: :commentable, dependent: :destroy
 
   validates :long_description, :short_description, :title, presence: true
   validate :image_size_validation
 
   scope :visible, -> { where(is_visible: true) }
   scope :ordered, -> { order('created_at DESC') }
+  scope :osbb_by_user, ->(user) { where(osbb_id: user.osbb_id) }
 
   mount_uploader :image, ImageUploader
   paginates_per 5

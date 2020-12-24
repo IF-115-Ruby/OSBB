@@ -80,12 +80,12 @@
       td
         = t('account.utility_providers.receipt_pdf.indicator')
       td
-        = @payment.amount
+        = '%.2f' % @payment.amount
     tr.item
       td
         = t('account.utility_providers.receipt_pdf.amount')
       td
-        | #{@payment.amount}
+        | #{'%.2f' % @payment.amount}
         =< t('account.utility_providers.receipt_pdf.currency')
     tr.item.last
       td
@@ -97,5 +97,5 @@
       td
       td
         => t('account.utility_providers.receipt_pdf.total')
-        = @payment.amount + 3
+        = '%.2f' % (@payment.amount + 3)
         =< t('account.utility_providers.receipt_pdf.currency')

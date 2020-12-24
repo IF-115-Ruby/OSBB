@@ -1,9 +1,12 @@
 .row
   .col-md-8.align-self-center
     =< company.name
-  .col-md-4.align-self-center
-    = link_to t('.btn-choose'),
-      new_account_company_utility_provider_path(company),
-      class: 'btn btn-primary'
+  .col-md-4.text-center
+    - if !current_user.companies.find_by(id: company.id)
+      = link_to t('.btn-choose'),
+        new_account_company_utility_provider_path(company),
+        class: 'btn btn-primary'
+    - else
+      | Assigned
   .col-md-12
     hr
