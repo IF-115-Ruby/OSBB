@@ -4,7 +4,7 @@ html
     = display_meta_tags site: "Contract #{@payment.billing_contract.contract_num}"
     = csrf_meta_tags
     = csp_meta_tag
-    = wicked_pdf_stylesheet_link_tag 'receipt', media: 'all'
+    = stylesheet_link_tag wicked_pdf_asset_base64('receipt'), media: 'all'
 
   body.d-flex.flex-column.layout-body
     = yield
