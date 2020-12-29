@@ -14,14 +14,14 @@ RSpec.describe Account, type: :model do
 
   describe 'validations' do
     describe 'edrpou' do
-      it { is_expected.to allow_value(account.edrpou).for(:edrpou) }
-
+      it { is_expected.to validate_uniqueness_of(:edrpou).case_insensitive }
+      it { is_expected.not_to allow_value(account.edrpou).for(:edrpou) }
       it { is_expected.not_to allow_value("wrong").for(:edrpou) }
     end
 
     describe 'iban' do
-      it { is_expected.to allow_value(account.iban).for(:iban) }
-
+      it { is_expected.to validate_uniqueness_of(:iban) }
+      it { is_expected.not_to allow_value(account.iban).for(:iban) }
       it { is_expected.not_to allow_value("wrong").for(:iban) }
     end
 
