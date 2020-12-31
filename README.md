@@ -13,9 +13,19 @@
 
   [Node.js v.10.19.0](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/#installing-nodejs-and-npm-from-nodesource)
 
-    PostgreSQL v.12 ( sudo apt install postgresql-12 )
-    Redis (sudo apt install redis-server)
+  [ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
+    
+  PostgreSQL v.12
 
+  ```shell
+  sudo apt install postgresql-12
+  ```
+
+  Redis
+
+  ```shell
+  sudo apt install redis-server
+  ```
 ## Install
 
 ### Clone the repository
