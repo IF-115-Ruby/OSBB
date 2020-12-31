@@ -4,7 +4,7 @@ class Api::V1::PostsController < Api::ApiController
 
   def index
     authorize :post
-    @posts = current_user.osbb.posts.all
+    @posts = current_user.osbb.posts.order(id: :desc)
   end
 
   def show; end
