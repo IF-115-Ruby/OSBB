@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'user/registrations', omniauth_callbacks: 'user/omniauth_callbacks' }
   mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web => '/sidekiq'
+  mount ActionCable.server => '/cable'
 
   root 'home#index', as: 'home'
   get 'about', to: 'home#about'

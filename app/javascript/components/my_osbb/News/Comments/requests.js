@@ -10,7 +10,7 @@ export const createComment = async (url, news_id, headers, value) => {
   formData.append('body', value);
 
   const params = {
-    id_news: news_id,
+    news_id: news_id,
   }
 
   const { data } = await httpService.post(url, params, headers, formData);

@@ -1,9 +1,9 @@
 class Api::V1::CommentsController < Api::ApiController
   before_action :find_commentable, only: %i[create]
   before_action :for_delete, only: :destroy
+  before_action :find_news
 
   def index
-    @news = News.find(params[:news_id])
     @comments = @news.comments.page params[:page]
     render 'api/v1/news/comments/index'
   end
@@ -15,18 +15,11 @@ class Api::V1::CommentsController < Api::ApiController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
-    handle_response
+    @comment.save && send_to_broadcast
   end
 
   def destroy
-    @comment.destroy
-    if params[:parent_comment] && params[:parent_comment] != params[:id]
-      @response = News.find(params[:news_id]).comments.find(params[:parent_comment])
-      render 'api/v1/news/comments/update.json'
-    else
-      render json: 'done'
-    end
+    @comment.destroy && send_to_broadcast
   end
 
   private
@@ -36,20 +29,20 @@ class Api::V1::CommentsController < Api::ApiController
   end
 
   def find_commentable
-    @commentable = Comment.find(params[:comment_id]) if params[:comment_id]
     @commentable = News.find(params[:news_id]) if params[:news_id]
+    @commentable = Comment.find(params[:comment_id]) if params[:comment_id]
   end
 
   def for_delete
     @comment = Comment.find(params[:id])
   end
 
-  def handle_response
-    if @comment.commentable_type == 'News'
-      render json: @comment
-    else
-      @response = News.find(params[:id_news]).comments.find(params[:comment_id])
-      render 'api/v1/news/comments/update.json'
-    end
+  def send_to_broadcast
+    @comments = @news.comments.page params[:page]
+    NewsChannel.broadcast_to(@news, render('api/v1/news/comments/index'))
+  end
+
+  def find_news
+    @news = News.find(params[:news_id])
   end
 end

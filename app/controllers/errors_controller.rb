@@ -2,14 +2,14 @@ class ErrorsController < ApplicationController
   layout 'errors'
 
   def not_found
-    render status: :not_found
+    render head(:not_found)
   end
 
   def server_error
-    render status: :internal_server_error
+    render head(:internal_server_error)
   end
 
   def unacceptable
-    render status: :unprocessable_entity
+    render head(:unprocessable_entity)
   end
 end

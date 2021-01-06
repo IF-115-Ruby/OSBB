@@ -28,7 +28,7 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
     end
 
     context 'when create subcomment' do
-      before { post :create, params: { id_news: news.id, comment_id: comment.id }, format: :json }
+      before { post :create, params: { news_id: news.id, comment_id: comment.id }, format: :json }
 
       it { is_expected.to respond_with :success }
     end

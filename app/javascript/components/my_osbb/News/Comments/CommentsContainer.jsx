@@ -3,6 +3,7 @@ import EachComment from './EachComment';
 import { CommentForm } from './forms/CommentForm';
 import { PaginationContainer } from './Pagination';
 import { getComments } from './requests';
+import CommentsWebSocket from './CommentsWebSocket'
 
 class CommentsContainer extends Component {
   constructor(props) {
@@ -106,6 +107,11 @@ class CommentsContainer extends Component {
         totalPages={totalPages}
         changeState={this.changeState}
         news_id={news_id}
+      />
+      <CommentsWebSocket
+          cableApp={this.props.cableApp}
+          news_id={this.props.news_id}
+          function={this.changeState}
       />
       </>
     )
