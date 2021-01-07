@@ -6,7 +6,7 @@ import ReplyForm from './forms/ReplyForm';
 import { formatReply } from './_commentsHelper';
 import { deleteComment } from './requests';
 
-const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, parent, updateParentBlock, updateParent, news_id } ) => {
+const EachComment = ( { comment, time, name, avatar, subcomments, id, parent, page, news_id } ) => {
 
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
@@ -41,9 +41,7 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
   }
 
   const handleDelete = () => {
-    deleteComment(id, parent, news_id).then(res => {
-      (res=='done') ? onChange(id) : updateParentBlock(res)
-    }).catch((err) => {
+    deleteComment(id, parent, news_id, page).catch((err) => {
       alert(err);
     });
   }
@@ -76,11 +74,8 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
           avatar={c.user_avatar}
           comment={c.body}
           subcomments={c.subcomments}
-          onChange={onChange}
           parent={parent}
           setPlaceHolder={setPlaceHolder}
-          updateParentBlock={updateParentBlock}
-          updateParent={updateParent}
           news_id={news_id}
         />
       ))
@@ -106,15 +101,13 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, onChange, 
      <ReplyForm
       key={id}
       id={id}
-      onChange={onChange}
       parent={parent ? parent : id}
-      updateParentBlock={updateParentBlock}
-      updateParent={updateParent}
       news_id={news_id}
       placeHolder={placeHolder}
       setPlaceHolder={setPlaceHolder}
       hideReply={hideReply}
       showReply={showReply}
+      page={page}
       />
     { showSubcomments && nestedComment() }
     <div className="media position-relative">

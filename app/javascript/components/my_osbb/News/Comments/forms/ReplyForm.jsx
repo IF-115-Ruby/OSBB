@@ -40,9 +40,7 @@ class ReplyForm extends Component {
 
     const url = '/api/v1/comments/'+ this.props.parent + '/comments'
 
-    createComment(url, this.props.news_id, {'Content-Type': 'multipart/form-data' }, this.state.value).then(res => {
-      this.props.updateParentBlock(res);
-    }).catch((err) => {
+    createComment(url, this.props.news_id, {'Content-Type': 'multipart/form-data' }, this.state.value, this.props.page).catch((err) => {
       console.log(err);
     });
 

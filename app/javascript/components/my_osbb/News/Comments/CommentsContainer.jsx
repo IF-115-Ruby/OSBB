@@ -11,38 +11,30 @@ class CommentsContainer extends Component {
     this.state = {
       comments: [],
       totalPages: '',
-      currentPage: '',
-      parentBlock:[],
-
+      currentPage: '1'
     };
 
-    this.addToState = this.addToState.bind(this);
-    this.deleteFromState = this.deleteFromState.bind(this);
     this.setPlaceHolder = this.setPlaceHolder.bind(this);
-    this.updateStateByResponse = this.updateStateByResponse.bind(this);
-    this.changeState = this.changeState.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
-  changeState = (newState) => {
-    this.setState( {
-      comments: newState.comments,
-      currentPage: newState.pagination.page,
-      totalPages: newState.pagination.pages,
-    })
+
+  updateState = (newState) => {
+    if (newState.pagination.page == this.state.currentPage) {
+      this.setState( {
+        comments: newState.comments,
+        currentPage: newState.pagination.page,
+        totalPages: newState.pagination.pages,
+      })
+    }
   }
 
   componentDidMount(){
     const news_id = this.props.news_id
-    getComments(news_id).then(this.changeState).catch((err) => {
+    getComments(news_id).then(this.updateState).catch((err) => {
       alert(err);
     });
   };
-
-  addToState = (newComment) => {
-    this.setState(prev => ({
-      comments: [newComment, ...prev.comments]
-    }));
-  }
 
   parent = (val) => {
     if (val.subcomments) {
@@ -50,23 +42,8 @@ class CommentsContainer extends Component {
     }
   }
 
-  deleteFromState = (rem_id) => {
-    this.setState(prev => ({
-      comments: [...prev.comments.filter( (c) => c.id != rem_id)]
-    }));
-  }
-
   setPlaceHolder = (value) => {
     this.setState({ placeHolder: value})
-  }
-
-  updateStateByResponse = (value) => {
-    this.setState({ parentBlock: value })
-    let arr = [...this.state.comments];
-    const index = this.state.comments.findIndex(element => element.id == value.id)
-    arr[index] = {...arr[index], subcomments: value.subcomments}
-    this.setState({comments: arr,});
-    this.setState({parentBlock: []});
   }
 
   render(){
@@ -79,8 +56,8 @@ class CommentsContainer extends Component {
       <>
       <CommentForm
         news_id={news_id}
-        addToState={this.addToState}
         current_user={this.props.current_user}
+        page={this.state.currentPage}
       />
       {
         comments.map((val) => {
@@ -94,10 +71,9 @@ class CommentsContainer extends Component {
               name={val.user_full_name}
               subcomments={val.subcomments}
               news_id={news_id}
-              onChange={this.deleteFromState}
               setPlaceHolder={this.setPlaceHolder}
               parent={this.parent(val)}
-              updateParentBlock={this.updateStateByResponse}
+              page={this.state.currentPage}
             />
           )
         })
@@ -105,13 +81,13 @@ class CommentsContainer extends Component {
       <PaginationContainer
         currentPage={currentPage}
         totalPages={totalPages}
-        changeState={this.changeState}
+        updateState={this.updateState}
         news_id={news_id}
       />
       <CommentsWebSocket
           cableApp={this.props.cableApp}
           news_id={this.props.news_id}
-          function={this.changeState}
+          updateState={this.updateState}
       />
       </>
     )

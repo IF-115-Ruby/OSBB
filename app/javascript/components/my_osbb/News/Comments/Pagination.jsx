@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Icon, Pagination } from 'semantic-ui-react';
 import { getComments } from './requests';
 
-export const PaginationContainer = ({ totalPages, currentPage, changeState, news_id }) => {
+export const PaginationContainer = ({ totalPages, currentPage, updateState, news_id }) => {
 
   const handleIcon = (style) => {
     return { content: <Icon name={`angle ${style}`} />, icon: true }
@@ -38,7 +38,7 @@ export const PaginationContainer = ({ totalPages, currentPage, changeState, news
     let pagestring = pagenum.toString()
 
     getComments(news_id, pagestring).then(res => {
-      changeState(res)
+      updateState(res)
     });
     changeIcon(activePage)
   }

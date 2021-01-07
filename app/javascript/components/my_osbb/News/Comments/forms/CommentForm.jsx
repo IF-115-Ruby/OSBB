@@ -3,19 +3,9 @@ import { Comment, Avatar } from 'antd';
 import { Editor } from './Editor';
 import { createComment } from '../requests';
 
-export const CommentForm = ({ current_user, news_id, addToState }) => {
+export const CommentForm = ({ current_user, news_id, page }) => {
   const [value, setValue] = useState('')
   const [load, setLoad] = useState(false)
-
-  const addComment = (comment_id) => {
-    addToState({
-      'body': value,
-      'id': comment_id,
-      'time': 'less than a minute ago ',
-      'user_avatar': current_user.avatar,
-      'user_full_name': current_user.full_name,
-    });
-  }
 
   const handleChange = e => {
     setValue(e.target.value)
@@ -28,7 +18,7 @@ export const CommentForm = ({ current_user, news_id, addToState }) => {
     setLoad(true);
 
     const url = '/api/v1/news/' + news_id + '/comments'
-    createComment(url, undefined, {'Content-Type': 'multipart/form-data' }, value).then(res => {
+    createComment(url, undefined, {'Content-Type': 'multipart/form-data' }, value, 1).then(res => {
     }).catch((err) => {
       alert(err);
     });

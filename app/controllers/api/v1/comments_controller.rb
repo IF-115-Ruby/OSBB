@@ -15,11 +15,11 @@ class Api::V1::CommentsController < Api::ApiController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save && send_to_broadcast
+    @comment.save && send_to_broadcast(@news.comments.page(params[:page]))
   end
 
   def destroy
-    @comment.destroy && send_to_broadcast
+    @comment.destroy && send_to_broadcast(@news.comments.page(params[:page]))
   end
 
   private
@@ -37,8 +37,8 @@ class Api::V1::CommentsController < Api::ApiController
     @comment = Comment.find(params[:id])
   end
 
-  def send_to_broadcast
-    @comments = @news.comments.page params[:page]
+  def send_to_broadcast(page)
+    @comments = page
     NewsChannel.broadcast_to(@news, render('api/v1/news/comments/index'))
   end
 

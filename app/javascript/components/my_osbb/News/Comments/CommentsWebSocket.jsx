@@ -8,8 +8,8 @@ class CommentsWebSocket extends Component {
             news_id: this.props.news_id
         },
         {
-          received: (updatedNews) => {
-            this.props.function(JSON.parse(updatedNews))
+          received: (updatedComments) => {
+            this.props.updateState(JSON.parse(updatedComments))
           }
         })
     }
