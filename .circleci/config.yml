@@ -21,7 +21,6 @@ executors:
           POSTGRES_DB: OSBB_test
           POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_USER: root
-          POSTGRES_HOST: localhost
       - image: circleci/redis:4.0.9
         environment:
           - REDIS_URL: "redis://localhost:6379/"

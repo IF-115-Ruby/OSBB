@@ -21,5 +21,4 @@ RUN bundle install --jobs 5
 COPY package.json .
 COPY yarn.lock .
 RUN yarn install
-RUN bin/rails assets:precompile
-
+RUN rails assets:precompile

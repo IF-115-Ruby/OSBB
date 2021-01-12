@@ -1,3 +1,4 @@
+# SECOND THOUGHTS ARE BEST!
 version: '3.7'
 
 services:
@@ -10,10 +11,12 @@ services:
     ports:
       - "3000:3000"
     links:
-      - localhost
+      - db
       - elasticsearch
+    environment:
+      - OSBB_DATABASE_HOST=localhost
 
-  localhost:
+  db:
     image: postgres:12
     volumes:
       - db-volume:/var/lib/postgresql/data
