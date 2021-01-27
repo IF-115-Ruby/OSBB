@@ -39,7 +39,7 @@ class Api::V1::CommentsController < Api::ApiController
 
   def send_to_broadcast(page)
     @comments = page
-    NewsChannel.broadcast_to(@news, render('api/v1/news/comments/index'))
+    NewsChannel.broadcast_to(@news, render('api/v1/news/comments/index.json'))
   end
 
   def find_news

@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::NewsController, type: :controller do
   let!(:osbb) { create(:osbb) }
   let!(:lead) { create(:user, osbb: osbb, role: :lead) }
+  let!(:member) { create(:user, osbb: osbb, role: :member) }
   let!(:news) { create(:news, user: lead, osbb: osbb) }
   let!(:valid_params) { attributes_for :news }
 
@@ -60,6 +61,15 @@ RSpec.describe Api::V1::NewsController, type: :controller do
           put :update, params: { id: news.id, title: ' ' }, format: :json
         end.not_to change { news.reload.title }
       end
+    end
+  end
+
+  describe '#set_news_by_role' do
+    before { sign_in member }
+
+    it 'show only visible post when user not lead' do
+      get :index, format: :json
+      expect(news.is_visible).to equal(true)
     end
   end
 

@@ -41,9 +41,11 @@ const EachComment = ( { comment, time, name, avatar, subcomments, id, parent, pa
   }
 
   const handleDelete = () => {
-    deleteComment(id, parent, news_id, page).catch((err) => {
-      alert(err);
-    });
+    if (confirm('Are you sure?')) {
+      deleteComment(id, parent, news_id, page).catch((err) => {
+        alert(err);
+      });
+    }
   }
 
   const actions = [
