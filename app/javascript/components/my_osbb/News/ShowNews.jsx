@@ -1,6 +1,12 @@
 import React   from 'react';
 import styles from './ShowNews.module.scss'
 import CommentsContainer from './Comments/CommentsContainer'
+import actionCable from 'actioncable'
+import * as serviceWorker from './serviceWorker'
+
+const CableApp = {}
+
+CableApp.cable = actionCable.createConsumer('ws://localhost:3000/cable')
 
 
 class ShowNews extends React.Component {
@@ -48,11 +54,12 @@ class ShowNews extends React.Component {
           </div>
           <div className={styles.text_news} dangerouslySetInnerHTML={this.longDescription()}></div>
           <hr/>
-          <CommentsContainer news_id={this.props.news_id} current_user={this.props.current_user}/>
+          <CommentsContainer cableApp={CableApp} news_id={this.props.news_id} current_user={this.props.current_user}/>
         </div>
       </div>
     )
   }
 }
 
+serviceWorker.unregister();
 export default ShowNews

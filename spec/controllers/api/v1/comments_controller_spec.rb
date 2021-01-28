@@ -18,17 +18,13 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
 
   describe 'Comment #create' do
     context 'when create comment' do
-      before { post :create, params: { news_id: news.id }, format: :json }
+      before { post :create, params: { body: 'asd', news_id: news.id, page: 1 }, format: :json }
 
       it { is_expected.to respond_with :success }
-
-      it "response must be in json" do
-        expect(response.content_type).to eq "application/json; charset=utf-8"
-      end
     end
 
     context 'when create subcomment' do
-      before { post :create, params: { id_news: news.id, comment_id: comment.id }, format: :json }
+      before { post :create, params: { body: 'asd', news_id: news.id, comment_id: comment.id }, format: :json }
 
       it { is_expected.to respond_with :success }
     end

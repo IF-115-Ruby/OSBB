@@ -19,6 +19,13 @@ RSpec.describe Comment, type: :model do
       it { is_expected.to have_db_column(:commentable_type).of_type(:string) }
     end
   end
+
+  describe '#time_ago' do
+    it 'return correct time after creation' do
+      comment.updated_at = Time.current + 1.day
+      expect(comment.time_ago).to include('1 day ago')
+    end
+  end
 end
 
 # == Schema Information
